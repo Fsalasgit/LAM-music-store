@@ -13,7 +13,7 @@ Para comenzar a trabajar con este proyecto en tu entorno local, sigue estos paso
 
 Clona el repositorio desde GitHub:
 
-git clone https://github.com/Fsalasgit/lam-music-store.git
+git clone https://github.com/Fsalasgit/LAM-music-store.git
 cd lam-music-store
 Instala las dependencias usando npm:
 npm install
