@@ -8,27 +8,28 @@
     margin: 4rem;
     border-radius: 1rem;
     transition: box-shadow 0.3s ease-in-out; 
-}
 
-.productCard:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-    .productCard__img{
+    &:hover{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    &__img{
         margin-top: 1rem;
     }
-
-    .productCard__favourite{
+    
+    &__favourite{
         position: absolute;
         bottom: 80%;
         left: 70%;
         border: none;
         background-color:white
     }
-
-.productCard__favourite-icons{
-    font-size: 2rem;
-    color: inherit;
-    background-color: none;
-    padding: 1.5rem;
+    
+    &__favourite-icons{
+        font-size: 2rem;
+        color: inherit;
+        background-color: none;
+        padding: 1.5rem;
+    }
 }
+
