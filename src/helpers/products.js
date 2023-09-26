@@ -30,11 +30,27 @@ export const products = [
     {
         "id": 4,
         "title": "Piano Digital",
-        "description": "ROLAND FP60X BK Black",
+        "description": "CASIO AP270BK Celviano Negro",
         "price":  1530000,
         "category": "Instrumentos electronico",
-        "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/ROLAND/11903_small.jpg",
+        "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/CASIO/7909_small.jpg",
         "stock": 2
-    },
+    },{
+        "id": 5,
+        "title": "Piano Digital sdasdasasddasdasasdasd",
+        "description": "ROLAND FP60X BK Black",
+        "price":  153000123213123120,
+        "category": "Instrumentos electronico",
+        "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/FIELD/19791_small.jpg",
+        "stock": 2
+    },{
+        "id": 6,
+        "title": "Piano Digital sdasdasasddasdasasdasd",
+        "description": "ROLAND FP60X BK Black",
+        "price":  153000123213123120,
+        "category": "Instrumentos electronico",
+        "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/FIELD/19791_small.jpg",
+        "stock": 2
+    }
     
 ]
