@@ -36,9 +36,10 @@ const RecoverPassword = () => {
     // console.log(errors)
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <img className="img-repassword" src="../../public/apple-touch-icon.png" alt="" />
-            <p className="enlace"> Ingresá el correo electrónico con el que te registraste y te enviaremos instrucciones para restablecer tu contraseña. </p>
+    <>
+        <form onSubmit={handleSubmit(onSubmit)}> 
+            <h2 className="create-account">Recuperar contraseña</h2>
+            <p className="text-recover"> Ingresá el correo electrónico con el que te registraste y te enviaremos instrucciones para restablecer tu contraseña. </p>
             <div className="form-group mb/2">
                 <input
                     type="usuario"
@@ -51,10 +52,14 @@ const RecoverPassword = () => {
             </div>
             <span className="error"></span>
             <button type="submit">Enviar</button>
-            <button className="enlace-repassword">
-          <Link to="/login">Volver</Link>
-          </button>
+            
         </form>
+        <div className="enlace-RecoverPassword">
+            <span className="enlace-repassword">
+          <Link to="/login" className="link">Volver</Link>
+          </span>
+          </div>
+       </>
     );
 };
 

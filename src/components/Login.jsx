@@ -42,16 +42,17 @@ const Login = () => {
           <input 
           type="password" 
           name='password'
-          placeholder="contraseña"
+          placeholder="Contraseña"
           {...register("password")}
         //   value={formValues.password}
         //   onChange={handleChange}
           />
         </div>
+        <div>
         <span className="enlace">
-          <Link to="/repassword"> ¿Olvidaste la contraseña?</Link>
-          
+          <Link to="/repassword" className='link'> ¿Olvidaste la contraseña?</Link>
           </span>
+          </div>
         <button type="submit" className='btn btn-info btn-block w-100 mt-3'>Entrar</button>
     </form>
   )

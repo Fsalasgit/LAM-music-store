@@ -24,11 +24,8 @@
 }
 
 .enlace {
-    color: var(--c-player);
-    margin-bottom: 1rem;
-    text-decoration: none;
-    text-align: right; // Alinea el enlace a la derecha
-    margin-bottom: 1rem; // Añade espacio debajo del enlace
+    color: var(--c-white);
+    font-family: var(--font-PTSans);
 }
 
 .enlace:hover a {
@@ -37,14 +34,15 @@
 
 .formulario-login {
     width: 800px;
-    padding: 1rem;
-    margin: 2rem;
-    background-color: #f2f2f2;
+    padding: 2rem;
+    margin: 2rem auto;
+    background-color: var(--c-letter);
     text-align: center;
+    border-radius: 10px;
 }
 
 .create-account {
-    color: var(--c-mainYellow);
+    color: var(--c-player);
     padding: 2.7rem 0;
     font-size: 1.7rem;
 }
@@ -130,3 +128,7 @@
     /* Cambio de color del texto al pasar el mouse */
 }
 
+.link{
+    text-decoration: none;
+    color: var(--c-mainYellow);
+}
