@@ -7,19 +7,19 @@ import { Link } from "react-router-dom";
 const RegisterPage = () => {
   return (
     <>
-      <div className="container-form sign-up">
+      <div className="container-form">
         <form className="formulario-registro">
           <h2 className="create-account">Crear una cuenta</h2>
           <div className="iconos">
             <div className="border-icon">
-              <a href="./html/error404.html"><BsFacebook className="bx bxl-facebook-circle" /></a>
+              <a href="./html/error404.html"><BsFacebook className="facebook " /></a>
             </div>
             <div className="border-icon">
-              <a href="./html/error404.html"><FcGoogle className="bx bxl-instagram" /></a>
+              <a href="./html/error404.html"><FcGoogle /></a>
             </div>
 
             <div className="border-icon">
-              <a href="./html/error404.html"><BsApple className="bx bxl-facebook-circle" /></a>
+              <a href="./html/error404.html"><BsApple className="apple" /></a>
             </div>
           </div>
           <Register />

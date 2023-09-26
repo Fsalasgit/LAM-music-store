@@ -63,7 +63,6 @@ const Register = () => {
       </div>
       <div className="form-group mb-2">
         <input
-         className="password-registro"
           type="password"
           name="password"
           placeholder="Contraseña" 
@@ -74,7 +73,6 @@ const Register = () => {
       </div>
       <div className="form-group mb-2">
         <input
-          className="password-registro"
           type="password"
           onPaste={handlePaste}
           name="re-password"
@@ -85,7 +83,7 @@ const Register = () => {
         />
       </div>
       <span className="error"></span>
-        <p className="password-description"> Tu contraseña debe tener al menos una mayúscula, una minúscula, un número y 8 caracteres como mínimo y 10 como máximo </p>
+        <p className="password-description-register"> Tu contraseña debe tener al menos una mayúscula, una minúscula, un número y 8 caracteres como mínimo y 10 como máximo </p>
         <button type="submit">Registrarse</button>
 
     </form>

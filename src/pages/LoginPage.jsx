@@ -12,17 +12,18 @@ const LoginPage = () => {
       <h2 className="create-account">Iniciar Sesión</h2>
       <div className="iconos">
             <div className="border-icon">
-              <a href="./html/error404.html"><BsFacebook className="bx bxl-facebook-circle" /></a>
+              <a href="./html/error404.html"><BsFacebook className="facebook " /></a>
             </div>
             <div className="border-icon">
-              <a href="./html/error404.html"><FcGoogle className="bx bxl-instagram" /></a>
+              <a href="./html/error404.html"><FcGoogle /></a>
             </div>
 
             <div className="border-icon">
-              <a href="./html/error404.html"><BsApple className="bx bxl-facebook-circle" /></a>
+              <a href="./html/error404.html"><BsApple className="apple" /></a>
             </div>
           </div>
           <Login/>
+
           <span className="enlace">
             ¿Aun no tienes una cuenta? <Link to="/registro">Registrarse</Link>
           </span>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 // import { yupResolver } from "@hookform/resolvers/yup";
 // import { LOGIN_SCHEMA } from '../helpers/validationsSchemas';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { axiosInstance } from '../config/axiosInstance';
 
 const Login = () => {
@@ -31,7 +31,6 @@ const Login = () => {
         <div className='form-group'>
           <input 
           type="email" 
-          className='password-registro'
           name='username'
           placeholder="Email"
           {...register("username")}
@@ -42,7 +41,6 @@ const Login = () => {
         <div className='form-group'>
           <input 
           type="password" 
-          className='password-registro'
           name='password'
           placeholder="contraseña"
           {...register("password")}
@@ -50,7 +48,10 @@ const Login = () => {
         //   onChange={handleChange}
           />
         </div>
-
+        <span className="enlace">
+          <Link to="/repassword"> ¿Olvidaste la contraseña?</Link>
+          
+          </span>
         <button type="submit" className='btn btn-info btn-block w-100 mt-3'>Entrar</button>
     </form>
   )
