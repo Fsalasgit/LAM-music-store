@@ -1,3 +1,4 @@
+import ProductCard from "./components/ProductCard "
 
 
 
@@ -6,7 +7,9 @@ function App() {
 
   return (
     <>
-    <h1>Funciona</h1>
+
+    <ProductCard />
+
       
     </>
   )
