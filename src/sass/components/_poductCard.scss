@@ -5,14 +5,15 @@
 
 .productCard{
     position: relative;
-    margin: 4rem;
+    margin: 1rem;
     border-radius: 1rem;
     transition: box-shadow 0.3s ease-in-out; 
+    width: 18rem;
 
     &:hover{
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
-    
+
     &__img{
         margin-top: 1rem;
     }
@@ -22,7 +23,7 @@
         bottom: 80%;
         left: 70%;
         border: none;
-        background-color:white
+        background-color:rgba(255, 255, 255, 0)
     }
     
     &__favourite-icons{
@@ -31,5 +32,9 @@
         background-color: none;
         padding: 1.5rem;
     }
+}
+
+.mt-1rem{
+    margin-top: 0.4rem;
 }
 

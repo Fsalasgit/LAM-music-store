@@ -1,4 +1,5 @@
-import ProductCard from "./components/ProductCard "
+import ProductCard from "./components/ProductCard"
+import ProductList from "./components/ProductList"
 
 
 
@@ -9,6 +10,7 @@ function App() {
     <>
 
     <ProductCard />
+    <ProductList />
 
       
     </>
