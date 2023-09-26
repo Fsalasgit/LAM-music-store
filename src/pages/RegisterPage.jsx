@@ -24,7 +24,7 @@ const RegisterPage = () => {
           </div>
           <Register />
           <span className="enlace">
-            ¿Ya tienes una cuenta? <Link to="/login">Iniciar Sesión</Link>
+            ¿Ya tienes una cuenta? <Link to="/login" className="link">Iniciar Sesión</Link>
           </span>
         </form>
       </div>
