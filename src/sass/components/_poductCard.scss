@@ -18,7 +18,7 @@
         margin-top: 1rem;
     }
     
-    &__favourite{
+    &__favorite{
         position: absolute;
         bottom: 80%;
         left: 70%;
@@ -26,15 +26,13 @@
         background-color:rgba(255, 255, 255, 0)
     }
     
-    &__favourite-icons, &__favourite-iconsReds{
+    &__favorite-icons{
         font-size: 2rem;
         color: red;
         background-color: none;
         padding: 1.5rem;
     }
-    &__favourite-iconsReds{
-        color: red;
-    }
+   
 }
 
 .mt-1rem{

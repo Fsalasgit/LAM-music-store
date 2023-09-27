@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useState, useEffect} from 'react'
 import Card from 'react-bootstrap/Card';
 import { FaRegHeart,FaHeart} from 'react-icons/fa';
 
@@ -6,8 +6,22 @@ const ProductCard  = ({product}) => {
  
   const [isFavorite, setIsFavorite] = useState(false);
 
+  useEffect(() => {
+    const favoritesFromLocalStorage = JSON.parse(localStorage.getItem('favorites')) || [];
+    setIsFavorite(favoritesFromLocalStorage.includes(product.id));
+  }, [product.id]);
+
   const handleFavourite = () => {
-    setIsFavorite(!isFavorite)
+    const newFavorite = !isFavorite;
+    setIsFavorite(newFavorite);
+
+    const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    const updatedFavorites = newFavorite
+      ? [...favoritesFromStorage, product.id]
+      : favoritesFromStorage.filter((id) => id !== product.id);
+
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   }
 
   return (
@@ -22,12 +36,12 @@ const ProductCard  = ({product}) => {
           </a>
           
           {isFavorite ? (
-            <button className='productCard__favourite favorite' onClick={handleFavourite}>
-              <FaHeart className='productCard__favourite-icons' />
+            <button className='productCard__favorite favorite' onClick={handleFavourite}>
+              <FaHeart className='productCard__favorite-icons' />
             </button>
           ) : (
-            <button className='productCard__favourite' onClick={handleFavourite}>
-              <FaRegHeart className='productCard__favourite-icons' />
+            <button className='productCard__favorite' onClick={handleFavourite}>
+              <FaRegHeart className='productCard__favorite-icons' />
             </button>
           )}
         </Card.Body>
