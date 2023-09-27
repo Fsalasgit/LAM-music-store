@@ -1,20 +1,27 @@
-* {
+*{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 
-body {
+html {
+    font-size: 10px; 
+}
+  
+body{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("https://img.freepik.com/foto-gratis/guitarra-acustica-teclas-musicales-sobre-fondo-blanco-laicos-plana_169016-16616.jpg?w=740&t=st=1695770619~exp=1695771219~hmac=e8f58e86f413897ad1fec57f3db5633d9bb3dabbf0d91757da5029db70f8948e");
+    background-color: var(--c-grey);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: var(--c-letter);
-    font-family: var(--font-OpenSans);
+    }
+
+
+a{
+    text-decoration: none;
 }
 
 ::placeholder {
