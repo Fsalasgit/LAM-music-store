@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import "../../sass/components/_paginaDetalle.scss"
+import "../../sass/pages/_paginaDetalle.scss"
 
 function Carrusel() {
   return (

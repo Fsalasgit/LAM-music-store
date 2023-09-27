@@ -5,8 +5,8 @@ import Col from "react-bootstrap/Col";
 import Carrusel from "./Carousel";
 import miImagen from "./mediospago.png";
 import {products} from "../../helpers/products"
-import ProductCard from "../ProductCard";
-import "../../sass/components/_paginaDetalle.scss"
+import ProductCard from "../../components/ProductCard";
+import "../../sass/pages/_paginaDetalle.scss"
 
 const PaginaDetalle = () => {
   const urlParams= new URLSearchParams(window.location.search)

@@ -6,7 +6,7 @@ import RegisterPage from './pages/RegisterPage'
 import RecoverPasswordPage from './pages/RecoverPasswordPage'
 import ProductCard from "./components/ProductCard"
 import ProductList from "./components/ProductList"
-import PaginaDetalle from './components/PaginaDetalle/PaginaDetalle'
+import PaginaDetalle from './pages/PaginaDetalle/PaginaDetalle'
 
 
 
