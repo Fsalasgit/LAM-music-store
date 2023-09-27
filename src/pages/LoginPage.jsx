@@ -17,7 +17,6 @@ const LoginPage = () => {
             <div className="loginPage__borderIcon">
               <a href="./html/error404.html"><FcGoogle /></a>
             </div>
-
             <div className="loginPage__borderIcon">
               <a href="./html/error404.html"><BsApple className="loginPage__apple" /></a>
             </div>
