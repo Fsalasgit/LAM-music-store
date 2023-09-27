@@ -34,7 +34,7 @@ Contribución
 Si deseas contribuir al desarrollo de LAM Music Store, por favor sigue estos pasos:
 
 Crea un fork del repositorio en GitHub.
-Clona tu fork localmente: git clone https://github.com/tu-usuario/lam-music-store.git
+Clona tu fork localmente: git clone https://github.com/Fsalasgit/lam-music-store.git
 Crea una nueva rama para tu contribución: git checkout -b mi-contribucion
 Realiza los cambios y mejoras deseadas.
 Haz commit de tus cambios: git commit -m "Agregado: mi contribución"
