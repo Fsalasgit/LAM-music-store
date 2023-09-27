@@ -5,10 +5,10 @@ import Col from "react-bootstrap/Col";
 import Carrusel from "./Carousel";
 import miImagen from "./mediospago.png";
 import {products} from "../../helpers/products"
-import ProductCard from "../../components/ProductCard";
+import ProductCard from "../ProductCard";
 import "../../sass/pages/_paginaDetalle.scss"
 
-const PaginaDetalle = () => {
+const Detail = () => {
   const urlParams= new URLSearchParams(window.location.search)
   const id = urlParams.get("id")
   const [productos, setProductos] = useState([]);
@@ -23,7 +23,8 @@ const PaginaDetalle = () => {
 
   return (
     <>
-      <Container id="Container">
+    <body id="fondo-detalle">
+    <Container id="Container">
         <Row className="mt-5">
           <Col lg={7}>
             <div>
@@ -145,8 +146,9 @@ const PaginaDetalle = () => {
           </Col>}
         </Row>
       </Container>
+    </body>
     </>
   );
 };
 
-export default PaginaDetalle;
+export default Detail;

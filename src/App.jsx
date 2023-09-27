@@ -6,9 +6,7 @@ import RegisterPage from './pages/RegisterPage'
 import RecoverPasswordPage from './pages/RecoverPasswordPage'
 import ProductCard from "./components/ProductCard"
 import ProductList from "./components/ProductList"
-import PaginaDetalle from './pages/PaginaDetalle/PaginaDetalle'
-
-
+import DetailPage from './pages/detailPage'
 
 function App() {
 
@@ -20,7 +18,7 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
-        <Route path='/detalle' element={<PaginaDetalle />} />
+        <Route path='/detalle' element={<DetailPage />} />
       </Routes>
 
     </>
