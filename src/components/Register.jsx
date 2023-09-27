@@ -18,7 +18,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     console.log(data)
     try {
-      const response = await axiosInstance.post("/user/register", data)
+      const response = await axiosInstance.post("/register", data)
       // guardamos el token en localstorage
       localStorage.setItem("token", response.data.token)
       navigate("/admin")
@@ -67,17 +67,6 @@ const Register = () => {
           name="password"
           placeholder="Contraseña" 
           {...register("password")}
-        //   value={formValues.password}
-        //   onChange={handleChange}
-        />
-      </div>
-      <div className="form-group mb-2">
-        <input
-          type="password"
-          onPaste={handlePaste}
-          name="re-password"
-          placeholder="Repetir Contraseña" 
-          {...register("re_password")}
         //   value={formValues.password}
         //   onChange={handleChange}
         />

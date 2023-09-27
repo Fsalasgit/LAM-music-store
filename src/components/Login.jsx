@@ -48,9 +48,9 @@ const Login = () => {
         //   onChange={handleChange}
           />
         </div>
-        <div>
-        <span className="enlace">
-          <Link to="/repassword" className='link'> ¿Olvidaste la contraseña?</Link>
+        <div className="enlace">
+        <span >
+          <Link to="/repassword" className='link'> ¿Olvidaste tu contraseña?</Link>
           </span>
           </div>
         <button type="submit" className='btn btn-info btn-block w-100 mt-3'>Entrar</button>

@@ -2,9 +2,10 @@
     width: 800px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: var(--c-letter);
+    background-color: rgba($color: #000000, $alpha: 0.7);
     text-align: center;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(248, 248, 248, 0.612)
 }
 
 .formulario-registro button {
@@ -23,7 +24,7 @@
     font-size: 1rem;
     /* Tamaño de fuente ligeramente más grande para una mejor legibilidad */
     cursor: pointer;
-    color: var(--c-player);
+    color: var(--c-black);
     font-family: var(--font-PTSans);
     transition: background-color 0.3s, color 0.3s;
     /* Transición suave al pasar el mouse */
@@ -43,7 +44,7 @@
     margin-bottom: 2rem;
     background-color: transparent;
     border: none;
-    border-bottom: var(--c-player) thin solid;
+    border-bottom: var(--c-white) thin solid;
     text-align: center;
     outline: none;
     padding: .2rem 0;
