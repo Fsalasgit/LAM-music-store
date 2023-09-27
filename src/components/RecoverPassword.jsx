@@ -36,30 +36,30 @@ const RecoverPassword = () => {
     // console.log(errors)
 
     return (
-    <>
-        <form onSubmit={handleSubmit(onSubmit)}> 
-            <h2 className="create-account">Recuperar contraseña</h2>
-            <p className="text-recover"> Ingresá el correo electrónico con el que te registraste y te enviaremos instrucciones para restablecer tu contraseña. </p>
-            <div className="form-group mb/2">
-                <input
-                    type="usuario"
-                    name="correo"
-                    placeholder="Email"
-                    {...register("username")}
-                //   value={formValues.usuario}
-                //   onChange={handleChange}
-                />
+        <>
+            <div className="recoverPassword">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div >
+                        <input
+                            type="usuario"
+                            name="correo"
+                            placeholder="Email"
+                            className="recoverPassword__input"
+                            {...register("username")}
+                        //   value={formValues.usuario}
+                        //   onChange={handleChange}
+                        />
+                    </div>
+                    <button type="submit" className="recoverPassword__button">Enviar</button>
+
+                </form>
+                <div className="recoverPassword__enlace">
+                    <span>
+                        <Link to="/login" className="recoverPassword__link">Volver</Link>
+                    </span>
+                </div>
             </div>
-            <span className="error"></span>
-            <button type="submit">Enviar</button>
-            
-        </form>
-        <div className="enlace-RecoverPassword">
-            <span className="enlace-repassword">
-          <Link to="/login" className="link">Volver</Link>
-          </span>
-          </div>
-       </>
+        </>
     );
 };
 

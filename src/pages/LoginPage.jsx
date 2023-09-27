@@ -7,25 +7,25 @@ import { Link } from "react-router-dom";
 const LoginPage = () => {
   return (
     <>
-      <div className="container-form">
-        <form className="formulario-login">
-          <h2 className="create-account">Iniciar Sesión</h2>
-          <div className="iconos">
-            <div className="border-icon">
-              <a href="./html/error404.html"><BsFacebook className="facebook " /></a>
+      <div className="loginPage">
+        <form className="loginPage__form">
+          <h2 className="loginPage__createAccount">Iniciar Sesión</h2>
+          <div className="loginPage__iconos">
+            <div className="loginPage__borderIcon">
+              <a href="./html/error404.html"><BsFacebook className="loginPage__facebook " /></a>
             </div>
-            <div className="border-icon">
+            <div className="loginPage__borderIcon">
               <a href="./html/error404.html"><FcGoogle /></a>
             </div>
 
-            <div className="border-icon">
-              <a href="./html/error404.html"><BsApple className="apple" /></a>
+            <div className="loginPage__borderIcon">
+              <a href="./html/error404.html"><BsApple className="loginPage__apple" /></a>
             </div>
           </div>
           <Login />
-          <div className="enlace">
+          <div className="loginPage__enlace">
             <span >
-              ¿Aún no tienes una cuenta? <Link to="/registro" className="link">Registrate</Link>
+              ¿Aún no tienes una cuenta? <Link to="/registro" className="loginPage__link">Registrate</Link>
             </span>
           </div>
         </form>

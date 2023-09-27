@@ -17,7 +17,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     console.log(data)
     try {
-      const response = await axiosInstance.post("/user/login", data)
+      const response = await axiosInstance.post("/login", data)
       // guardamos el token en localstorage
       localStorage.setItem("token", response.data.token)
       navigate("/admin")
@@ -27,34 +27,38 @@ const Login = () => {
   }
 
   return (
+    <div className="login">
     <form onSubmit={handleSubmit(onSubmit)}>
-        <div className='form-group'>
+        <div>
           <input 
           type="email" 
           name='username'
           placeholder="Email"
+          className='login__input'
           {...register("username")}
         //   value={formValues.correo}
         //   onChange={handleChange}
           />
         </div>
-        <div className='form-group'>
+        <div>
           <input 
           type="password" 
           name='password'
+          className='login__input'
           placeholder="Contraseña"
           {...register("password")}
         //   value={formValues.password}
         //   onChange={handleChange}
           />
         </div>
-        <div className="enlace">
+        <div className="login__enlace">
         <span >
-          <Link to="/repassword" className='link'> ¿Olvidaste tu contraseña?</Link>
+          <Link to="/repassword" className='login__link'> ¿Olvidaste tu contraseña?</Link>
           </span>
           </div>
-        <button type="submit" className='btn btn-info btn-block w-100 mt-3'>Entrar</button>
+        <button type="submit" className='login__button'>Entrar</button>
     </form>
+    </div>
   )
 }
 

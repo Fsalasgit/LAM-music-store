@@ -16,3 +16,7 @@ body {
     color: var(--c-letter);
     font-family: var(--font-OpenSans);
 }
+
+::placeholder {
+    color: var(--c-white);
+}

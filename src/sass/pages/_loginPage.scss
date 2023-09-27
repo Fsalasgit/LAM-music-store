@@ -1,0 +1,93 @@
+.loginPage {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    transition: all .5s ease-out;
+
+    &__form {
+        width: 800px;
+        padding: 2rem;
+        margin: 2rem auto;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(248, 248, 248, 0.612)
+    }
+
+    &__createAccount {
+        color: var(--c-white);
+        padding: 2.7rem 0;
+        font-size: 1.7rem;
+        font-family: var(--font-PTSans);
+    }
+
+    &__iconos {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
+    &__borderIcon {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    &__facebook {
+        color: #1877F2;
+    }
+
+    &__apple {
+        color: black;
+    }
+
+    &__enlace {
+        color: var(--c-white);
+        font-family: var(--font-PTSans);
+        margin-top: 15px;
+    }
+    &__enlace:hover {
+        opacity: 1;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: var(--c-mainYellow);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .loginPage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        &__form {
+            width: 100%;
+            max-width: 100%;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        &__createAccount {
+            padding: 1.5rem 0;
+        }
+
+        &__iconos {
+            flex-direction: row;
+            margin-top: 1rem;
+        }
+
+        &__borderIcon {
+            height: 30px;
+            width: 30px;
+        }
+    }
+}
