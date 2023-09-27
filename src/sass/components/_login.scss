@@ -1,0 +1,56 @@
+.login{
+    &__input{
+        display: block;
+        width: 70%;
+        margin: auto;
+        margin-bottom: 2.5rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: var(--c-white) thin solid;
+        text-align: center;
+        outline: none;
+        padding: .2rem 0;
+        font-size: .9rem;
+        color: var(--c-white);
+        font-family: var(--font-PTSans);
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+    &__link{
+        text-decoration: none;
+        color: var(--c-mainYellow);
+    }
+    &__button{
+        width: 100%;
+        max-width: 13rem;
+        margin: 0 auto;
+        padding: 0.3rem 0.6rem;
+        border: none;
+        border-radius: 2rem;
+        background-color: var(--c-mainYellow);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        color: var(--c-black);
+        font-family: var(--font-PTSans);
+        transition: background-color 0.3s, color 0.3s;
+    }
+    &__button:hover{
+        background-color: var(--c-secondYellow);
+        color: var(--c-white);
+    }
+    &__enlace {
+        color: var(--c-white);
+        font-family: var(--font-PTSans);
+        margin-top: 15px;
+    }
+
+    &__enlace:hover {
+        opacity: 1;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: var(--c-mainYellow);
+    }
+}

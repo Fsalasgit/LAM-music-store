@@ -3,7 +3,10 @@
 @import './components/poductCard';
 @import './base/variables';
 @import './base/base';
-@import './pages/login';
-@import './pages/register';
-@import './pages/RecoverPassword';
+@import './pages/loginPage';
+@import './components/login';
+@import './pages/registerPage';
+@import './components/register';
+@import './pages/recoverPasswordPage';
+@import './components/recoverPassword';
 
