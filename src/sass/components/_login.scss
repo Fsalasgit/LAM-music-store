@@ -1,5 +1,5 @@
-.login{
-    &__input{
+.login {
+    &__input {
         display: block;
         width: 70%;
         margin: auto;
@@ -16,11 +16,13 @@
         border-radius: 0.5rem;
         transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     }
-    &__link{
+
+    &__link {
         text-decoration: none;
         color: var(--c-mainYellow);
     }
-    &__button{
+
+    &__button {
         width: 100%;
         max-width: 25rem;
         margin: 0 auto;
@@ -35,15 +37,17 @@
         font-family: var(--font-PTSans);
         transition: background-color 0.3s, color 0.3s;
     }
-    &__button:hover{
+
+    &__button:hover {
         background-color: var(--c-secondYellow);
         color: var(--c-white);
     }
+
     &__enlace {
         color: var(--c-white);
         font-family: var(--font-PTSans);
-        margin-bottom: 25px;
-        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
     }
 
     &__enlace:hover {
@@ -53,5 +57,20 @@
     &__link {
         text-decoration: none;
         color: var(--c-mainYellow);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .login {
+        &__button {
+            max-width: 20rem;
+            padding: 0.4rem 0.5rem;
+        }
+
+        &__enlace {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
     }
 }
