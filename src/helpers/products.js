@@ -7,7 +7,8 @@ export const products = [
         "price": 340000,
         "category": "Instrumentos de Cuerda",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/CORT/6449_small.jpg",
-        "stock": 2
+        "stock": 2,
+        "favorite": false
     },
     {
         "id": 2,
@@ -16,7 +17,8 @@ export const products = [
         "price": 90900,
         "category": "Instrumentos de Cuerda",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/FIELD/19791_small.jpg",
-        "stock": 2
+        "stock": 2,
+        "favorite": false
     },
     {
         "id": 3,
@@ -25,7 +27,8 @@ export const products = [
         "price": 742560,
         "category": "Instrumentos de Percision",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/TAMA/13284_small.jpg",
-        "stock": 2
+        "stock": 2,
+        "favorite": false
     },
     {
         "id": 4,
@@ -34,23 +37,26 @@ export const products = [
         "price":  1530000,
         "category": "Instrumentos electronico",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/CASIO/7909_small.jpg",
-        "stock": 2
+        "stock": 2,
+        "favorite": false
     },{
         "id": 5,
         "title": "Piano Digital sdasdasasddasdasasdasd",
         "description": "ROLAND FP60X BK Black",
-        "price":  153000123213123120,
+        "price":  1,
         "category": "Instrumentos electronico",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/FIELD/19791_small.jpg",
-        "stock": 2
+        "stock": 2,
+        "favorite": false
     },{
         "id": 6,
         "title": "Piano Digital sdasdasasddasdasasdasd",
         "description": "ROLAND FP60X BK Black",
-        "price":  153000123213123120,
+        "price":  1,
         "category": "Instrumentos electronico",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/FIELD/19791_small.jpg",
-        "stock": 2
+        "stock": 2,
+        "favorite": false
     }
     
 ]

@@ -26,11 +26,14 @@
         background-color:rgba(255, 255, 255, 0)
     }
     
-    &__favourite-icons{
+    &__favourite-icons, &__favourite-iconsReds{
         font-size: 2rem;
-        color: inherit;
+        color: red;
         background-color: none;
         padding: 1.5rem;
+    }
+    &__favourite-iconsReds{
+        color: red;
     }
 }
 
