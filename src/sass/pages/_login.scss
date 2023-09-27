@@ -1,0 +1,134 @@
+.container-form {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    transition: all .5s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+    .container-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .body {
+        height: auto;
+    }
+
+    .formulario-registro,
+    .formulario-login {
+        max-width: 100%;
+    }
+}
+
+.enlace {
+    color: var(--c-white);
+    font-family: var(--font-PTSans);
+}
+
+.enlace:hover a {
+    opacity: 1;
+}
+
+.formulario-login {
+    width: 800px;
+    padding: 2rem;
+    margin: 2rem auto;
+    background-color: var(--c-letter);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.create-account {
+    color: var(--c-player);
+    padding: 2.7rem 0;
+    font-size: 1.7rem;
+}
+
+.apple {
+    color: var(--c-player);
+}
+
+.facebook{
+    color: blue;
+}
+
+.iconos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    /* Centrar verticalmente los iconos */
+}
+
+.iconos .border-icon {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+
+.formulario-login input{
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: var(--c-player) thin solid;
+    text-align: center;
+    outline: none;
+    padding: .2rem 0;
+    font-size: .9rem;
+    color: var(--c-white);
+    font-family: var(--font-PTSans);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+::placeholder {
+    color: var(--c-player);
+}
+
+.formulario-login button {
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    max-width: 200px;
+    /* Máximo ancho para evitar que el botón sea demasiado ancho en pantallas grandes */
+    margin: 0 auto;
+    /* Centra el botón horizontalmente */
+    padding: 10px 20px;
+    /* Espaciado interno para un mejor aspecto */
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--c-mainYellow);
+    font-weight: 600;
+    font-size: 1rem;
+    /* Tamaño de fuente ligeramente más grande para una mejor legibilidad */
+    cursor: pointer;
+    color: var(--c-player);
+    font-family: var(--font-PTSans);
+    transition: background-color 0.3s, color 0.3s;
+    /* Transición suave al pasar el mouse */
+}
+
+.formulario-login button:hover {
+    background-color: var(--c-secondYellow);
+    /* Cambio de color al pasar el mouse */
+    color: var(--c-white);
+    /* Cambio de color del texto al pasar el mouse */
+}
+
+.link{
+    text-decoration: none;
+    color: var(--c-mainYellow);
+}
