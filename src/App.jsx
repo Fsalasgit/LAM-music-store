@@ -7,11 +7,14 @@ import ProductList from "./components/ProductList"
 
 
 
+
+
 function App() {
 
 
   return (
     <>
+
 
       <Routes>
         <Route path='/login' element={<LoginPage />} />
@@ -19,6 +22,7 @@ function App() {
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/productos'element={<ProductList/>}/>
       </Routes>
+
 
     </>
   )

@@ -7,7 +7,7 @@ const ProductList = () => {
 
   return (
     <>
-    <div className='background-curso'>
+    <div className='containerList'>
         <div className="container">
             <div className="row">
                 <div className="col text-center my-5">
@@ -15,6 +15,7 @@ const ProductList = () => {
                     
                 </div>
             </div>
+            
             <div className="row">
                 {
                     products.map((product) => (
@@ -22,8 +23,6 @@ const ProductList = () => {
                         <ProductCard product={product} key={product.id}/>
                     ))
                 }
-
-
             </div>
         </div>
     </div>
