@@ -18,7 +18,7 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
-        <Route path='/detalle' element={<DetailPage />} />
+        <Route path='/producto/:id' element={<DetailPage />} />
       </Routes>
 
     </>

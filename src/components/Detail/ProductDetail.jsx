@@ -1,49 +1,32 @@
-import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React from "react";
 import Carrusel from "./Carousel";
-import miImagen from "./mediospago.png";
-import {products} from "../../helpers/products"
-import ProductCard from "../ProductCard";
-import "../../sass/pages/_paginaDetalle.scss"
+import mediosPago from "./mediospago.png"
 
-const Detail = () => {
-  const urlParams= new URLSearchParams(window.location.search)
-  const id = urlParams.get("id")
-  const [productos, setProductos] = useState([]);
-  useEffect(() => {
-    setProductos(products);
-    console.log(urlParams)
-    console.log(id)
-  
-  }, []);
-
-  const producto = productos.find(product => product.id == id )
-
+const ProductDetail = ({ product }) => {
+  console.log(product);
+  const { data } = product;
+  console.log(data);
   return (
     <>
-    <body id="fondo-detalle">
-    <Container id="Container">
-        <Row className="mt-5">
-          <Col lg={7}>
-            <div>
-              <Carrusel />
+      {data.length !== 0 ? (
+        <div className="container mt-4" id="Container">
+          <div className="row">
+            <div className="col-lg-7">
+              <div className="text-center">
+                <img src={data[0].image} alt="" className="img-product" />
+              </div>
             </div>
-          </Col>
-          <Col lg={5}>
-            <Row>
-              <Col>
-                      {producto ? <Col key={producto.id}>
-                        <div>
-                          {/* <img src={producto.imagen} alt={producto.nombre} /> */}
-                          <h2 className="mb-5">{producto.title}</h2>
-                          <h5 className="mt-3">{producto.category}</h5>
-                          <p className="mt-3">Precio: ${producto.price}</p>
-                          <a href = {'/detalle?id=' + (producto.id+1)}>DETALLE</a>
-                        </div>
-                      </Col> : ""}
-
+            <div className="col-lg-5">
+              <div className="row">
+                <div className="col mt-5">
+                  <h1>{data[0].title}</h1>
+                </div>
+                <div className="mt-4">
+                  <h5>{data[0].category}</h5>
+                </div>
+                <div className="mt-4">
+                  <h2>$ {data[0].price}</h2>
+                </div>
                 <div>
                   <form
                     action=""
@@ -64,28 +47,29 @@ const Detail = () => {
                   Compartir
                 </a>
                 <hr />
-                <h6 className="text-center">
+                <h4 className="text-center">
                   Tenemos la mejor financiacion para vos!
-                </h6>
-                <img src={miImagen} alt="" className="img-fluid" />
+                </h4>
+                <img
+                  src={mediosPago}
+                  alt=""
+                  className="img-fluid img-pagos"
+                />
                 <hr />
                 <a href="">¿Alguna consulta? ¡Estamos para ayudarte!</a>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <hr />
-        <Row>
-          <Col lg={12} className="mt-4">
-            <h4>Descripción</h4>
-                        {producto && <div>
-                          <p>{producto.description}</p>
-                        </div>}
-          </Col>
-        </Row>
-        <hr />
-        <Row>
-          <Col lg={12} className="mt-4">
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div className="row">
+            <div className="col-12 mt-4">
+              <h4>Descripcion</h4>
+              <p className="mt-5">{data[0].description}</p>
+            </div>
+          </div>
+          <hr />
+          <div className="row">
+          <div className="col-12 mt-4">
             <h4>Medios de Pago</h4>
             <p>
               Podes pagar online de forma segura mediante las plataformas Mobbex
@@ -102,11 +86,11 @@ const Detail = () => {
               Agregá el producto al carrito y continuá con el proceso de pago
               online!
             </p>
-          </Col>
-        </Row>
+          </div>
+        </div>
         <hr />
-        <Row>
-          <Col lg={12} className="mt-4">
+        <div className="row">
+          <div className="col-12 mt-4">
             <h4>Medios de Envío</h4>
             <p>
               Te lo enviamos al lugar de la Argentina donde te encuentres de
@@ -133,22 +117,25 @@ const Detail = () => {
               sitio web pueden ser devueltos o cambiados dentro de los 30 días
               posteriores a la compra.
             </p>
-          </Col>
-        </Row>
+          </div>
+        </div>
         <hr />
-        <Row>
+        <div className="row">
           <h4 className="text-center mt-2">Puede Interesarte</h4>
           <hr />
-        </Row>
-        <Row>
-          {producto && <Col className="d-flex align-items-center text-center justify-content-center">
-            < ProductCard product={producto} />
-          </Col>}
-        </Row>
-      </Container>
-    </body>
+        </div>
+        </div>
+      ) : (
+        <div className="container">
+          <div className="row">
+            <div className="col text-center">
+              <h3>Producto no encontrado</h3>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
 
-export default Detail;
+export default ProductDetail;

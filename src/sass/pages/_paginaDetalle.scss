@@ -1,13 +1,14 @@
-#Carrusel img {
+.img-product {
     height: 400px;
     object-fit: cover;
+    padding-top: 100px;
 }
 
-#Carrusel {
-    padding-top: 160px;
+.img-pagos {
+    height: 300px;
 }
 
-#fondo-detalle {
+body {
     padding-top: 200px;
     padding-bottom: 200px;
     background-image: url(https://images.unsplash.com/photo-1550291652-6ea9114a47b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80) !important;
