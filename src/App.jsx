@@ -7,13 +7,14 @@ import RecoverPasswordPage from './pages/RecoverPasswordPage'
 import ProductCard from "./components/ProductCard"
 import ProductList from "./components/ProductList"
 import DetailPage from './pages/detailPage'
+import Navigation from './components/Navigation'
 
 function App() {
 
 
   return (
     <>
-
+    <Navigation/>
       <Routes>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
