@@ -7,19 +7,22 @@ const ProductTable = () => {
     const columns = [ 
         {
             name: "Title",
-            selector: (row) => row.title
+            selector: (row) => row.title,
+            sortable: true
         },
         {
             name: "Category",
-            selector: (row) => row.category
+            selector: (row) => row.category,
+            sortable: true
         },
         {
             name: "Price",
-            selector: (row) => row.price
+            selector: (row) => row.price,
+            sortable: true
         },
         {
             name: "Description",
-            selector: (row) => row.description
+            selector: (row) => row.description,
         },
         {
             name: "Image",
@@ -44,6 +47,7 @@ const ProductTable = () => {
     <DataTable 
         columns={columns}
         data = {products}
+        pagination
     />
   )
 }
