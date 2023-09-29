@@ -1,41 +1,33 @@
-import React, { useState } from 'react'
-import ProductTable from '../components/Admin/ProductTable'
-import ModalNuevo from '../components/Admin/ModalNuevo'
+import React, { useState } from 'react';
+import ProductTable from '../components/Admin/ProductTable';
 import UserTable from '../components/Admin/UserTable';
 
 const Admin = () => {
-    const [show, setShow] = useState(false);
+  const [showProductTable, setShowProductTable] = useState(true);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const showProductView = () => {
+    setShowProductTable(true);
+  };
+
+  const showUserView = () => {
+    setShowProductTable(false);
+  };
+
   return (
     <>
-    <div className="container">
+      <div className="container">
         <div className="row">
-            <div className="col  mt-5 mb-5">
-                <h1 className='text-center'>Adiminstracion de Productos</h1>
-                <button className='btn btn-primary' onClick={handleShow}>Agregar producto</button>
-                <button className='btn btn-warning ms-5' onClick={<UserTable/>}>Admin de usuario</button>
-
-            </div>
+          <div className="col mt-5 mb-5">
+            <h1 className='text-center'>Administración de Productos</h1>
+            <button className='btn btn-primary' onClick={showProductView}>Mostrar Productos</button>
+            <button className='btn btn-warning ms-5' onClick={showUserView}>Mostrar Usuarios</button>
+          </div>
         </div>
-        <div className="row">
-             <ProductTable />
-        </div>
-        <ModalNuevo show={show} handleClose={handleClose} />
-    </div>
-    <div className="container mt-4">
-        <div className="row">
-            <div className="col  mt-5 mb-5">
-                <h1 className='text-center'>Adiminstracion de Usuarios</h1>
-            </div>
-        </div>
-        <div className="row">
-             <UserTable />
-        </div>
-    </div>
+        {showProductTable && <ProductTable />}
+        {!showProductTable && <UserTable />}
+      </div>
     </>
-  )
+  );
 }
 
-export default Admin
+export default Admin;

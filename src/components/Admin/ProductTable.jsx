@@ -44,11 +44,19 @@ const ProductTable = () => {
         }
     ]
   return (
-    <DataTable 
+    <>
+        <div className="row">
+            <div className="col text-end">
+                <button className='btn btn-primary mb-4'>Agregar Producto</button>
+            </div>
+        </div>
+            <DataTable 
         columns={columns}
         data = {products}
         pagination
     />
+    </>
+
   )
 }
 
