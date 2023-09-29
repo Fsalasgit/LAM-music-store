@@ -4,7 +4,6 @@ LAM Music Store es una aplicación web desarrollada utilizando React, un framewo
 
 ## Integrantes del Equipo
 - Bruno Busnelli
-- Cynthia Pistan
 - Lorenzo Albornoz
 - Franco Salas
 

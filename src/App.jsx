@@ -14,10 +14,10 @@ function App() {
     <>
 
       <Routes>
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/registro' element={<RegisterPage />} />
-        <Route path='/repassword' element={<RecoverPasswordPage />} />
-        <Route path='/productos'element={<ProductList/>}/>
+        <Route path='/login' element={<LoginPage />} />;
+        <Route path='/registro' element={<RegisterPage />} />;
+        <Route path='/repassword' element={<RecoverPasswordPage />} />;
+        <Route path='/productos'element={<ProductList/>} />;
       </Routes>
 
     </>
