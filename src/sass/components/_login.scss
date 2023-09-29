@@ -19,7 +19,7 @@
 
     &__link {
         text-decoration: none;
-        color: var(--c-mainYellow);
+        color: var(--c-main-color);
     }
 
     &__button {
@@ -29,7 +29,7 @@
         padding: 0.8rem 1rem;
         border: none;
         border-radius: 2rem;
-        background-color: var(--c-mainYellow);
+        background-color: var(--c-mainColor);
         font-weight: 600;
         font-size: 1.5rem;
         cursor: pointer;
@@ -56,7 +56,7 @@
 
     &__link {
         text-decoration: none;
-        color: var(--c-mainYellow);
+        color: var(--c-mainColor);
     }
 }
 
