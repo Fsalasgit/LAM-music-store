@@ -60,3 +60,30 @@ export const products = [
     }
     
 ]
+
+export const users = [
+    {
+        "name": "admin",
+        "username": "admin@gmail.com",
+        "password": "admin",
+        "rol": "admin"
+      },
+      {
+        "name": "Usuario 2",
+        "username": "usuario2@gmai.com",
+        "password": "contraseña2",
+        "rol": "user"
+      },
+      {
+        "name": "Usuario 3",
+        "username": "usuario3@gmai.com",
+        "password": "contraseña3",
+        "rol": "user"
+      },
+      {
+        "name": "Usuario 4",
+        "username": "usuario4@gmai.com",
+        "password": "contraseña4",
+        "rol": "user"
+      }
+]
