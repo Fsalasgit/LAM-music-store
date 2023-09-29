@@ -1,17 +1,18 @@
 .registerPage {
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
+    width: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
     transition: all .5s ease-out;
 
     &__form {
-        width: 100rem;
+        width: 60rem;
         padding: 8rem;
         margin: 2rem auto;
         background-color: rgba($color: #000000, $alpha: 0.7);
         text-align: center;
         border-radius: 0.6rem;
-        box-shadow: 0 0 10px rgba(248, 248, 248, 0.612)
+        box-shadow: 0 0 10px rgba(211, 180, 180, 0.612)
     }
 
     &__createAccount {
@@ -47,7 +48,7 @@
     }
 
     &__apple {
-        color: black;
+        color: var(--c-black);
     }
 
     &__enlace {
@@ -63,7 +64,7 @@
 
     &__link {
         text-decoration: none;
-        color: var(--c-mainYellow);
+        color: var(--c-mainColor);
     }
 }
 
