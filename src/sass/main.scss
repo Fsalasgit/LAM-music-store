@@ -1,9 +1,12 @@
 @import './base/variables';
 @import './base/base';
+@import './components/formSidebar';
 @import './pages/loginPage';
 @import './components/login';
 @import './pages/registerPage';
 @import './components/register';
-@import './pages/recoverPasswordPage';
 @import './components/recoverPassword';
 @import './components/poductCard';
+@import './layout/sidebar';
+@import './pages/recoverPasswordPage';
+@import './pages/productList';

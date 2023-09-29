@@ -7,25 +7,25 @@ const ProductList = () => {
 
   return (
     <>
-    <div className='containerList'>
-        <div className="container">
-            <div className="row">
-                <div className="col text-center my-5">
-                    <h3>Nuestros Productos</h3>
-                    
-                </div>
-            </div>
-            
-            <div className="row">
-                {
-                    products.map((product) => (
-                        
-                        <ProductCard product={product} key={product.id}/>
-                    ))
-                }
+
+    <div className="container containerProductList ">
+        <div className="row">
+            <div className="col text-center my-3">
+                <h3>Nuestros Productos</h3>
+                
             </div>
         </div>
+        
+        <div className="row">
+            {
+                products.map((product) => (
+                    
+                    <ProductCard product={product} key={product.id}/>
+                ))
+            }
+        </div>
     </div>
+
     </>
   )
 }

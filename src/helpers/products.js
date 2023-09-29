@@ -125,3 +125,27 @@ export const products = [
     
     
 ]
+
+export const categories = [
+
+    {
+        "id":"11111",
+        "category": "Bateria"
+    },{
+        "id":"11112",
+        "category": "Electronicos"
+    },{
+        "id":"11113",
+        "category": "Guitarras y bajos"
+    },{
+        "id":"11114",
+        "category": "Percusion"
+    },{
+        "id":"11115",
+        "category": "Piano"
+    },{
+        "id":"11116",
+        "category": "Piano Usado"
+    }
+
+]
