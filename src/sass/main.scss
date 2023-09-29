@@ -1,11 +1,9 @@
-
-@import './base/reset';
-@import './components/poductCard';
 @import './base/variables';
 @import './base/base';
-@import './pages/login';
-@import './pages/register';
-@import './pages/RecoverPassword';
-@import '../sass/pages/paginaDetalle';
-@import '../sass/components/navigation'
-
+@import './pages/loginPage';
+@import './components/login';
+@import './pages/registerPage';
+@import './components/register';
+@import './pages/recoverPasswordPage';
+@import './components/recoverPassword';
+@import './components/poductCard';

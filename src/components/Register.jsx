@@ -18,7 +18,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     console.log(data)
     try {
-      const response = await axiosInstance.post("/user/register", data)
+      const response = await axiosInstance.post("/register", data)
       // guardamos el token en localstorage
       localStorage.setItem("token", response.data.token)
       navigate("/admin")
@@ -40,53 +40,46 @@ const Register = () => {
   }
 
   return (
+    <div className="register">
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-group mb/2">
+      <div>
         <input
           type="usuario"
           name="correo"
           placeholder="Email"
+          className="register__input"
           {...register("username")}
         //   value={formValues.usuario}
         //   onChange={handleChange}
         />
       </div>
-      <div className="form-group mb/2">
+      <div>
         <input
           type="name"
           name="name"
           placeholder="Nombre"
+          className="register__input"
           {...register("name")}
         //   value={formValues.usuario}
         //   onChange={handleChange}
         />
       </div>
-      <div className="form-group mb-2">
+      <div>
         <input
           type="password"
           name="password"
           placeholder="Contraseña" 
+          className="register__input"
           {...register("password")}
         //   value={formValues.password}
         //   onChange={handleChange}
         />
       </div>
-      <div className="form-group mb-2">
-        <input
-          type="password"
-          onPaste={handlePaste}
-          name="re-password"
-          placeholder="Repetir Contraseña" 
-          {...register("re_password")}
-        //   value={formValues.password}
-        //   onChange={handleChange}
-        />
-      </div>
-      <span className="error"></span>
-        <p className="password-description-register"> Tu contraseña debe tener al menos una mayúscula, una minúscula, un número y 8 caracteres como mínimo y 10 como máximo </p>
-        <button type="submit">Registrarse</button>
+        <p className="register__description"> Tu contraseña debe tener al menos una mayúscula, una minúscula, un número y 8 caracteres como mínimo y 10 como máximo </p>
+        <button type="submit" className="register__button">Registrarse</button>
 
     </form>
+    </div>
   );
 };
 

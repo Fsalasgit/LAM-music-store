@@ -1,14 +1,17 @@
 import React from "react";
 import RecoverPassword from "../components/RecoverPassword";
-import { Link } from "react-router-dom";
 
 const RecoverPasswordPage = () => {
   return (
     <>
-      <div className="container-form">
-        <form className="formulario-registro">
+    <div>
+      <div className="recoverPasswordPage">
+        <form className="recoverPasswordPage__form">
+        <h2 className="recoverPasswordPage__createAccount">Recuperar contraseña</h2>
+            <p className="recoverPasswordPage__description"> Ingresá el correo electrónico con el que te registraste y te enviaremos instrucciones para restablecer tu contraseña. </p>
           <RecoverPassword />
         </form>
+      </div>
       </div>
     </>
   );

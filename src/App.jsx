@@ -1,10 +1,8 @@
-
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import RecoverPasswordPage from './pages/RecoverPasswordPage'
-import ProductCard from "./components/ProductCard"
 import ProductList from "./components/ProductList"
 import DetailPage from './pages/detailPage'
 import Navigation from './components/Navigation'
@@ -20,6 +18,7 @@ function App() {
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/producto/:id' element={<DetailPage />} />
+        <Route path='/productos'element={<ProductList/>}/>
       </Routes>
 
     </>
