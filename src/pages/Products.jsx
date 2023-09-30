@@ -7,23 +7,28 @@ import Sidebar from '../components/Sidebar';
 
 
 const Products = () => {
-  const [selectedOrder , setSelectedOrder] = useState ('1');
-
+  const [selectedOrder, setSelectedOrder] = useState('1');
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleOrderChange = (selectedValue) => {
     setSelectedOrder(selectedValue);
   };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+  console.log(selectedCategory)
   return (
     <>
     <Container className='container'>
         <Row className="row">
             <Col>
-              <Sidebar onOrderChange={handleOrderChange}/>
+              <Sidebar onOrderChange={handleOrderChange} onCategoryChange={handleCategoryChange} />
 
 
             </Col>
             <Col xs={9}>
-              <ProductList selectedOrder={selectedOrder}/>
+              <ProductList selectedOrder={selectedOrder} selectedCategory={selectedCategory} />
                 
 
             </Col>

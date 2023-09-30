@@ -2,7 +2,7 @@ import React from 'react'
 import { products } from '../helpers/products'
 import ProductCard from './ProductCard'
 
-const ProductList = ({selectedOrder}) => {
+const ProductList = ({selectedOrder, selectedCategory }) => {
 
     const sortProduct = (products,order) => {
 
@@ -18,12 +18,18 @@ const ProductList = ({selectedOrder}) => {
             case '5':
                 return products.slice().sort((a, b) => b.title.localeCompare(a.title));
             default:
-                return console.log(order)
+                return products.slice();
+            
         }
+   
     }
 
 
     const sortedProducts = sortProduct(products, selectedOrder) || []
+    const filteredProducts = selectedCategory
+    ? sortedProducts.filter((product) => product.category === selectedCategory)
+    : sortedProducts;
+
     
 
   return (

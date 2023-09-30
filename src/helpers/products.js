@@ -107,7 +107,7 @@ export const products = [
         "title": "Guitarra Electrica",
         "description": "SX SST62+ BK Vintage Strato Black c/Funda",
         "price":  205022,
-        "category": "Instrumentos de Cuerda",
+        "category": "Bateria",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/SX/13264_small.jpg",
         "stock": 2,
         "favorite": false
@@ -116,7 +116,7 @@ export const products = [
         "title": "Guitarra Electrica",
         "description": "SX SST62+ BK Vintage Strato Black c/Funda",
         "price":  20502223,
-        "category": "Instrumentos de Cuerda",
+        "category": "Bateria",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/SX/13264_small.jpg",
         "stock": 2,
         "favorite": false
