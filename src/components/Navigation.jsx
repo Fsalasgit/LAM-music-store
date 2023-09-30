@@ -30,9 +30,10 @@ const Navigation = () => {
       </Form>
         <Nav className="ms-auto">
           <Nav.Link href="#home">Inicio</Nav.Link>
-          <Nav.Link href="#link">Productos</Nav.Link>
-          <Nav.Link href="#link">Iniciar Sesion</Nav.Link>
-          <Nav.Link href="#link">Registro</Nav.Link>
+          <Nav.Link href="/productos">Productos</Nav.Link>
+          <Nav.Link href="/login">Iniciar Sesion</Nav.Link>
+          <Nav.Link href="/registro">Registro</Nav.Link>
+          <Nav.Link href="/admin">Administrador</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
