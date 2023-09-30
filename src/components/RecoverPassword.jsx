@@ -1,39 +1,24 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import { REGISTRO_SCHEMA } from "../helpers/validationsSchemas";
-import { Link, useNavigate } from 'react-router-dom';
-import { axiosInstance } from '../config/axiosInstance';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { RECOVERPASSWORD_SCHEMA } from "../helpers/validationsSchemas";
+import { Link } from 'react-router-dom';
+
 
 const RecoverPassword = () => {
     const {
         register, handleSubmit, formState: { errors }, reset } = useForm(
-            //     {
-            //   resolver: yupResolver(REGISTRO_SCHEMA),
-            // }
+                {
+        resolver: yupResolver(RECOVERPASSWORD_SCHEMA),
+            }
         );
-
-    const navigate = useNavigate()
-
-    const onSubmit = async (data) => {
+        
+    const onSubmit = (data) => {
         console.log(data)
-        try {
-            const response = await axiosInstance.post("/user/register", data)
-            // guardamos el token en localstorage
-            localStorage.setItem("token", response.data.token)
-            navigate("/admin")
-            alert("El formulario se ha enviado")
             reset()
-        } catch (error) {
-            console.log(error);
-        }
-    }
+        } 
 
-    // const onSubmit = (data) => {
-    //   console.log(data);
-
-    // };
-    // console.log(errors)
+            console.log(errors)
 
     return (
         <>
@@ -46,9 +31,10 @@ const RecoverPassword = () => {
                             placeholder="Email"
                             className="recoverPassword__input"
                             {...register("username")}
-                        //   value={formValues.usuario}
-                        //   onChange={handleChange}
                         />
+                                  {errors.username && (
+  <p className="register__error-message">{errors.username.message}</p>
+)}
                     </div>
                     <button type="submit" className="recoverPassword__button">Enviar</button>
 
