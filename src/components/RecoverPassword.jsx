@@ -8,17 +8,17 @@ import { Link } from 'react-router-dom';
 const RecoverPassword = () => {
     const {
         register, handleSubmit, formState: { errors }, reset } = useForm(
-                {
-        resolver: yupResolver(RECOVERPASSWORD_SCHEMA),
+            {
+                resolver: yupResolver(RECOVERPASSWORD_SCHEMA),
             }
         );
-        
+
     const onSubmit = (data) => {
         console.log(data)
-            reset()
-        } 
+        reset()
+    }
 
-            console.log(errors)
+    console.log(errors)
 
     return (
         <>
@@ -32,9 +32,9 @@ const RecoverPassword = () => {
                             className="recoverPassword__input"
                             {...register("username")}
                         />
-                                  {errors.username && (
-  <p className="register__error-message">{errors.username.message}</p>
-)}
+                        {errors.username && (
+                            <p className="register__error-message">{errors.username.message}</p>
+                        )}
                     </div>
                     <button type="submit" className="recoverPassword__button">Enviar</button>
 
