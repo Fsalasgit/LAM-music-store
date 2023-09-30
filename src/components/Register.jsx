@@ -53,7 +53,7 @@ console.log(errors)
   <p className="register__error-message">{errors.password.message}</p>
 )}
       </div>
-        <p className="register__description"> Tu contraseña debe tener al menos una mayúscula, una minúscula, un número y 8 caracteres como mínimo y 10 como máximo </p>
+        <p className="register__description"> Tu contraseña debe tener al menos una mayúscula, una minúscula, un número y 8 caracteres como mínimo y 20 como máximo </p>
         <button type="submit" className="register__button">Registrarse</button>
 
     </form>

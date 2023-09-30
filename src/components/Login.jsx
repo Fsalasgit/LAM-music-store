@@ -21,7 +21,7 @@ const Login = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input 
-          type="email" 
+          type="text" 
           name='username'
           placeholder="Email"
           className='login__input'
