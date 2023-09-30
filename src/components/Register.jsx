@@ -25,7 +25,9 @@ console.log(errors)
           className="register__input"
           {...register("username")}
         />
-
+{errors.username && (
+  <p className="register__error-message">{errors.username.message}</p>
+)}
       </div>
       <div>
         <input
@@ -35,6 +37,9 @@ console.log(errors)
           className="register__input"
           {...register("name")}
         />
+        {errors.name && (
+  <p className="register__error-message">{errors.name.message}</p>
+)}
       </div>
       <div>
         <input
@@ -44,6 +49,9 @@ console.log(errors)
           className="register__input"
           {...register("password")}
         />
+        {errors.password && (
+  <p className="register__error-message">{errors.password.message}</p>
+)}
       </div>
         <p className="register__description"> Tu contraseña debe tener al menos una mayúscula, una minúscula, un número y 8 caracteres como mínimo y 10 como máximo </p>
         <button type="submit" className="register__button">Registrarse</button>

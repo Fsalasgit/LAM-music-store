@@ -66,6 +66,10 @@
         text-decoration: none;
         color: var(--c-mainColor);
     }
+    &__error-message{
+        font-size: 1rem;
+        color: var(--c-wrong);
+    }
 }
 
 @media screen and (max-width: 768px) {

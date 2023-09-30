@@ -26,9 +26,10 @@ const Login = () => {
           placeholder="Email"
           className='login__input'
           {...register("username")}
-        //   value={formValues.correo}
-        //   onChange={handleChange}
           />
+          {errors.username && (
+  <p className="register__error-message">{errors.username.message}</p>
+)}
         </div>
         <div>
           <input 
@@ -37,9 +38,10 @@ const Login = () => {
           className='login__input'
           placeholder="Contraseña"
           {...register("password")}
-        //   value={formValues.password}
-        //   onChange={handleChange}
           />
+                  {errors.password && (
+  <p className="register__error-message">{errors.password.message}</p>
+)}
         </div>
         <div className="login__enlace">
         <span >
