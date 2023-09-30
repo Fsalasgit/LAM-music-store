@@ -8,7 +8,7 @@ const LoginPage = () => {
   return (
     <>
       <div className="loginPage">
-        <form className="loginPage__form">
+        <div className="loginPage__form">
           <h2 className="loginPage__createAccount">Iniciar Sesión</h2>
           <div className="loginPage__iconos">
             <div className="loginPage__borderIcon">
@@ -27,7 +27,7 @@ const LoginPage = () => {
               ¿Aún no tienes una cuenta? <Link to="/registro" className="loginPage__link">Registrate</Link>
             </span>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );
