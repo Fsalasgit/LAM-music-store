@@ -7,6 +7,7 @@ import ProductList from "./components/ProductList"
 import DetailPage from './pages/detailPage'
 import Navigation from './components/Navigation'
 import Admin from './pages/Admin'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
         <Route path='/productos'element={<ProductList/>}/>
         <Route path='/admin' element={ <Admin />} />
       </Routes>
-
+    <Footer/>
     </>
   )
 }
