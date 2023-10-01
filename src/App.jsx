@@ -8,6 +8,7 @@ import Navigation from './components/Navigation'
 import Admin from './pages/Admin'
 import PrivateRoutes from './components/Routes/PrivateRoutes'
 import Products from './pages/Products'
+import Home from './pages/Home'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/productos/:id' element={<DetailPage />} />
         <Route path='/productos'element={<Products/>}/>
+        <Route path='/'element={<Home/>}/>
         
         <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />
