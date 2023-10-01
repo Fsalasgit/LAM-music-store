@@ -2,7 +2,6 @@
     transition: 900ms ease-in-out; 
 }
 
-
 .carousel-control-prev,
 .carousel-control-next {
   width: 10rem;
@@ -73,3 +72,17 @@
 
 }
 
+.featuredProducts{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    // & hr{
+    //     width: 100%;
+    //     margin-left: auto;
+    //     margin-right: auto;
+    // }
+    &__title{
+        text-align: center;
+        text-transform: uppercase;
+    }
+}

@@ -18,7 +18,7 @@ const ShippingType = () => {
             </div>
             <div className='ShippingType__item'>
                 <PiCreditCardThin className='ShippingType_icons'/>
-                <span className='ShippingType_text'>3, 6, 12 y 18 Coutas</span>
+                <span className='ShippingType_text'>3, 6, 12 y 18 Cuotas</span>
 
             </div>
         </div>
