@@ -1,0 +1,33 @@
+.formSelect{
+    width: 30%;
+    border: none;
+    background-color: inherit;
+    font-size: 1 rem;
+    margin-top: 2 rem;   
+    cursor: pointer;
+}
+
+.formSelect:hover{
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}
+
+.titleCategories, .titleSelect, .titlePrice{
+    font-size: 1.6rem;
+    margin-top: 0.3rem;
+}
+.categoryContainer{
+    list-style: none;
+}
+.categoryList{
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+
+.formPrice{
+    width: 80%;
+    font-size: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
