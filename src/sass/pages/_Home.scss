@@ -81,6 +81,14 @@
     //     margin-left: auto;
     //     margin-right: auto;
     // }
+    @media screen and (max-width: 844px) {
+        width: 70%;
+        font-size: 1.5rem;
+    }
+    @media screen and (max-width: 576px) {
+        width: 100%;
+        font-size: 1rem;
+    }
     &__title{
         text-align: center;
         text-transform: uppercase;
