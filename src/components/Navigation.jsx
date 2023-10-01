@@ -33,7 +33,6 @@ const Navigation = () => {
           <Nav.Link href="/productos">Productos</Nav.Link>
           <Nav.Link href="/login">Iniciar Sesion</Nav.Link>
           <Nav.Link href="/registro">Registro</Nav.Link>
-          <Nav.Link href="/admin">Administrador</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import FormCreacion from './FormCreacion';
 
 const ModalNuevo = ({show, handleClose}) => {
 
@@ -10,7 +11,9 @@ const ModalNuevo = ({show, handleClose}) => {
         <Modal.Header closeButton>
           <Modal.Title>Agregar producto</Modal.Title>
         </Modal.Header>
-        <Modal.Body></Modal.Body>
+        <Modal.Body>
+          <FormCreacion/>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar

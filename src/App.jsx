@@ -7,6 +7,7 @@ import ProductList from "./components/ProductList"
 import DetailPage from './pages/detailPage'
 import Navigation from './components/Navigation'
 import Admin from './pages/Admin'
+import PrivateRoutes from './components/Routes/PrivateRoutes'
 
 function App() {
 
@@ -18,9 +19,12 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
-        <Route path='/producto/:id' element={<DetailPage />} />
+        <Route path='/productos/:id' element={<DetailPage />} />
         <Route path='/productos'element={<ProductList/>}/>
+        
+        <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />
+        </Route>
       </Routes>
 
     </>
