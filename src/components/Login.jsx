@@ -1,61 +1,77 @@
-import React from 'react'
+import React from "react";
 import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import { LOGIN_SCHEMA } from '../helpers/validationsSchemas';
-import { Link, useNavigate } from 'react-router-dom';
-import { axiosInstance } from '../config/axiosInstance';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { LOGIN_SCHEMA } from "../helpers/validationsSchemas";
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from "../config/axiosInstance";
 
 const Login = () => {
   const {
-    register, handleSubmit, formState: { errors }, reset } = useForm(
-      // {
-  //   resolver: yupResolver(LOGIN_SCHEMA),
-  // }
-  );
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(LOGIN_SCHEMA),
+  });
+
   const navigate= useNavigate()
 
   const onSubmit = async (data) => {
-    console.log(data)
+    console.log(data);
     try {
-      const response = await axiosInstance.post("/user/login", data)
-      // guardamos el token en localstorage
-      localStorage.setItem("token", response.data.token)
+      const response = await axiosInstance.post("/login", data)
+      console.log(response.data.token)
+       localStorage.setItem("token", response.data.token)
       navigate("/admin")
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  }
+  };
+
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-        <div className='form-group'>
-          <input 
-          type="email" 
-          name='username'
-          placeholder="Email"
-          {...register("username")}
-        //   value={formValues.correo}
-        //   onChange={handleChange}
+    <div className="login">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <input
+            type="text"
+            name="username"
+            placeholder="Email"
+            className="login__input"
+            {...register("username")}
           />
-        </div>
-        <div className='form-group'>
-          <input 
-          type="password" 
-          name='password'
-          placeholder="Contraseña"
-          {...register("password")}
-        //   value={formValues.password}
-        //   onChange={handleChange}
-          />
+          {errors.username && (
+            <p className="register__error-message">{errors.username.message}</p>
+          )}
         </div>
         <div>
-        <span className="enlace">
-          <Link to="/repassword" className='link'> ¿Olvidaste la contraseña?</Link>
+          <input
+            type="password"
+            name="password"
+            className="login__input"
+            placeholder="Contraseña"
+            {...register("password")}
+          />
+          {errors.password && (
+            <p className="register__error-message">{errors.password.message}</p>
+          )}
+        </div>
+        <div className="login__enlace">
+          <span>
+            <Link to="/repassword" className="login__link">
+              {" "}
+              ¿Olvidaste tu contraseña?
+            </Link>
           </span>
-          </div>
-        <button type="submit" className='btn btn-info btn-block w-100 mt-3'>Entrar</button>
-    </form>
-  )
-}
+        </div>
+        <button type="submit" className="login__button">
+          Entrar
+        </button>
+      </form>
+    </div>
+  );
+};
 
-export default Login
+export default Login;

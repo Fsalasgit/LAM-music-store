@@ -1,18 +1,26 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html {
+    font-size: 10px; 
+}
+  
+body{
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--c-player);
+    background-color: #CCCCCC;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: var(--c-letter);
-    font-family: var(--font-OpenSans);
+    }
+
+
+a{
+    text-decoration: none;
+}
+
+::placeholder {
+    color: var(--c-white);
 }

@@ -24,6 +24,15 @@ const ProductCard  = ({product}) => {
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   }
 
+  let convertToPesos = (numb) => {
+    const pesos = numb.toLocaleString('es-ES', {
+      style: 'currency',
+      currency: 'ARS'
+    });
+
+    return pesos
+  }
+
   return (
     <>
       <Card className='productCard'>
@@ -31,7 +40,8 @@ const ProductCard  = ({product}) => {
         <Card.Body>
           <a href='https://www.swanmusic.com.ar/product-cort-mr500e-br-brown-burst-2010011450197359.h' target="_blank" className='a-para-borrar'> {/*Esto lo voy a modificar cuando tenga instalado react router dom por un Link */}
             <Card.Title className='productCard__title mt-1rem' >{product?.title}</Card.Title>
-            <Card.Subtitle className='productCard__itemprice mt-1rem'>${product?.price}</Card.Subtitle>
+            <Card.Subtitle className='productCard__itemprice mt-1rem'>${convertToPesos(product?.price)}
+            </Card.Subtitle>
             <Card.Text className='productCard__description mt-1rem'>{product?.description}</Card.Text>
           </a>
           

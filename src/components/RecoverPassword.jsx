@@ -1,65 +1,51 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import { REGISTRO_SCHEMA } from "../helpers/validationsSchemas";
-import { Link, useNavigate } from 'react-router-dom';
-import { axiosInstance } from '../config/axiosInstance';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { RECOVERPASSWORD_SCHEMA } from "../helpers/validationsSchemas";
+import { Link } from 'react-router-dom';
+
 
 const RecoverPassword = () => {
     const {
         register, handleSubmit, formState: { errors }, reset } = useForm(
-            //     {
-            //   resolver: yupResolver(REGISTRO_SCHEMA),
-            // }
+            {
+                resolver: yupResolver(RECOVERPASSWORD_SCHEMA),
+            }
         );
 
-    const navigate = useNavigate()
-
-    const onSubmit = async (data) => {
+    const onSubmit = (data) => {
         console.log(data)
-        try {
-            const response = await axiosInstance.post("/user/register", data)
-            // guardamos el token en localstorage
-            localStorage.setItem("token", response.data.token)
-            navigate("/admin")
-            alert("El formulario se ha enviado")
-            reset()
-        } catch (error) {
-            console.log(error);
-        }
+        reset()
     }
 
-    // const onSubmit = (data) => {
-    //   console.log(data);
-
-    // };
-    // console.log(errors)
+    console.log(errors)
 
     return (
-    <>
-        <form onSubmit={handleSubmit(onSubmit)}> 
-            <h2 className="create-account">Recuperar contraseña</h2>
-            <p className="text-recover"> Ingresá el correo electrónico con el que te registraste y te enviaremos instrucciones para restablecer tu contraseña. </p>
-            <div className="form-group mb/2">
-                <input
-                    type="usuario"
-                    name="correo"
-                    placeholder="Email"
-                    {...register("username")}
-                //   value={formValues.usuario}
-                //   onChange={handleChange}
-                />
+        <>
+            <div className="recoverPassword">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div >
+                        <input
+                            type="usuario"
+                            name="correo"
+                            placeholder="Email"
+                            className="recoverPassword__input"
+                            {...register("username")}
+                        />
+                        {errors.username && (
+                            <p className="register__error-message">{errors.username.message}</p>
+                        )}
+                    </div>
+                    <button type="submit" className="recoverPassword__button">Enviar</button>
+
+                </form>
+                <div className="recoverPassword__enlace">
+                    <span>
+                        <Link to="/login" className="recoverPassword__link">Volver</Link>
+                    </span>
+                </div>
             </div>
-            <span className="error"></span>
-            <button type="submit">Enviar</button>
-            
-        </form>
-        <div className="enlace-RecoverPassword">
-            <span className="enlace-repassword">
-          <Link to="/login" className="link">Volver</Link>
-          </span>
-          </div>
-       </>
+        </>
     );
 };
 
