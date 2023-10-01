@@ -91,22 +91,22 @@ export const users = [
 export const categories = [
     {
         _id: 1,
-        name: "Bateria"
+        category: "Bateria"
     },
     {
         _id: 2,
-        name: "Electronicos"
+        category: "Electronicos"
     },
     {
         _id: 3,
-        name: "Guitarras y bajos"
+        category: "Guitarras y bajos"
     },
     {
         _id: 4,
-        name: "Percusion"
+        category: "Percusion"
     },
     {
         _id: 5,
-        name: "Pianos"
+        category: "Pianos"
     }
 ]
