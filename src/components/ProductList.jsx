@@ -29,6 +29,8 @@ const ProductList = ({selectedOrder, selectedCategory }) => {
     const filteredProducts = selectedCategory
     ? sortedProducts.filter((product) => product.category === selectedCategory)
     : sortedProducts;
+    console.log(selectedOrder)
+  
 
     
 
@@ -45,7 +47,7 @@ const ProductList = ({selectedOrder, selectedCategory }) => {
         
         <div className="row">
         {
-            sortedProducts.map((product) => (
+            filteredProducts.map((product) => (
             <ProductCard product={product} key={product.id} />
             )
         )}
