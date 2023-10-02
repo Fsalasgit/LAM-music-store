@@ -80,9 +80,11 @@
 }
 
 .featuredProducts{
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
+
+
     @media screen and (max-width: 844px) {
         width: 70%;
         font-size: 1.5rem;
@@ -95,22 +97,19 @@
         text-align: center;
         text-transform: uppercase;
     }
+    &__img{
+        box-shadow: 5px 7px 10px black;
+        border-radius: 2px 15px 20px 2px ;
+
+    }
 }
 
 .contOurMusInstruments{
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
+
 }
 
 
-
-.footerProvisorio{
-    height: 3rem;
-    font-size: 3rem;
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding-bottom: 10rem;
-}

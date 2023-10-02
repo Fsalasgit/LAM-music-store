@@ -1,0 +1,22 @@
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.readMoreButton{
+    align-self: flex-end;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    background-color: inherit;
+    color: black;
+    border: solid 0.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;;
+}
+
+.readMoreButton:hover{
+    background-color: #2980b9;
+}

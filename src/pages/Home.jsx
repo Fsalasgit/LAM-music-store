@@ -19,8 +19,8 @@ const Home = () => {
     <div className="featuredProducts">
       <hr />
       <h2 className="featuredProducts__title">¿Por que comprar en LAM?</h2>
-      <img
-          className="mt-3 w-100"
+      <img 
+          className="mt-3 w-100 featuredProducts__img"
           src="https://bairesrocks.vteximg.com.br/arquivos/ids/237535/1920x680_02.jpg?v=637913244060900000"
           alt="Store"
         /> 
