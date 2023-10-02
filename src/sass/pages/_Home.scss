@@ -36,7 +36,7 @@
     background-color: #CCCCCC;
 
     &__container{
-        width: 50%;
+        width: 60%;
         display: flex;
         justify-content: space-between;
         padding: 1rem;
@@ -93,4 +93,11 @@
         text-align: center;
         text-transform: uppercase;
     }
+}
+
+.contOurMusInstruments{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
 }

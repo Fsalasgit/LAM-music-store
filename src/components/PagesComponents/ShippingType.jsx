@@ -13,7 +13,7 @@ const ShippingType = () => {
             </div>
             <div className='ShippingType__item'>
                 <PiTruck className='ShippingType_icons'/>
-                <span className='ShippingType_text'>Envio</span>
+                <span className='ShippingType_text'>Envios a todo el pais</span>
 
             </div>
             <div className='ShippingType__item'>
