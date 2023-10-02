@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { RiLoginBoxLine } from "react-icons/ri";
+
 
 const Navigation = () => {
   return (
@@ -29,10 +31,10 @@ const Navigation = () => {
         </Row>
       </Form>
         <Nav className="ms-auto">
-          <Nav.Link href="#home">Inicio</Nav.Link>
-          <Nav.Link href="/productos">Productos</Nav.Link>
-          <Nav.Link href="/login">Iniciar Sesion</Nav.Link>
-          <Nav.Link href="/registro">Registro</Nav.Link>
+          <Nav.Link href="#home" className='me-3'>Inicio</Nav.Link>
+          <Nav.Link href="/productos" className='me-3'>Productos</Nav.Link>
+          <Nav.Link href="/login" className='me-3'><RiLoginBoxLine/></Nav.Link>
+          <Nav.Link href="/registro" >Registro</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

@@ -1,4 +1,10 @@
 import React from 'react'
+import { RiInstagramLine } from "react-icons/ri";
+import { RiFacebookBoxFill } from "react-icons/ri";
+import { RiTwitterXFill } from "react-icons/ri";
+import { RiTiktokFill } from "react-icons/ri";
+
+
 
 const Footer = () => {
   return (
@@ -6,15 +12,15 @@ const Footer = () => {
       <div className="container-fluid footer">
         <div className="container">
           <div className="row">
-            <div className="col-lg-12 d-flex justify-content-between mt-5">
+            <div className="col-lg-12 d-flex justify-content-between mt-3">
               <div>
                 <img src="" alt="Logo" />
               </div>
               <div className='d-flex'>
-                <a href="" className='me-4'>Icono red social</a>
-                <a href="" className='me-4'>Icono red social</a>
-                <a href="" className='me-4'>Icono red social</a>
-                <a href="">Icono red social</a>
+                <a href="" className='me-4'> <RiInstagramLine/> </a>
+                <a href="" className='me-4'> <RiFacebookBoxFill/> </a>
+                <a href="" className='me-4'><RiTwitterXFill/></a>
+                <a href=""><RiTiktokFill/></a>
               </div>
             </div>
           </div>
