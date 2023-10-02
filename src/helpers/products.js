@@ -87,3 +87,26 @@ export const users = [
         "rol": "user"
       }
 ]
+
+export const categories = [
+    {
+        _id: 1,
+        category: "Bateria"
+    },
+    {
+        _id: 2,
+        category: "Electronicos"
+    },
+    {
+        _id: 3,
+        category: "Guitarras y bajos"
+    },
+    {
+        _id: 4,
+        category: "Percusion"
+    },
+    {
+        _id: 5,
+        category: "Pianos"
+    }
+]

@@ -4,38 +4,68 @@ const Footer = () => {
   return (
     <>
       <div className="container-fluid footer">
-        <div className="row">
-          <div className="col-lg-3 text-center ps-auto mt-3">
-            <a href="#">
-              <img src="" alt=""/>
-            </a>
-            <h4>LAM Music Store</h4>
-          </div>
-          <div className="col-lg-3 text-center mt-3">
-            <h4>Redes Sociales</h4>
-            <div className="mt-4 d-flex justify-content-evenly">
-              <a href="#"></a>
-              <a href="#"></a>
-              <a href="#"></a>
-              <a href="#"></a>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 d-flex justify-content-between mt-5">
+              <div>
+                <img src="" alt="Logo" />
+              </div>
+              <div className='d-flex'>
+                <a href="" className='me-4'>Icono red social</a>
+                <a href="" className='me-4'>Icono red social</a>
+                <a href="" className='me-4'>Icono red social</a>
+                <a href="">Icono red social</a>
+              </div>
             </div>
           </div>
-          <div className="col-lg-3 mt-3">
-            <h4 className="text-center">Metodos de Pago</h4>
-            <ul className="text-center pe-4">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div className="col-lg-3 text-center mt-3 d-flex flex-column">
-            <a href="#" className="mt-4">Contáctanos</a>
-            <a href="#" className="mt-2">Sucursales</a>
-            <a href="#" className="mt-2">Politicas de Privacidad</a>
+            <hr />
+            <div className="row text-center">
+              <div className="col-lg-3 col-md-5 col-sm-5">
+                <h3>Titulo</h3>
+                <ul>
+                  <li>Categoria</li>
+                  <li>Categoria</li>
+                  <li>Categoria</li>
+                  <li>Categoria</li>
+                </ul>
+              </div>
+              <div className="col-lg-3 col-md-5 col-sm-5">
+              <h3>Titulo</h3>
+                <ul>
+                  <li>Categoria</li>
+                  <li>Categoria</li>
+                  <li>Categoria</li>
+                  <li>Categoria</li>
+                </ul>
+              </div>
+              <div className="col-lg-3 col-md-5 col-sm-5">
+              <h3>Titulo</h3>
+                <ul>
+                <li>Categoria</li>
+                <li>Categoria</li>
+                <li>Categoria</li>
+                <li>Categoria</li>
+                </ul>
+              </div>
+              <div className="col-lg-3 col-md-5 col-sm-5">
+              <h3>Titulo</h3>
+                <ul>
+                <li>Categoria</li>
+                <li>Categoria</li>
+                <li>Categoria</li>
+                <li>Categoria</li>
+                </ul>
+              </div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-lg-12 d-flex justify-content-between mb-4">
+                <p>© Todos los derechos reservados </p>
+                <p>Terminos y Condiciones</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     </>
   )
 }
