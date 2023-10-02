@@ -6,8 +6,16 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const isLogged = localStorage.getItem("token")
+  const navigate = useNavigate()
+
+  const logOut = () => {
+    localStorage.removeItem("token")
+    navigate("/login")
+  }
   return (
     <Navbar sticky="top" expand="lg" className="bg-body-tertiary nav-header" bg="dark" data-bs-theme="dark">
     <Container>
@@ -31,8 +39,14 @@ const Navigation = () => {
         <Nav className="ms-auto">
           <Nav.Link href="#home">Inicio</Nav.Link>
           <Nav.Link href="/productos">Productos</Nav.Link>
+          {
+          isLogged ? (<button className="items me-3" onClick={logOut}>Cerrar Sesión</button>) : (
+                <>
           <Nav.Link href="/login">Iniciar Sesion</Nav.Link>
           <Nav.Link href="/registro">Registro</Nav.Link>
+                </>
+              )
+            }
         </Nav>
       </Navbar.Collapse>
     </Container>
