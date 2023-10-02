@@ -8,6 +8,7 @@ import Navigation from './components/Navigation'
 import Admin from './pages/Admin'
 import PrivateRoutes from './components/Routes/PrivateRoutes'
 import Products from './pages/Products'
+import Home from './pages/Home'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <>
     <Navigation/>
       <Routes>
+        <Route path='/'element={<Home/>}/>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />

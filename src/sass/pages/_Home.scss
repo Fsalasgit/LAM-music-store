@@ -1,0 +1,116 @@
+
+
+.carousel-item {
+    transition: 900ms ease-in-out; 
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10rem;
+  height: 10rem;
+  background-color: rgba(0, 0, 0, 0.882); 
+  border-radius: 50%;
+  top: 40%;
+}
+
+.carousel-control-prev {
+  left: 5rem; 
+}
+
+.carousel-control-next {
+  right: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .carouselResponsive__img{
+        height: 18vh;
+
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+    display: none;
+
+    }
+}
+
+.ShippingType{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+    background-color: #CCCCCC;
+
+    &__container{
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: rgb(0, 0, 0);
+        @media screen and (max-width: 844px) {
+            width: 70%;
+            font-size: 1.5rem;
+        }
+        @media screen and (max-width: 576px) {
+            width: 90%;
+            font-size: 1rem;
+        }
+
+
+    }
+
+    &_icons{
+        font-size: 3rem;
+        margin-right: 1rem;
+        @media screen and (max-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &_text{
+        align-self: center;
+        text-transform: uppercase;
+
+    }
+
+
+}
+
+.featuredProducts{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (max-width: 844px) {
+        width: 70%;
+        font-size: 1.5rem;
+    }
+    @media screen and (max-width: 576px) {
+        width: 100%;
+        font-size: 1rem;
+    }
+    &__title{
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+.contOurMusInstruments{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+
+
+.footerProvisorio{
+    height: 3rem;
+    font-size: 3rem;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-bottom: 10rem;
+}

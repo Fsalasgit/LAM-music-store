@@ -11,7 +11,7 @@ const Navigation = () => {
   return (
     <Navbar sticky="top" expand="lg" className="bg-body-tertiary nav-header" bg="dark" data-bs-theme="dark">
     <Container>
-      <Navbar.Brand href="#home">LAM Music Store</Navbar.Brand>
+      <Navbar.Brand href="/">LAM Music Store</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
       <Form className='ms-auto'> 
