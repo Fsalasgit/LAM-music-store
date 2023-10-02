@@ -36,11 +36,19 @@ const UserTable = () => {
         }
     ]
   return (
-    <DataTable 
+    <>
+            <div className="row">
+            <div className="col text-end">
+                <br />
+                <br />
+            </div>
+        </div>
+            <DataTable 
         columns={columns}
         data = {users}
         pagination
     />
+    </>
   )
 }
 
