@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from "react-router-dom";
+import { RiLoginBoxLine } from "react-icons/ri";
 
 const Navigation = () => {
   const isLogged = localStorage.getItem("token")
@@ -19,7 +20,7 @@ const Navigation = () => {
   return (
     <Navbar sticky="top" expand="lg" className="bg-body-tertiary nav-header" bg="dark" data-bs-theme="dark">
     <Container>
-      <Navbar.Brand href="#home">LAM Music Store</Navbar.Brand>
+      <Navbar.Brand href="/">LAM Music Store</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
       <Form className='ms-auto'> 
@@ -37,6 +38,7 @@ const Navigation = () => {
         </Row>
       </Form>
         <Nav className="ms-auto">
+
           <Nav.Link href="#home">Inicio</Nav.Link>
           <Nav.Link href="/productos">Productos</Nav.Link>
           {
