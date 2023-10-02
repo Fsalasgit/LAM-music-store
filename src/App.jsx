@@ -8,7 +8,9 @@ import Navigation from './components/Navigation'
 import Admin from './pages/Admin'
 import PrivateRoutes from './components/Routes/PrivateRoutes'
 import Products from './pages/Products'
+import Footer from './components/Footer'
 import Home from './pages/Home'
+
 
 function App() {
 
@@ -28,7 +30,7 @@ function App() {
         <Route path='/admin' element={ <Admin />} />
         </Route>
       </Routes>
-
+    < Footer />
     </>
   )
 }

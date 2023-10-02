@@ -15,7 +15,7 @@ const Admin = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container admin-body">
         <div className="row">
           <div className="col mt-5 mb-5">
             <h1 className='text-center text-black'>Administración de Productos y Usuarios</h1>
