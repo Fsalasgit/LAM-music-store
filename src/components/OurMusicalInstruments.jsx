@@ -29,7 +29,7 @@ const OurMusicalInstruments = () => {
                 />
                 </Col>
                 <Col>
-                    <h3>Bateria</h3>
+                    <h3>Baterias</h3>
                 </Col>
             </Row>
             <Row className='mb-5'>

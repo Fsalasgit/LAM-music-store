@@ -35,6 +35,10 @@ const Home = () => {
       </div>
     </div>
 
+    <footer className='footerProvisorio'>
+      aqui va un footer provisorio
+    </footer>
+
 
     
     </>
