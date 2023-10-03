@@ -5,6 +5,14 @@
     font-size: 1 rem;
     margin-top: 2 rem;   
     cursor: pointer;
+    @media screen and (max-width: 844px) {
+        width: 100%;
+        font-size: 1.5rem;
+    }
+    @media screen and (max-width: 576px) {
+        width: 40%;
+        font-size: 0.7rem;
+    }
 }
 
 .formSelect:hover{
@@ -26,7 +34,7 @@
 
 
 .formPrice{
-    width: 90%;
+    width: 98%;
     font-size: 1rem;
     padding-top: 1rem;
     padding-bottom: 0.5rem;
