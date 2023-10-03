@@ -1,8 +1,35 @@
 .nav-header {
     padding-top: 20px;
     padding-bottom: 20px;
+   &__cerrar-sesion{
+  max-width: 10rem; 
+  margin: 0 auto;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: var(--c-mainColor);
+  font-weight: 600;
+  font-size: 1rem; 
+  cursor: pointer;
+  color: var(--c-black);
+  font-family: var(--font-PTSans);
+  transition: background-color 0.3s, color 0.3s;
 }
-
-.nav-header a {
+&__cerrar-sesion:hover{
+  background-color: var(--c-secondYellow);
+  color: var(--c-white);
+}
+&__user-name {
+  color: var(--c-mainColor); 
+  margin-right: 1rem; 
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+a {
   font-size: 15px;
 }
+}
+
+
+
+

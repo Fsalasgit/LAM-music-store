@@ -13,11 +13,14 @@ import jwt_decode from 'jwt-decode';
 const Navigation = () => {
   const token = localStorage.getItem('token');
   const isLogged = !!token;
+  let userName = '';
+  
 
   let userRole = '';
   if (isLogged) {
     const decodedToken = jwt_decode(token);
     userRole = decodedToken.rol;
+    userName = decodedToken.name
   }
 
   const navigate = useNavigate();
@@ -54,9 +57,10 @@ const Navigation = () => {
           {isLogged ? (
               <>
                 {userRole === 'admin' && (
-                  <Nav.Link href="/admin">Admin</Nav.Link>
+                  <Nav.Link href="/admin">Administracion</Nav.Link>
                 )}
-                <button className="items me-3" onClick={logOut}>
+                 <span className="nav-header__user-name">{userName}</span>
+                <button className="nav-header__cerrar-sesion" onClick={logOut}>
                   Cerrar Sesión
                 </button>
               </>
