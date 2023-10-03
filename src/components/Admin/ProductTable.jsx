@@ -13,7 +13,7 @@ const ProductTable = ({ allProducts, getProducts }) => {
 
     const handleCloseUpdateModal = () => setShowUpdateModal(false);
     const handleShowUpdateModal = () => setShowUpdateModal(true);
-  
+
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
 
@@ -88,16 +88,13 @@ const ProductTable = ({ allProducts, getProducts }) => {
             name: "Acciones",
             selector: row => {
                 return (
-                    <>
                     <div>
-                    <div>
-              <button className='btn btn-warning btn-sm me-3' onClick={() => handleUpdate(row)}>Editar</button>
-              <button className='btn btn-danger btn-sm' onClick={() => deleteCurso(row._id)}>Eliminar</button>
-            </div>
+                        <div>
+                            <button className='btn btn-warning btn-sm me-3' onClick={() => handleUpdate(row)}>Editar</button>
+                            <button className='btn btn-danger btn-sm' onClick={() => deleteCurso(row._id)}>Eliminar</button>
+                        </div>
 
                     </div>
-                    <ModalUpdate show={showUpdateModal} handleClose={handleCloseUpdateModal} datoProduct={datoProduct} getProducts={getProducts} />
-          </>
                 )
             }
         }
@@ -114,8 +111,9 @@ const ProductTable = ({ allProducts, getProducts }) => {
                 data={allProducts}
                 pagination
             />
-      <ModalNuevo show={showAddModal} handleClose={handleCloseAddModal} datoProduct={datoProduct} getProducts={getProducts} />
-    </>
+            <ModalUpdate show={showUpdateModal} handleClose={handleCloseUpdateModal} datoProduct={datoProduct} getProducts={getProducts} />
+            <ModalNuevo show={showAddModal} handleClose={handleCloseAddModal} datoProduct={datoProduct} getProducts={getProducts} />
+        </>
 
     )
 }

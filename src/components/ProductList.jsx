@@ -40,7 +40,7 @@ const ProductList = ({selectedOrder, selectedCategory }) => {
     <div className="container containerProductList ">
         <div className="row">
             <div className="col text-center my-3">
-                <h3>Nuestros Productos</h3>
+                <h3 id='ourProducts'>Nuestros Productos</h3>
                 
             </div>
         </div>

@@ -1,0 +1,42 @@
+
+.carousel-item {
+    transition: 900ms ease-in-out; 
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10rem;
+  height: 10rem;
+  background-color: rgba(0, 0, 0, 0.882); 
+  border-radius: 50%;
+  top: 40%;
+}
+
+.carousel-control-prev {
+  left: 5rem; 
+}
+
+.carousel-control-next {
+  right: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .carouselResponsive__img{
+        height: 18vh;
+
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+    display: none;
+
+    }
+}
+
+
+
+#carouselCards .carousel-control-prev{
+    left: 0; 
+}
+#carouselCards .carousel-control-next {
+    right: 0; 
+}
