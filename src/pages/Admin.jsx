@@ -18,7 +18,6 @@ const Admin = () => {
   const getProducts = async () => {
     try {
        const resp = await axiosInstance.get("/products")
-    console.log(resp.data)
     setAllProducts(resp.data.product)
     } catch (error) {
       console.log(error)

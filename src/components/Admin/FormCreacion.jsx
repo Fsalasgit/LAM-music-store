@@ -15,7 +15,6 @@ const FormCreacion = ({ getProducts }) => {
   const getCategorias = async () => {
     try {
       const resp = await axiosInstance.get('/categories');
-      console.log(resp.data);
       setCategories(resp.data.categories);
     } catch (error) {
       console.log(error);
@@ -75,7 +74,6 @@ const FormCreacion = ({ getProducts }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formDatos);
     try {
       const formData = new FormData();
       formData.append('title', formDatos.title);
