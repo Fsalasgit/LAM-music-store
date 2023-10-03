@@ -2,17 +2,27 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { REGISTRO_SCHEMA } from "../helpers/validationsSchemas";
+import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from "../config/axiosInstance";
 
 const Register = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(REGISTRO_SCHEMA)
   });
 
-  const onSubmit = (data) => {
-    console.log(data)
-    reset()
-  }
-  console.log(errors)
+  const navigate= useNavigate()
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {
+   await axiosInstance.post("/register", data)
+      // console.log(response.data.token)
+      //  localStorage.setItem("token", response.data.token)
+      navigate("/login")
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   return (
     <div className="register">

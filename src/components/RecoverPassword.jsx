@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RECOVERPASSWORD_SCHEMA } from "../helpers/validationsSchemas";
 import { Link } from 'react-router-dom';
-
+import { axiosInstance } from '../config/axiosInstance';
+import Swal from 'sweetalert2'
 
 const RecoverPassword = () => {
     const {
@@ -13,12 +14,28 @@ const RecoverPassword = () => {
             }
         );
 
-    const onSubmit = (data) => {
-        console.log(data)
-        reset()
-    }
-
-    console.log(errors)
+        const onSubmit = async (data) => {
+            try {
+              const response = await axiosInstance.post('/recoverPassword', { username: data.username });
+              if (response.status === 200) {
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Correo enviado para recuperar contraseña.',
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+            }
+            } catch (error) {
+              console.error(error);
+              Swal.fire({
+                icon: 'error',
+                title: 'Usuario No Registrado.',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          };
+          
 
     return (
         <>
