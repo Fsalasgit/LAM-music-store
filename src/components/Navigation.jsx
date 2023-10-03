@@ -6,10 +6,17 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useNavigate } from "react-router-dom";
 import { RiLoginBoxLine } from "react-icons/ri";
 
-
 const Navigation = () => {
+  const isLogged = localStorage.getItem("token")
+  const navigate = useNavigate()
+
+  const logOut = () => {
+    localStorage.removeItem("token")
+    navigate("/login")
+  }
   return (
     <Navbar sticky="top" expand="lg" className="bg-body-tertiary nav-header" bg="dark" data-bs-theme="dark">
     <Container>
@@ -31,10 +38,17 @@ const Navigation = () => {
         </Row>
       </Form>
         <Nav className="ms-auto">
-          <Nav.Link href="#home" className='me-3'>Inicio</Nav.Link>
-          <Nav.Link href="/productos" className='me-3'>Productos</Nav.Link>
-          <Nav.Link href="/login" className='me-3'><RiLoginBoxLine/></Nav.Link>
-          <Nav.Link href="/registro" >Registro</Nav.Link>
+
+          <Nav.Link href="#home">Inicio</Nav.Link>
+          <Nav.Link href="/productos">Productos</Nav.Link>
+          {
+          isLogged ? (<button className="items me-3" onClick={logOut}>Cerrar Sesión</button>) : (
+                <>
+          <Nav.Link href="/login">Iniciar Sesion</Nav.Link>
+          <Nav.Link href="/registro">Registro</Nav.Link>
+                </>
+              )
+            }
         </Nav>
       </Navbar.Collapse>
     </Container>

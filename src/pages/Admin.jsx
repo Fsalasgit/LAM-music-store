@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductTable from '../components/Admin/ProductTable';
 import UserTable from '../components/Admin/UserTable';
+import { axiosInstance } from '../config/axiosInstance';
 
 const Admin = () => {
   const [showProductTable, setShowProductTable] = useState(true);
+  const [allProducts, setAllProducts] = useState([])
 
   const showProductView = () => {
     setShowProductTable(true);
@@ -12,6 +14,20 @@ const Admin = () => {
   const showUserView = () => {
     setShowProductTable(false);
   };
+
+  const getProducts = async () => {
+    try {
+       const resp = await axiosInstance.get("/products")
+    console.log(resp.data)
+    setAllProducts(resp.data.product)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+  useEffect(() =>{
+    getProducts()
+  }, [])
 
   return (
     <>
@@ -23,7 +39,7 @@ const Admin = () => {
             <button className='btn btn-warning ms-5' onClick={showUserView}>Mostrar Usuarios</button>
           </div>
         </div>
-        {showProductTable && <ProductTable />}
+        {showProductTable && <ProductTable allProducts={allProducts} getProducts={getProducts}/>}
         {!showProductTable && <UserTable />}
       </div>
     </>
@@ -31,3 +47,4 @@ const Admin = () => {
 }
 
 export default Admin;
+
