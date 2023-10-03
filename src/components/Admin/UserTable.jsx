@@ -115,8 +115,10 @@ const UserTable = () => {
         data = {allUsers}
         pagination />
     </>
+    </>
   )
 }
+
 
 export default UserTable
 
