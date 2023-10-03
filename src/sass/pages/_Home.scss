@@ -1,37 +1,5 @@
 
 
-.carousel-item {
-    transition: 900ms ease-in-out; 
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  width: 10rem;
-  height: 10rem;
-  background-color: rgba(0, 0, 0, 0.882); 
-  border-radius: 50%;
-  top: 40%;
-}
-
-.carousel-control-prev {
-  left: 5rem; 
-}
-
-.carousel-control-next {
-  right: 5rem;
-}
-
-@media screen and (max-width: 768px) {
-    .carouselResponsive__img{
-        height: 18vh;
-
-    }
-    .carousel-control-prev,
-    .carousel-control-next {
-    display: none;
-
-    }
-}
 
 .ShippingType{
     display: flex;
@@ -93,13 +61,17 @@
         width: 100%;
         font-size: 1rem;
     }
-    &__title{
-        text-align: center;
-        text-transform: uppercase;
-    }
+    
     &__img{
         box-shadow: 5px 7px 10px black;
         border-radius: 2px 15px 20px 2px ;
+        @media screen and (max-width: 844px) {
+            max-width: 50%;
+        }
+        @media screen and (max-width: 576px) {
+            max-width: 50%;
+        }
+
 
     }
 }
@@ -113,3 +85,50 @@
 }
 
 
+.titleText{
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+    @media screen and (max-width: 844px) {
+        font-size: 2.5rem;
+    }
+    @media screen and (max-width: 576px) {
+        font-size: 2rem;
+    }
+
+
+
+}
+
+.subtitleText{
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    @media screen and (max-width: 844px) {
+        font-size: 2rem;
+    }
+    @media screen and (max-width: 576px) {
+        font-size: 1.5rem;
+    }
+
+}
+
+.paragraphs{
+    font-size: 2rem;
+    text-indent: 1rem;
+    @media screen and (max-width: 844px) {
+        font-size: 1.5rem;
+    }
+    @media screen and (max-width: 576px) {
+        font-size: 1rem;
+    }
+
+}
+
+
+    d-none-576{
+        @media screen and (max-width: 576px) {
+
+            display: none;
+        }
+    }

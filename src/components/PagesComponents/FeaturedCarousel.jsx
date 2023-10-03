@@ -12,7 +12,7 @@ const FeaturedCarousel = () => {
 
   return (
     <>
-      <Carousel activeIndex={startIndex / 3} onSelect={handleSelect} className='mt-1'>
+      <Carousel id='carouselCards' activeIndex={startIndex / 3} onSelect={handleSelect} className='mt-1'>
         <Carousel.Item>
           <div className="d-flex justify-content-around">
             <FeaturedCards price="1" url="https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/YAMAHA/21650_small.jpg"/>
