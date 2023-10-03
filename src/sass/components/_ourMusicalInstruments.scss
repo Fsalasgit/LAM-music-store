@@ -1,3 +1,16 @@
+.OurMusicalInstruments{
+    @media screen and (max-width: 576px) {
+        overflow-x: hidden;
+    }
+    &__img{   
+       
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
+
+    }
+}
+
 .buttonContainer{
     display: flex;
     flex-direction: column;

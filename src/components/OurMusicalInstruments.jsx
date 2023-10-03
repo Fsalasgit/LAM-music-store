@@ -12,7 +12,7 @@ const OurMusicalInstruments = () => {
     
   return (
     <>
-        <Container className='container-fluid'>
+        <Container className='container OurMusicalInstruments'>
             <Row data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1000" className='mb-5'>
                 <Col className="flex-column">
                     <h3 className='subtitleText'>Pianos</h3>
@@ -23,7 +23,7 @@ const OurMusicalInstruments = () => {
                         <Link className="readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
                     </span>
                 </Col>
-                <Col xl={7}>
+                <Col lg={7} className='OurMusicalInstruments__img'>
                 <img
                     className="w-100 d-none-550"
                     src="https://es.yamaha.com/es/files/Pianos_L_e35cd543e83938b3e48072d633c9c354.jpg?impolicy=large&imwid=735&imhei=245"
@@ -32,7 +32,7 @@ const OurMusicalInstruments = () => {
                 </Col>
             </Row>
             <Row data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1000" className='mb-5'>
-                <Col xl={7}>
+                <Col xl={7} className='OurMusicalInstruments__img'>
                 <img
                     className="w-100 d-none-576"
                     src="https://es.yamaha.com/es/files/guitars_basses_540x180_847381a8738a577f87fd67f992383dee.jpg?impolicy=large&imwid=735&imhei=245"
@@ -55,7 +55,7 @@ const OurMusicalInstruments = () => {
                         <Link className="readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
                     </span>
                 </Col>
-                <Col xl={7}>
+                <Col xl={7} className='OurMusicalInstruments__img'>
                 <img
                     className="w-100 d-none-576"
                     src="https://es.yamaha.com/es/files/mi_drums_5a52d802f1ca99307fa811499f4c3be4.jpg?impolicy=resize&imwid=735&imhei=245"
@@ -65,7 +65,7 @@ const OurMusicalInstruments = () => {
                 </Col>
             </Row>
             <Row data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1000" className='mb-5'>
-                <Col xl={7}>
+                <Col xl={7} className='OurMusicalInstruments__img'>
                 <img
                     className="w-100 d-none-576"
                     src="https://es.yamaha.com/es/files/Image-Index_24e38d6521ad0bf58511b545b6267b42.jpg?impolicy=large&imwid=735&imhei=245"
