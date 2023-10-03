@@ -1,11 +1,14 @@
 @import './base/variables';
 @import './base/base';
+@import './components/carouselHome';
 @import './pages/loginPage';
 @import './components/login';
 @import './components/formSidebar';
+@import './components/ourMusicalInstruments';
 @import './pages/registerPage';
 @import './components/register';
 @import './layout/sidebar';
+@import './pages/Home';
 @import './pages/recoverPasswordPage';
 @import './components/recoverPassword';
 @import './components/poductCard';
