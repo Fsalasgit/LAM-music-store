@@ -8,9 +8,6 @@ import { RiMailLine } from "react-icons/ri";
 import { RiPinDistanceLine } from "react-icons/ri";
 import { AiOutlineClockCircle } from "react-icons/ai";
 
-
-
-
 const Footer = () => {
   return (
     <>
@@ -19,7 +16,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-12 d-flex justify-content-between mt-3">
               <div>
-                <img src="" alt="Logo" />
+                <img src="../../public/lan (150 x 100 px).png" alt="Logo" />
               </div>
               <div className='d-flex'>
                 <a href="" className='me-4'> <RiInstagramLine/> </a>

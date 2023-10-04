@@ -5,12 +5,12 @@ import { axiosInstance } from '../config/axiosInstance'
 
 const ProductList = ({ selectedOrder, selectedCategory }) => {
   const [allProducts, setAllProducts] = useState([])
-  const products = allProducts
+  const product = allProducts
 
   const getProducts = async () => {
     try {
       const resp = await axiosInstance.get("/products")
-      setAllProducts(resp.data.product)
+      setAllProducts(resp.data.products)
     } catch (error) {
       console.log(error)
     }
@@ -20,28 +20,28 @@ const ProductList = ({ selectedOrder, selectedCategory }) => {
     getProducts()
   }, [])
 
-  const sortProduct = (products, order) => {
+  const sortProduct = (product, order) => {
 
     switch (order) {
       case '1':
-        return products.slice().sort((a, b) => a.id - b._id);
+        return product.slice().sort((a, b) => a._id - b._id);
       case '2':
-        return products.slice().sort((a, b) => a.price - b.price);
+        return product.slice().sort((a, b) => a.price - b.price);
       case '3':
-        return products.slice().sort((a, b) => b.price - a.price);
+        return product.slice().sort((a, b) => b.price - a.price);
       case '4':
-        return products.slice().sort((a, b) => a.title.localeCompare(b.title));
+        return product.slice().sort((a, b) => a.title.localeCompare(b.title));
       case '5':
-        return products.slice().sort((a, b) => b.title.localeCompare(a.title));
+        return product.slice().sort((a, b) => b.title.localeCompare(a.title));
       default:
-        return products.slice();
+        return product.slice();
 
     }
 
   }
 
 
-  const sortedProducts = sortProduct(products, selectedOrder) || []
+  const sortedProducts = sortProduct(product, selectedOrder) || []
   const filteredProducts = selectedCategory
     ? sortedProducts.filter((product) => product.category === selectedCategory)
     : sortedProducts;
@@ -64,7 +64,7 @@ const ProductList = ({ selectedOrder, selectedCategory }) => {
         <div className="row">
           {
             filteredProducts.map((product) => (
-              <ProductCard product={product} key={product.id} />
+              <ProductCard product={product} key={product._id} />
             )
             )}
         </div>
