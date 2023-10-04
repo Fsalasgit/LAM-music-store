@@ -60,16 +60,23 @@ const ProductTable = ({ allProducts, getProducts }) => {
         {
             name: "Description",
             selector: (row) => row.description,
+            sortable: true,
+            hide: 'lg',
+            center: true
         },
         {
             name: "Price",
             selector: (row) => row.price,
-            sortable: true
+            sortable: true,
+            hide: 'sm',
+            center: true
         },
         {
             name: "Category",
             selector: (row) => row.category.name,
-            sortable: true
+            sortable: true,
+            hide: 'sm',
+            center: true
         },
         {
             name: "Image",
@@ -77,26 +84,29 @@ const ProductTable = ({ allProducts, getProducts }) => {
                 <div>
                     <img src={row.image} alt={row.title} width={100} />
                 </div>
-            )
+            ),
+            hide: 'lg',
+            center: true
         },
         {
             name: "Stock",
             selector: (row) => row.stock,
-            sortable: true
+            sortable: true,
+            width: "6%",
+            hide: 'sm',
+            center: true
         },
         {
             name: "Acciones",
             selector: row => {
                 return (
                     <div>
-                        <div>
-                            <button className='btn btn-warning btn-sm me-3' onClick={() => handleUpdate(row)}>Editar</button>
-                            <button className='btn btn-danger btn-sm' onClick={() => deleteCurso(row._id)}>Eliminar</button>
-                        </div>
-
+                        <button className='btn btn-warning btn-md me-3' onClick={() => handleUpdate(row)}>Edit</button>
+                        <button className='btn btn-danger btn-md ' onClick={() => deleteCurso(row._id)}>Delete</button>
                     </div>
                 )
-            }
+            },
+            center: true
         }
     ]
     return (
@@ -106,7 +116,9 @@ const ProductTable = ({ allProducts, getProducts }) => {
                     <button className='btn btn-primary mb-4' onClick={handleShowAddModal}>Agregar Producto</button>
                 </div>
             </div>
+
             <DataTable
+                title="Administración de Productos"
                 columns={columns}
                 data={allProducts}
                 pagination
