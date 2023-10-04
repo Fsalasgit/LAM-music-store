@@ -8,13 +8,26 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from "react-router-dom";
 import { RiLoginBoxLine } from "react-icons/ri";
+import jwt_decode from 'jwt-decode';
 
 const Navigation = () => {
-  const isLogged = localStorage.getItem("token")
-  const navigate = useNavigate()
+  const token = localStorage.getItem('token');
+  const isLogged = !!token;
+  let userName = '';
+  
+
+  let userRole = '';
+  if (isLogged) {
+    const decodedToken = jwt_decode(token);
+    userRole = decodedToken.rol;
+    userName = decodedToken.name
+  }
+
+  const navigate = useNavigate();
 
   const logOut = () => {
     localStorage.removeItem("token")
+    localStorage.removeItem('userRole');
     navigate("/login")
   }
   return (
@@ -39,16 +52,24 @@ const Navigation = () => {
       </Form>
         <Nav className="ms-auto">
 
-          <Nav.Link href="#home">Inicio</Nav.Link>
+          <Nav.Link href="/">Inicio</Nav.Link>
           <Nav.Link href="/productos">Productos</Nav.Link>
-          {
-          isLogged ? (<button className="items me-3" onClick={logOut}>Cerrar Sesión</button>) : (
-                <>
-          <Nav.Link href="/login">Iniciar Sesion</Nav.Link>
-          <Nav.Link href="/registro">Registro</Nav.Link>
-                </>
-              )
-            }
+          {isLogged ? (
+              <>
+                {userRole === 'admin' && (
+                  <Nav.Link href="/admin">Administracion</Nav.Link>
+                )}
+                 <span className="nav-header__user-name">{userName}</span>
+                <button className="nav-header__cerrar-sesion" onClick={logOut}>
+                  Cerrar Sesión
+                </button>
+              </>
+            ) : (
+              <>
+                <Nav.Link href="/login">Iniciar Sesión</Nav.Link>
+                <Nav.Link href="/registro">Registro</Nav.Link>
+              </>
+            )}
         </Nav>
       </Navbar.Collapse>
     </Container>
