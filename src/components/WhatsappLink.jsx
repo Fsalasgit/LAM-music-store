@@ -2,8 +2,8 @@ import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const WhatsappLink = () => {
-  const phoneNumber = '51955081075'; // Agrega el número de teléfono deseado
-  const message = 'Hola! Quisiera más información sobre Varela 2.'; // Agrega el mensaje deseado
+  const phoneNumber = '51955081075'; 
+  const message = 'Hola! Quisiera más información sobre LAM Music Store.';
 
   const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 

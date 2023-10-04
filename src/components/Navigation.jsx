@@ -63,7 +63,7 @@ const Navigation = () => {
                 
               </>
             )} 
-            <Nav.Link href='/cart'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
+            <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
             <Nav.Link href='/cart'><RiShoppingCart2Fill className="nav-header__cart"/></Nav.Link>
         </Nav>
       </Navbar.Collapse>
