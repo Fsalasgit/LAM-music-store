@@ -8,9 +8,11 @@ const WhatsappLink = () => {
   const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
   return (
-    <a href={whatsappLink} className="float" target="_blank" rel="noopener noreferrer">
-      <FaWhatsapp className="my-float" />
+    <div className='whatsApp'>
+    <a href={whatsappLink} className="whatsApp__float" target="_blank" rel="noopener noreferrer">
+      <FaWhatsapp className="whatsApp__my-float" />
     </a>
+    </div>
   );
 };
 

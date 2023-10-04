@@ -16,22 +16,22 @@ const Login = () => {
   } = useForm({
     resolver: yupResolver(LOGIN_SCHEMA),
   });
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
     console.log(data);
     try {
       const response = await axiosInstance.post("/login", data);
       const token = response.data.token;
-  
+
       // Almacena el token en el almacenamiento local
       localStorage.setItem("token", token);
-  
+
       // Decodifica el token para obtener el rol del usuario
       const decodedToken = jwt_decode(token);
       const userRole = decodedToken.rol;
-  
+
       // Utiliza el rol para redirigir al usuario a la ruta correspondiente
-      
+
       if (userRole === 'admin') {
         navigate('/admin');
       } else if (userRole === 'user') {
