@@ -36,10 +36,10 @@ const Navigation = () => {
       <input
         type="text"
         placeholder="Buscar"
-        className="custom-search-input"
+        className="custom-search__input"
       />
-      <button type="submit" className="custom-search-button">
-        < RiSearch2Line className='search'/>
+      <button type="submit" className="custom-search__button">
+        < RiSearch2Line className='custom-search__search'/>
       </button>
     </form>
         <Nav className='me-3'>
@@ -63,7 +63,7 @@ const Navigation = () => {
                 
               </>
             )} 
-            <Nav.Link href='/cart'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
+            <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
             <Nav.Link href='/cart'><RiShoppingCart2Fill className="nav-header__cart"/></Nav.Link>
         </Nav>
       </Navbar.Collapse>

@@ -14,28 +14,28 @@ const RecoverPassword = () => {
             }
         );
 
-        const onSubmit = async (data) => {
-            try {
-              const response = await axiosInstance.post('/recoverPassword', { username: data.username });
-              if (response.status === 200) {
+    const onSubmit = async (data) => {
+        try {
+            const response = await axiosInstance.post('/recoverPassword', { username: data.username });
+            if (response.status === 200) {
                 Swal.fire({
-                  icon: 'success',
-                  title: 'Correo enviado para recuperar contraseña.',
-                  showConfirmButton: false,
-                  timer: 1500,
+                    icon: 'success',
+                    title: 'Correo enviado para recuperar contraseña.',
+                    showConfirmButton: false,
+                    timer: 1500,
                 });
             }
-            } catch (error) {
-              console.error(error);
-              Swal.fire({
+        } catch (error) {
+            console.error(error);
+            Swal.fire({
                 icon: 'error',
                 title: 'Usuario No Registrado.',
                 showConfirmButton: false,
                 timer: 1500,
-              });
-            }
-          };
-          
+            });
+        }
+    };
+
 
     return (
         <>
