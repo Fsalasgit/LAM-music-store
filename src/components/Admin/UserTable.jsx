@@ -102,8 +102,8 @@ const UserTable = () => {
       selector: row => {
         return (
           <div>
-            <button className='btn btn-warning btn-sm me-3' onClick={() => changeUserRole(row)}>Edit Rol</button>
-            <button className='btn btn-danger btn-sm' onClick={() => deleteUser(row._id)}>Delet</button>
+            <button className='btn btn-warning btn-md me-3' onClick={() => changeUserRole(row)}>Edit Rol</button>
+            <button className='btn btn-danger btn-md' onClick={() => deleteUser(row._id)}>Delet</button>
           </div>
         )
       }

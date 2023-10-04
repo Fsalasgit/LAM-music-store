@@ -1,7 +1,6 @@
 import React ,{useState, useEffect} from 'react'
 import Card from 'react-bootstrap/Card';
 import { FaRegHeart,FaHeart} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 const ProductCard  = ({product}) => {
  
@@ -39,12 +38,12 @@ const ProductCard  = ({product}) => {
       <Card className='productCard'>
         <Card.Img className='productCard__img' variant="top" src={product?.image} alt={product?.title}/>
         <Card.Body>
-        <Link to={`/productos/${product.id}`} className='a-para-borrar'>
+          <a href='https://www.swanmusic.com.ar/product-cort-mr500e-br-brown-burst-2010011450197359.h' target="_blank" className='a-para-borrar'> {/*Esto lo voy a modificar cuando tenga instalado react router dom por un Link */}
             <Card.Title className='productCard__title mt-1rem' >{product?.title}</Card.Title>
             <Card.Subtitle className='productCard__itemprice mt-1rem'>{convertToPesos(product?.price)}
-            </Card.Subtitle>
             <Card.Text className='productCard__description mt-1rem'>{product?.description}</Card.Text>
-          </Link>
+            </Card.Subtitle>
+          </a>
           
           {isFavorite ? (
             <button className='productCard__favorite favorite' onClick={handleFavourite}>
@@ -56,6 +55,7 @@ const ProductCard  = ({product}) => {
             </button>
           )}
         </Card.Body>
+        <button>Añadir a Carrito</button>
       </Card>
 
     
