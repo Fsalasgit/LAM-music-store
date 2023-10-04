@@ -3,7 +3,7 @@ import CarouselHome from '../components/PagesComponents/CarouselHome'
 import ShippingType from '../components/PagesComponents/ShippingType'
 import FeaturedCarousel from '../components/PagesComponents/FeaturedCarousel'
 import OurMusicalInstruments from '../components/OurMusicalInstruments'
-
+import WhatsappLink from '../components/WhatsappLink'
 
 
 const Home = () => {
@@ -32,6 +32,7 @@ const Home = () => {
       accesorios, en un solo lugar.</p> 
       <div className="contOurMusInstruments">   
       <OurMusicalInstruments />
+      <WhatsappLink/>
       </div>
     </div>
 
