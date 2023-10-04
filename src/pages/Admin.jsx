@@ -32,8 +32,7 @@ const Admin = () => {
     <>
       <div className="container admin-body">
         <div className="row">
-          <div className="col mt-5 mb-5">
-            <h1 className='text-center text-black'>Administración de Productos y Usuarios</h1>
+          <div className="col mt-5 mb-4">
             <button className='btn btn-primary' onClick={showProductView}>Mostrar Productos</button>
             <button className='btn btn-warning ms-5' onClick={showUserView}>Mostrar Usuarios</button>
           </div>
