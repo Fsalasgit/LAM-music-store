@@ -7,6 +7,7 @@ import { RiWhatsappLine } from "react-icons/ri";
 import { RiMailLine } from "react-icons/ri";
 import { RiPinDistanceLine } from "react-icons/ri";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -18,6 +19,11 @@ const Footer = () => {
               <div>
                 <img src="../../public/lan (150 x 100 px).png" alt="Logo" />
               </div>
+              <div className='d-flex align-items-end'>
+                <a href="" className='me-4 '> <RiInstagramLine/> </a>
+                <a href="" className='me-4'> <RiFacebookBoxFill/> </a>
+                <a href="" className='me-4'><RiTwitterXFill/></a>
+                <a href=""><RiTiktokFill/></a>
               <div className='d-flex'>
                 <a href="" className='me-4'> <RiInstagramLine /> </a>
                 <a href="" className='me-4'> <RiFacebookBoxFill /> </a>
@@ -34,6 +40,15 @@ const Footer = () => {
             </div>
             <div className="col-lg-3">
               <h3>Preguntas frecuentes</h3>
+
+                <ul className='text-start ms-4'>
+                  <li><Link to="/nosotros"  className='nosotros-link'>¿Quienes Somos?</Link></li>
+                  <li>Envios</li>
+                  <li>Cancelar orden</li>
+                </ul>
+              </div>
+              <div className="col-lg-6">
+
               <ul className='text-start ms-4'>
                 <li>¿Quienes Somos?</li>
                 <li>Envios</li>
@@ -41,6 +56,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="col-lg-6">
+
               <h3>Contacto y Medios de pago</h3>
               <ul className='text-start ms-5'>
                 <li> <RiWhatsappLine /> Escríbenos por WhatsApp!</li>
