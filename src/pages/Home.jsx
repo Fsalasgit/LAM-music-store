@@ -34,6 +34,8 @@ const Home = () => {
       <OurMusicalInstruments />
       <WhatsappLink/>
       </div>
+      
+
     </div>
 
 
