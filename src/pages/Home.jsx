@@ -33,6 +33,8 @@ const Home = () => {
       <div className="contOurMusInstruments">   
       <OurMusicalInstruments />
       </div>
+      
+
     </div>
 
 
