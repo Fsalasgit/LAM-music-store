@@ -7,6 +7,7 @@ import { RiWhatsappLine } from "react-icons/ri";
 import { RiMailLine } from "react-icons/ri";
 import { RiPinDistanceLine } from "react-icons/ri";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -35,7 +36,7 @@ const Footer = () => {
               <div className="col-lg-3">
               <h3>Preguntas frecuentes</h3>
                 <ul className='text-start ms-4'>
-                  <li>¿Quienes Somos?</li>
+                  <li><Link to="/nosotros"  className='nosotros-link'>¿Quienes Somos?</Link></li>
                   <li>Envios</li>
                   <li>Cancelar orden</li>
                 </ul>

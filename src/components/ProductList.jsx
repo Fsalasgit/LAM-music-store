@@ -10,7 +10,7 @@ const ProductList = ({ selectedOrder, selectedCategory }) => {
   const getProducts = async () => {
     try {
       const resp = await axiosInstance.get("/products")
-      setAllProducts(resp.data.products)
+      setAllProducts(resp.data.product)
     } catch (error) {
       console.log(error)
     }
