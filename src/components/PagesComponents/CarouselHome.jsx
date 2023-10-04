@@ -15,7 +15,7 @@ const CarouselHome = () => {
         <Carousel.Item>
           <img 
             className="d-block w-100 carouselResponsive__img"
-            src="./image/banner-bose.webp"
+            src="./image/banner-steinberg.webp"
             alt="Second slide"
           />
           

@@ -29,7 +29,7 @@ const Navigation = () => {
   return (
     <Navbar sticky="top" expand="lg" className="nav-header" >
     <Container>
-      <Navbar.Brand><img src="../../public/lan (150 x 100 px).png" /></Navbar.Brand>
+      <Navbar.Brand><img src="../../public/lan (150 x 100 px)-PhotoRoom.png-PhotoRoom.png" /></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
       <form className="custom-search">
@@ -42,7 +42,7 @@ const Navigation = () => {
         < RiSearch2Line className='search'/>
       </button>
     </form>
-        <Nav>
+        <Nav className='me-3'>
 
           <Nav.Link className='nav-header__link' href="/">Inicio</Nav.Link>
           <Nav.Link className='nav-header__link' href="/productos">Productos</Nav.Link>
