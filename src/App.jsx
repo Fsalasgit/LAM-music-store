@@ -11,6 +11,7 @@ import Products from './pages/Products'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import { Header } from './components/Cart/Header'
+import AboutUs from './pages/AboutUs'
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
         <Route path='/productos/:id' element={<DetailPage />} />
         <Route path='/productos'element={<Products/>}/>
         <Route path='productos/cart' element={<Header/>}/>
+        <Route path='/nosotros' element={<AboutUs/>} />
+
         
         <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />

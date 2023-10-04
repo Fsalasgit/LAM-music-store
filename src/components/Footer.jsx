@@ -18,8 +18,8 @@ const Footer = () => {
               <div>
                 <img src="../../public/lan (150 x 100 px).png" alt="Logo" />
               </div>
-              <div className='d-flex'>
-                <a href="" className='me-4'> <RiInstagramLine/> </a>
+              <div className='d-flex align-items-end'>
+                <a href="" className='me-4 '> <RiInstagramLine/> </a>
                 <a href="" className='me-4'> <RiFacebookBoxFill/> </a>
                 <a href="" className='me-4'><RiTwitterXFill/></a>
                 <a href=""><RiTiktokFill/></a>
