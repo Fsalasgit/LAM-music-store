@@ -2,12 +2,12 @@ import React from 'react'
 
 const Category = ({category, onCategoryClick }) => {
   const handleCategoryClick = () => {
-    onCategoryClick(category.category);
+    onCategoryClick(category.name);
   };
 
   return (
     <li className='categoryList' onClick={handleCategoryClick}>
-      {category.category}
+      {category.name}
       </li>
   )
 }

@@ -8,8 +8,8 @@ const ProductCard  = ({product}) => {
 
   useEffect(() => {
     const favoritesFromLocalStorage = JSON.parse(localStorage.getItem('favorites')) || [];
-    setIsFavorite(favoritesFromLocalStorage.includes(product.id));
-  }, [product.id]);
+    setIsFavorite(favoritesFromLocalStorage.includes(product._id));
+  }, [product._id]);
 
   const handleFavourite = () => {
     const newFavorite = !isFavorite;
@@ -18,8 +18,8 @@ const ProductCard  = ({product}) => {
     const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
 
     const updatedFavorites = newFavorite
-      ? [...favoritesFromStorage, product.id]
-      : favoritesFromStorage.filter((id) => id !== product.id);
+      ? [...favoritesFromStorage, product._id]
+      : favoritesFromStorage.filter((id) => id !== product._id);
 
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   }
@@ -41,8 +41,8 @@ const ProductCard  = ({product}) => {
           <a href='https://www.swanmusic.com.ar/product-cort-mr500e-br-brown-burst-2010011450197359.h' target="_blank" className='a-para-borrar'> {/*Esto lo voy a modificar cuando tenga instalado react router dom por un Link */}
             <Card.Title className='productCard__title mt-1rem' >{product?.title}</Card.Title>
             <Card.Subtitle className='productCard__itemprice mt-1rem'>{convertToPesos(product?.price)}
-            </Card.Subtitle>
             <Card.Text className='productCard__description mt-1rem'>{product?.description}</Card.Text>
+            </Card.Subtitle>
           </a>
           
           {isFavorite ? (
@@ -55,6 +55,7 @@ const ProductCard  = ({product}) => {
             </button>
           )}
         </Card.Body>
+        <button>Añadir a Carrito</button>
       </Card>
 
     

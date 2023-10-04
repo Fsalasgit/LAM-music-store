@@ -13,11 +13,11 @@ const FormUpdate = ({ datoProduct, getProducts}) => {
     })
 
     const handleChangeDatos = (e) => {
-        setFormDatos({
-            ...formDatos,
-            [e.target.name]: e.target.value
-        })
-    }
+      setFormDatos({
+          ...formDatos,
+          [e.target.name]: e.target.value
+      })
+  }
 
     const getCategorias = async () => {
             const resp = await axiosInstance.get("/categories")
@@ -31,7 +31,7 @@ const FormUpdate = ({ datoProduct, getProducts}) => {
     const handletSubmit = async (e) => {
         e.preventDefault()
         try {
-           await axiosInstance.put(`/product/${datoProduct._id}`, formDatos)
+           await axiosInstance.put(`/product/${datoProduct._id}`, formDatos);
         } catch (error) {
           console.log(error)  
         }finally{

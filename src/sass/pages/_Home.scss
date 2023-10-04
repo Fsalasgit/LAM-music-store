@@ -24,7 +24,7 @@
         }
         @media screen and (max-width: 576px) {
             width: 90%;
-            font-size: 1rem;
+            font-size: 0.7rem;
         }
 
 
@@ -58,20 +58,14 @@
         font-size: 1.5rem;
     }
     @media screen and (max-width: 576px) {
-        width: 100%;
+        width: 99%;
         font-size: 1rem;
     }
     
     &__img{
         box-shadow: 5px 7px 10px black;
         border-radius: 2px 15px 20px 2px ;
-        @media screen and (max-width: 844px) {
-            max-width: 50%;
-        }
-        @media screen and (max-width: 576px) {
-            max-width: 50%;
-        }
-
+    
 
     }
 }
@@ -126,9 +120,4 @@
 }
 
 
-    d-none-576{
-        @media screen and (max-width: 576px) {
 
-            display: none;
-        }
-    }

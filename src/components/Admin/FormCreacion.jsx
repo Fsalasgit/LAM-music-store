@@ -15,7 +15,6 @@ const FormCreacion = ({ getProducts }) => {
   const getCategorias = async () => {
     try {
       const resp = await axiosInstance.get('/categories');
-      console.log(resp.data);
       setCategories(resp.data.categories);
     } catch (error) {
       console.log(error);
@@ -27,47 +26,11 @@ const FormCreacion = ({ getProducts }) => {
   }, []);
 
   const handleChangeDatos = (e) => {
-    const { name, value } = e.target;
-
-    if (name === 'price') {
-      // Llama a la función de formateo de precio antes de actualizar el estado
-      const formattedPrice = formatPrice(value);
-      setFormDatos({
+    setFormDatos({
         ...formDatos,
-        [name]: formattedPrice,
-      });
-    } else {
-      setFormDatos({
-        ...formDatos,
-        [name]: value,
-      });
-    }
-  };
-
-  const formatPrice = (value) => {
-    // Remueve caracteres no deseados (todo excepto dígitos, punto y signo de pesos)
-    const cleanedValue = value.replace(/[^0-9.$]/g, '');
-
-      // Reemplaza el símbolo de dólar y la coma por un espacio vacío
-  const sanitizedValue = cleanedValue.replace(/[$,]/g, '');
-
-    // Separa el valor en parte entera y decimal
-    const parts = sanitizedValue.split('.');
-    let integerPart = parts[0] || '';
-    let decimalPart = parts[1] || '';
-  
-
-    // Formatea la parte entera con comas (para miles) y el signo de pesos
-    integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    
-    // Limita la parte decimal a dos decimales
-    decimalPart = decimalPart.slice(0, 2);
-
-    // Une la parte entera y decimal de nuevo
-    const formattedValue = `$${integerPart}${decimalPart ? '.' + decimalPart : ''}`;
-
-    return formattedValue;
-  };
+        [e.target.name]: e.target.value
+    })
+}
 
   const handleImage = (e) => {
     setImgFile([...e.target.files]);
@@ -75,7 +38,6 @@ const FormCreacion = ({ getProducts }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formDatos);
     try {
       const formData = new FormData();
       formData.append('title', formDatos.title);

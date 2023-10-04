@@ -2,53 +2,69 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { useNavigate } from "react-router-dom";
-import { RiLoginBoxLine } from "react-icons/ri";
+import { RiUser3Fill, RiShoppingCart2Fill, RiHeart3Fill, RiSearch2Line } from "react-icons/ri";
+import jwt_decode from 'jwt-decode';
 
 const Navigation = () => {
-  const isLogged = localStorage.getItem("token")
-  const navigate = useNavigate()
+  const token = localStorage.getItem('token');
+  const isLogged = !!token;
+  let userName = '';
+  
+
+  let userRole = '';
+  if (isLogged) {
+    const decodedToken = jwt_decode(token);
+    userRole = decodedToken.rol;
+    userName = decodedToken.name
+  }
+
+  const navigate = useNavigate();
 
   const logOut = () => {
     localStorage.removeItem("token")
+    localStorage.removeItem('userRole');
     navigate("/login")
   }
   return (
-    <Navbar sticky="top" expand="lg" className="bg-body-tertiary nav-header" bg="dark" data-bs-theme="dark">
+    <Navbar sticky="top" expand="lg" className="nav-header" >
     <Container>
-      <Navbar.Brand href="/">LAM Music Store</Navbar.Brand>
+      <Navbar.Brand><img src="../../public/lan (150 x 100 px)-PhotoRoom.png-PhotoRoom.png" /></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-      <Form className='ms-auto'> 
-        <Row>
-          <Col xs="auto">
-            <Form.Control
-              type="text"
-              placeholder="Search"
-              className=" mr-sm-2"
-            />
-          </Col>
-          <Col xs="auto">
-            <Button type="submit">Submit</Button>
-          </Col>
-        </Row>
-      </Form>
-        <Nav className="ms-auto">
+      <form className="custom-search">
+      <input
+        type="text"
+        placeholder="Buscar"
+        className="custom-search-input"
+      />
+      <button type="submit" className="custom-search-button">
+        < RiSearch2Line className='search'/>
+      </button>
+    </form>
+        <Nav className='me-3'>
 
-          <Nav.Link href="#home">Inicio</Nav.Link>
-          <Nav.Link href="/productos">Productos</Nav.Link>
-          {
-          isLogged ? (<button className="items me-3" onClick={logOut}>Cerrar Sesión</button>) : (
-                <>
-          <Nav.Link href="/login">Iniciar Sesion</Nav.Link>
-          <Nav.Link href="/registro">Registro</Nav.Link>
-                </>
-              )
-            }
+          <Nav.Link className='nav-header__link' href="/">Inicio</Nav.Link>
+          <Nav.Link className='nav-header__link' href="/productos">Productos</Nav.Link>
+         
+          {isLogged ? (
+              <>
+                {userRole === 'admin' && (
+                  <Nav.Link className='nav-header__link' href="/admin">Administracion</Nav.Link>
+                )}
+                 <span className="nav-header__user-name">{userName}</span>
+                <button className="nav-header__cerrar-sesion" onClick={logOut}>
+                  Cerrar Sesión
+                </button>
+              </>
+            ) : (
+              <>
+                <Nav.Link href="/login"><RiUser3Fill className="nav-header__login"/></Nav.Link>
+                
+              </>
+            )} 
+            <Nav.Link href='/cart'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
+            <Nav.Link href='/cart'><RiShoppingCart2Fill className="nav-header__cart"/></Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
