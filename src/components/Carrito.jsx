@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 
 import {  RiShoppingCart2Fill } from "react-icons/ri";
 
+
+
 const Carrito = ({
 	allProducts,
 	setAllProducts,
@@ -30,6 +32,16 @@ const Carrito = ({
 		setTotal(0);
 		setCountProducts(0);
 	};
+	
+	let convertToPesos = (numb) => {
+		const pesos = numb.toLocaleString('es-AR', {
+		  style: 'currency',
+		  currency: 'ARS'
+		});
+	
+		return pesos
+	  }
+	
 
 
   return (
@@ -66,7 +78,7 @@ const Carrito = ({
 												{product.title}
 											</p>
 											<span className='precio-producto-carrito'>
-												${product.price}
+												{convertToPesos(product.price)}
 											</span>
 										</div>
 										<svg
@@ -90,7 +102,7 @@ const Carrito = ({
 
 							<div className='cart-total'>
 								<h3>Total:</h3>
-								<span className='total-pagar'>${total}</span>
+								<span className='total-pagar'>{convertToPesos(total)}</span>
 							</div>
 
 							<button className='btn-clear-all' onClick={onCleanCart}>
