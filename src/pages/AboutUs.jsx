@@ -11,8 +11,8 @@ import { PiNumberCircleThreeFill } from "react-icons/pi";
 const AboutUs = () => {
   return (
     <>
-      <div className="container-fluid hero min-vh-100">
-        <div className="container">
+      <div className="container-fluid pb-5 hero min-vh-100">
+        <div className="container pb-5" id="Nosotros">
           <div className="row">
             <div className="col-12 mt-5">
               <h2>Acerca de nosotros</h2>
@@ -72,7 +72,7 @@ const AboutUs = () => {
                 <div className="col-3 text-end icono-numero">
                 <PiNumberCircleOneFill/>
                 </div>
-                <div className="col-9">
+                <div className="col-9 pt-3">
                   <h4>Lorem ipsum</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dicta.</p>
                 </div>
@@ -81,7 +81,7 @@ const AboutUs = () => {
                 <div className="col-3 text-end icono-numero">
                 <PiNumberCircleTwoFill/>
                 </div>
-                <div className="col-9">
+                <div className="col-9 pt-3">
                   <h4>Lorem ipsum</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dicta.</p>
                 </div>
@@ -90,7 +90,7 @@ const AboutUs = () => {
               <div className="col-3 text-end icono-numero">
                 <PiNumberCircleThreeFill/>
                 </div>
-                <div className="col-9">
+                <div className="col-9 pt-3">
                   <h4>Lorem ipsum</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dicta.</p>
                 </div>
@@ -104,7 +104,7 @@ const AboutUs = () => {
           </div>
           <div className="row mt-5">
             <div className="col-4 text-center">
-              <img src="https://png.pngtree.com/png-clipart/20220719/original/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_8385663.png" alt="" className="avatar-nosotros" />
+              <img src="https://trello.com/1/cards/650dc4c9511651b0dba28b40/attachments/650dc62c76eb07e440b8072c/previews/650dc62c76eb07e440b81a15/download/fotoPerfil.jpg" alt="" className="avatar-nosotros" />
               <div className="row mt-4">
                 <div className="col-12">
                   <h2 className="mb-5">Franco Salas</h2>
@@ -113,7 +113,7 @@ const AboutUs = () => {
               </div>
             </div>
             <div className="col-4 text-center">
-              <img src="https://png.pngtree.com/png-clipart/20220719/original/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_8385663.png" alt="" className="avatar-nosotros" />
+              <img src="https://trello.com/1/cards/650dc4c5f5767ac991e1ea24/attachments/650e2bab99a7d0c5f96c1d81/previews/650e2bad99a7d0c5f96c1fa8/download/avatarlorenzo.png" alt="" className="avatar-nosotros" />
               <div className="row mt-4">
                 <div className="col-12">
                   <h2 className="mb-5">Lorenzo Albornoz</h2>
@@ -122,7 +122,7 @@ const AboutUs = () => {
               </div>
             </div>
             <div className="col-4 text-center">
-              <img src="https://png.pngtree.com/png-clipart/20220719/original/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_8385663.png" alt="" className="avatar-nosotros" />
+              <img src="https://trello.com/1/cards/650dc464bda0497805ac542c/attachments/6511fa83a113592c1e60bd5e/previews/6511fa84a113592c1e60be4b/download/IMG_7026_Original22.jpg" alt="" className="avatar-nosotros" />
               <div className="row mt-4">
                 <div className="col-12">
                   <h2 className="mb-5">Bruno Busnelli</h2>
@@ -136,7 +136,7 @@ const AboutUs = () => {
               <h2 className="mt-5 mb-5">Tecnologias</h2>
             </div>
           </div>
-          <div className="row mb-5">
+          <div className="row pb-5">
             <div className="col-2 mb-5 text-center">
               <img src="https://cms-assets.tutsplus.com/cdn-cgi/image/width=360/uploads/users/1125/posts/30546/preview_image/RN.jpg" alt="" className="tecnologias-img" />
             </div>
