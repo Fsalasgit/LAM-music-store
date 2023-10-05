@@ -72,7 +72,7 @@ const AboutUs = () => {
                 <div className="col-3 text-end icono-numero">
                 <PiNumberCircleOneFill/>
                 </div>
-                <div className="col-9 pt-3">
+                <div className="col-9 pt-4">
                   <h4>Lorem ipsum</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dicta.</p>
                 </div>
@@ -81,7 +81,7 @@ const AboutUs = () => {
                 <div className="col-3 text-end icono-numero">
                 <PiNumberCircleTwoFill/>
                 </div>
-                <div className="col-9 pt-3">
+                <div className="col-9 pt-4">
                   <h4>Lorem ipsum</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dicta.</p>
                 </div>
@@ -90,7 +90,7 @@ const AboutUs = () => {
               <div className="col-3 text-end icono-numero">
                 <PiNumberCircleThreeFill/>
                 </div>
-                <div className="col-9 pt-3">
+                <div className="col-9 pt-4">
                   <h4>Lorem ipsum</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, dicta.</p>
                 </div>
