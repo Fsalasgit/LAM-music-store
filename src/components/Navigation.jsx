@@ -5,8 +5,18 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
 import { RiUser3Fill, RiShoppingCart2Fill, RiHeart3Fill, RiSearch2Line } from "react-icons/ri";
 import jwt_decode from 'jwt-decode';
+import Carrito from './Carrito';
 
-const Navigation = () => {
+const Navigation = ({ 
+
+  allProducts,
+	setAllProducts,
+	countProducts,
+	setCountProducts,
+	total,
+	setTotal,
+  
+}) => {
   const token = localStorage.getItem('token');
   const isLogged = !!token;
   let userName = '';
@@ -65,8 +75,18 @@ const Navigation = () => {
             )} 
             <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
             <Nav.Link href='/cart'><RiShoppingCart2Fill className="nav-header__cart"/></Nav.Link>
+            <Carrito allProducts={allProducts}
+              setAllProducts={setAllProducts}
+              total={total}
+              setTotal={setTotal}
+              countProducts={countProducts}
+              setCountProducts={setCountProducts}
+            />
+            
+                    
         </Nav>
       </Navbar.Collapse>
+      
     </Container>
   </Navbar>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { Routes, Route } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -13,20 +13,36 @@ import Home from './pages/Home'
 
 
 function App() {
+  const [allProducts, setAllProducts] = useState([]);
+	const [total, setTotal] = useState(0);
+	const [countProducts, setCountProducts] = useState(0);
 
 
 
 
   return (
     <>
-    <Navigation/>
+    <Navigation   allProducts={allProducts}
+          setAllProducts={setAllProducts}
+          total={total}
+          setTotal={setTotal}
+          countProducts={countProducts}
+          setCountProducts={setCountProducts}/>
       <Routes>
         <Route path='/'element={<Home/>}/>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/productos/:id' element={<DetailPage />} />
-        <Route path='/productos'element={<Products/>}/>
+        <Route path='/productos' element={<Products
+          allProducts={allProducts}
+          setAllProducts={setAllProducts}
+          total={total}
+          setTotal={setTotal}
+          countProducts={countProducts}
+          setCountProducts={setCountProducts}
+          />}
+        />
       
         <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />

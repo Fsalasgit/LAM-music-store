@@ -9,26 +9,31 @@ import Carrito from '../components/Carrito';
 import { axiosInstance } from '../config/axiosInstance'
 
 
-const Products = () => {
+const Products = ({
+  allProducts,
+	setAllProducts,
+	countProducts,
+	setCountProducts,
+	total,
+	setTotal,
 
-  const [allProducts, setAllProducts] = useState([]);
-	const [total, setTotal] = useState(0);
-	const [countProducts, setCountProducts] = useState(0);
-  const [shoppingCart, setShoppingCart] = useState(0);
+}) => {
+
+
 
 
   
 
   return (
     <>
-    <Carrito 
+    {/* <Carrito 
       allProducts={allProducts}
       setAllProducts={setAllProducts}
       total={total}
       setTotal={setTotal}
       countProducts={countProducts}
       setCountProducts={setCountProducts}
-    />
+    /> */}
     <Container className='container'>
         <Row className="row">
             <Col>
