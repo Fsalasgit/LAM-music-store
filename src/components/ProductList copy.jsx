@@ -5,11 +5,7 @@ import { axiosInstance } from '../config/axiosInstance'
 
 const ProductList = ({ selectedOrder, selectedCategory }) => {
   const [allProducts, setAllProducts] = useState([])
-  const [total, setTotal] = useState(0);
-  const [countProducts, setCountProducts] = useState(0);
   const product = allProducts
-
-  console.log(`producis `, {total})
 
   const getProducts = async () => {
     try {
@@ -51,33 +47,27 @@ const ProductList = ({ selectedOrder, selectedCategory }) => {
   const filteredProducts = selectedCategory
     ? sortedProducts.filter((product) => product.category === selectedCategory)
     : sortedProducts;
-  console.log(selectedOrder)
+
+    const onAddProduct = product => {
+      if (allProducts.find(item => item.id === product.id)) {
+        const products = allProducts.map(item =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+        setTotal(total + product.price * product.quantity);
+        setCountProducts(countProducts + product.quantity);
+        return setAllProducts([...products]);
+    }
 
 
-  const onAddProduct = product => {
 
-    
-    console.log("click")
-		 if (allProducts.find(item => item.id === product.id)) {
-		const products = allProducts.map(item =>
-				item.id === product.id
-					? { ...item, stock: item.stock + 1 }
-					: item
-			);
-		 	setTotal(total + product.price * product.stock);
-	 	  setCountProducts(countProducts + product.stock);
-		 	return setAllProducts([...products]);
-		 }
 
-		 setTotal(total + product.price * product.stock);
-		 setCountProducts(countProducts + product.stock);
-		 setAllProducts([...allProducts, product]);
-	};
 
   return (
     <>
 
-      <div className="container containerProductList ">
+      <div className="container containerProductList">
         <div className="row">
           <div className="col text-center my-3">
             <h3 id='ourProducts'>Nuestros Productos</h3>
@@ -88,7 +78,7 @@ const ProductList = ({ selectedOrder, selectedCategory }) => {
         <div className="row">
           {
             filteredProducts.map((product) => (
-              <ProductCard product={product} key={product._id} propsFunction={onAddProduct}/>
+              <ProductCard product={product} key={product._id} handle={onAddProduct}/>
             )
             )}
         </div>
