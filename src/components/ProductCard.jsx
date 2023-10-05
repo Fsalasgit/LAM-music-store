@@ -1,30 +1,17 @@
-import React ,{useState, useEffect} from 'react'
-import Card from 'react-bootstrap/Card';
-import { FaRegHeart,FaHeart} from 'react-icons/fa';
+import React from 'react'
 
-const ProductCard  = ({product,propsFunction}) => {
 
-  // console.log(product)
- 
-  // const [isFavorite, setIsFavorite] = useState(false);
 
-  // useEffect(() => {
-  //   const favoritesFromLocalStorage = JSON.parse(localStorage.getItem('favorites')) || [];
-  //   setIsFavorite(favoritesFromLocalStorage.includes(product.id));
-  // }, [product.id]);
+const ProductCard  = ({product,
+  allProducts,
+	setAllProducts,
+	countProducts,
+	setCountProducts,
+	total,
+	setTotal,}) => {
 
-  // const handleFavourite = () => {
-  //   const newFavorite = !isFavorite;
-  //   setIsFavorite(newFavorite);
 
-  //   const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
 
-  //   const updatedFavorites = newFavorite
-  //     ? [...favoritesFromStorage, product.id]
-  //     : favoritesFromStorage.filter((id) => id !== product.id);
-
-  //   localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-  // }
 
   let convertToPesos = (numb) => {
     const pesos = numb.toLocaleString('es-AR', {
@@ -34,7 +21,23 @@ const ProductCard  = ({product,propsFunction}) => {
 
     return pesos
   }
+  const onAddProduct = product => {
+		if (allProducts.find(item => item.id === product.id)) {
+			const products = allProducts.map(item =>
+				item.id === product.id
+        ? { ...item, stock: item.stock + 1 }
+        : item
+        );
+      
+			setTotal(total + product.price * product.stock);
+			setCountProducts(countProducts + product.stock);
+			return setAllProducts([...products]);
+		}
 
+		setTotal(total + product.price * product.stock);
+		setCountProducts(countProducts + product.stock);
+		setAllProducts([...allProducts, product]);
+	};
   
 
   return (
@@ -47,7 +50,7 @@ const ProductCard  = ({product,propsFunction}) => {
 						<h2>{product.title}</h2>
 						<p className='price'>{convertToPesos(product.price)}</p>
             <p className='price'></p>
-						<button onClick={() => propsFunction(product)}>
+						<button onClick={() => onAddProduct(product)}>
 							Añadir al carrito
 						</button>
 					</div>
