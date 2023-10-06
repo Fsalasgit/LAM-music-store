@@ -27,10 +27,10 @@ const FormCreacion = ({ getProducts }) => {
 
   const handleChangeDatos = (e) => {
     setFormDatos({
-        ...formDatos,
-        [e.target.name]: e.target.value
+      ...formDatos,
+      [e.target.name]: e.target.value
     })
-}
+  }
 
   const handleImage = (e) => {
     setImgFile([...e.target.files]);
@@ -72,14 +72,15 @@ const FormCreacion = ({ getProducts }) => {
           />
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="nombre">Detalle del producto</label>
-          <input
-            type="text"
-            className="form-control"
-            id="description"
+          <label htmlFor="description">Descripción del producto</label>
+          <textarea
             name="description"
+            id="description"
+            className="form-control"
             onChange={handleChangeDatos}
-          />
+            cols="30"
+            rows="5" 
+          ></textarea>
         </div>
         <div className="form-group mb-3">
           <label htmlFor="nombre">Precio</label>
@@ -88,7 +89,6 @@ const FormCreacion = ({ getProducts }) => {
             className="form-control"
             id="price"
             name="price"
-            value={formDatos.price}
             onChange={handleChangeDatos}
           />
         </div>

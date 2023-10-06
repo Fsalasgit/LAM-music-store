@@ -8,14 +8,14 @@ const CarouselHome = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 carouselResponsive__img"
-            src="https://bairesrocks.vteximg.com.br/arquivos/ids/242928/25_09_banner_web1.jpg?v=638312449406930000"
+            src="./image/banner-yamaha.webp"
             alt="first slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img 
-            className="d-block w-100"
-            src="https://bairesrocks.vteximg.com.br/arquivos/ids/242929/25_09_banner_web2.jpg?v=638312449629070000"
+            className="d-block w-100 carouselResponsive__img"
+            src="./image/banner-steinberg.webp"
             alt="Second slide"
           />
           
@@ -23,7 +23,7 @@ const CarouselHome = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 carouselResponsive__img"
-            src="https://bairesrocks.vteximg.com.br/arquivos/ids/242930/25_09_banner_web3.jpg?v=638312449980900000"
+            src="./image/banner-vox.webp"
             alt="Second slide"
           />
 
@@ -31,7 +31,7 @@ const CarouselHome = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 carouselResponsive__img"
-            src="https://bairesrocks.vteximg.com.br/arquivos/ids/242771/bose2_web.jpg?v=638294280399270000"
+            src="./image/banner-bose.webp"
             alt="Second slide"
           />
 

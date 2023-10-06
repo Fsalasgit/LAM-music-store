@@ -53,16 +53,16 @@ const FormUpdate = ({ datoProduct, getProducts}) => {
             />
           </div>
           <div className="form-group mb-3">
-            <label htmlFor="nombre">Detalle del producto</label>
-            <input
-              type="text"
-              className="form-control"
-              id="description"
-              name="description"
-              value={formDatos.description}
-              onChange={handleChangeDatos}
-            />
-          </div>
+          <label htmlFor="description">Descripción del producto</label>
+          <textarea
+            name="description"
+            id="description"
+            className="form-control"
+            onChange={handleChangeDatos}
+            cols="30"
+            rows="5" 
+          ></textarea>
+        </div>
           <div className="form-group mb-3">
             <label htmlFor="nombre">Precio</label>
             <input

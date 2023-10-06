@@ -10,6 +10,10 @@ import PrivateRoutes from './components/Routes/PrivateRoutes'
 import Products from './pages/Products'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+// import { Header } from './components/Cart/Header'
+import AboutUs from './pages/AboutUs'
+
+
 
 
 function App() {
