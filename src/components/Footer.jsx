@@ -47,6 +47,7 @@ const Footer = () => {
                 <li> <RiMailLine /> swanmusiconlinetuc@gmail.com</li>
                 <li> <RiPinDistanceLine /> Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán</li>
                 <li> <AiOutlineClockCircle /> Lunes a Sábado de 9 a 13 hs y de 17 a 21 hs</li>
+                <li><img src="https://hoffmannmusica.com.ar/img/pagos.webp?v=1662789836" alt="" className='img-fluid tarjetas'/></li>
               </ul>
             </div>
           </div>

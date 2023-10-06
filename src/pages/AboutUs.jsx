@@ -138,7 +138,7 @@ const AboutUs = () => {
           </div>
           <div className="row pb-5">
             <div className="col-2 mb-5 text-center">
-              <img src="https://cms-assets.tutsplus.com/cdn-cgi/image/width=360/uploads/users/1125/posts/30546/preview_image/RN.jpg" alt="" className="tecnologias-img" />
+              <img src="https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png" alt="" className="tecnologias-img" />
             </div>
             <div className="col-2 text-center">
             <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-social-logo.png" alt="" className="tecnologias-img" />
@@ -153,7 +153,7 @@ const AboutUs = () => {
             <img src="https://newrelic.com/sites/default/files/styles/800w/public/2021-10/mongo_logo.jpg?itok=Z1PabBZB" alt="" className="tecnologias-img" />
             </div>
             <div className="col-2 text-center">
-            <img src="https://cms-assets.tutsplus.com/cdn-cgi/image/width=360/uploads/users/1125/posts/30546/preview_image/RN.jpg" alt="" className="tecnologias-img" />
+            <img src="https://avatars.githubusercontent.com/u/6853419?s=200&v=4" alt="" className="tecnologias-img" />
             </div>
           </div>
         </div>
