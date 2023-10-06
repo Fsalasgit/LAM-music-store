@@ -18,7 +18,7 @@ Instala las dependencias usando npm:
 npm install
 Este comando instalará todas las dependencias necesarias para ejecutar la aplicación.
 
-Inicia la aplicación:
+## Inicia la aplicación:
 
 npm run dev
 La aplicación se iniciará en tu navegador predeterminado en la dirección http://localhost:3000.
