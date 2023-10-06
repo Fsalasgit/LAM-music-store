@@ -46,7 +46,7 @@ const Carrito = ({
 
   return (
     <>
-        <span className='headerCart'>
+        <span >
 
 			<div className='container-icon'>
 				<div

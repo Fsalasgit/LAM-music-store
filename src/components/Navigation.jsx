@@ -74,14 +74,16 @@ const Navigation = ({
               </>
             )} 
             <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
-            <Nav.Link href='/cart'><RiShoppingCart2Fill className="nav-header__cart"/></Nav.Link>
-            <Carrito allProducts={allProducts}
+            
+            <Nav.Link > <Carrito allProducts={allProducts}
               setAllProducts={setAllProducts}
               total={total}
               setTotal={setTotal}
               countProducts={countProducts}
               setCountProducts={setCountProducts}
-            />
+              
+            /></Nav.Link> 
+           
             
                     
         </Nav>

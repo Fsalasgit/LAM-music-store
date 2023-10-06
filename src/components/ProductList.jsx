@@ -38,7 +38,7 @@ const ProductList = ({
               setTotal={setTotal}
               countProducts={countProducts}
               setCountProducts={setCountProducts}
-/>
+              />
             )
             )}
         </div>

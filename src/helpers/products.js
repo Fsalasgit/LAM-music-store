@@ -8,7 +8,12 @@ export const products = [
         "category": "Instrumentos de Cuerda",
         "image": "https://www.heavenimagenes.com/heavencommerce/0c5cacb8-dfbd-471a-ac7e-5c09a26f6da9/images/v2/CORT/6449_small.jpg",
         "stock": 1,
-        "favorite": true
+        "favorite": true,
+        "queantity":1,
+        "longDedscription": `hola
+                            esto 
+                            es una descripcion
+                            `
     },
     {
         "id": 2,
