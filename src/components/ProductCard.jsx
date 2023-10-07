@@ -23,6 +23,14 @@ const ProductCard = ({ product }) => {
 	updatecart()
   };
 
+  let convertToPesos = (numb) => {
+    const pesos = numb.toLocaleString('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    });
+    return pesos;
+  };
+
   const updatecart = () => {
    
     cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
@@ -38,7 +46,7 @@ const ProductCard = ({ product }) => {
         <div className='info-product'>
           <h2>{product.title}</h2>
           <p className='description'>{product.description}</p>
-          <p className='price'>{`Price: $${product.price}`}</p>
+          <p className='price'>{convertToPesos(product.price)}</p>
           <button onClick={onAddProduct}>Añadir al carrito</button>
         </div>
       </div>
