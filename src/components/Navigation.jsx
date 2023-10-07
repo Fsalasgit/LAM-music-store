@@ -9,8 +9,8 @@ import Carrito from './Carrito';
 
 const Navigation = ({ 
 
-  allProducts,
-	setAllProducts,
+  cartProducts,
+	setCartProducts,
 	countProducts,
 	setCountProducts,
 	total,
@@ -75,8 +75,8 @@ const Navigation = ({
             )} 
             <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
             
-            <Nav.Link > <Carrito allProducts={allProducts}
-              setAllProducts={setAllProducts}
+            <Nav.Link > <Carrito cartProducts={cartProducts}
+              setCartProducts={setCartProducts}
               total={total}
               setTotal={setTotal}
               countProducts={countProducts}

@@ -5,8 +5,8 @@ import {  RiShoppingCart2Fill } from "react-icons/ri";
 
 
 const Carrito = ({
-	allProducts,
-	setAllProducts,
+	cartProducts,
+	setCartProducts,
 	total,
 	countProducts,
 	setCountProducts,
@@ -16,19 +16,19 @@ const Carrito = ({
     const [active, setActive] = useState(false);
 
 	const onDeleteProduct = product => {
-		const results = allProducts.filter(
-			item => item.id !== product.id
+		const results = cartProducts?.filter(
+			item => item.id !== product?.id
 			);
 
 
-		setTotal(total - product.price * product.stock);
-		setCountProducts(countProducts - product.stock);
-		setAllProducts(results);
+		setTotal(total - product?.price * product?.stock);
+		setCountProducts(countProducts - product?.stock);
+		setCartProducts(results);
 	
 	};
 
 	const onCleanCart = () => {
-		setAllProducts([]);
+		setCartProducts([]);
 		setTotal(0);
 		setCountProducts(0);
 	};
@@ -65,20 +65,20 @@ const Carrito = ({
 						active ? '' : 'hidden-cart'
 					}`}
 				>
-					{allProducts.length ? (
+					{cartProducts.length ? (
 						<>
 							<div className='row-product'>
-								{allProducts.map(product => (
-									<div className='cart-product' key={product.id}>
+								{cartProducts.map(product => (
+									<div className='cart-product' key={product?.id}>
 										<div className='info-cart-product'>
 											<span className='cantidad-producto-carrito'>
-												{product.stock}
+												{product?.stock}
 											</span>
 											<p className='titulo-producto-carrito'>
-												{product.title}
+												{product?.title}
 											</p>
 											<span className='precio-producto-carrito'>
-												{convertToPesos(product.price)}
+												{convertToPesos(product?.price)}
 											</span>
 										</div>
 										<svg

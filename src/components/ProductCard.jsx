@@ -3,8 +3,8 @@ import React from 'react'
 
 
 const ProductCard  = ({product,
-  allProducts,
-	setAllProducts,
+  	cartProducts,
+	setCartProducts,
 	countProducts,
 	setCountProducts,
 	total,
@@ -22,22 +22,22 @@ const ProductCard  = ({product,
     return pesos
   }
   const onAddProduct = product => {
-		if (allProducts.find(item => item.id === product.id)) {
-			const products = allProducts.map(item =>
-				item.id === product.id
-        ? { ...item, stock: item.stock + 1 }
-        : item
-        );
-      
-			setTotal(total + product.price * product.stock);
-			setCountProducts(countProducts + product.stock);
-			return setAllProducts([...products]);
-		}
+	  console.log(cartProducts)
+	  if (cartProducts?.find(item => item?.id === product?.id)) {
+		const products = cartProducts.map(item =>
+			item?.id === product?.id
+				? { ...item, quantity: item?.quantity + 1 }
+				: item
+		);
+		setTotal(total + product?.price * product?.quantity);
+		setCountProducts(countProducts + product?.quantity);
+		return setCartProducts([...products]);
+	}
 
-		setTotal(total + product.price * product.stock);
-		setCountProducts(countProducts + product.stock);
-		setAllProducts([...allProducts, product]);
-	};
+	setTotal(total + product?.price * product?.quantity);
+	setCountProducts(countProducts + product?.quantity);
+	setCartProducts([...cartProducts, product]);
+};
   
 
   return (

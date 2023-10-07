@@ -1,20 +1,64 @@
 import React, { useEffect, useState } from 'react'
-import { products } from '../helpers/products'
+// import { products } from '../helpers/products'
 import ProductCard from './ProductCard'
 import { axiosInstance } from '../config/axiosInstance'
 
 const ProductList = ({ 
 
-  allProducts,
-	setAllProducts,
+  cartProducts,
+	setCartProducts,
 	countProducts,
 	setCountProducts,
 	total,
 	setTotal,
+  selectedOrder
   
 }) => {
 
-  
+  const [allProducts, setAllProducts] = useState([])
+  const product = allProducts
+
+
+  const getProducts = async () => {
+    try {
+      const resp = await axiosInstance.get("/products")
+      setAllProducts(resp.data.products)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
+  const sortProduct = (product, order) => {
+
+    switch (order) {
+      case '1':
+        return product.slice().sort((a, b) => a._id - b._id);
+      case '2':
+        return product.slice().sort((a, b) => a.price - b.price);
+      case '3':
+        return product.slice().sort((a, b) => b.price - a.price);
+      case '4':
+        return product.slice().sort((a, b) => a.title.localeCompare(b.title));
+      case '5':
+        return product.slice().sort((a, b) => b.title.localeCompare(a.title));
+      default:
+        return product.slice();
+
+    }
+
+  }
+
+
+  const sortedProducts = sortProduct(product, selectedOrder) || []
+  // const filteredProducts = selectedCategory
+  //   ? sortedProducts.filter((product) => product.category === selectedCategory)
+  //   : sortedProducts;
+  // console.log(selectedOrder)
+
   
 
   return (
@@ -30,10 +74,10 @@ const ProductList = ({
 
         <div className="row">
           {
-            products.map((product) => (
+            sortedProducts.map((product) => (
               <ProductCard product={product} key={product._id}
-              allProducts={allProducts}
-              setAllProducts={setAllProducts}
+              cartProducts={cartProducts}
+              setCartProducts={setCartProducts}
               total={total}
               setTotal={setTotal}
               countProducts={countProducts}

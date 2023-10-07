@@ -19,25 +19,23 @@ const Products = ({
 
 }) => {
 
+  const [selectedOrder, setSelectedOrder] = useState('1');
 
 
+  const handleOrderChange = (selectedValue) => {
+    setSelectedOrder(selectedValue);
+  };
 
+  console.log('desde product ', selectedOrder)
   
 
   return (
     <>
-    {/* <Carrito 
-      allProducts={allProducts}
-      setAllProducts={setAllProducts}
-      total={total}
-      setTotal={setTotal}
-      countProducts={countProducts}
-      setCountProducts={setCountProducts}
-    /> */}
+
     <Container className='container'>
         <Row className="row">
             <Col>
-              <Sidebar />
+              <Sidebar onOrderChange={handleOrderChange}/>
 
 
             </Col>
@@ -49,6 +47,8 @@ const Products = ({
                 setTotal={setTotal}
                 countProducts={countProducts}
                 setCountProducts={setCountProducts}
+                
+                selectedOrder={selectedOrder}
 
 
                 />

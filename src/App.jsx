@@ -17,7 +17,7 @@ import AboutUs from './pages/AboutUs'
 
 
 function App() {
-  const [allProducts, setAllProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
 	const [total, setTotal] = useState(0);
 	const [countProducts, setCountProducts] = useState(0);
 
@@ -26,8 +26,8 @@ function App() {
 
   return (
     <>
-    <Navigation   allProducts={allProducts}
-          setAllProducts={setAllProducts}
+    <Navigation   cartProducts={cartProducts}
+          setCartProducts={setCartProducts}
           total={total}
           setTotal={setTotal}
           countProducts={countProducts}
@@ -39,8 +39,8 @@ function App() {
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/productos/:id' element={<DetailPage />} />
         <Route path='/productos' element={<Products
-          allProducts={allProducts}
-          setAllProducts={setAllProducts}
+          cartProducts={cartProducts}
+          setCartProducts={setCartProducts}
           total={total}
           setTotal={setTotal}
           countProducts={countProducts}
