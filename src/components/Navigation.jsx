@@ -8,16 +8,7 @@ import jwt_decode from 'jwt-decode';
 import Carrito from './Carrito';
 import Swal from 'sweetalert2'
 
-const Navigation = ({ 
-
-  cartProducts,
-	setCartProducts,
-	countProducts,
-	setCountProducts,
-	total,
-	setTotal,
-  
-}) => {
+const Navigation = () => {
   const token = localStorage.getItem('token');
   const isLogged = !!token;
   let userName = '';
@@ -94,12 +85,7 @@ const Navigation = ({
             )} 
             <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
             
-            <Nav.Link > <Carrito 
-            
-              countProducts={countProducts}
-              setCountProducts={setCountProducts}
-              
-            /></Nav.Link> 
+            <Nav.Link > <Carrito /></Nav.Link> 
            
             
                     

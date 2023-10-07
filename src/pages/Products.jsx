@@ -5,19 +5,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Sidebar from '../components/Sidebar';
 import WhatsappLink from '../components/WhatsappLink';
-import Carrito from '../components/Carrito';
-import { axiosInstance } from '../config/axiosInstance'
 
 
-const Products = ({
-  allProducts,
-	setAllProducts,
-	countProducts,
-	setCountProducts,
-	total,
-	setTotal,
 
-}) => {
+
+const Products = ({}) => {
 
   const [selectedOrder, setSelectedOrder] = useState('1');
 
@@ -26,7 +18,7 @@ const Products = ({
     setSelectedOrder(selectedValue);
   };
 
-  console.log('desde product ', selectedOrder)
+
   
 
   return (
@@ -40,19 +32,7 @@ const Products = ({
 
             </Col>
             <Col xs={9}>
-              <ProductList
-                allProducts={allProducts}
-                setAllProducts={setAllProducts}
-                total={total}
-                setTotal={setTotal}
-                countProducts={countProducts}
-                setCountProducts={setCountProducts}
-                
-                selectedOrder={selectedOrder}
-
-
-                />
-                
+              <ProductList selectedOrder={selectedOrder}/>
 
             </Col>
         </Row>

@@ -17,35 +17,17 @@ import AboutUs from './pages/AboutUs'
 
 
 function App() {
-  const [cartProducts, setCartProducts] = useState([]);
-	const [total, setTotal] = useState(0);
-	const [countProducts, setCountProducts] = useState(0);
-
-
-
 
   return (
     <>
-    <Navigation   cartProducts={cartProducts}
-          setCartProducts={setCartProducts}
-          total={total}
-          setTotal={setTotal}
-          countProducts={countProducts}
-          setCountProducts={setCountProducts}/>
+    <Navigation/>
       <Routes>
         <Route path='/'element={<Home/>}/>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/productos/:id' element={<DetailPage />} />
-        <Route path='/productos' element={<Products
-          cartProducts={cartProducts}
-          setCartProducts={setCartProducts}
-          total={total}
-          setTotal={setTotal}
-          countProducts={countProducts}
-          setCountProducts={setCountProducts}
-          />}
+        <Route path='/productos' element={<Products/>}
         />
       
         <Route element={<PrivateRoutes/>}>

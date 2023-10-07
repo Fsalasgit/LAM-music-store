@@ -20,7 +20,6 @@ const ProductCard = ({ product }) => {
 
     setCartProducts(updatedCartProducts);
     localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
-	updatecart()
   };
 
   let convertToPesos = (numb) => {
@@ -31,11 +30,6 @@ const ProductCard = ({ product }) => {
     return pesos;
   };
 
-  const updatecart = () => {
-   
-    cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-    
-}
 
   return (
     <>

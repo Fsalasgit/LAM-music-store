@@ -3,17 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard'
 import { axiosInstance } from '../config/axiosInstance'
 
-const ProductList = ({ 
-
-  cartProducts,
-	setCartProducts,
-	countProducts,
-	setCountProducts,
-	total,
-	setTotal,
-  selectedOrder
-  
-}) => {
+const ProductList = ({selectedOrder}) => {
 
   const [allProducts, setAllProducts] = useState([])
   const product = allProducts
@@ -75,14 +65,7 @@ const ProductList = ({
         <div className="row">
           {
             sortedProducts.map((product) => (
-              <ProductCard product={product} key={product._id}
-              cartProducts={cartProducts}
-              setCartProducts={setCartProducts}
-              total={total}
-              setTotal={setTotal}
-              countProducts={countProducts}
-              setCountProducts={setCountProducts}
-              />
+              <ProductCard product={product} key={product._id}/>
             )
             )}
         </div>
