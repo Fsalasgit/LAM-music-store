@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   useEffect(() => {
     const savedCartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
     setCartProducts(savedCartProducts);
-  }, []);
+  }, [cartProducts]);
 
   const onAddProduct = () => {
     const updatedCartProducts = [...cartProducts];

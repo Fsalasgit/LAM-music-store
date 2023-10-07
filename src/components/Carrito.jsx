@@ -3,11 +3,12 @@ import { RiShoppingCart2Fill } from 'react-icons/ri';
 
 const Carrito = () => {
   const [cartProducts, setCartProducts] = useState([]);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const savedCartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
     setCartProducts(savedCartProducts);
-  }, []);
+  }, [cartProducts]);
 
   const onDeleteProduct = (productId) => {
     const updatedCartProducts = cartProducts
@@ -42,12 +43,14 @@ const Carrito = () => {
     <>
       <span>
         <div className='container-icon'>
-          <div className='container-cart-icon'>
-            <RiShoppingCart2Fill className='nav-header__cart' />
+          <div className='container-cart-icon' >
+            <RiShoppingCart2Fill className='nav-header__cart' onClick={() => setActive(!active)}/>
             <div className='count-products'>{cartProducts.length}</div>
           </div>
 
-          <div className='container-cart-products'>
+          <div className={`container-cart-products ${
+						active ? '' : 'hidden-cart'
+					}`} >
             {cartProducts.length ? (
               <>
                 <div className='row-product'>

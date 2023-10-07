@@ -9,6 +9,8 @@ import Carrito from './Carrito';
 import Swal from 'sweetalert2'
 
 const Navigation = () => {
+
+  
   const token = localStorage.getItem('token');
   const isLogged = !!token;
   let userName = '';
