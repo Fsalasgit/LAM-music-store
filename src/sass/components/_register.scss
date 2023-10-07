@@ -1,5 +1,5 @@
-.register{
-    &__input{
+.register {
+    &__input {
         display: block;
         width: 70%;
         margin: auto;
@@ -16,11 +16,13 @@
         border-radius: 0.5rem;
         transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     }
-    &__link{
+
+    &__link {
         text-decoration: none;
         color: var(--c-mainColor);
     }
-    &__button{
+
+    &__button {
         width: 100%;
         max-width: 25rem;
         margin: 0 auto;
@@ -36,16 +38,19 @@
         transition: background-color 0.3s, color 0.3s;
         margin-top: 1.5rem;
     }
-    &__button:hover{
+
+    &__button:hover {
         background-color: var(--c-secondColor);
         color: var(--c-white);
     }
-    &__description{
+
+    &__description {
         color: var(--c-white);
         font-size: 1.5rem;
         font-family: var(--font-PTSans);
     }
-    &__error-message{
+
+    &__error-message {
         font-size: 1.5rem;
         color: var(--c-wrong);
     }

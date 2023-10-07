@@ -10,14 +10,12 @@ const Register = () => {
     resolver: yupResolver(REGISTRO_SCHEMA)
   });
 
-  const navigate= useNavigate()
+  const navigate = useNavigate()
 
   const onSubmit = async (data) => {
     console.log(data);
     try {
-   await axiosInstance.post("/register", data)
-      // console.log(response.data.token)
-      //  localStorage.setItem("token", response.data.token)
+      await axiosInstance.post("/register", data)
       navigate("/login")
     } catch (error) {
       console.log(error)

@@ -26,21 +26,17 @@ const ProductTable = ({ allProducts, getProducts }) => {
     const deleteCurso = async (row) => {
         try {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: '¿Estas seguro?',
+                text: "No podrás revertir esto!",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
+                confirmButtonColor: '#F8A126',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Sí, eliminar!',
+                cancelButtonText: 'Cancelar'
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     await axiosInstance.delete(`/product/${row}`)
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
                     getProducts()
                 }
             })
@@ -69,7 +65,11 @@ const ProductTable = ({ allProducts, getProducts }) => {
             selector: (row) => row.price,
             sortable: true,
             hide: 'sm',
-            center: true
+            center: true,
+            format: (row) => {
+                const formattedPrice = `$${row.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+                return formattedPrice;
+              }
         },
         {
             name: "Category",

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const LoginPage = () => {
   return (
     <>
+    <div className="login-container">
       <div className="loginPage">
         <div className="loginPage__form">
           <h2 className="loginPage__createAccount">Iniciar Sesión</h2>
@@ -28,6 +29,7 @@ const LoginPage = () => {
             </span>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
