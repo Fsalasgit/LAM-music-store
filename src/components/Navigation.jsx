@@ -75,10 +75,8 @@ const Navigation = ({
             )} 
             <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
             
-            <Nav.Link > <Carrito cartProducts={cartProducts}
-              setCartProducts={setCartProducts}
-              total={total}
-              setTotal={setTotal}
+            <Nav.Link > <Carrito 
+            
               countProducts={countProducts}
               setCountProducts={setCountProducts}
               
