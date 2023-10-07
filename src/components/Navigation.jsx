@@ -5,9 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
 import { RiUser3Fill, RiShoppingCart2Fill, RiHeart3Fill, RiSearch2Line } from "react-icons/ri";
 import jwt_decode from 'jwt-decode';
+import Carrito from './Carrito';
 import Swal from 'sweetalert2'
 
 const Navigation = () => {
+
+  
   const token = localStorage.getItem('token');
   const isLogged = !!token;
   let userName = '';
@@ -83,9 +86,14 @@ const Navigation = () => {
               </>
             )} 
             <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
-            <Nav.Link href='/cart'><RiShoppingCart2Fill className="nav-header__cart"/></Nav.Link>
+            
+            <Nav.Link > <Carrito /></Nav.Link> 
+           
+            
+                    
         </Nav>
       </Navbar.Collapse>
+      
     </Container>
   </Navbar>
   )
