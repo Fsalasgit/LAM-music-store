@@ -9,7 +9,7 @@ const ModalNuevo = ({show, handleClose, getProducts}) => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Agregar producto</Modal.Title>
+          <Modal.Title>Agregar Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <FormCreacion getProducts={getProducts}/>
@@ -17,9 +17,6 @@ const ModalNuevo = ({show, handleClose, getProducts}) => {
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Guardar
           </Button>
         </Modal.Footer>
       </Modal>

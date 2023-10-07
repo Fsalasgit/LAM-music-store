@@ -4,7 +4,7 @@ import RecoverPassword from "../components/RecoverPassword";
 const RecoverPasswordPage = () => {
   return (
     <>
-      <div>
+      <div className="recoverPassword-container">
         <div className="recoverPasswordPage">
           <div className="recoverPasswordPage__form">
             <h2 className="recoverPasswordPage__createAccount">Recuperar contraseña</h2>
