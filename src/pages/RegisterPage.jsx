@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const RegisterPage = () => {
   return (
     <>
+    <div className="register-container">
       <div className="registerPage">
         <div className="registerPage__form">
           <h2 className="registerPage__createAccount">Crear una cuenta</h2>
@@ -29,6 +30,7 @@ const RegisterPage = () => {
             </span>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

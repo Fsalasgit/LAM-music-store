@@ -24,3 +24,10 @@ a{
 ::placeholder {
     color: var(--c-white);
 }
+
+.swal2-popup {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;    
+    color: white;
+    box-shadow: none !important;
+  }

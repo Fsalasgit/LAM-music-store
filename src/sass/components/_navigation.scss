@@ -1,10 +1,12 @@
 .nav-header {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: var(--c-black);
 
   &__link {
     color: white;
+    display: flex;
+    justify-content: center;
   }
 
   &__link:hover {
@@ -105,5 +107,11 @@
 
   &__search {
     font-size: 1.5rem;
+  }
+}
+
+.nav-link{
+  &__link{
+    
   }
 }
