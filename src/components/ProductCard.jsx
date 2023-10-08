@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { addCart } from '../context/GlobalActions';
 import { GlobalContext } from '../context/GlobalContext';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -49,17 +50,17 @@ const ProductCard = ({ product }) => {
 
   return (
     <>
-      <Card className='productCard' key={product._id}>
-        <div className='productCard__header'>
-          {isFavorite ? (
-            <button className='productCard__favorite favorite' onClick={handleFavourite}>
-              <FaHeart className='productCard__favorite-icons' />
-            </button>
-          ) : (
-            <button className='productCard__favorite' onClick={handleFavourite}>
-              <FaRegHeart className='productCard__favorite-icons' />
-            </button>
-          )}
+      <div className='item col-3 m-3' key={product._id}>
+        <figure>
+          <img src={product.image} alt={product.title} />
+        </figure>
+        <div className='info-product'>
+        <Link to={`/productos/${product._id}`}>
+          <h2>{product.title}</h2>
+          </Link>
+          <p className='description'>{product.description}</p>
+          <p className='price'>{convertToPesos(product.price)}</p>
+          <button onClick={()=> onAddProduct(product)}>Añadir al carrito</button>
         </div>
         <Card.Img className='productCard__img' variant="top" src={product.image} alt={product.title} />
         <Card.Body className='productCard_body'>
