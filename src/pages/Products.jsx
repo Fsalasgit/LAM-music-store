@@ -27,12 +27,12 @@ const Products = ({}) => {
 
     <Container className='container'>
         <Row className="row">
-            <Col>
+            <Col xs={2}>
               <Sidebar onOrderChange={handleOrderChange}/>
 
 
             </Col>
-            <Col xs={9}>
+            <Col >
               <ProductList 
               selectedOrder={selectedOrder}
               setCartProducts={setCartProducts}
