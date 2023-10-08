@@ -8,7 +8,6 @@ import Container from 'react-bootstrap/Container';
 const Sidebar = ({ onOrderChange }) => {
 
 
-  console.log(onOrderChange)
   return (
     <>
       <Container className='aside'>

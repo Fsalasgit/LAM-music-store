@@ -87,8 +87,8 @@ const Navigation = () => {
             )} 
             <Nav.Link href='/favorite'><RiHeart3Fill className="nav-header__heart"/></Nav.Link>
             
-            <Nav.Link > <Carrito /></Nav.Link> 
-           
+            {/* <Nav.Link > <Carrito /></Nav.Link>  */}
+            <Carrito />
             
                     
         </Nav>
