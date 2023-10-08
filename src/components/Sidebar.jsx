@@ -5,22 +5,17 @@ import RangePriceImput from './PagesComponents/RangePriceImput'
 import Container from 'react-bootstrap/Container';
 
 
-const Sidebar = ({ onOrderChange, onCategoryChange }) => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+const Sidebar = ({ onOrderChange }) => {
 
 
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-    console.log(category)
-  };
-
+  console.log(onOrderChange)
   return (
     <>
       <Container className='aside'>
 
         <div>seccion de filtros</div>
         <SelectOrder onOrderChange={onOrderChange}/>
-        <Categories onCategoryClick={handleCategoryClick}/>
+        <Categories />
         <RangePriceImput />
       </Container>
         

@@ -3,14 +3,16 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard'
 import { axiosInstance } from '../config/axiosInstance'
 
-const ProductList = ({ selectedOrder, selectedCategory }) => {
+const ProductList = ({selectedOrder}) => {
+
   const [allProducts, setAllProducts] = useState([])
   const product = allProducts
+
 
   const getProducts = async () => {
     try {
       const resp = await axiosInstance.get("/products")
-      setAllProducts(resp.data.product)
+      setAllProducts(resp.data.products)
     } catch (error) {
       console.log(error)
     }
@@ -42,13 +44,12 @@ const ProductList = ({ selectedOrder, selectedCategory }) => {
 
 
   const sortedProducts = sortProduct(product, selectedOrder) || []
-  const filteredProducts = selectedCategory
-    ? sortedProducts.filter((product) => product.category === selectedCategory)
-    : sortedProducts;
-  console.log(selectedOrder)
+  // const filteredProducts = selectedCategory
+  //   ? sortedProducts.filter((product) => product.category === selectedCategory)
+  //   : sortedProducts;
+  // console.log(selectedOrder)
 
-
-
+  
 
   return (
     <>
@@ -63,8 +64,8 @@ const ProductList = ({ selectedOrder, selectedCategory }) => {
 
         <div className="row">
           {
-            filteredProducts.map((product) => (
-              <ProductCard product={product} key={product._id} />
+            sortedProducts.map((product) => (
+              <ProductCard product={product} key={product._id}/>
             )
             )}
         </div>

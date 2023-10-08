@@ -11,7 +11,12 @@ import jwt_decode from 'jwt-decode';
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
+import Carrito from './Carrito';
+
+
 const Navigation = () => {
+
+  
   const token = localStorage.getItem('token');
   const isLogged = !!token;
   let userName = '';
@@ -75,9 +80,10 @@ const Navigation = () => {
         </div>
       )}
       <div className='icons'>
-        <Nav.Link as={Link} to='/cart'>
-          <RiShoppingCart2Fill className="nav-header__cart" />
+        <Nav.Link >
+          
         </Nav.Link>
+ <Nav.Link as={Link} to='/cart'><RiShoppingCart2Fill className="nav-header__cart" /> <Carrito /></Nav.Link> 
       </div>
       {isLogged && (
         <div className='icons user-actions d-none d-sm-flex'>
@@ -119,7 +125,6 @@ const Navigation = () => {
     </Navbar.Collapse>
   </Container>
 </Navbar>
-
     </>
   );
 }
