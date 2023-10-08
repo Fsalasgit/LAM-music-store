@@ -11,6 +11,7 @@
 	width: 40px;
 	height: 40px;
 	stroke: #000;
+	
 }
 
 .icon-cart:hover {
@@ -22,7 +23,7 @@ img {
 }
 
 /* Header */
-header {
+.headerCart {
 	display: flex;
 	justify-content: space-between;
 	padding: 30px 0 40px 0;
@@ -35,10 +36,10 @@ header {
 .count-products {
 	position: absolute;
 	top: 55%;
-	right: 0;
+	left: 35%;
 
-	background-color: #000;
-	color: #fff;
+	background-color: var(--c-mainColor);
+	color: black;
 	width: 25px;
 	height: 25px;
 
@@ -46,10 +47,12 @@ header {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
+	margin-right: 20px;
 }
 
 #contador-productos {
-	font-size: 12px;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
 
 .container-cart-products {
@@ -58,7 +61,7 @@ header {
 	right: 0;
 
 	background-color: #fff;
-	width: 400px;
+	padding: 0.1rem 3rem;
 	z-index: 1;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
@@ -68,8 +71,8 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 30px;
-
+	padding: 3rem;
+	
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -81,6 +84,8 @@ header {
 
 .titulo-producto-carrito {
 	font-size: 20px;
+	min-width: 30rem
+
 }
 
 .precio-producto-carrito {
@@ -90,8 +95,9 @@ header {
 }
 
 .cantidad-producto-carrito {
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 20px;
+	margin-right: 2rem;
 }
 
 .icon-close {

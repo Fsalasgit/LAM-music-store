@@ -1,18 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import SelectOrder from './PagesComponents/SelectOrder'
 import Categories from './PagesComponents/Categories'
-import RangePriceImput from './PagesComponents/RangePriceImput'
 import Container from 'react-bootstrap/Container';
 
 
-const Sidebar = ({ onOrderChange, onCategoryChange }) => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+const Sidebar = ({ onOrderChange }) => {
 
-
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-    console.log(category)
-  };
 
   return (
     <>
@@ -20,8 +13,8 @@ const Sidebar = ({ onOrderChange, onCategoryChange }) => {
 
         <div>seccion de filtros</div>
         <SelectOrder onOrderChange={onOrderChange}/>
-        <Categories onCategoryClick={handleCategoryClick}/>
-        <RangePriceImput />
+        <Categories />
+ 
       </Container>
         
     </>

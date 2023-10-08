@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ProductList from '../components/ProductList'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,30 +7,37 @@ import Sidebar from '../components/Sidebar';
 import WhatsappLink from '../components/WhatsappLink';
 
 
-const Products = () => {
+
+
+const Products = ({}) => {
+
   const [selectedOrder, setSelectedOrder] = useState('1');
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [cartProducts, setCartProducts] = useState([]);
+
 
   const handleOrderChange = (selectedValue) => {
     setSelectedOrder(selectedValue);
   };
 
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-  };
-  console.log(selectedCategory)
+
+  
+
   return (
     <>
+
     <Container className='container'>
         <Row className="row">
-            <Col>
-              <Sidebar onOrderChange={handleOrderChange} onCategoryChange={handleCategoryChange} />
+            <Col xs={2}>
+              <Sidebar onOrderChange={handleOrderChange}/>
 
 
             </Col>
-            <Col xs={9}>
-              <ProductList selectedOrder={selectedOrder} selectedCategory={selectedCategory} />
-                
+            <Col >
+              <ProductList 
+              selectedOrder={selectedOrder}
+              setCartProducts={setCartProducts}
+              cartProducts={cartProducts}
+              />
 
             </Col>
         </Row>

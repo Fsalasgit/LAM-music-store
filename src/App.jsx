@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { Routes, Route } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -15,8 +15,8 @@ import AboutUs from './pages/AboutUs'
 
 
 
-function App() {
 
+function App() {
 
   return (
     <>
@@ -27,12 +27,9 @@ function App() {
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/productos/:id' element={<DetailPage />} />
-        <Route path='/productos'element={<Products/>}/>
-
-        {/* <Route path='productos/cart' element={<Header/>}/> */}
-        <Route path='/nosotros' element={<AboutUs/>} />
-
-
+        <Route path='/productos' element={<Products/>}
+        />
+      
         <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />
         </Route>

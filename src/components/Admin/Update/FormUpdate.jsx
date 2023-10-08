@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { axiosInstance } from '../../../config/axiosInstance'
+import { Form, InputGroup } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 
 const FormUpdate = ({ datoProduct, getProducts}) => {
     const [categories, setCategories] = useState([])
@@ -32,6 +34,10 @@ const FormUpdate = ({ datoProduct, getProducts}) => {
         e.preventDefault()
         try {
            await axiosInstance.put(`/product/${datoProduct._id}`, formDatos);
+           Swal.fire({
+            icon: 'success',
+            title: 'Producto modificado con éxito',
+          });
         } catch (error) {
           console.log(error)  
         }finally{
@@ -39,73 +45,77 @@ const FormUpdate = ({ datoProduct, getProducts}) => {
         }
     }
     return (
-        <div>
-        <form onSubmit={handletSubmit}>
-          <div className="form-group mb-3">
-            <label htmlFor="nombre">Titulo</label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              name="title"
-              value={formDatos.title}
-              onChange={handleChangeDatos}
-            />
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="nombre">Detalle del producto</label>
-            <input
-              type="text"
-              className="form-control"
+      <div>
+      <Form onSubmit={handletSubmit}>
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="nombre">Titulo</Form.Label>
+          <Form.Control
+            type="text"
+            id="title"
+            name="title"
+            value={formDatos.title}
+            onChange={handleChangeDatos}
+          />
+        </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="description">Descripción del producto</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={5}
               id="description"
               name="description"
-              value={formDatos.description}
               onChange={handleChangeDatos}
             />
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="nombre">Precio</label>
-            <input
+          </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="nombre">Precio</Form.Label>
+          <InputGroup>
+            <InputGroup.Text>$</InputGroup.Text>
+            <Form.Control
               type="text"
-              className="form-control"
               id="price"
               name="price"
               value={formDatos.price}
               onChange={handleChangeDatos}
+              aria-label="Amount (to the nearest dollar)"
             />
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="nombre">Categoria</label>
-            <select
-              name="category"
-              className="form-control"
-              value={formDatos.category._id}
-              onChange={handleChangeDatos}
-            >
-   
-              {categories.map((category, index) => (
-                <option key={category._id} value={category._id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group mb-3">
-            <label htmlFor="nombre">Stock</label>
-            <input
-              type="number"
-              className="form-control"
-              id="stock"
-              name="stock"
-              value={formDatos.stock}
-              onChange={handleChangeDatos}
-            />
-          </div>
-                <div className='form-group'>
-                    <button type='submit' className='btn btn-primary'>Modificar</button>
-                </div>
-            </form>
+          </InputGroup>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="nombre">Categoria</Form.Label>
+          <Form.Select
+            name="category"
+            value={formDatos.category._id}
+            onChange={handleChangeDatos}
+          >
+            <option value="">Seleccione una categoría</option>
+            {categories.map((category, index) => (
+              <option key={category._id} value={category._id}>
+                {category.name}
+              </option>
+            ))}
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="nombre">Stock</Form.Label>
+          <Form.Control
+            type="number"
+            id="stock"
+            name="stock"
+            value={formDatos.stock}
+            onChange={handleChangeDatos}
+          />
+        </Form.Group>
+
+        <div className='form-group'>
+          <button type='submit' className='modal-button'>Modificar</button>
         </div>
+      </Form>
+    </div>
     )
 }
 
