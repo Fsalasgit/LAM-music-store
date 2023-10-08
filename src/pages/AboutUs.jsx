@@ -103,7 +103,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="row mt-5">
-            <div className="col-4 text-center">
+            <div className="col-lg-4 text-center">
               <img src="https://trello.com/1/cards/650dc4c9511651b0dba28b40/attachments/650dc62c76eb07e440b8072c/previews/650dc62c76eb07e440b81a15/download/fotoPerfil.jpg" alt="" className="avatar-nosotros" />
               <div className="row mt-4">
                 <div className="col-12">
@@ -112,7 +112,7 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
-            <div className="col-4 text-center">
+            <div className="col-lg-4 text-center">
               <img src="https://trello.com/1/cards/650dc4c5f5767ac991e1ea24/attachments/650e2bab99a7d0c5f96c1d81/previews/650e2bad99a7d0c5f96c1fa8/download/avatarlorenzo.png" alt="" className="avatar-nosotros" />
               <div className="row mt-4">
                 <div className="col-12">
@@ -121,7 +121,7 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
-            <div className="col-4 text-center">
+            <div className="col-lg-4 text-center">
               <img src="https://trello.com/1/cards/650dc464bda0497805ac542c/attachments/6511fa83a113592c1e60bd5e/previews/6511fa84a113592c1e60be4b/download/IMG_7026_Original22.jpg" alt="" className="avatar-nosotros" />
               <div className="row mt-4">
                 <div className="col-12">
@@ -137,22 +137,22 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="row pb-5">
-            <div className="col-2 mb-5 text-center">
+            <div className="col-lg-2 mb-4 text-center">
               <img src="https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png" alt="" className="tecnologias-img" />
             </div>
-            <div className="col-2 text-center">
+            <div className="col-lg-2 mb-4 text-center">
             <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-social-logo.png" alt="" className="tecnologias-img" />
             </div>
-            <div className="col-2 text-center">
+            <div className="col-lg-2 mb-4 text-center">
             <img src="https://silvawebdesigns.com/wp-content/uploads/2020/10/useful-sass-scss-mixins-for-every-website.jpg" alt="" className="tecnologias-img" />
             </div>
-            <div className="col-2 text-center">
+            <div className="col-lg-2 mb-4 text-center">
             <img src="https://cdn.dribbble.com/users/66221/screenshots/1655593/media/63d9b0acd7e81cde54f291bdcf8a24df.png?resize=400x300&vertical=center" alt=""className="tecnologias-img" />
             </div>
-            <div className="col-2 text-center">
+            <div className="col-lg-2 mb-4 text-center">
             <img src="https://newrelic.com/sites/default/files/styles/800w/public/2021-10/mongo_logo.jpg?itok=Z1PabBZB" alt="" className="tecnologias-img" />
             </div>
-            <div className="col-2 text-center">
+            <div className="col-lg-2 mb-4 text-center">
             <img src="https://avatars.githubusercontent.com/u/6853419?s=200&v=4" alt="" className="tecnologias-img" />
             </div>
           </div>

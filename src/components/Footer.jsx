@@ -33,7 +33,7 @@ const Footer = () => {
             </div>
             <div className="col-lg-3">
               <h3>Preguntas frecuentes</h3>
-              <ul className='text-start ms-4'>
+              <ul className='text-start'>
                 <li>¿Quienes Somos?</li>
                 <li>Envios</li>
                 <li>Cancelar orden</li>
@@ -41,7 +41,7 @@ const Footer = () => {
             </div>
             <div className="col-lg-6">
               <h3>Contacto y Medios de pago</h3>
-              <ul className='text-start ms-5'>
+              <ul className='text-start'>
                 <li> <RiWhatsappLine /> Escríbenos por WhatsApp!</li>
                 <li>+549381 555 05 37</li>
                 <li> <RiMailLine /> swanmusiconlinetuc@gmail.com</li>
