@@ -30,7 +30,7 @@ const UserTable = () => {
         icon: 'success',
         title: 'Rol cambiado con éxito.',
         showConfirmButton: false,
-        timer: 1500,
+        timer: 1000,
       });
     } catch (error) {
       console.log(error);
