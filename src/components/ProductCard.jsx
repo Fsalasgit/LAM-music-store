@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { addCart } from '../context/GlobalActions';
 import { GlobalContext } from '../context/GlobalContext';
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = ({ product }) => {
@@ -48,7 +49,9 @@ const ProductCard = ({ product }) => {
           <img src={product.image} alt={product.title} />
         </figure>
         <div className='info-product'>
+        <Link to={`/productos/${product._id}`}>
           <h2>{product.title}</h2>
+          </Link>
           <p className='description'>{product.description}</p>
           <p className='price'>{convertToPesos(product.price)}</p>
           <button onClick={()=> onAddProduct(product)}>Añadir al carrito</button>
