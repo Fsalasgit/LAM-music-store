@@ -18,6 +18,9 @@
     &:hover{
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
+    &__imgContainer{
+        min-height: 150px;
+    }
 
     &__img{
         width: 100%;

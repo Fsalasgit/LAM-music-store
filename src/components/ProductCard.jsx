@@ -61,7 +61,9 @@ const ProductCard = ({ product }) => {
             </button>
           )}
         </div>
-        <Card.Img className='productCard__img' variant="top" src={product.image} alt={product.title} />
+        <caption className='productCard__imgContainer'>
+          <Card.Img className='productCard__img' variant="top" src={product.image} alt={product.title} />
+        </caption>
         <Card.Body className='productCard_body'>
           <Card.Title className='productCard__title mt-1rem'>{product.title}</Card.Title>
           <Card.Subtitle className='productCard__itemprice mt-1rem'>{convertToPesos(product.price)}</Card.Subtitle>
