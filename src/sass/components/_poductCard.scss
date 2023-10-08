@@ -77,6 +77,18 @@
     &__footer{
         padding: 1rem;
     }
+    &__footer button{
+        border: none;
+        background-color: #000;
+        color: #fff;
+        padding: 0.2rem 0.5rem;
+        border-radius: 3pxgit;
+        display: block;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all .3s ease;
+    }
+      
       
 
     @media screen and (max-width: 844px) {
