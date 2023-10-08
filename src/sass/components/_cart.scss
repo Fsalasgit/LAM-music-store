@@ -11,6 +11,7 @@
 	width: 40px;
 	height: 40px;
 	stroke: #000;
+	
 }
 
 .icon-cart:hover {
@@ -35,9 +36,9 @@ img {
 .count-products {
 	position: absolute;
 	top: 55%;
-	left: 60%;
+	left: 35%;
 
-	background-color: #cfa210;
+	background-color: var(--c-mainColor);
 	color: black;
 	width: 25px;
 	height: 25px;
@@ -46,6 +47,7 @@ img {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
+	margin-right: 20px;
 }
 
 #contador-productos {
