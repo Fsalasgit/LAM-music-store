@@ -56,6 +56,7 @@ const Navigation = () => {
             <Form.Control
               type="search"
               placeholder="Buscar"
+              style={{ fontSize: '20px', height: '30px', width: '250px' }}
               className="me-2 custom-search"
               aria-label="Search"
             />

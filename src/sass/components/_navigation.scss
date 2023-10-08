@@ -107,16 +107,9 @@
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: var(--c-mainColor);
   --bs-gradient: none;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 3rem;
+  width: 3rem;
 }
-
-.form-control {
-  width: 50rem;
-  height: 3.5rem;
-  font-size: 1.5rem;
-}
-
 
 @media (max-width: 768px) {
   .icons-group {
@@ -132,13 +125,6 @@
 
   .navbar-brand {
     width: 100%;
-  }
-
-  .form-control {
-    width: 20rem;
-    height: auto;
-    font-size: 1rem;
-    margin-bottom: 20px;
   }
 
   .nav-header__cerrar-sesion {
