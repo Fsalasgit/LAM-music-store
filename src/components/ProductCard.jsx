@@ -68,8 +68,11 @@ const ProductCard = ({ product }) => {
           <Card.Text className='productCard__description mt-1rem'>
             {product.description}
           </Card.Text>
-          <button onClick={onAddProduct}>Añadir al carrito</button>
         </Card.Body>
+        <div className='productCard__footer'>
+          <button onClick={onAddProduct} className='productCard__button'>Añadir al carrito</button>
+
+        </div>
 
         
       </Card>
