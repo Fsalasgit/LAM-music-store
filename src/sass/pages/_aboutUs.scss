@@ -1,5 +1,10 @@
 .hero {
     padding-top: 30px;
+    background-image: url(https://img.freepik.com/foto-gratis/guitarra-acustica-teclas-musicales-sobre-fondo-blanco-laicos-plana_169016-16616.jpg?w=900&t=st=1696607053~exp=1696607653~hmac=27c014ced83c09c4730de56151d03a2b14474a61f59ab8155e2edb6af7e5527f);
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    // height: 100vh; 
 }
 
 #Nosotros {
@@ -7,6 +12,8 @@
     border-radius: 20px;
     padding-left: 35px;
     padding-right: 35px;
+    background-color: #0d0d0d98;
+    color: white;
 }
 
 .progress-bar {
