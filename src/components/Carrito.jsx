@@ -9,10 +9,6 @@ const Carrito = () => {
   const [active, setActive] = useState(false);
   const {state, dispatch} = useContext(GlobalContext)
 
-  // useEffect(() => {
-  //   const savedCartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-  //   setCartProducts(savedCartProducts);
-  // }, []);
 
   const onDeleteProduct = (productId) => {
     const updatedCartProducts = state.productCart
@@ -34,11 +30,6 @@ const Carrito = () => {
     return pesos;
   };
 
-  const updatecart = () => {
-   
-    cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-    
-}
 
   return (
     <>
