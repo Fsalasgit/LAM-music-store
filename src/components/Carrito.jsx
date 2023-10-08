@@ -1,28 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
+import { GlobalContext } from '../context/GlobalContext';
+import { clearCart } from '../context/GlobalActions';
+
 
 const Carrito = () => {
   const [cartProducts, setCartProducts] = useState([]);
   const [active, setActive] = useState(false);
+  const {state, dispatch} = useContext(GlobalContext)
 
-  useEffect(() => {
-    const savedCartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-    setCartProducts(savedCartProducts);
-  }, [cartProducts]);
+  // useEffect(() => {
+  //   const savedCartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+  //   setCartProducts(savedCartProducts);
+  // }, []);
 
   const onDeleteProduct = (productId) => {
-    const updatedCartProducts = cartProducts
-      .map((item) => (item._id === productId ? { ...item, quantity: item.quantity - 1 } : item))
-      .filter((item) => item.quantity > 0);
+    const updatedCartProducts = state.productCart
+      .map((item) => (item._id === productId ? { ...item, cantidad: item.cantidad - 1 } : item))
+      .filter((item) => item.cantidad > 0);
 
-    setCartProducts(updatedCartProducts);
-    localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
-    updatecart()
   };
 
   const onCleanCart = () => {
-    setCartProducts([]);
-    localStorage.removeItem('cartProducts');
+    dispatch(clearCart())
+    
   };
 
   let convertToPesos = (numb) => {
@@ -45,19 +46,19 @@ const Carrito = () => {
         <div className='container-icon'>
           <div className='container-cart-icon' >
             <RiShoppingCart2Fill className='nav-header__cart' onClick={() => setActive(!active)}/>
-            <div className='count-products'>{cartProducts.length}</div>
+            <div className='count-products'>{state.productCart.length}</div>
           </div>
 
           <div className={`container-cart-products ${
 						active ? '' : 'hidden-cart'
 					}`} >
-            {cartProducts.length ? (
+            {state.productCart.length ? (
               <>
                 <div className='row-product'>
-                  {cartProducts.map((product) => (
+                  {state.productCart.map((product) => (
                     <div className='cart-product' key={product._id}>
                       <div className='info-cart-product'>
-                        <span className='cantidad-producto-carrito'>{product.quantity}</span>
+                        <span className='cantidad-producto-carrito'>{product.cantidad}</span>
                         <p className='titulo-producto-carrito'>{product.title}</p>
                         <span className='precio-producto-carrito'>{convertToPesos(product.price)}</span>
                       </div>
@@ -84,7 +85,7 @@ const Carrito = () => {
                   <h3>Total:</h3>
                   <span className='total-pagar'>
                     {convertToPesos(
-                      cartProducts.reduce((acc, item) => acc + item.price * item.quantity, 0)
+                      state.productCart.reduce((acc, item) => acc + item.price * item.cantidad, 0)
                     )}
                   </span>
                 </div>

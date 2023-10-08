@@ -81,6 +81,9 @@
 
 
 @media screen and (max-width: 768px) {
+    .login-container {
+        height: 70vh; 
+    }
     .loginPage {
         flex-direction: column;
         align-items: center;
@@ -112,7 +115,7 @@
 
         &__enlace {
             margin-bottom: 1.25rem;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
     }
 }
