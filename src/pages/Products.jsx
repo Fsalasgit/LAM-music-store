@@ -12,6 +12,7 @@ import WhatsappLink from '../components/WhatsappLink';
 const Products = ({}) => {
 
   const [selectedOrder, setSelectedOrder] = useState('1');
+  const [cartProducts, setCartProducts] = useState([]);
 
 
   const handleOrderChange = (selectedValue) => {
@@ -26,13 +27,17 @@ const Products = ({}) => {
 
     <Container className='container'>
         <Row className="row">
-            <Col>
+            <Col xs={2}>
               <Sidebar onOrderChange={handleOrderChange}/>
 
 
             </Col>
-            <Col xs={9}>
-              <ProductList selectedOrder={selectedOrder}/>
+            <Col >
+              <ProductList 
+              selectedOrder={selectedOrder}
+              setCartProducts={setCartProducts}
+              cartProducts={cartProducts}
+              />
 
             </Col>
         </Row>

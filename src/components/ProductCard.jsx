@@ -1,25 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { addCart } from '../context/GlobalActions';
+import { GlobalContext } from '../context/GlobalContext';
+
 
 const ProductCard = ({ product }) => {
-  const [cartProducts, setCartProducts] = useState([]);
+  const {state, dispatch} = useContext(GlobalContext)
+  const [cartProducts, setCartProducts] = useState([])
+  
 
-  useEffect(() => {
-    const savedCartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-    setCartProducts(savedCartProducts);
-  }, [cartProducts]);
+  // useEffect(() => {
+    //   const savedCartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
+    //   setCartProducts(savedCartProducts);
+    // }, []);
+    let arrCart = [...cartProducts];
+    const onAddProduct = (producto) => {
+      const updatedCartProducts = [...cartProducts];
+      const existingProductIndex = state.productCart.findIndex((item) => item._id === product._id);
+  
+      if (existingProductIndex !== -1) {
+        state.productCart[existingProductIndex].cantidad++;
+      } else {
+        updatedCartProducts.push({ ...product, cantidad: 1 });
+        dispatch(addCart({ ...product, cantidad: 1 }))
+      }
+  console.log(state)
+      //setCartProducts(updatedCartProducts);
+      //localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
+      //console.log(updatedCartProducts)
+  
+      
 
-  const onAddProduct = () => {
-    const updatedCartProducts = [...cartProducts];
-    const existingProductIndex = updatedCartProducts.findIndex((item) => item._id === product._id);
-
-    if (existingProductIndex !== -1) {
-      updatedCartProducts[existingProductIndex].quantity++;
-    } else {
-      updatedCartProducts.push({ ...product, quantity: 1 });
-    }
-
-    setCartProducts(updatedCartProducts);
-    localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
   };
 
   let convertToPesos = (numb) => {
@@ -41,7 +51,7 @@ const ProductCard = ({ product }) => {
           <h2>{product.title}</h2>
           <p className='description'>{product.description}</p>
           <p className='price'>{convertToPesos(product.price)}</p>
-          <button onClick={onAddProduct}>Añadir al carrito</button>
+          <button onClick={()=> onAddProduct(product)}>Añadir al carrito</button>
         </div>
       </div>
     </>
