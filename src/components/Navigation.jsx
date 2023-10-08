@@ -80,10 +80,7 @@ const Navigation = () => {
         </div>
       )}
       <div className='icons'>
-        <Nav.Link >
-          
-        </Nav.Link>
- <Nav.Link as={Link} to='/cart'><RiShoppingCart2Fill className="nav-header__cart" /> <Carrito /></Nav.Link> 
+ <Nav.Link> <Carrito /></Nav.Link> 
       </div>
       {isLogged && (
         <div className='icons user-actions d-none d-sm-flex'>
