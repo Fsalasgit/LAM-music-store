@@ -33,7 +33,7 @@ const Footer = () => {
             </div>
             <div className="col-lg-3">
               <h3>Preguntas frecuentes</h3>
-              <ul className='text-start ms-4'>
+              <ul className='text-start'>
                 <li>¿Quienes Somos?</li>
                 <li>Envios</li>
                 <li>Cancelar orden</li>
@@ -41,12 +41,13 @@ const Footer = () => {
             </div>
             <div className="col-lg-6">
               <h3>Contacto y Medios de pago</h3>
-              <ul className='text-start ms-5'>
+              <ul className='text-start'>
                 <li> <RiWhatsappLine /> Escríbenos por WhatsApp!</li>
                 <li>+549381 555 05 37</li>
                 <li> <RiMailLine /> swanmusiconlinetuc@gmail.com</li>
                 <li> <RiPinDistanceLine /> Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán</li>
                 <li> <AiOutlineClockCircle /> Lunes a Sábado de 9 a 13 hs y de 17 a 21 hs</li>
+                <li><img src="https://hoffmannmusica.com.ar/img/pagos.webp?v=1662789836" alt="" className='img-fluid tarjetas'/></li>
               </ul>
             </div>
           </div>
