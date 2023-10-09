@@ -43,7 +43,7 @@ const FormCreacion = ({ getProducts }) => {
     try {
       const formData = new FormData();
       formData.append('title', formDatos.title);
-      formData.append('description', formDatos.description);
+      formData.append('description', formDatos.description.replace(/\n/g, 'saltosDeUsuario'));
       formData.append('price', formDatos.price);
       formData.append('category', formDatos.category);
       formData.append('image', imgFile[0]);
