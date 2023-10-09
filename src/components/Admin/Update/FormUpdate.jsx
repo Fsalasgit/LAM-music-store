@@ -63,9 +63,9 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
             <Form.Label htmlFor="description">Detalle del producto</Form.Label>
             <Form.Control
               type="text"
-              rows={5}
               id="description"
               name="description"
+              value={formDatos.description}
               onChange={handleChangeDatos}
             />
           </Form.Group>
@@ -76,6 +76,7 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
               rows={5}
               id="shortDescription"
               name="shortDescription"
+              value={formDatos.shortDescription}
               onChange={handleChangeDatos}
             />
           </Form.Group>
