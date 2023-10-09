@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LOGIN_SCHEMA } from "../helpers/validationsSchemas";
@@ -6,8 +6,12 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from "../config/axiosInstance";
 import jwt_decode from 'jwt-decode';
+import Swal from "sweetalert2";
+
 
 const Login = () => {
+  const [userNotFound, setUserNotFound] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -22,15 +26,10 @@ const Login = () => {
     try {
       const response = await axiosInstance.post("/login", data);
       const token = response.data.token;
-
-      // Almacena el token en el almacenamiento local
       localStorage.setItem("token", token);
 
-      // Decodifica el token para obtener el rol del usuario
       const decodedToken = jwt_decode(token);
       const userRole = decodedToken.rol;
-
-      // Utiliza el rol para redirigir al usuario a la ruta correspondiente
 
       if (userRole === 'admin') {
         navigate('/admin');
@@ -39,9 +38,16 @@ const Login = () => {
       }
     } catch (error) {
       console.log(error);
+      if (error.response && error.response.status === 404) {
+        setUserNotFound(true);
+        Swal.fire({
+          icon: "error",
+          title: "Usuario no registrado",
+          text: "El usuario ingresado no está registrado",
+        });
+      }
     }
   };
-
 
   return (
     <div className="login">

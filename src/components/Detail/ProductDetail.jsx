@@ -1,31 +1,28 @@
 import React from "react";
-import Carrusel from "./Carousel";
 import mediosPago from "./mediospago.png"
 
 const ProductDetail = ({ product }) => {
   console.log(product);
-  const { data } = product;
-  console.log(data);
   return (
     <>
-      {data.length !== 0 ? (
+      {product !== null ? (
         <div className="container mt-4" id="Container">
           <div className="row">
             <div className="col-lg-7">
               <div className="text-center">
-                <img src={data[0].image} alt="" className="img-product" />
+                <img src={product.product?.image} alt="" className="img-product" />
               </div>
             </div>
             <div className="col-lg-5">
               <div className="row">
                 <div className="col mt-5">
-                  <h1>{data[0].title}</h1>
+                  <h1>{product.product?.title}</h1>
                 </div>
                 <div className="mt-4">
-                  <h5>{data[0].category}</h5>
+                  <h5>{product.product?.category}</h5>
                 </div>
                 <div className="mt-4">
-                  <h2>$ {data[0].price}</h2>
+                  <h2>${product.product?.price}</h2>
                 </div>
                 <div>
                   <form
@@ -64,7 +61,7 @@ const ProductDetail = ({ product }) => {
           <div className="row">
             <div className="col-12 mt-4">
               <h4>Descripcion</h4>
-              <p className="mt-5">{data[0].description}</p>
+              <p className="mt-5">{product.product?.description}</p>
             </div>
           </div>
           <hr />
@@ -118,11 +115,6 @@ const ProductDetail = ({ product }) => {
               posteriores a la compra.
             </p>
           </div>
-        </div>
-        <hr />
-        <div className="row">
-          <h4 className="text-center mt-2">Puede Interesarte</h4>
-          <hr />
         </div>
         </div>
       ) : (
