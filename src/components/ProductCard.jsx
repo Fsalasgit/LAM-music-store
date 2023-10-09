@@ -4,6 +4,8 @@ import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { addCart } from '../context/GlobalActions';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import { axiosInstance } from '../config/axiosInstance';
+import jwt_decode from 'jwt-decode';
 
 const ProductCard = ({ product }) => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -15,18 +17,29 @@ const ProductCard = ({ product }) => {
     setIsFavorite(favoritesFromLocalStorage.includes(product.id));
   }, [product.id]);
 
-  const handleFavourite = () => {
+  const handleFavourite = async () => {
     const newFavorite = !isFavorite;
     setIsFavorite(newFavorite);
 
-    const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
+    try {
+      const token = localStorage.getItem("token");
+      const decodedToken = jwt_decode(token);
+      const userId = decodedToken._id;
 
-    const updatedFavorites = newFavorite
-      ? [...favoritesFromStorage, product._id]
-      : favoritesFromStorage.filter((id) => id !== product._id);
+      const response = await axiosInstance.post(`/user/favorite/${userId}`, {
+        productId: product._id,
+        addToFavorites: newFavorite,
+      });
+      console.log(response)
 
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-  }
+      if (response.status === 200) {
+        // Tu lógica adicional aquí
+      }
+    } catch (error) {
+      console.error('Error al actualizar los favoritos:', error);
+    }
+  };
+
 
   const onAddProduct = () => {
     const existingProductIndex = state.productCart.findIndex((item) => item._id === product._id);
@@ -48,6 +61,7 @@ const ProductCard = ({ product }) => {
     return pesos;
   };
 
+
   return (
     <>
       <Link to={`/productos/${product._id}`} className='productCard'>
@@ -57,7 +71,7 @@ const ProductCard = ({ product }) => {
               <button
                 className='productCard__favorite favorite'
                 onClick={(e) => {
-                  e.preventDefault(); 
+                  e.preventDefault();
                   handleFavourite();
                 }}
               >
@@ -67,7 +81,7 @@ const ProductCard = ({ product }) => {
               <button
                 className='productCard__favorite'
                 onClick={(e) => {
-                  e.preventDefault(); 
+                  e.preventDefault();
                   handleFavourite();
                 }}
               >
@@ -89,7 +103,7 @@ const ProductCard = ({ product }) => {
             <button onClick={(e) => {
               e.preventDefault()
               onAddProduct()
-            }} 
+            }}
               className='productCard__button'>Añadir al carrito</button>
           </div>
 
@@ -99,6 +113,7 @@ const ProductCard = ({ product }) => {
     </>
   );
 };
+
 
 export default ProductCard;
 
