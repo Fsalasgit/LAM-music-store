@@ -20,7 +20,7 @@ const ProductDetail = ({ product }) => {
           <div className="row">
             <div className="col-lg-7 d-flex justify-content-center align-items-center">
               <div className="text-center">
-                <img src={product?.image} alt="" className="img-product" />
+                <img src={product?.image} alt="" className="img-fluid img-product" />
               </div>
             </div>
             <div className="col-lg-5">
