@@ -1,13 +1,16 @@
-import React, {  useContext } from 'react'
+import React, {  useContext,useState  } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
 import { Link } from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal';
+import PaymentForms from '../components/PaymentForms';
 
 
 const PaymentsPage = () => {
+    const [show, setShow] = useState(false);
 
     const {state, dispatch} = useContext(GlobalContext)
     console.log(state.productCart.length)
@@ -32,6 +35,8 @@ const PaymentsPage = () => {
       });
       return pesos;
     };
+
+    
 
   return (
     <>
@@ -88,16 +93,19 @@ const PaymentsPage = () => {
                 </div>
 
                 <div className='buttonContainer'>
-
                     <button className='buttonContainer__button' onClick={onCleanCart}>
                     Cancelar
                     </button>
-                    <button className='buttonContainer__button buttonContainer__button--buy'>
-                        Pagar
+                    <button
+                    className='buttonContainer__button buttonContainer__button--buy'
+                    onClick={() => setShow(true)}  
+                    >
+                    Pagar
                     </button>
                 </div>
 
             </Col>
+            <PaymentForms show={show} setShow={setShow} /> 
       
 
 
@@ -105,6 +113,7 @@ const PaymentsPage = () => {
         </Row>
 
     </Container>
+    <PaymentForms />
 
     </>
   )
