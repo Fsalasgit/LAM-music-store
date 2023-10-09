@@ -12,6 +12,7 @@ const FormCreacion = ({ getProducts }) => {
     price: '',
     category: '',
     stock: '',
+    shortDescription: ''
   });
 
   const getCategorias = async () => {
@@ -43,11 +44,12 @@ const FormCreacion = ({ getProducts }) => {
     try {
       const formData = new FormData();
       formData.append('title', formDatos.title);
-      formData.append('description', formDatos.description);
+      formData.append('description', formDatos.description.replace(/\n/g, 'saltosDeUsuario'));
       formData.append('price', formDatos.price);
       formData.append('category', formDatos.category);
       formData.append('image', imgFile[0]);
       formData.append('stock', formDatos.stock);
+      formData.append('shortDescription', formDatos.shortDescription);
       await axiosInstance.post('/product', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -77,12 +79,22 @@ const FormCreacion = ({ getProducts }) => {
             />
           </Form.Group>
           <Form.Group className="mb-3">
+            <Form.Label htmlFor="description">Detalle del producto</Form.Label>
+            <Form.Control
+              type="text"
+              rows={5}
+              id="description"
+              name="description"
+              onChange={handleChangeDatos}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
             <Form.Label htmlFor="description">Descripción del producto</Form.Label>
             <Form.Control
               as="textarea"
               rows={5}
-              id="description"
-              name="description"
+              id="shortDescription"
+              name="shortDescription"
               onChange={handleChangeDatos}
             />
           </Form.Group>

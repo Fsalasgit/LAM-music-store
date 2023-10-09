@@ -75,58 +75,97 @@ const ProductTable = ({ allProducts, getProducts }) => {
 
     const columns = [
         {
-            name: "Title",
-            selector: (row) => row.title,
-            sortable: true
-        },
-        {
-            name: "Description",
-            selector: (row) => row.description,
+            name: "Titulo",
+            selector: (row) => {
+                const maxTitleLength = 20;
+                const title = row.title || '';
+                return title.length > maxTitleLength
+                    ? (
+                        <>
+                            {title.slice(0, maxTitleLength) + "... "}
+                        </>
+                    )
+                    : title;
+            },
             sortable: true,
-            hide: 'lg'
+            maxWidth: "40%", 
         },
         {
-            name: "Price",
+            name: "Detallado",
+            selector: (row) => {
+                const maxDescriptionLength = 20;
+                const description = row.description || ''; // Verifica si row.description es undefined
+                return description.length > maxDescriptionLength
+                    ? (
+                        <>
+                            {description.slice(0, maxDescriptionLength) + "... "}
+                        </>
+                    )
+                    : description;
+            },
+            sortable: true,
+            hide: 'sm',
+            width: "10%"
+        },
+        {
+            name: "Descripcion",
+            selector: (row) => {
+                const maxDescriptionLength = 20;
+                const shortDescription = row.shortDescription || ''; // Verifica si row.shortDescription es undefined
+                return shortDescription.length > maxDescriptionLength
+                    ? (
+                        <>
+                            {shortDescription.slice(0, maxDescriptionLength) + "... "}
+                        </>
+                    )
+                    : shortDescription;
+            },
+            sortable: true,
+            hide: 'sm',
+            width: "10%",
+        },
+
+        {
+            name: "Precio",
             selector: (row) => row.price,
             sortable: true,
             hide: 'sm',
-            center: true,
             format: (row) => {
                 const formattedPrice = `$${row.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
                 return formattedPrice;
             },
-            width: "10%",
+            width: "8%"
         },
         {
-            name: "Category",
+            name: "Categoria",
             selector: (row) => row.category.name,
             sortable: true,
             hide: 'sm',
-            width: "10%",
+            width: "11%"
         },
         {
-            name: "Image",
+            name: "Imagen",
             selector: (row) => (
                 <div>
-                    <img src={row.image} alt={row.title} width={100} />
+                    <img src={row.image} alt={row.title} width={75} />
                 </div>
             ),
             hide: 'lg',
-            width: "10%",
+            width: "10%"
         },
         {
             name: "Stock",
             selector: (row) => row.stock,
             sortable: true,
-            width: "6%",
+            width: "9%",
             hide: 'sm'
         },
         {
             name: "Destacado",
             selector: (row) => (row.isFeatured ? "true" : "false"),
             sortable: true,
-            width: "8%",
-            hide: 'lg'
+            width: "11%",
+            hide: 'sm'
         },
         {
             name: "Acciones",
