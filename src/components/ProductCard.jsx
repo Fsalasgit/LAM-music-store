@@ -65,7 +65,7 @@ const ProductCard = ({ product }) => {
   return (
     <>
       <Link to={`/productos/${product._id}`} className='productCard'>
-        <Card key={product._id}>
+        <Card key={product._id} className='productCard__container'>
           <div className='productCard__header'>
             {isFavorite ? (
               <button

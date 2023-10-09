@@ -30,8 +30,8 @@ const Products = ({}) => {
 
     <Container className='container'>
         <Row className="row">
-            <Col xs={2}>
-            <Sidebar onOrderChange={handleOrderChange} onCategorySelect={handleCategorySelect} />
+            <Col xl={3}>
+            <Sidebar onOrderChange={handleOrderChange} onCategorySelect={handleCategorySelect} filteredCategory={filteredCategory} />
 
 
             </Col>
