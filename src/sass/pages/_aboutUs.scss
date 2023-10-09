@@ -1,9 +1,52 @@
 .hero {
-    background: linear-gradient(0deg, rgba(248,161,38,0.2945553221288515) 0%, rgba(117,76,19,0.6222864145658263) 52%, rgba(0,0,3,0.6502976190476191) 90%), url(https://images.unsplash.com/photo-1583470037890-73cc6850b7eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80);
-    background-position: center;
-    background-size: cover;
+    background-image: url(https://img.freepik.com/foto-gratis/guitarra-acustica-teclas-musicales-sobre-fondo-blanco-laicos-plana_169016-16616.jpg?w=900&t=st=1696607053~exp=1696607653~hmac=27c014ced83c09c4730de56151d03a2b14474a61f59ab8155e2edb6af7e5527f);
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    padding-top: 30px;
 }
 
-.fondo-card {
-    background-color: gray;
+#Nosotros {
+    border: 1px solid rgba(0, 0, 0, 0.363);
+    border-radius: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    color: white;
+    box-shadow: 0 0 10px rgba(248, 248, 248, 0.612)
+}
+
+.progress-bar {
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    background-color: #F8A126 !important;
+}
+
+.progress {
+    background-color: #0D0D0D;
+    height: 20px;
+}
+
+.icono-numero {
+    font-size: 35px;
+}
+
+.avatar-nosotros {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+}
+
+.tecnologias-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    filter: grayscale(100%);
+    transition: all 0.3s ease-in;
+}
+
+.tecnologias-img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0);
 }

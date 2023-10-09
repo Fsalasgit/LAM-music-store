@@ -47,6 +47,32 @@ const ProductTable = ({ allProducts, getProducts }) => {
         }
     }
 
+
+    const changeFeaturedStatus = async (row) => {
+        try {
+            const newIsFeaturedStatus = row.isFeatured === true ? false : true;
+
+            await axiosInstance.put(`/product/feacture/${row._id}`, { isFeatured: newIsFeaturedStatus });
+
+            await getProducts();
+            Swal.fire({
+                icon: 'success',
+                title: 'Producto destacado con éxito.',
+                showConfirmButton: false,
+                timer: 1000,
+            });
+        } catch (error) {
+            console.error(error);
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Hubo un error al destacar el producto.',
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
+    };
+
     const columns = [
         {
             name: "Title",
@@ -57,8 +83,7 @@ const ProductTable = ({ allProducts, getProducts }) => {
             name: "Description",
             selector: (row) => row.description,
             sortable: true,
-            hide: 'lg',
-            center: true
+            hide: 'lg'
         },
         {
             name: "Price",
@@ -69,14 +94,15 @@ const ProductTable = ({ allProducts, getProducts }) => {
             format: (row) => {
                 const formattedPrice = `$${row.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
                 return formattedPrice;
-              }
+            },
+            width: "10%",
         },
         {
             name: "Category",
             selector: (row) => row.category.name,
             sortable: true,
             hide: 'sm',
-            center: true
+            width: "10%",
         },
         {
             name: "Image",
@@ -86,27 +112,34 @@ const ProductTable = ({ allProducts, getProducts }) => {
                 </div>
             ),
             hide: 'lg',
-            center: true
+            width: "10%",
         },
         {
             name: "Stock",
             selector: (row) => row.stock,
             sortable: true,
             width: "6%",
-            hide: 'sm',
-            center: true
+            hide: 'sm'
+        },
+        {
+            name: "Destacado",
+            selector: (row) => (row.isFeatured ? "true" : "false"),
+            sortable: true,
+            width: "8%",
+            hide: 'lg'
         },
         {
             name: "Acciones",
             selector: row => {
                 return (
                     <div>
+
+                        <button className='btn btn-warning btn-md me-3 ' onClick={() => changeFeaturedStatus(row)}>Destacado</button>
                         <button className='btn btn-warning btn-md me-3' onClick={() => handleUpdate(row)}>Edit</button>
                         <button className='btn btn-danger btn-md ' onClick={() => deleteCurso(row._id)}>Delete</button>
                     </div>
                 )
-            },
-            center: true
+            }
         }
     ]
     return (

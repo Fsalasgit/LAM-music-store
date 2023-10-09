@@ -3,49 +3,49 @@ import { axiosInstance } from '../../../config/axiosInstance'
 import { Form, InputGroup } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
-const FormUpdate = ({ datoProduct, getProducts}) => {
-    const [categories, setCategories] = useState([])
-    const { title, description, price, category, stock} = datoProduct
-    const [formDatos, setFormDatos] = useState({
-        title,
-        description,
-        price,
-        category,
-        stock
-    })
+const FormUpdate = ({ datoProduct, getProducts }) => {
+  const [categories, setCategories] = useState([])
+  const { title, description, price, category, stock } = datoProduct
+  const [formDatos, setFormDatos] = useState({
+    title,
+    description,
+    price,
+    category,
+    stock
+  })
 
-    const handleChangeDatos = (e) => {
-      setFormDatos({
-          ...formDatos,
-          [e.target.name]: e.target.value
-      })
+  const handleChangeDatos = (e) => {
+    setFormDatos({
+      ...formDatos,
+      [e.target.name]: e.target.value
+    })
   }
 
-    const getCategorias = async () => {
-            const resp = await axiosInstance.get("/categories")
-            setCategories(resp.data.categories)
-    }
+  const getCategorias = async () => {
+    const resp = await axiosInstance.get("/categories")
+    setCategories(resp.data.categories)
+  }
 
-    useEffect(() => {
-        getCategorias()
-    }, [])
+  useEffect(() => {
+    getCategorias()
+  }, [])
 
-    const handletSubmit = async (e) => {
-        e.preventDefault()
-        try {
-           await axiosInstance.put(`/product/${datoProduct._id}`, formDatos);
-           Swal.fire({
-            icon: 'success',
-            title: 'Producto modificado con éxito',
-          });
-        } catch (error) {
-          console.log(error)  
-        }finally{
-         getProducts()
-        }
+  const handletSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await axiosInstance.put(`/product/${datoProduct._id}`, formDatos);
+      Swal.fire({
+        icon: 'success',
+        title: 'Producto modificado con éxito',
+      });
+    } catch (error) {
+      console.log(error)
+    } finally {
+      getProducts()
     }
-    return (
-      <div>
+  }
+  return (
+    <div>
       <Form onSubmit={handletSubmit}>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="nombre">Titulo</Form.Label>
@@ -58,16 +58,16 @@ const FormUpdate = ({ datoProduct, getProducts}) => {
           />
         </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label htmlFor="description">Descripción del producto</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={5}
-              id="description"
-              name="description"
-              onChange={handleChangeDatos}
-            />
-          </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="description">Descripción del producto</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            id="description"
+            name="description"
+            onChange={handleChangeDatos}
+          />
+        </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label htmlFor="nombre">Precio</Form.Label>
@@ -116,7 +116,7 @@ const FormUpdate = ({ datoProduct, getProducts}) => {
         </div>
       </Form>
     </div>
-    )
+  )
 }
 
 export default FormUpdate

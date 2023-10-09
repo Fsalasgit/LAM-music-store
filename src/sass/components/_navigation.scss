@@ -1,11 +1,11 @@
 .nav-header {
-    background-color: var(--c-black);
+  background-color: var(--c-black);
 
-  &__link:visited  {
+  &__link:visited {
     color: white;
     display: flex;
     justify-content: center;
-    margin-right: 0.2rem; 
+    margin-right: 0.2rem;
   }
 
   &__link:hover {
@@ -42,6 +42,7 @@
     font-size: 15px;
     color: var(--c-white);
   }
+
   &__login {
     color: var(--c-mainColor);
     font-size: 2.5rem;
@@ -68,52 +69,22 @@
   &__cart:hover {
     color: var(--c-secondColor);
   }
-}
-.form-control {
-  width: 50rem;
-  height: 3.5rem;
-  font-size: 1.5rem;
-}
-  .custom-search__search {
+
+  &__search {
     font-size: 1.5rem;
   }
 
-  .custom-search__search:hover {
-   color: var(--c-white);
+  &__search:hover {
+    color: var(--c-white);
   }
-
-.icons {
-  margin-right: 15px; /* Margen a la derecha de cada elemento */
 }
 
-@media (max-width: 768px) {
-  .icons-group {
-    display: flex;
-    align-items: center; /* Centrar verticalmente los elementos */
-    margin: 0; /* Eliminar el margen en la parte superior e inferior */
-  }
-
-  .icons {
-    margin-bottom: 10px;
-    margin-right: 10px; /* Espaciado entre los iconos */
-  }
-
-  .navbar-brand {
-    width: 100%; /* Ancho completo para el logotipo */
-  }
-
-  .form-control {
-    width: 20rem; /* Ancho automático para el campo de búsqueda */
-    height: auto; /* Altura automática para el campo de búsqueda */
-    font-size: 1rem;
-  }
-  .nav-header__cerrar-sesion{
-    margin-left: 1rem;
-  }
+.icons {
+  margin-right: 15px;
 }
 
 .navbar-expand-lg .navbar-collapse {
-    justify-content: center;
+  justify-content: center;
 }
 
 .navbar-toggler {
@@ -127,7 +98,7 @@
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: var(--c-mainColor);
   --bs-btn-hover-border-color: var(--c-mainColor);
-  --bs-btn-focus-shadow-rgb: 255,193,7;
+  --bs-btn-focus-shadow-rgb: 255, 193, 7;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: var(--c-mainColor);
   --bs-btn-active-border-color: var(--c-mainColor);
@@ -136,6 +107,31 @@
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: var(--c-mainColor);
   --bs-gradient: none;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+@media (max-width: 768px) {
+  .icons-group {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .icons {
+    margin-bottom: 30px;
+    margin-right: 10px;
+  }
+
+  .navbar-brand {
+    width: 100%;
+  }
+
+  .nav-header__cerrar-sesion {
+    margin-left: 1rem;
+  }
+
+  .btn-outline-warning {
+    margin-bottom: 20px;
+  }
 }

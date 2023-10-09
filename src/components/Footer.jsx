@@ -27,28 +27,58 @@ const Footer = () => {
           </div>
           <hr />
           <div className="row text-center">
-            <div className="col-lg-3">
+            <div className="col-lg-4">
               <h3>LAM Music Store</h3>
-              <p className='text-start mt-4'>Nuestra Misión es acompañar a todos aquellos que buscan inspirar, divertir, emocionar y trascender a través de la música.</p>
+              <p className=' mt-4'>Nuestra Misión es acompañar a todos aquellos que buscan inspirar, divertir, emocionar y trascender a través de la música.</p>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-4">
               <h3>Preguntas frecuentes</h3>
-              <ul className='text-start ms-4'>
+              <ul>
                 <li>¿Quienes Somos?</li>
                 <li>Envios</li>
                 <li>Cancelar orden</li>
               </ul>
             </div>
-            <div className="col-lg-6">
-              <h3>Contacto y Medios de pago</h3>
-              <ul className='text-start ms-5'>
-                <li> <RiWhatsappLine /> Escríbenos por WhatsApp!</li>
-                <li>+549381 555 05 37</li>
-                <li> <RiMailLine /> swanmusiconlinetuc@gmail.com</li>
-                <li> <RiPinDistanceLine /> Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán</li>
-                <li> <AiOutlineClockCircle /> Lunes a Sábado de 9 a 13 hs y de 17 a 21 hs</li>
-              </ul>
-            </div>
+            <div className="col-lg-4">
+  <h3>Contacto y Medios de pago</h3>
+  <ul>
+    <li>
+      <div>
+        <RiWhatsappLine /> Escríbenos por WhatsApp!
+      </div>
+    </li>
+    <li>
+      <div className="contact-item">
+        +549381 555 05 37
+      </div>
+    </li>
+    <li>
+      <div>
+        <RiMailLine /> swanmusiconlinetuc@gmail.com
+      </div>
+    </li>
+    <li>
+      <div>
+        <RiPinDistanceLine /> Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán
+      </div>
+    </li>
+    <li>
+      <div>
+        <AiOutlineClockCircle /> Lunes a Sábado de 9 a 13 hs y de 17 a 21 hs
+      </div>
+    </li>
+    <li>
+      <div>
+        <img
+          src="https://hoffmannmusica.com.ar/img/pagos.webp?v=1662789836"
+          alt=""
+          className="img-fluid tarjetas"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
+
           </div>
           <hr />
           <div className="row">

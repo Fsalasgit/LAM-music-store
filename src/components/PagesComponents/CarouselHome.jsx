@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 const CarouselHome = () => {
   return (
     <>
-      <Carousel id='carouselHome' interval={3000} slide className='mt-1'>
+      <Carousel id='carouselHome' interval={3000} slide>
         <Carousel.Item>
           <img
             className="d-block w-100 carouselResponsive__img"

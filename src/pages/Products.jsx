@@ -13,31 +13,35 @@ const Products = ({}) => {
 
   const [selectedOrder, setSelectedOrder] = useState('1');
   const [cartProducts, setCartProducts] = useState([]);
-
+  const [filteredCategory, setFilteredCategory] = useState(null);
+  const [categories, setCategories] = useState([]);
 
   const handleOrderChange = (selectedValue) => {
     setSelectedOrder(selectedValue);
   };
 
+  const handleCategorySelect = (category) => {
+    setFilteredCategory(category);
+  };
 
-  
-
+ 
   return (
     <>
 
     <Container className='container'>
         <Row className="row">
             <Col xs={2}>
-              <Sidebar onOrderChange={handleOrderChange}/>
+            <Sidebar onOrderChange={handleOrderChange} onCategorySelect={handleCategorySelect} />
 
 
             </Col>
             <Col >
-              <ProductList 
+            <ProductList
               selectedOrder={selectedOrder}
               setCartProducts={setCartProducts}
               cartProducts={cartProducts}
-              />
+              filteredCategory={filteredCategory}
+            />
 
             </Col>
         </Row>
