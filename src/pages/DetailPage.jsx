@@ -12,7 +12,7 @@ const DetailPage = () => {
   const getProducts = async () => {
     try {
       const resp = await axiosInstance.get(`/product/${_id}`)
-      setProduct(resp.data)
+      setProduct(resp.data.product)
     } catch (error) {
       console.log(error)
     }
@@ -27,7 +27,7 @@ const DetailPage = () => {
     <div className='mb-3'>
 
         <>
-                < ProductDetail product={product} key={product._id} />
+                < ProductDetail product={product} />
         </>
 
     </div>
