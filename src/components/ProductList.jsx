@@ -1,32 +1,31 @@
-import React, { useEffect, useState } from 'react'
-// import { products } from '../helpers/products'
-import ProductCard from './ProductCard'
-import { axiosInstance } from '../config/axiosInstance'
+import React, { useEffect, useState } from 'react';
+import ProductCard from './ProductCard';
+import { axiosInstance } from '../config/axiosInstance';
 
 const ProductList = ({
   selectedOrder,
   setCartProducts,
-  cartProducts
+  cartProducts,
+  filteredCategory  // Nueva prop para recibir la categoría filtrada
 }) => {
-
-  const [allProducts, setAllProducts] = useState([])
-  const product = allProducts
-
+  const [allProducts, setAllProducts] = useState([]);
 
   const getProducts = async () => {
     try {
-      const resp = await axiosInstance.get("/products")
-      setAllProducts(resp.data.products)
+      const resp = await axiosInstance.get('/products');
+      setAllProducts(resp.data.products);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getProducts()
-  }, [])
+    getProducts();
+  }, []);
+
 
   const sortProduct = (product, order) => {
+    let sortedProducts = [...product];
 
     switch (order) {
       case '1':
@@ -41,42 +40,40 @@ const ProductList = ({
         return product.slice().sort((a, b) => b.title.localeCompare(a.title));
       default:
         return product.slice();
-
     }
+  };
 
-  }
+  const sortedProducts = sortProduct(allProducts, selectedOrder);
 
 
-  const sortedProducts = sortProduct(product, selectedOrder) || []
-  // const filteredProducts = selectedCategory
-  //   ? sortedProducts.filter((product) => product.category === selectedCategory)
-  //   : sortedProducts;
-  // console.log(selectedOrder)
+  const filteredProducts = filteredCategory
+    ? sortedProducts.filter((product) => product.category.name === filteredCategory) 
+    : sortedProducts;
 
-  
+
 
   return (
     <>
-
-      <div className="container containerProductList ">
+      <div className="container containerProductList">
         <div className="row">
           <div className="col text-center my-3">
-            <h3 id='ourProducts'>Nuestros Productos</h3>
-
+            <h3 id="ourProducts">Nuestros Productos</h3>
           </div>
         </div>
 
         <div className="row">
-          {
-            sortedProducts.map((product) => (
-              <ProductCard product={product} key={product._id} setCartProducts={setCartProducts} cartProducts={cartProducts}/>
-            )
-            )}
+          {filteredProducts.map((product) => (
+            <ProductCard
+              product={product}
+              key={product._id}
+              setCartProducts={setCartProducts}
+              cartProducts={cartProducts}
+            />
+          ))}
         </div>
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;

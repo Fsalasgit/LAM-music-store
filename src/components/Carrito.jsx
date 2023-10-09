@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
+import { Link } from 'react-router-dom';
 
 
 const Carrito = () => {
@@ -9,10 +10,6 @@ const Carrito = () => {
   const [active, setActive] = useState(false);
   const {state, dispatch} = useContext(GlobalContext)
 
-  // useEffect(() => {
-  //   const savedCartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-  //   setCartProducts(savedCartProducts);
-  // }, []);
 
   const onDeleteProduct = (productId) => {
     const updatedCartProducts = state.productCart
@@ -34,11 +31,6 @@ const Carrito = () => {
     return pesos;
   };
 
-  const updatecart = () => {
-   
-    cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-    
-}
 
   return (
     <>
@@ -90,9 +82,14 @@ const Carrito = () => {
                   </span>
                 </div>
 
-                <button className='btn-clear-all' onClick={onCleanCart}>
+                <div className='buttonContainer'>
+
+                <button className='buttonContainer__button' onClick={onCleanCart}>
                   Vaciar Carrito
                 </button>
+                <button className='buttonContainer__button buttonContainer__button--buy'>Comprar</button>
+                </div>
+
               </>
             ) : (
               <p className='cart-empty'>El carrito está vacío</p>
