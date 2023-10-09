@@ -18,7 +18,7 @@ const ProductDetail = ({ product }) => {
       {product !== null ? (
         <div className="container mt-4" id="Container">
           <div className="row">
-            <div className="col-lg-7">
+            <div className="col-lg-7 d-flex justify-content-center align-items-center">
               <div className="text-center">
                 <img src={product?.image} alt="" className="img-product" />
               </div>
