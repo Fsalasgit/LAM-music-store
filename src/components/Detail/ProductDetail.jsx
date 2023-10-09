@@ -71,7 +71,7 @@ const ProductDetail = ({ product }) => {
           <div className="row">
             <div className="col-12 mt-4">
               <h4>Descripcion</h4>
-              <pre className="mt-5 fs-5">{product?.description}</pre>
+              <pre className="mt-5 fs-5">{product?.shortDescription}</pre>
             </div>
           </div>
           <hr />

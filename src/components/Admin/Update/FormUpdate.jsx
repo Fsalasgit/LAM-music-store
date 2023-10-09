@@ -5,13 +5,14 @@ import Swal from 'sweetalert2'
 
 const FormUpdate = ({ datoProduct, getProducts }) => {
   const [categories, setCategories] = useState([])
-  const { title, description, price, category, stock } = datoProduct
+  const { title, description, price, category, stock, shortDescription } = datoProduct
   const [formDatos, setFormDatos] = useState({
     title,
     description,
     price,
     category,
-    stock
+    stock,
+    shortDescription
   })
 
   const handleChangeDatos = (e) => {
@@ -59,15 +60,25 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label htmlFor="description">Descripción del producto</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={5}
-            id="description"
-            name="description"
-            onChange={handleChangeDatos}
-          />
-        </Form.Group>
+            <Form.Label htmlFor="description">Detalle del producto</Form.Label>
+            <Form.Control
+              type="text"
+              rows={5}
+              id="description"
+              name="description"
+              onChange={handleChangeDatos}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="description">Descripción del producto</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={5}
+              id="shortDescription"
+              name="shortDescription"
+              onChange={handleChangeDatos}
+            />
+          </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label htmlFor="nombre">Precio</Form.Label>
