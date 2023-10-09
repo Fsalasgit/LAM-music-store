@@ -55,14 +55,3 @@
   box-shadow: none;
 }
 
-/* En tu archivo CSS */
-#custom-column {
-  width: 10%; /* Ancho predeterminado para pantallas grandes */
-}
-
-@media (max-width: 768px) {
-  /* Ancho personalizado para pantallas pequeñas */
-  #custom-column {
-    width: 50%;
-  }
-}

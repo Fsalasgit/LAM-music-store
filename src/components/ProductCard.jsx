@@ -54,13 +54,25 @@ const ProductCard = ({ product }) => {
       <Card key={product._id}>
         <div className='productCard__header'>
           {isFavorite ? (
-            <button className='productCard__favorite favorite' onClick={handleFavourite}>
-              <FaHeart className='productCard__favorite-icons' />
-            </button>
-          ) : (
-            <button className='productCard__favorite' onClick={handleFavourite}>
-              <FaRegHeart className='productCard__favorite-icons' />
-            </button>
+   <button
+   className='productCard__favorite favorite'
+   onClick={(e) => {
+     e.preventDefault(); // Previene la acción predeterminada del enlace
+     handleFavourite();
+   }}
+ >
+   <FaHeart className='productCard__favorite-icons' />
+ </button>
+) : (
+ <button
+   className='productCard__favorite'
+   onClick={(e) => {
+     e.preventDefault(); // Previene la acción predeterminada del enlace
+     handleFavourite();
+   }}
+ >
+   <FaRegHeart className='productCard__favorite-icons' />
+ </button>
           )}
         </div>
         <caption className='productCard__imgContainer'>

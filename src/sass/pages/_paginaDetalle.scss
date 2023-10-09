@@ -1,5 +1,5 @@
 .img-product {
-    height: 600px;
+    height: 350px;
     object-fit: cover;
 }
 
@@ -12,3 +12,10 @@
     background-color: white;
     border: #302e2e solid 1px;   
 }
+  
+  .pre {
+    white-space: pre-wrap; 
+    font-family: var(--font-Montserrat);
+    font-weight: 300;
+  }
+  
