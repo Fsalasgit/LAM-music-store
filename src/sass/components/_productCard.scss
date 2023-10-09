@@ -11,7 +11,11 @@
     text-align: center;
 
     &:hover{
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    &__container{
+        border: none;
     }
     &__imgContainer{
         min-height: 150px;      
