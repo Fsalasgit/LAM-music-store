@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Category = ({category, onCategoryClick }) => {
+const Category = ({category, onCategoryClick,setCategoryFilterInfo}) => {
+
+
   const handleCategoryClick = () => {
     onCategoryClick(category.name);
   };
