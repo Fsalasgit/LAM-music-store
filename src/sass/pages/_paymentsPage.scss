@@ -1,0 +1,45 @@
+.mainPage{
+    min-height: 55vh;
+}
+
+.payTable, .totalPay{
+    background-color: rgba(245, 245, 245, 0.763);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+    
+    &__header{
+        text-transform: uppercase;
+        font-size: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.102);
+    }
+    &__title{
+        text-indent: 1rem;
+    }
+    &__item{
+        width: 20%;
+        font-size: 1.5rem;
+        &-long{
+            width: 30%;
+            font-size: 1.9rem;
+        }
+    }
+
+    &__img{
+        max-width: 80px;
+        margin: 1rem;
+
+    }
+}
+
+.totalPay{
+    &__title{
+        text-align: center;
+        text-transform: uppercase;
+        margin: 1rem;
+    }
+    &__card{
+        margin-bottom: 4rem;
+        
+    }
+}
+

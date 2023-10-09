@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 // import { Header } from './components/Cart/Header'
 import AboutUs from './pages/AboutUs'
+import PaymentsPage from './pages/PaymentsPage'
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path='/productos' element={<Products/>}
         />
         <Route path='/nosotros' element={<AboutUs/>}/>
+        <Route path='/pagos' element={<PaymentsPage/>}/>
       
         <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />
