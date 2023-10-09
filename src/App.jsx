@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 // import { Header } from './components/Cart/Header'
 import AboutUs from './pages/AboutUs'
+import Error404 from './pages/Error404'
 
 
 
@@ -30,12 +31,13 @@ function App() {
         <Route path='/productos' element={<Products/>}
         />
         <Route path='/nosotros' element={<AboutUs/>}/>
-      
+        <Route path='/error404' element={<Error404/>}/>
         <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />
         </Route>
       </Routes>
     < Footer />
+
     </>
   )
 }
