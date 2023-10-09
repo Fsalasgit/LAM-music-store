@@ -1,27 +1,43 @@
-.a-para-borrar{
-    text-decoration: none;
-    color: black;
-}
-
 .productCard{
     position: relative;
     margin: 1rem;
     border-radius: 1rem;
+    background-color: rgb(255, 255, 255);
     transition: box-shadow 0.3s ease-in-out; 
     width: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
     &:hover{
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
+    &__imgContainer{
+        min-height: 150px;      
+    }
 
     &__img{
-        margin-top: 1rem;
+        width: 100%;
+        max-height: 15rem; 
+        object-fit: cover;
+        border-radius: 5px;      
+    }
+
+    &__body{
+        width: 100%;
+        text-align: left; 
+        padding: 1rem;
+    }
+
+    &__header{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        padding: 1rem;
     }
     
     &__favorite{
-        position: absolute;
-        bottom: 80%;
-        left: 70%;
         border: none;
         background-color:rgba(255, 255, 255, 0)
     }
@@ -30,8 +46,34 @@
         font-size: 2rem;
         color: red;
         background-color: none;
-        padding: 1.5rem;
+
     }
+
+    &__description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; 
+        -webkit-box-orient: vertical;
+    }
+
+    &__footer{
+        padding: 1rem;
+    }
+    &__footer button{
+        border: none;
+        background-color: #000;
+        color: #fff;
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+        display: block;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all .3s ease;
+    }
+      
+      
+
     @media screen and (max-width: 844px) {
         margin-left: auto;
 
@@ -41,7 +83,4 @@
    
 }
 
-.mt-1rem{
-    margin-top: 0.4rem;
-}
 
