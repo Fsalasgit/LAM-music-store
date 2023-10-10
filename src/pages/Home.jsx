@@ -1,5 +1,6 @@
 import React from 'react'
 import CarouselHome from '../components/PagesComponents/CarouselHome'
+import SaleType from '../components/PagesComponents/SaleType'
 import ShippingType from '../components/PagesComponents/ShippingType'
 import FeaturedCarousel from '../components/PagesComponents/FeaturedCarousel'
 import OurMusicalInstruments from '../components/OurMusicalInstruments'
@@ -20,23 +21,23 @@ const Home = () => {
         className="image"
       />
     </div>
-      <h2 className="titleText mt-5">Productos destacados</h2>
+    <hr />
+      <h2 className="titleText">Productos destacados</h2>
       <FeaturedCarousel />
     </div>  
+    <SaleType />
     <div className="featuredProducts">
       <hr />
-      <h2 className="titleText">¿Por que comprar en LAM?</h2>
+      <h2 className="titleText">¿Por qué comprar en LAM?</h2>
       <img 
           className="mt-3 w-100 featuredProducts__img"
           src="https://bairesrocks.vteximg.com.br/arquivos/ids/237535/1920x680_02.jpg?v=637913244060900000"
           alt="Store"
         /> 
-      <p className='mt-5 paragraphs'><strong>LAM</strong> representa nuestra aspiración de
-        ser la mayor casa de instrumentos musicales. </p>
-      <p className='paragraphs'>Nuestro compromiso es ofrecer una amplia gama de productos y
-      servicios de alta calidad para músicos de todos los niveles. En <strong>"LAM,"</strong>
-      los amantes de la música encuentran desde instrumentos hasta
-      accesorios, en un solo lugar.</p> 
+      <p className='mt-5 paragraphs'>
+        En <strong>LAM</strong>  Music Store, aspiramos a ser la mayor casa de instrumentos musicales. Estamos comprometidos en ofrecerte más que simples productos musicales; estamos aquí para brindarte una experiencia musical excepcional. 
+        </p>
+        <br/>
       <div className="contOurMusInstruments">   
       <OurMusicalInstruments />
       <WhatsappLink/>

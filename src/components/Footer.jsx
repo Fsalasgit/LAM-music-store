@@ -29,13 +29,13 @@ const Footer = () => {
           <div className="row text-center">
             <div className="col-lg-4">
               <h3 className='footer__title2'>LAM Music Store</h3>
-              <p className=' mt-4'>Nuestra Misión es acompañar a todos aquellos que buscan inspirar, divertir, emocionar y trascender a través de la música.</p>
+              <p className='footer__text1'>Nuestra Misión es acompañar a todos aquellos que buscan inspirar, divertir, emocionar y trascender a través de la música.</p>
             </div>
             <div className="col-lg-4">
               <h3 className='footer__title'>Preguntas frecuentes</h3>
               <ul>
-                <li>¿Quienes Somos?</li>
-                <li>Envios</li>
+                <li>¿Quiénes Somos?</li>
+                <li>Envíos</li>
                 <li>Cancelar orden</li>
               </ul>
             </div>
@@ -84,7 +84,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-12 d-flex justify-content-between mb-4">
               <p>© Todos los derechos reservados </p>
-              <p>Terminos y Condiciones</p>
+              <p>Términos y Condiciones</p>
             </div>
           </div>
         </div>
