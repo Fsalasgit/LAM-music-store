@@ -13,9 +13,10 @@ import StepLabel from '@mui/material/StepLabel';
 import Box from '@mui/material/Box';
 import AddressForm from './materialComponent/AddressForm';
 import ReactCreditCard from './PagesComponents/ReactCreditCard';
+import Review from './materialComponent/Review';
 
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Datos de envio', 'Detalle de pago', 'Revise su orden'];
 
 function getStepContent(step) {
   switch (step) {
@@ -24,9 +25,9 @@ function getStepContent(step) {
     case 1:
       return <ReactCreditCard />;
     case 2:
-      return <ReactCreditCard />;
+      return <Review />;
     default:
-      throw new Error('Unknown step');
+      throw new Error('Ulgo salios mal');
   }
 }
 
@@ -77,12 +78,12 @@ const PaymentForms = ({ show, setShow }) => {
           {activeStep === steps.length ? (
             <React.Fragment>
               <Typography variant="h5" gutterBottom>
-                Thank you for your order.
+                Gracias po su compra
               </Typography>
               <Typography variant="subtitle1">
-                Your order number is #2001539. We have emailed your order
-                confirmation, and will send you an update when your order has
-                shipped.
+                Su número de pedido es #2001539. Hemos enviado su pedido por correo electrónico
+                confirmación y le enviaremos una actualización cuando su pedido haya sido
+                enviado.
               </Typography>
             </React.Fragment>
           ) : (

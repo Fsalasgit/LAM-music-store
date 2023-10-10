@@ -4,12 +4,50 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
+const provinces = [
+  'Buenos Aires',
+  'Catamarca',
+  'Chaco',
+  'Chubut',
+  'Córdoba',
+  'Corrientes',
+  'Entre Ríos',
+  'Formosa',
+  'Jujuy',
+  'La Pampa',
+  'La Rioja',
+  'Mendoza',
+  'Misiones',
+  'Neuquén',
+  'Río Negro',
+  'Salta',
+  'San Juan',
+  'San Luis',
+  'Santa Cruz',
+  'Santa Fe',
+  'Santiago del Estero',
+  'Tierra del Fuego',
+  'Tucumán',
+];
 
 const AddressForm = () => {
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+
+
   return (
     <>
     <Typography variant="h6" gutterBottom>
-        Shipping address
+        Datos de envio
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -17,9 +55,8 @@ const AddressForm = () => {
             required
             id="firstName"
             name="firstName"
-            label="First name"
+            label="Nombre"
             fullWidth
-            autoComplete="given-name"
             variant="standard"
           />
         </Grid>
@@ -28,79 +65,82 @@ const AddressForm = () => {
             required
             id="lastName"
             name="lastName"
-            label="Last name"
+            label="Apellido"
             fullWidth
-            autoComplete="family-name"
             variant="standard"
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6}>
           <TextField
             required
             id="address1"
             name="address1"
-            label="Address line 1"
+            label="direccion"
             fullWidth
-            autoComplete="shipping address-line1"
             variant="standard"
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={3}>
           <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
+            required
+            id="number"
+            name="number"
+            label="numero"
             fullWidth
-            autoComplete="shipping address-line2"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <TextField
+            required
+            id="floor"
+            name="floor"
+            label="piso"
+            fullWidth
             variant="standard"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
+          <FormControl variant="standard" fullWidth >
+            <InputLabel id="demo-simple-select-standard-label">Provincia</InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              value={age}
+              onChange={handleChange}
+              label="Age"
+            >
+              <MenuItem value="">
+                <em>Selecione provincia</em>
+              </MenuItem>
+              {provinces.map((province) => (
+              <MenuItem key={province} value={province}>
+                  {province}
+              </MenuItem>
+              ))}
+
+            </Select>
+        </FormControl>
+          
+        </Grid>
+        
+       
+        
+      <Grid item xs={12} sm={6}>
           <TextField
             required
             id="city"
             name="city"
-            label="City"
-            fullWidth
-            autoComplete="shipping address-level2"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="state"
-            name="state"
-            label="State/Province/Region"
+            label="Ciudad"
             fullWidth
             variant="standard"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="shipping postal-code"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="shipping country"
-            variant="standard"
-          />
-        </Grid>
+        
         <Grid item xs={12}>
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
+            label="Usa esta dirección como datos de facturacion"
           />
         </Grid>
       </Grid>
