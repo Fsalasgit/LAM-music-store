@@ -1,0 +1,42 @@
+.SaleType {
+    display: flex;
+    justify-content: center;
+    background-color: var(--c-black);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    &__container {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: var(--c-white);
+    }
+
+    &__item {
+        font-size: 2rem;
+    }
+    
+    &__icons {
+        font-size: 2rem;
+        margin-bottom: 0.25rem;
+        color: var(--c-mainColor);
+    }
+
+    &_text {
+        align-self: center;
+        text-transform: uppercase;
+    }
+
+    &__color-ofert {
+        color: var(--c-mainColor);
+    }
+}
+
+
+
+
+
+

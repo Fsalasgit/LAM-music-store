@@ -8,12 +8,12 @@ const ShippingType = () => {
         <div className="ShippingType__container">
             <div className='ShippingType__item'>
                 <PiCertificateDuotone className='ShippingType_icons'/>
-                <span className='ShippingType_text'>Garantia oficial</span>
+                <span className='ShippingType_text'>Garantía oficial</span>
 
             </div>
             <div className='ShippingType__item'>
                 <PiTruck className='ShippingType_icons'/>
-                <span className='ShippingType_text'>Envios a todo el pais</span>
+                <span className='ShippingType_text'>Envíos a todo el país</span>
 
             </div>
             <div className='ShippingType__item'>

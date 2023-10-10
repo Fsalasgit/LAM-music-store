@@ -1,34 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ProductCard from './ProductCard';
-import { axiosInstance } from '../config/axiosInstance';
 
-const FavoriteList = () => {
-  const [allProducts, setAllProducts] = useState([]);
-
-  const getFavorite = async () => {
-    try {
-      const resp = await axiosInstance.get('/favorite');
-      setAllProducts(resp.data.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getFavorite();
-  }, []);
+const FavoriteList = ({allProducts}) => {
 
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col text-center my-3">
-            <h3 id="ourProducts">Favoritos</h3>
+            <h3 id="ourProducts" className='titleText'>Favoritos</h3>
           </div>
         </div>
 
         <div className="row d-flex justify-content-center">
-          {allProducts.map((product) => (
+          {allProducts?.map((product) => (
             <ProductCard
               product={product}
               key={product._id}

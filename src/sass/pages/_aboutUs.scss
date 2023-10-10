@@ -1,10 +1,21 @@
-.hero {
+.aboutUs {
     background-image: url(https://img.freepik.com/foto-gratis/guitarra-acustica-teclas-musicales-sobre-fondo-blanco-laicos-plana_169016-16616.jpg?w=900&t=st=1696607053~exp=1696607653~hmac=27c014ced83c09c4730de56151d03a2b14474a61f59ab8155e2edb6af7e5527f);
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;
     padding-top: 30px;
-}
+    font-size: 1.5rem;
+
+    &__avatar-nosotros {
+        height: 250px;
+        width: 250px;
+        border-radius: 150px;
+    }
+    &__colorBadge{
+            color: var(--c-white);
+            background-color: var(--c-mainColor);
+        }
+    }
 
 #Nosotros {
     border: 1px solid rgba(0, 0, 0, 0.363);
@@ -16,37 +27,10 @@
     box-shadow: 0 0 10px rgba(248, 248, 248, 0.612)
 }
 
-.progress-bar {
-    color: black;
-    font-size: 14px;
-    text-align: center;
-    background-color: #F8A126 !important;
-}
 
-.progress {
-    background-color: #0D0D0D;
-    height: 20px;
-}
 
-.icono-numero {
-    font-size: 35px;
-}
 
-.avatar-nosotros {
-    height: 200px;
-    width: 200px;
-    border-radius: 100px;
-}
 
-.tecnologias-img {
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
-    filter: grayscale(100%);
-    transition: all 0.3s ease-in;
-}
 
-.tecnologias-img:hover {
-    transform: scale(1.1);
-    filter: grayscale(0);
-}
+
+
