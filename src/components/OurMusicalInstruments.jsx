@@ -43,7 +43,7 @@ const OurMusicalInstruments = () => {
                     <h3 className='subtitleText'>Guitarras y bajos</h3>
                     <p className='paragraphs'>"Acordes que resuenan en tu esencia. Guitarras y bajos LAM: arte sonoro en tus manos. Encuentra tu sonido, crea tu riff. La melodía de tu alma, con nuestra colección."</p>
                     <span className='buttonContainer'>
-                        <Link className="paragraphs readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
+                        <Link className="paragraphs buttonContainer__readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
                     </span>
                 </Col>
             </Row>
@@ -52,7 +52,7 @@ const OurMusicalInstruments = () => {
                     <h3 className='subtitleText'>Bateria</h3>
                     <p className='paragraphs'>"El latido de tu ritmo, nuestra inspiración. Baterías LAM para percusionistas apasionados. Cada golpe, una historia. Siente la energía, crea tu compás, con nuestra selección de baterías."</p>
                     <span className='buttonContainer'>
-                        <Link className="paragraphs readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
+                        <Link className="paragraphs buttonContainer__readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
                     </span>
                 </Col>
                 <Col xl={7} className='OurMusicalInstruments__img'>
@@ -68,15 +68,15 @@ const OurMusicalInstruments = () => {
                 <Col xl={7} className='OurMusicalInstruments__img'>
                 <img
                     className="w-100 d-none-576"
-                    src="https://es.yamaha.com/es/files/Image-Index_24e38d6521ad0bf58511b545b6267b42.jpg?impolicy=large&imwid=735&imhei=245"
+                    src="https://res.cloudinary.com/dcwpf7ghu/image/upload/v1696962794/Dise%C3%B1o_sin_t%C3%ADtulo_3_v5gzc4.png"
                     alt="pianos"
                     />
                 </Col>
                 <Col>
-                    <h3 className='subtitleText'>Percusion</h3>
+                    <h3 className='subtitleText'>Percusión</h3>
                     <p className='paragraphs'>"Ritmos que marcan el compás de tu vida. Percusión LAM: el pulso de la música en tus manos. Desde tambores hasta cajones, tu groove hecho realidad. Explora, crea y deja que resuene tu estilo."</p>
                     <span className='buttonContainer'>
-                        <Link className="paragraphs readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
+                        <Link className="paragraphs buttonContainer__readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
                     </span>
                 </Col>
             </Row>

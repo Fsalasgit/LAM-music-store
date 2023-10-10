@@ -72,13 +72,14 @@ const UserTable = () => {
       name: "Name",
       selector: (row) => row.name,
       sortable: true,
-      hide: 'md',
-      center: true
+      center: true,
+      hide: 'md'
     },
     {
       name: "Username",
       selector: (row) => row.username,
       sortable: true,
+      width: "25%",
       center: true
     },
     {

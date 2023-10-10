@@ -10,7 +10,7 @@ const AboutUs = () => {
         <div className="pb-5" id="Nosotros">
           <div className="row">
             <div className="col-12 mt-5">
-              <h2>Acerca de Nosotros</h2>
+              <h2 className="titleText">Acerca de Nosotros</h2>
             </div>
           </div>
           <hr />
@@ -18,7 +18,7 @@ const AboutUs = () => {
             <div className="col-6">
               <img src="https://www.educaciontrespuntocero.com/wp-content/uploads/2019/01/soft-skills-trabajo-en-equipo-educacion.jpg.webp" alt="" className="rounded img-fluid" />
             </div>
-            <div className="col-6 d-flex flex-column justify-content-center">
+            <div className="col-6 d-flex flex-column justify-content-start">
               <h3>LAM Music Store.</h3>
                 <p>Es una aplicación web desarrollada utilizando React, un framework popular de JavaScript, y algunas librerías clave para la interfaz de usuario. La plataforma ofrece una amplia gama de instrumentos musicales para músicos de todos los niveles y gustos. Este proyecto utiliza React Bootstrap y Bootstrap para la interfaz, React Hook Form para el manejo de formularios y React Icons para la integración de íconos. Además, se utiliza Sass como preprocesador de CSS para una gestión eficiente del estilo.</p>
             </div>

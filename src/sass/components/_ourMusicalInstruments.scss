@@ -29,7 +29,7 @@
         transition: background-color 0.3s ease-in-out;;
     }
     &__readMoreButton:hover{
-        background-color: #32485791;
+        background-color: var(--c-mainColor);
         color: white;
     }
 }
