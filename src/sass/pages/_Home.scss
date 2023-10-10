@@ -5,7 +5,7 @@
     justify-content: center;
     align-content: flex-start;
     align-items: flex-start;
-    background-color: #CCCCCC;
+    background-color: white;
 
     &__container{
         width: 60%;
@@ -117,3 +117,27 @@
 
 
 
+/* ImageComponent.css */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Personaliza la altura según tu diseño */
+  }
+  
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+    animation: zoomIn 2s ease-in-out; /* Agrega una animación de zoom */
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0.5); /* Comienza la animación desde una escala pequeña */
+      opacity: 0; /* Comienza con la imagen invisible */
+    }
+    100% {
+      transform: scale(1); /* Finaliza la animación a escala completa */
+      opacity: 1; /* Termina con la imagen completamente visible */
+    }
+  }

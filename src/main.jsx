@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './sass/main.scss'
 import { BrowserRouter } from 'react-router-dom'
 import GlobalStore from './context/GlobalStore.jsx';
+import 'react-credit-cards-2/dist/es/styles-compiled.css';
 
 
 
