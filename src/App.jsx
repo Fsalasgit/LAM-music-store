@@ -10,8 +10,9 @@ import PrivateRoutes from './components/Routes/PrivateRoutes'
 import Products from './pages/Products'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-// import { Header } from './components/Cart/Header'
+import Favorite from './pages/Favorite'
 import AboutUs from './pages/AboutUs'
+import PaymentsPage from './pages/PaymentsPage'
 import Error404 from './pages/Error404'
 
 
@@ -28,10 +29,10 @@ function App() {
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/productos/:_id' element={<DetailPage />} />
-        <Route path='/productos' element={<Products/>}
-        />
+        <Route path='/productos' element={<Products/>} />
+        <Route path='/favorite' element={<Favorite/>} />
         <Route path='/nosotros' element={<AboutUs/>}/>
-        <Route path='/error404' element={<Error404/>}/>
+      
         <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />
         </Route>

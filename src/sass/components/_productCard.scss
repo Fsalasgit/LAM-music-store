@@ -9,9 +9,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border: solid 1px black;
 
     &:hover{
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    &__container{
+        border: none;
     }
     &__imgContainer{
         min-height: 150px;      
@@ -76,6 +81,7 @@
 
     @media screen and (max-width: 844px) {
         margin-left: auto;
+        margin-right: auto;
 
     }
 

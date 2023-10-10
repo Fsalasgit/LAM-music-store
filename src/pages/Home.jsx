@@ -13,7 +13,14 @@ const Home = () => {
     <ShippingType />
     <div className="featuredProducts">
       <hr />
-      <h2 className="titleText">Productos destacados</h2>
+      <div className="image-container d-none d-sm-block">
+      <img
+        src="https://res.cloudinary.com/dcwpf7ghu/image/upload/v1696879269/ARG-banner-web-MagiaDeVerdad-octagonos-desktop_1_nehdno.jpg"
+        alt="Descripción de la imagen"
+        className="image"
+      />
+    </div>
+      <h2 className="titleText mt-5">Productos destacados</h2>
       <FeaturedCarousel />
     </div>  
     <div className="featuredProducts">
