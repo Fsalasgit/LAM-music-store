@@ -20,7 +20,7 @@ const OurMusicalInstruments = () => {
                     
 
                     <span className='buttonContainer'>
-                        <Link className="paragraphs readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
+                        <Link className="paragraphs buttonContainer__readMoreButton" to={"/Productos#ourProducts"}>Leer Más...</Link>
                     </span>
                 </Col>
                 <Col lg={7} className='OurMusicalInstruments__img'>
