@@ -6,8 +6,9 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
 import * as yup from 'yup';
+import Modal from 'react-bootstrap/Modal';
 
-const ShippingFormsData = () => {
+const ShippingFormsData = ({setformDataSend}) => {
     const provinces = [
         'Buenos Aires',
         'Catamarca',
@@ -43,6 +44,8 @@ const ShippingFormsData = () => {
       state: yup.string().required(),
       terms: yup.bool().required().oneOf([true], 'terms must be accepted'),
     });
+
+    
   return (
     <>
         <Formik
@@ -216,9 +219,9 @@ const ShippingFormsData = () => {
                     </Form.Group>
                     
                 </Row>
-                
+               
               
-                <Button type="submit">Submit form</Button>
+           
                 </Form>
             )}
         </Formik>

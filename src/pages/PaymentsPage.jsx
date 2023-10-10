@@ -13,7 +13,7 @@ const PaymentsPage = () => {
     const [show, setShow] = useState(false);
 
     const {state, dispatch} = useContext(GlobalContext)
-    console.log(state.productCart.length)
+
   
   
     const onDeleteProduct = (productId) => {
