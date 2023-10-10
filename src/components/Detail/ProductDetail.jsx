@@ -1,14 +1,37 @@
-import React from "react";
-import mediosPago from "./mediospago.png"
+import React, { useState, useContext } from "react";
+import mediosPago from "./mediospago.png";
+import { addCart } from "../../context/GlobalActions";
+import { GlobalContext } from "../../context/GlobalContext";
+import { RiShareFill } from "react-icons/ri";
+import { RiLockFill } from "react-icons/ri";
 
 const ProductDetail = ({ product }) => {
+  const { state, dispatch } = useContext(GlobalContext);
+  const [cartProducts, setCartProducts] = useState([]);
   console.log(product);
-  console.log(typeof (product.price))
+  console.log(typeof product.price);
+
+  const onAddProduct = () => {
+    const existingProductIndex = state.productCart.findIndex(
+      (item) => item._id === product._id
+    );
+
+    if (existingProductIndex !== -1) {
+      state.productCart[existingProductIndex].cantidad++;
+    } else {
+      const updatedCartProducts = [
+        ...cartProducts,
+        { ...product, cantidad: 1 },
+      ];
+      setCartProducts(updatedCartProducts);
+      dispatch(addCart({ ...product, cantidad: 1 }));
+    }
+  };
 
   let convertToPesos = (number) => {
-    const pesos = number?.toLocaleString('es-AR', {
-      style: 'currency',
-      currency: 'ARS',
+    const pesos = number?.toLocaleString("es-AR", {
+      style: "currency",
+      currency: "ARS",
     });
     return pesos;
   };
@@ -20,7 +43,11 @@ const ProductDetail = ({ product }) => {
           <div className="row">
             <div className="col-lg-7 d-flex justify-content-center align-items-center">
               <div className="text-center">
-                <img src={product?.image} alt="" className="img-fluid img-product" />
+                <img
+                  src={product?.image}
+                  alt=""
+                  className="img-fluid img-product"
+                />
               </div>
             </div>
             <div className="col-lg-5">
@@ -38,33 +65,25 @@ const ProductDetail = ({ product }) => {
                   <h3>{convertToPesos(product?.price)}</h3>
                 </div>
                 <div>
-                  <form
-                    action=""
-                    className="container d-flex flex-column align-items-center mt-3"
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onAddProduct();
+                    }}
+                    className="btn btn-warning mt-4 mb-4"
                   >
-                    <input
-                      type="text"
-                      placeholder="Cantidad: 1 (ultimo disponible)"
-                      className="w-50"
-                    />
-                    <a className="btn btn-warning mt-2 w-50">
-                      Agregar al carrito
-                    </a>
-                  </form>
+                    Añadir al carrito
+                  </button>
                 </div>
-                <p>Compra Protegida</p>
+                <p><RiLockFill/> Compra Protegida</p>
                 <a href="" className="justify-content-center">
-                  Compartir
+                <RiShareFill/>  Compartir
                 </a>
                 <hr />
                 <h4 className="text-center">
                   Tenemos la mejor financiacion para vos!
                 </h4>
-                <img
-                  src={mediosPago}
-                  alt=""
-                  className="img-fluid img-pagos"
-                />
+                <img src={mediosPago} alt="" className="img-fluid img-pagos" />
                 <hr />
                 <a href="">¿Alguna consulta? ¡Estamos para ayudarte!</a>
               </div>
@@ -84,10 +103,11 @@ const ProductDetail = ({ product }) => {
             <div className="col-12 mt-4 pre">
               <h3>Medios de Pago</h3>
               <p>
-                Podes pagar online de forma segura mediante las plataformas Mobbex
-                o Viumi (se debe realizar validación de identidad y se hará
-                entrega al titular de la tarjeta). Podes elegir pagar en 1 pago o
-                en cuotas, incluidos los pagos con Planes Ahora 3, 6, 12 y 18.
+                Podes pagar online de forma segura mediante las plataformas
+                Mobbex o Viumi (se debe realizar validación de identidad y se
+                hará entrega al titular de la tarjeta). Podes elegir pagar en 1
+                pago o en cuotas, incluidos los pagos con Planes Ahora 3, 6, 12
+                y 18.
                 <br />
                 También podes hacerlo con MercadoPago con tarjetas de crédito de
                 todos los bancos.
@@ -112,15 +132,15 @@ const ProductDetail = ({ product }) => {
                 Es por eso que procesamos su pedido rápidamente para que pueda
                 comenzar a tocar cuanto antes.
                 <br />
-                Todos nuestros instrumentos son calibrados y afinados por nuestro
-                Luthier previo a ser embalado y enviado, para garantizar una
-                entrega en óptimas condiciones.
+                Todos nuestros instrumentos son calibrados y afinados por
+                nuestro Luthier previo a ser embalado y enviado, para garantizar
+                una entrega en óptimas condiciones.
                 <br />
                 Retiro en el Local
                 <br />
                 Los artículos serán entregados al titular de la compra y en caso
-                de que el pago se haya realizado con tarjetas de crédito o débito,
-                la entrega se hará al titular de la tarjeta.
+                de que el pago se haya realizado con tarjetas de crédito o
+                débito, la entrega se hará al titular de la tarjeta.
                 <br />
                 Devoluciones
                 <br />
