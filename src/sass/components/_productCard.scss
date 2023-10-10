@@ -6,12 +6,16 @@
     transition: box-shadow 0.3s ease-in-out;
     width: 18rem;
     text-align: center;
-    
+  
     &__header{
     display: flex;
     justify-content: flex-end;
     }
 
+    &:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
     &:hover {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }

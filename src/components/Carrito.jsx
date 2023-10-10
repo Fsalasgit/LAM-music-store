@@ -87,7 +87,7 @@ const Carrito = () => {
                 <button className='buttonContainer__button' onClick={onCleanCart}>
                   Vaciar Carrito
                 </button>
-                <button className='buttonContainer__button buttonContainer__button--buy'>Comprar</button>
+                <Link to={`/pagos`} className='buttonContainer__button buttonContainer__button--buy'>Comprar</Link>
                 </div>
 
               </>

@@ -12,6 +12,8 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Favorite from './pages/Favorite'
 import AboutUs from './pages/AboutUs'
+import PaymentsPage from './pages/PaymentsPage'
+import Error404 from './pages/Error404'
 
 
 
@@ -30,12 +32,15 @@ function App() {
         <Route path='/productos' element={<Products/>} />
         <Route path='/favorite' element={<Favorite/>} />
         <Route path='/nosotros' element={<AboutUs/>}/>
+        <Route path='/pagos' element={<PaymentsPage/>}/>
+        <Route path='/error404' element={<Error404/>}/>
       
         <Route element={<PrivateRoutes/>}>
         <Route path='/admin' element={ <Admin />} />
         </Route>
       </Routes>
     < Footer />
+
     </>
   )
 }
