@@ -1,0 +1,26 @@
+.formContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 3rem;
+    &__w100Item{
+        flex-grow: 1;
+        flex: 2;
+        margin-bottom: 1rem;
+        &-sub{
+            display: flex;
+            justify-content: space-between;
+        }
+        
+    }
+    &__w50Item{
+        flex-grow: 1;
+        flex: 1;
+        margin-right: 3rem;   
+        &-right{
+            margin-right: 0;
+        }   
+        
+
+    }
+}
