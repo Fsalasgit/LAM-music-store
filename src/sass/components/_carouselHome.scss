@@ -20,6 +20,7 @@
   right: 8rem;
 }
 
+
 @media screen and (max-width: 768px) {
     #carouselHome .carouselResponsive__img{
         height: 18vh;
@@ -44,6 +45,15 @@
   background-color: rgba(0, 0, 0, 0.583); 
   border-radius: 50%;
   top: 45%;
+}
+
+
+.carousel-indicators {
+  margin-bottom: 0rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--c-mainColor);
 }
 
 @media screen and (max-width: 398px) {

@@ -8,7 +8,7 @@ const FavoriteList = ({allProducts}) => {
       <div className="container">
         <div className="row">
           <div className="col text-center my-3">
-            <h3 id="ourProducts">Favoritos</h3>
+            <h3 id="ourProducts" className='titleText'>Favoritos</h3>
           </div>
         </div>
 

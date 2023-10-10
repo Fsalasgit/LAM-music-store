@@ -105,7 +105,7 @@ const ProductTable = ({ allProducts, getProducts }) => {
             },
             sortable: true,
             hide: 'sm',
-            width: "10%"
+            width: "9%"
         },
         {
             name: "Descripcion",
@@ -122,7 +122,7 @@ const ProductTable = ({ allProducts, getProducts }) => {
             },
             sortable: true,
             hide: 'sm',
-            width: "10%",
+            width: "9%",
         },
 
         {
@@ -134,14 +134,14 @@ const ProductTable = ({ allProducts, getProducts }) => {
                 const formattedPrice = `$${row.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
                 return formattedPrice;
             },
-            width: "8%"
+            width: "10%"
         },
         {
             name: "Categoria",
             selector: (row) => row.category.name,
             sortable: true,
             hide: 'sm',
-            width: "11%"
+            width: "10%"
         },
         {
             name: "Imagen",
@@ -151,7 +151,7 @@ const ProductTable = ({ allProducts, getProducts }) => {
                 </div>
             ),
             hide: 'lg',
-            width: "10%"
+            width: "9%"
         },
         {
             name: "Stock",
@@ -164,7 +164,7 @@ const ProductTable = ({ allProducts, getProducts }) => {
             name: "Destacado",
             selector: (row) => (row.isFeatured ? "true" : "false"),
             sortable: true,
-            width: "11%",
+            width: "9%",
             hide: 'sm'
         },
         {
