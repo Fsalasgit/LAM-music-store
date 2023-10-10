@@ -5,11 +5,14 @@ import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ReactCreditCard from './PagesComponents/ReactCreditCard';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import ShippingFormsData from './PagesComponents/ShippingFormsData';
+
 
 const PaymentForms = ({ show, setShow }) => {
   return (
     <>
-      <Modal show={show} onHide={() => setShow(false)} dialogClassName='modal-100W' aria-labelledby='example-custom-modal-styling-title'>
+      <Modal show={show} onHide={() => setShow(false)} dialogClassName='modal-100' aria-labelledby='example-custom-modal-styling-title'>
         <Modal.Header closeButton>
           <Modal.Title id='example-custom-modal-styling-title'>Realizar Pago</Modal.Title>
         </Modal.Header>
@@ -28,18 +31,7 @@ const PaymentForms = ({ show, setShow }) => {
               <Tab.Pane eventKey='first'>
                 <div>
                   <h2>Datos de Entrega</h2>
-                  <Form>
-                    
-                    <Form.Group controlId='formBasicName'>
-                      <Form.Label>Nombre</Form.Label>
-                      <Form.Control type='text' placeholder='Nombre' />
-                    </Form.Group>
-                    <Form.Group controlId='formBasicAddress'>
-                      <Form.Label>Dirección</Form.Label>
-                      <Form.Control type='text' placeholder='Dirección' />
-                    </Form.Group>
-                    
-                  </Form>
+                  <ShippingFormsData />
                 </div>
               </Tab.Pane>
 
