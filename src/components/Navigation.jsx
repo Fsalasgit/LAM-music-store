@@ -50,7 +50,7 @@ const Navigation = () => {
       <Navbar expand="lg" className="nav-header">
         <Container fluid='md'>
           <Navbar.Brand as={Link} to="/" className="d-flex justify-content-center">
-            <img src="../../public/lan (150 x 100 px).png" alt="Logo" className="mx-auto my-auto d-lg-inline align-top" />
+            <img src="/lan (150 x 100 px).png" alt="Logo" className="mx-auto my-auto d-lg-inline align-top" />
           </Navbar.Brand>
           <Form className="d-flex ">
             <Form.Control

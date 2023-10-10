@@ -1,33 +1,36 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { addCart } from '../../context/GlobalActions';
 import { GlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import { axiosInstance } from '../../config/axiosInstance';
+import jwt_decode from 'jwt-decode';
 
-const FeaturedCards = ({ product }) => {
- 
+const ProductCard = ({ product }) => {
   const { state, dispatch } = useContext(GlobalContext);
   const [cartProducts, setCartProducts] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  useEffect(() => {
-    const favoritesFromLocalStorage = JSON.parse(localStorage.getItem('favorites')) || [];
-    setIsFavorite(favoritesFromLocalStorage.includes(product.id));
-  }, [product.id]);
+  const handleFavourite = async () => {
+    setIsFavorite(!isFavorite);
 
-  const handleFavourite = () => {
-    const newFavorite = !isFavorite;
-    setIsFavorite(newFavorite);
+    try {
+      const token = localStorage.getItem("token");
+      const decodedToken = jwt_decode(token);
+      const userId = decodedToken.sub;
 
-    const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
-
-    const updatedFavorites = newFavorite
-      ? [...favoritesFromStorage, product._id]
-      : favoritesFromStorage.filter((id) => id !== product._id);
-
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-  }
+      const response = await axiosInstance.post(`/user/favorite/${userId}`, {
+        productId: product._id,
+        addToFavorites: !isFavorite,
+      });
+      // Utiliza el nuevo estado de isFavorite de la respuesta para actualizar el botón
+      setIsFavorite(response.data.newIsFavorite);
+      console.log(response);
+    } catch (error) {
+      console.error('Error al actualizar los favoritos:', error);
+    }
+  };
 
   const onAddProduct = () => {
     const existingProductIndex = state.productCart.findIndex((item) => item._id === product._id);
@@ -49,57 +52,44 @@ const FeaturedCards = ({ product }) => {
     return pesos;
   };
 
-  return(
-  <>
-  <Link to={`/productos/${product._id}`} className='productCard'>
-    <Card key={product._id}>
-      <div className='productCard__header'>
-        {isFavorite ? (
-          <button
-            className='productCard__favorite favorite'
-            onClick={(e) => {
-              e.preventDefault();
-              handleFavourite();
-            }}
-          >
-            <FaHeart className='productCard__favorite-icons' />
-          </button>
-        ) : (
-          <button
-            className='productCard__favorite'
-            onClick={(e) => {
-              e.preventDefault(); 
-              handleFavourite();
-            }}
-          >
-            <FaRegHeart className='productCard__favorite-icons' />
-          </button>
-        )}
+
+  return (
+<>
+  <Card key={product._id} className='productCard'>
+    <div className='productCard__header'>
+    <button
+      className={`productCard__favorite${isFavorite ? ' favorite' : ''}`}
+      onClick={handleFavourite}
+    >
+      {isFavorite ? (
+        <FaHeart className='productCard__favorite-icons' />
+      ) : (
+        <FaRegHeart className='productCard__favorite-icons' />
+      )}
+    </button>
+    </div>
+    <Link to={`/productos/${product._id}`} className='productCard__link'>
+      <div className='productCard__imgContainer'>
+        <Card.Img variant="top" src={product.image} alt={product.title} className='productCard__img' />
       </div>
-      <caption className='productCard__imgContainer'>
-        <Card.Img className='productCard__img' variant="top" src={product.image} alt={product.title} />
-      </caption>
-      <Card.Body className='productCard_body'>
-        <Card.Title className='productCard__title mt-1rem'>{product.title}</Card.Title>
-        <Card.Subtitle className='productCard__itemprice mt-1rem'>{convertToPesos(product.price)}</Card.Subtitle>
-        <Card.Text className='productCard__description mt-1rem'>
+      <Card.Body className='productCard__body'>
+        <Card.Title className='productCard__title'>{product.title}</Card.Title>
+        <Card.Subtitle className='productCard__itemprice'>{convertToPesos(product.price)}</Card.Subtitle>
+        <Card.Text className='productCard__description'>
           {product.description}
         </Card.Text>
       </Card.Body>
-      <div className='productCard__footer'>
-      <button onClick={(e) => {
-              e.preventDefault()
-              onAddProduct()
-            }} 
-              className='productCard__button'>Añadir al carrito</button>
-
-      </div>
-
-
-    </Card>
-  </Link>
+    </Link>
+    <div className='productCard__footer'>
+      <button onClick={onAddProduct} className='productCard__button'>
+        Añadir al carrito
+      </button>
+    </div>
+  </Card>
 </>
-);
+
+  );
 };
 
-export default FeaturedCards;
+
+export default ProductCard;

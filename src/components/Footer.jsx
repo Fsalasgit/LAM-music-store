@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-12 d-flex justify-content-between mt-3">
               <div>
-                <img src="../../public/lan (150 x 100 px).png" alt="Logo" />
+                <img src="/lan (150 x 100 px).png" alt="Logo" />
               </div>
               <div className='d-flex align-items-end'>
                 <a href="" className='me-4'> <RiInstagramLine /> </a>
@@ -28,7 +28,7 @@ const Footer = () => {
           <hr />
           <div className="row text-center">
             <div className="col-lg-4">
-              <h3 className='footer__title'>LAM Music Store</h3>
+              <h3 className='footer__title2'>LAM Music Store</h3>
               <p className=' mt-4'>Nuestra Misión es acompañar a todos aquellos que buscan inspirar, divertir, emocionar y trascender a través de la música.</p>
             </div>
             <div className="col-lg-4">
@@ -72,7 +72,7 @@ const Footer = () => {
         <img
           src="https://hoffmannmusica.com.ar/img/pagos.webp?v=1662789836"
           alt=""
-          className="img-fluid tarjetas"
+          className="img-fluid footer__tarjetas"
         />
       </div>
     </li>

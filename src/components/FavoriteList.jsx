@@ -1,22 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ProductCard from './ProductCard';
-import { axiosInstance } from '../config/axiosInstance';
 
-const FavoriteList = () => {
-  const [allProducts, setAllProducts] = useState([]);
-
-  const getFavorite = async () => {
-    try {
-      const resp = await axiosInstance.get('/favorite');
-      setAllProducts(resp.data.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getFavorite();
-  }, []);
+const FavoriteList = ({allProducts}) => {
 
   return (
     <>
@@ -28,7 +13,7 @@ const FavoriteList = () => {
         </div>
 
         <div className="row d-flex justify-content-center">
-          {allProducts.map((product) => (
+          {allProducts?.map((product) => (
             <ProductCard
               product={product}
               key={product._id}
