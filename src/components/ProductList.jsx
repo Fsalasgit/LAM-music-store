@@ -57,7 +57,7 @@ const ProductList = ({
       <div className="container containerProductList">
         <div className="row">
           <div className="col text-center my-3">
-            <h3 id="ourProducts" className="titleText">Nuestros Productos</h3>
+            <h3 id="ourProducts" className="featuredProducts__titleText">Nuestros Productos</h3>
           </div>
         </div>
 
