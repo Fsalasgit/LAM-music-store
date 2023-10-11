@@ -81,7 +81,7 @@ const ProductDetail = ({ product }) => {
                 </a>
                 <hr />
                 <h4 className="text-center">
-                  Tenemos la mejor financiacion para vos!
+                  Tenemos la mejor financiación para vos!
                 </h4>
                 <img src={mediosPago} alt="" className="img-fluid img-pagos" />
                 <hr />
@@ -93,7 +93,7 @@ const ProductDetail = ({ product }) => {
           <div className="container-pre">
             <div className="row">
               <div className="col-12 mt-4">
-                <h3>Descripcion</h3>
+                <h3>Descripción</h3>
                 <pre className="mt-5 fs-5 pre">{product?.shortDescription}</pre>
               </div>
             </div>
