@@ -76,33 +76,35 @@ const PaymentsPage = () => {
                         
                     </tbody>
                 </table>
-                <Link to="/" className='payTable__button'>Continuar Comprando</Link>
+                <div className="mb-5">
+                  <Link to="/productos" className='payTable__button'>Continuar Comprando</Link>
+                </div>
             </Col>
             }
-            <Col xs={10} xl={3} className='ms-auto totalPay'>
-                <h2 className='totalPay__title'>Resumen de compra</h2>
+            <Col xs={10} xl={3} className='mx-auto totalPay'>
+              <h2 className='totalPay__title'>Resumen de compra</h2>
 
 
-                <div className='cart-total totalPay__card'>
-                    <h3 >Total</h3>
-                    <span className='total-pagar'>
-                        {convertToPesos(
-                        state.productCart.reduce((acc, item) => acc + item.price * item.cantidad, 0)
-                        )}
-                    </span>
-                </div>
+              <div className='cart-total totalPay__card'>
+                  <h3 >Total</h3>
+                  <span className='total-pagar'>
+                      {convertToPesos(
+                      state.productCart.reduce((acc, item) => acc + item.price * item.cantidad, 0)
+                      )}
+                  </span>
+              </div>
 
-                <div className='buttonContainer'>
-                    <button className='buttonContainer__button' onClick={onCleanCart}>
-                    Cancelar
-                    </button>
-                    <button
-                    className='buttonContainer__button buttonContainer__button--buy'
-                    onClick={() => setShow(true)}  
-                    >
-                    Pagar
-                    </button>
-                </div>
+              <div className='buttonContainer'>
+                  <button className='buttonContainer__button' onClick={onCleanCart}>
+                  Cancelar
+                  </button>
+                  <button
+                  className='buttonContainer__button buttonContainer__button--buy'
+                  onClick={() => setShow(true)}  
+                  >
+                  Pagar
+                  </button>
+              </div>
 
             </Col>
             <PaymentForms show={show} setShow={setShow} /> 

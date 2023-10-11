@@ -24,8 +24,24 @@ const steps = ['Datos de envio', 'Detalle de pago', 'Revise su orden'];
 
 const PaymentForms = ({ show, setShow }) => {
   const [activeStep, setActiveStep] = useState(0);
-  const {state, dispatch} = useContext(GlobalContext)
+  const { state, dispatch } = useContext(GlobalContext);
   const [orderPlaced, setOrderPlaced] = useState(false);
+
+  const [addresses, setUserAddresses] = useState({
+    firstName:"Pincky",
+    lastName:"Moom",
+    address:"Gral. Paz",
+    number:" 576",
+    city:"San Miguel de Tucuman"
+  
+  }  )
+  const [payments, setPayments] = useState({
+    cardTipe:"Visa",
+    cardHolder:"Pincky Moom",
+    cardNumber:"xxxx-xxxx-xxxx-1234",
+    expiryDate:"12/23"
+
+  })
 
   useEffect(() => {
     if (activeStep === steps.length && !orderPlaced) {
@@ -34,17 +50,21 @@ const PaymentForms = ({ show, setShow }) => {
     }
   }, [activeStep, orderPlaced, dispatch]);
 
+  const hableSubmit = (formData) => {
+    // Simular envío de datos
+    console.log('Datos enviados:', formData);
+  };
 
   function getStepContent(step) {
     switch (step) {
       case 0:
-        return <AddressForm />;
+        return <AddressForm setUserAddresses={setUserAddresses}/>;
       case 1:
-        return <ReactCreditCard />;
+        return <ReactCreditCard setPayments={setPayments}/>;
       case 2:
-        return <Review />;
+        return <Review  payments={payments} addresses={addresses}/>;
       default:
-        throw new Error('Ulgo salios mal');
+        throw new Error('Algo salió mal');
     }
   }
 
@@ -56,7 +76,6 @@ const PaymentForms = ({ show, setShow }) => {
     setActiveStep(activeStep - 1);
   };
   
-  
   return (
     <>
         <Modal className='modalContainer' show={show} onHide={() => setShow(false)} dialogClassName='modal-100' aria-labelledby='example-custom-modal-styling-title'>
@@ -66,6 +85,7 @@ const PaymentForms = ({ show, setShow }) => {
             <AppBar
               position="absolute"
               color="default"
+              className='headerForms'
               elevation={0}
               sx={{
                 position: 'relative',
@@ -81,7 +101,7 @@ const PaymentForms = ({ show, setShow }) => {
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            Lam house music - Pagos
+            LAM Music Store  - Pagos
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -116,6 +136,7 @@ const PaymentForms = ({ show, setShow }) => {
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
                   className={activeStep === steps.length - 1 ? 'buyButton' : 'nextButton'}
+                  type='submit'
                 >
                   {activeStep === steps.length - 1 ? 'Comprar' : 'Siguiente'}
                 </Button>

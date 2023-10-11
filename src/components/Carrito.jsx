@@ -31,7 +31,6 @@ const Carrito = () => {
     });
     return pesos;
   };
-  console.log(state.productCart)
 
 
   return (
