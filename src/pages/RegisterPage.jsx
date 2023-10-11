@@ -13,14 +13,14 @@ const RegisterPage = () => {
           <h2 className="registerPage__createAccount">Crear una cuenta</h2>
           <div className="registerPage__iconos">
             <div className="registerPage__borderIcon">
-              <a href="./html/error404.html"><BsFacebook className="registerPage__facebook " /></a>
+              <a href="/error404"><BsFacebook className="registerPage__facebook " /></a>
             </div>
             <div className="registerPage__borderIcon">
-              <a href="./html/error404.html"><FcGoogle /></a>
+              <a href="/error404"><FcGoogle /></a>
             </div>
 
             <div className="registerPage__borderIcon">
-              <a href="./html/error404.html"><BsApple className="registerPage__apple" /></a>
+              <a href="/error404"><BsApple className="registerPage__apple" /></a>
             </div>
           </div>
           <Register />

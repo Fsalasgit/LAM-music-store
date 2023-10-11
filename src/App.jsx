@@ -22,13 +22,14 @@ function App() {
 
   return (
     <>
-    <Navigation/>
+      <Navigation />
       <Routes>
-        <Route path='/'element={<Home/>}/>
+        <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/repassword' element={<RecoverPasswordPage />} />
         <Route path='/productos/:_id' element={<DetailPage />} />
+<<<<<<< HEAD
         <Route path='/productos' element={<Products/>} />
         <Route path='/favorite' element={<Favorite/>} />
         <Route path='/nosotros' element={<AboutUs/>}/>
@@ -42,6 +43,19 @@ function App() {
     < Footer />
     
     |
+=======
+        <Route path='/productos' element={<Products />} />
+        <Route path='/favorite' element={<Favorite />} />
+        <Route path='/nosotros' element={<AboutUs />} />
+        <Route path='/pagos' element={<PaymentsPage />} />
+        <Route path='/error404' element={<Error404 />} />
+
+        <Route element={<PrivateRoutes />}>
+          <Route path='/admin' element={<Admin />} />
+        </Route>
+      </Routes>
+      < Footer />
+>>>>>>> 2bea278fa3845e9d96348dc0d8d61885dabc13d4
 
     </>
   )
