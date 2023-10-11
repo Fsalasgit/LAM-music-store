@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 
 const Carrito = () => {
-  const [cartProducts, setCartProducts] = useState([]);
   const [active, setActive] = useState(false);
   const {state, dispatch} = useContext(GlobalContext)
 
@@ -18,8 +17,10 @@ const Carrito = () => {
 
   };
 
+
   const onCleanCart = () => {
     dispatch(clearCart())
+    setActive(!active)
     
   };
 
@@ -84,10 +85,10 @@ const Carrito = () => {
 
                 <div className='buttonContainer'>
 
-                <button className='buttonContainer__button' onClick={onCleanCart}>
+                <button className='buttonContainer__button' onClick={onCleanCart} >
                   Vaciar Carrito
                 </button>
-                <Link to={`/pagos`} className='buttonContainer__button buttonContainer__button--buy'>Comprar</Link>
+                <Link to={`/pagos`} className='buttonContainer__button buttonContainer__button--buy' onClick={() => setActive(!active)}>Comprar</Link>
                 </div>
 
               </>
