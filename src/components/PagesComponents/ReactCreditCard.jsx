@@ -37,31 +37,33 @@ const ReactCreditCard = () => {
         name={state.name}
         focused={state.focus}
       />
-      <Grid container spacing={2} > 
+      <Grid container spacing={2} className='mt-4' > 
           <Grid item xs={12} sm={6} >
             <TextField
               required
               id="cardName"
               name="number"
-              label="Numero de tarjeta"
+              label="Número de tarjeta"
               fullWidth
               variant="standard"
               value={state.number}
               onChange={handleInputChange}
               onFocus={handleInputFocus} 
+              className='addresForm__textField'
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12}>
           <TextField
             required
             id="cardName"
             name="name"
-            label="Name on card"
+            label="Nombre en tarjeta"
             fullWidth
             variant="standard"
             value={state.name}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
+            className='addresForm__textField'
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -74,6 +76,7 @@ const ReactCreditCard = () => {
             value={state.expiry}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
+            className='addresForm__textField'
           />
         </Grid>
         <Grid item xs={12} sm={6}>       
@@ -88,6 +91,7 @@ const ReactCreditCard = () => {
             value={state.cvc}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
+            className='addresForm__textField'
           />
           
         </Grid>
