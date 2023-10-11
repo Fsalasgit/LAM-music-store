@@ -4,6 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { REGISTRO_SCHEMA } from "../helpers/validationsSchemas";
 import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from "../config/axiosInstance";
+import Swal from "sweetalert2";
+
 
 const Register = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -16,8 +18,18 @@ const Register = () => {
     console.log(data);
     try {
       await axiosInstance.post("/register", data)
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro Exitoso',
+        text: 'Tu registro se ha completado con éxito. Ahora puedes iniciar sesión.',
+      });
       navigate("/login")
     } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error de Registro',
+        text: 'Hubo un problema durante el registro. Es posible que el usuario ya esté registrado.',
+      });
       console.log(error)
     }
   };
