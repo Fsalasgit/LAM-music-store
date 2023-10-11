@@ -32,6 +32,7 @@ const FeaturedCarousel = () => {
       setVisibleItems(1);
     } else {
       setVisibleItems(3);
+      setStartIndex(0);
     }
   };
 
