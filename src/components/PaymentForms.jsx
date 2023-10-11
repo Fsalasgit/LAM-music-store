@@ -29,7 +29,7 @@ const PaymentForms = ({ show, setShow }) => {
 
   const [addresses, setUserAddresses] = useState({
     firstName:"Pincky",
-    lastName:"Moom",
+    lastName:"Moon",
     address:"Gral. Paz",
     number:" 576",
     city:"San Miguel de Tucuman"
@@ -37,7 +37,7 @@ const PaymentForms = ({ show, setShow }) => {
   }  )
   const [payments, setPayments] = useState({
     cardTipe:"Visa",
-    cardHolder:"Pincky Moom",
+    cardHolder:"Pincky Moon",
     cardNumber:"xxxx-xxxx-xxxx-1234",
     expiryDate:"12/23"
 
