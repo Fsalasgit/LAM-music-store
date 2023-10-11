@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState, useContext } from 'react';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
+import { GlobalContext } from '../../context/GlobalContext';
+
 
 const products = [
     {
@@ -37,23 +39,38 @@ const products = [
     { name: 'Expiry date', detail: '04/2024' },
   ];
 
+  let convertToPesos = (numb) => {
+    const pesos = numb.toLocaleString('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    });
+    return pesos;
+  };
+
+
 const Review = () => {
+  const {state, dispatch} = useContext(GlobalContext)
+  
   return (
     <>
-          <Typography variant="h6" gutterBottom>
-        Order summary
+      <Typography variant="h6" gutterBottom>        
+        Resumen del pedido
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
-          <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
+        {state.productCart.map((product) => (
+          
+          <ListItem key={product?._id} sx={{ py: 1, px: 0 }}>
+            <ListItemText primary={product?.title} secondary={product.desc} />
+            <ListItemText>x {product?.cantidad}</ListItemText>
+            <Typography variant="body2">{convertToPesos(product?.price)}</Typography>
           </ListItem>
         ))}
         <ListItem sx={{ py: 1, px: 0 }}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            $34.06
+            {convertToPesos(
+              state.productCart.reduce((acc, item) => acc + item.price * item.cantidad, 0)
+            )}
           </Typography>
         </ListItem>
       </List>

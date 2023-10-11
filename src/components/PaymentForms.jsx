@@ -18,21 +18,24 @@ import Review from './materialComponent/Review';
 
 const steps = ['Datos de envio', 'Detalle de pago', 'Revise su orden'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <ReactCreditCard />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Ulgo salios mal');
-  }
-}
+
 
 const PaymentForms = ({ show, setShow }) => {
   const [activeStep, setActiveStep] = useState(0);
+
+
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return <AddressForm/>;
+      case 1:
+        return <ReactCreditCard />;
+      case 2:
+        return <Review />;
+      default:
+        throw new Error('Ulgo salios mal');
+    }
+  }
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);

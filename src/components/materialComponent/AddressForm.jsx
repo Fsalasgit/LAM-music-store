@@ -35,12 +35,13 @@ const provinces = [
   'Tucumán',
 ];
 
-const AddressForm = () => {
+const AddressForm = ({setAddressInfo}) => {
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+  
 
 
 
@@ -106,9 +107,7 @@ const AddressForm = () => {
             <Select
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
-              value={age}
               onChange={handleChange}
-              label="Age"
             >
               <MenuItem value="">
                 <em>Selecione provincia</em>
