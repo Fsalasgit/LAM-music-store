@@ -36,10 +36,12 @@ function App() {
         <Route path='/error404' element={<Error404/>}/>
       
         <Route element={<PrivateRoutes/>}>
-        <Route path='/admin' element={ <Admin />} />
+          <Route path='/admin' element={ <Admin />} />
         </Route>
       </Routes>
     < Footer />
+    
+    |
 
     </>
   )

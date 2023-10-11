@@ -44,14 +44,14 @@ const PaymentsPage = () => {
         <h1>Mi carrito</h1>
        
         <Row className='mt-5'>
-            {(state.productCart.length > 0) && <Col xs={8}>
+            {(state.productCart.length > 0) && <Col xl={8}>
     
                 <table striped bordered hover size="sm" className='payTable'>
                     <thead className='payTable__header'>
                         <tr>
                         <th colSpan={2} className='payTable__title'>Producto</th>
-                        <th className='payTable__title'>Precio</th>
-                        <th className='payTable__title'>cantidad</th>
+                        <th className='payTable__title '>Precio</th>
+                        <th className='payTable__title payTable__title-dnone'>cantidad</th>
                         <th className='payTable__title'>subtotal</th>
                         <th className='payTable__title'></th>
                         </tr>
@@ -79,7 +79,7 @@ const PaymentsPage = () => {
             </Col>
             }
      
-            <Col xs={3} className='ms-auto totalPay'>
+            <Col xs={10} xl={3} className='ms-auto totalPay'>
                 <h2 className='totalPay__title'>Resumen de compra</h2>
 
 
