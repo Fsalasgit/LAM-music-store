@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 
 const ReactCreditCard = () => {
@@ -24,80 +29,71 @@ const ReactCreditCard = () => {
       }
   return (
     <>
-    <div className=''>
-      <Cards
+    
+      <Cards 
         number={state.number}
         expiry={state.expiry}
         cvc={state.cvc}
         name={state.name}
         focused={state.focus}
       />
-      <form className='formContainer'> 
-        <FloatingLabel
-            controlId="floatingInput"
-            label="Numero de tarjeta"
-            className="formContainer__w100Item"
-        >
-            <Form.Control 
-            type="number"
-            name="number"
-            placeholder="Card Number"
-            value={state.number}
-            onChange={handleInputChange}
-            onFocus={handleInputFocus} 
+      <Grid container spacing={2} > 
+          <Grid item xs={12} sm={6} >
+            <TextField
+              required
+              id="cardName"
+              name="number"
+              label="Numero de tarjeta"
+              fullWidth
+              variant="standard"
+              value={state.number}
+              onChange={handleInputChange}
+              onFocus={handleInputFocus} 
             />
-        </FloatingLabel>
-
-
-        <FloatingLabel
-            controlId="floatingInput"
-            label="Nombre del titular"
-            className="formContainer__w100Item"
-        >
-            <Form.Control 
-            type="name"
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="cardName"
             name="name"
-            placeholder="Card name"
+            label="Name on card"
+            fullWidth
+            variant="standard"
             value={state.name}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
-            />
-        </FloatingLabel>
-        <div className='formContainer__w100Item formContainer__w100Item-sub'>
-            <FloatingLabel
-                controlId="floatingInput"
-                label="fecha de vencimiento"
-                className="formContainer__w50Item"
-            >
-                <Form.Control 
-                type="expiry"
-                name="expiry"
-                placeholder="Card expiry"
-                value={state.expiry}
-                onChange={handleInputChange}
-                onFocus={handleInputFocus} 
-                />
-            </FloatingLabel>
-            <FloatingLabel
-                controlId="floatingInput"
-                label="Clave de seguridad"
-                className="formContainer__w50Item formContainer__w50Item-right"
-            >
-                <Form.Control 
-                type="cvc"
-                name="cvc"
-                placeholder="Card cvc"
-                value={state.cvc}
-                onChange={handleInputChange}
-                onFocus={handleInputFocus} 
-                />
-            </FloatingLabel>
-        </div>
-
-      
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="expDate"
+            name="expiry"
+            label="Fecha vencimiento"
+            variant="standard"
+            value={state.expiry}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus} 
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>       
+          
+          <TextField
+            required
+            id="cvv"
+            name="cvc"
+            label="CVV"
+            helperText="Reverso de la tarjeta"
+            variant="standard"
+            value={state.cvc}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus} 
+          />
+          
+        </Grid>
         
-      </form>
-    </div>
+      </Grid>
+
 
     </>
   )
