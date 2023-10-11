@@ -13,7 +13,6 @@ const Home = () => {
     <CarouselHome />
     <ShippingType />
     <div className="featuredProducts">
-      <hr />
       <div className="featuredProducts__image-container d-none d-sm-block">
       <img
         src="https://res.cloudinary.com/dcwpf7ghu/image/upload/v1696879269/ARG-banner-web-MagiaDeVerdad-octagonos-desktop_1_nehdno.jpg"

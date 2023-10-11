@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import FeaturedCards from './FeaturedCards';
 import { axiosInstance } from '../../config/axiosInstance';
+import FeaturedCards from './FeaturedCards';
 
 
 const FeaturedCarousel = () => {

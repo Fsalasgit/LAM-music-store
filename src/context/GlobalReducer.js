@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CLEAR_CART } from "./types";
+import { ADD_TO_CART, CLEAR_CART, SET_USER } from "./types";
 
 export const GlobalReducer = (state, action) => {
     switch (action?.type) {
@@ -12,7 +12,11 @@ export const GlobalReducer = (state, action) => {
                 ...state,
                 productCart: []
             }
-    
+        case SET_USER:
+            return{
+                ...state,
+                user: action.payload
+            }             
         default:
            return state;
     }
