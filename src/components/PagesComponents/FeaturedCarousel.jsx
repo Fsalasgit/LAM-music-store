@@ -6,7 +6,7 @@ import { axiosInstance } from '../../config/axiosInstance';
 const FeaturedCarousel = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [featuredProducts, setFeaturedProducts] = useState([]);
-  const [visibleItems, setVisibleItems] = useState(3); // Cantidad de elementos visibles en pantallas grandes
+  const [visibleItems, setVisibleItems] = useState(3);
 
   const handleSelect = (selectedIndex) => {
     setStartIndex(selectedIndex);
@@ -28,10 +28,10 @@ const FeaturedCarousel = () => {
   }, []);
 
   const updateVisibleItems = () => {
-    if (window.innerWidth < 968) { // Cambiar a 768px o el ancho deseado para cambiar a un solo elemento en pantallas pequeñas
+    if (window.innerWidth < 968) { 
       setVisibleItems(1);
     } else {
-      setVisibleItems(3); // Volver a mostrar 3 elementos en pantallas más grandes
+      setVisibleItems(3);
     }
   };
 
