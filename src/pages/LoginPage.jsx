@@ -13,13 +13,13 @@ const LoginPage = () => {
           <h2 className="loginPage__createAccount">Iniciar Sesión</h2>
           <div className="loginPage__iconos">
             <div className="loginPage__borderIcon">
-              <a href="./html/error404.html"><BsFacebook className="loginPage__facebook " /></a>
+              <a href="/error404"><BsFacebook className="loginPage__facebook " /></a>
             </div>
             <div className="loginPage__borderIcon">
-              <a href="./html/error404.html"><FcGoogle /></a>
+              <a href="/error404"><FcGoogle /></a>
             </div>
             <div className="loginPage__borderIcon">
-              <a href="./html/error404.html"><BsApple className="loginPage__apple" /></a>
+              <a href="/error404"><BsApple className="loginPage__apple" /></a>
             </div>
           </div>
           <Login />

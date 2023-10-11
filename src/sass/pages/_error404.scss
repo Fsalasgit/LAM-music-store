@@ -1,5 +1,5 @@
 #error404 {
-    background-image: url(https://i.imgur.com/MNOlK4B.jpg);
+    background-image: url(https://res.cloudinary.com/dcwpf7ghu/image/upload/v1696994325/Copia_de_404_pmxzu8.png);
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed;
@@ -13,4 +13,22 @@
         font-size: 25px;
         color: white;
     }
+    .buttonError{
+        max-width: 10rem;
+        padding: 0.4rem 0.8rem;
+        margin-top: 0.5rem;
+        border: none;
+        border-radius: 2rem;
+        background-color: var(--c-mainColor);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        color: var(--c-black);
+        font-family: var(--font-PTSans);
+        transition: background-color 0.3s, color 0.3s;
+    }
+       .buttonError:hover {
+        background-color: var(--c-secondColor);
+        color: var(--c-white);
+      }
 }
