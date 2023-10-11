@@ -31,6 +31,7 @@ const Carrito = () => {
     });
     return pesos;
   };
+  console.log(state.productCart)
 
 
   return (
@@ -39,7 +40,7 @@ const Carrito = () => {
         <div className='container-icon'>
           <div className='container-cart-icon' >
             <RiShoppingCart2Fill className='nav-header__cart' onClick={() => setActive(!active)}/>
-            <div className='count-products'>{state.productCart.length}</div>
+            <div className='count-products'>{state.productCart.reduce((total, item) => total + item.counterProduct, 0)}</div>
           </div>
 
           <div className={`container-cart-products ${
