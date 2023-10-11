@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,6 +14,8 @@ import Box from '@mui/material/Box';
 import AddressForm from './materialComponent/AddressForm';
 import ReactCreditCard from './PagesComponents/ReactCreditCard';
 import Review from './materialComponent/Review';
+import { GlobalContext } from '../context/GlobalContext';
+import { clearCart } from '../context/GlobalActions';
 
 
 const steps = ['Datos de envio', 'Detalle de pago', 'Revise su orden'];
@@ -22,12 +24,21 @@ const steps = ['Datos de envio', 'Detalle de pago', 'Revise su orden'];
 
 const PaymentForms = ({ show, setShow }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const {state, dispatch} = useContext(GlobalContext)
+  const [orderPlaced, setOrderPlaced] = useState(false);
+
+  useEffect(() => {
+    if (activeStep === steps.length && !orderPlaced) {
+      dispatch(clearCart());
+      setOrderPlaced(true);
+    }
+  }, [activeStep, orderPlaced, dispatch]);
 
 
   function getStepContent(step) {
     switch (step) {
       case 0:
-        return <AddressForm/>;
+        return <AddressForm />;
       case 1:
         return <ReactCreditCard />;
       case 2:
@@ -45,9 +56,10 @@ const PaymentForms = ({ show, setShow }) => {
     setActiveStep(activeStep - 1);
   };
   
+  
   return (
     <>
-        <Modal show={show} onHide={() => setShow(false)} dialogClassName='modal-100' aria-labelledby='example-custom-modal-styling-title'>
+        <Modal className='modalContainer' show={show} onHide={() => setShow(false)} dialogClassName='modal-100' aria-labelledby='example-custom-modal-styling-title'>
         
 
           <CssBaseline />
@@ -80,13 +92,13 @@ const PaymentForms = ({ show, setShow }) => {
           </Stepper>
           {activeStep === steps.length ? (
             <React.Fragment>
-              <Typography variant="h5" gutterBottom>
-                Gracias po su compra
+              <Typography variant="h5" gutterBottom className='titleEnd'>
+                Gracias por su compra
               </Typography>
-              <Typography variant="subtitle1">
-                Su número de pedido es #2001539. Hemos enviado su pedido por correo electrónico
-                confirmación y le enviaremos una actualización cuando su pedido haya sido
+              <Typography variant="subtitle1" className='textEnd'>
+                Su número de pedido es <strong className='textEnd__strong'>#2001539</strong>. Hemos enviado su pedido por correo electrónico y le enviaremos una actualización cuando su pedido haya sido
                 enviado.
+         
               </Typography>
             </React.Fragment>
           ) : (
@@ -94,8 +106,8 @@ const PaymentForms = ({ show, setShow }) => {
               {getStepContent(activeStep)}
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Back
+                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }} className='backButton'>
+                    Volver
                   </Button>
                 )}
 
@@ -103,8 +115,9 @@ const PaymentForms = ({ show, setShow }) => {
                   variant="contained"
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
+                  className={activeStep === steps.length - 1 ? 'buyButton' : 'nextButton'}
                 >
-                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                  {activeStep === steps.length - 1 ? 'Comprar' : 'Siguiente'}
                 </Button>
               </Box>
             </React.Fragment>

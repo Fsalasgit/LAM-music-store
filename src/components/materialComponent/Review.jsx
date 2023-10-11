@@ -7,36 +7,14 @@ import Grid from '@mui/material/Grid';
 import { GlobalContext } from '../../context/GlobalContext';
 
 
-const products = [
-    {
-      name: 'Product 1',
-      desc: 'A nice thing',
-      price: '$9.99',
-    },
-    {
-      name: 'Product 2',
-      desc: 'Another thing',
-      price: '$3.45',
-    },
-    {
-      name: 'Product 3',
-      desc: 'Something else',
-      price: '$6.51',
-    },
-    {
-      name: 'Product 4',
-      desc: 'Best thing of all',
-      price: '$14.11',
-    },
-    { name: 'Shipping', desc: '', price: 'Free' },
-  ];
+
   
-  const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+  const addresses = ['Gral. Paz 576', 'San Miguel de Tucumán', 'Tucumán'];
   const payments = [
     { name: 'Card type', detail: 'Visa' },
-    { name: 'Card holder', detail: 'Mr John Smith' },
+    { name: 'Card holder', detail: 'Pinky Moom' },
     { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-    { name: 'Expiry date', detail: '04/2024' },
+    { name: 'Expiry date', detail: '12/2023' },
   ];
 
   let convertToPesos = (numb) => {
@@ -56,18 +34,18 @@ const Review = () => {
       <Typography variant="h6" gutterBottom>        
         Resumen del pedido
       </Typography>
-      <List disablePadding>
+      <List disablePadding className='reviewList'>
         {state.productCart.map((product) => (
           
           <ListItem key={product?._id} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={product?.title} secondary={product.desc} />
-            <ListItemText>x {product?.cantidad}</ListItemText>
-            <Typography variant="body2">{convertToPesos(product?.price)}</Typography>
+            <ListItemText primary={product?.title} secondary={product.desc} className='reviewList__item reviewList__item-long'/>
+            <ListItemText className='reviewList__item'>x {product?.cantidad}</ListItemText>
+            <Typography variant="body2" className='reviewList__item reviewList__item-price'>{convertToPesos((product?.price*product?.cantidad))}</Typography>
           </ListItem>
         ))}
         <ListItem sx={{ py: 1, px: 0 }}>
           <ListItemText primary="Total" />
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+          <Typography variant="subtitle1" className='reviewList__total' sx={{ fontWeight: 700 }}>
             {convertToPesos(
               state.productCart.reduce((acc, item) => acc + item.price * item.cantidad, 0)
             )}
@@ -77,14 +55,14 @@ const Review = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Shipping
+            Datos de envio
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
+          <Typography gutterBottom>Pincky Moom</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Payment details
+            detalle de pago
           </Typography>
           <Grid container>
             {payments.map((payment) => (

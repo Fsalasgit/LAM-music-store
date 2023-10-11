@@ -47,7 +47,8 @@ const AddressForm = ({setAddressInfo}) => {
 
   return (
     <>
-    <Typography variant="h6" gutterBottom>
+    <form action="" className='addresForm'>
+    <Typography variant="h6" gutterBottom >
         Datos de envio
       </Typography>
       <Grid container spacing={3}>
@@ -59,6 +60,7 @@ const AddressForm = ({setAddressInfo}) => {
             label="Nombre"
             fullWidth
             variant="standard"
+            className='addresForm__textField'
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -69,6 +71,7 @@ const AddressForm = ({setAddressInfo}) => {
             label="Apellido"
             fullWidth
             variant="standard"
+            className='addresForm__textField'
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -76,9 +79,10 @@ const AddressForm = ({setAddressInfo}) => {
             required
             id="address1"
             name="address1"
-            label="direccion"
+            label="Dirección"
             fullWidth
             variant="standard"
+            className='addresForm__textField'
           />
         </Grid>
         <Grid item xs={3}>
@@ -86,9 +90,10 @@ const AddressForm = ({setAddressInfo}) => {
             required
             id="number"
             name="number"
-            label="numero"
+            label="Número"
             fullWidth
             variant="standard"
+            className='addresForm__textField'
           />
         </Grid>
         <Grid item xs={3}>
@@ -96,14 +101,15 @@ const AddressForm = ({setAddressInfo}) => {
             required
             id="floor"
             name="floor"
-            label="piso"
+            label="Piso"
             fullWidth
             variant="standard"
+            className='addresForm__textField'
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl variant="standard" fullWidth >
-            <InputLabel id="demo-simple-select-standard-label">Provincia</InputLabel>
+            <InputLabel id="demo-simple-select-standard-label" className='addresForm__textField'>Provincia</InputLabel>
             <Select
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
@@ -133,6 +139,7 @@ const AddressForm = ({setAddressInfo}) => {
             label="Ciudad"
             fullWidth
             variant="standard"
+            className='addresForm__textField'
           />
         </Grid>
         
@@ -140,9 +147,11 @@ const AddressForm = ({setAddressInfo}) => {
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
             label="Usa esta dirección como datos de facturacion"
+            
           />
         </Grid>
       </Grid>
+    </form>
 
     </>
   )
