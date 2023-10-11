@@ -3,10 +3,10 @@ import Carousel from 'react-bootstrap/Carousel';
 import FeaturedCards from './FeaturedCards';
 import { axiosInstance } from '../../config/axiosInstance';
 
-
 const FeaturedCarousel = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [visibleItems, setVisibleItems] = useState(3); // Cantidad de elementos visibles en pantallas grandes
 
   const handleSelect = (selectedIndex) => {
     setStartIndex(selectedIndex);
@@ -27,9 +27,25 @@ const FeaturedCarousel = () => {
     fetchFeaturedProducts();
   }, []);
 
+  const updateVisibleItems = () => {
+    if (window.innerWidth < 968) { // Cambiar a 768px o el ancho deseado para cambiar a un solo elemento en pantallas pequeñas
+      setVisibleItems(1);
+    } else {
+      setVisibleItems(3); // Volver a mostrar 3 elementos en pantallas más grandes
+    }
+  };
+
+  useEffect(() => {
+    updateVisibleItems();
+    window.addEventListener('resize', updateVisibleItems);
+    return () => {
+      window.removeEventListener('resize', updateVisibleItems);
+    };
+  }, []);
+
   const productsChunks = [];
-  for (let i = 0; i < featuredProducts.length; i += 3) {
-    productsChunks.push(featuredProducts.slice(i, i + 3));
+  for (let i = 0; i < featuredProducts.length; i += visibleItems) {
+    productsChunks.push(featuredProducts.slice(i, i + visibleItems));
   }
 
   return (
@@ -46,4 +62,5 @@ const FeaturedCarousel = () => {
     </Carousel>
   );
 };
+
 export default FeaturedCarousel;
