@@ -17,14 +17,14 @@ import Error404 from './pages/Error404';
 
 function App() {
   const location = useLocation();
-
-  // verificamos si la ruta actual es '/error404'
+  const allowedPaths = ['/', '/login', '/registro', '/repassword', '/productos', '/productos/:_id', '/favorite', '/nosotros', '/pagos'];
   const is404Page = location.pathname === '/error404';
+  const shouldRenderFooterAndNavigation = allowedPaths.includes(location.pathname);
 
   return (
     <>
-      {/* eenderiza Navigation excepto en Error404 */}
-      {!is404Page && <Navigation />}
+      {shouldRenderFooterAndNavigation && <Navigation />}
+      
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
@@ -36,16 +36,15 @@ function App() {
         <Route path='/nosotros' element={<AboutUs />} />
         <Route path='/pagos' element={<PaymentsPage />} />
         
-        {/* ruta Error404 */}
-        <Route path='/error404' element={<Error404/>} />
+        <Route path='*' element={<Error404/>} />
         
         <Route element={<PrivateRoutes />}>
           <Route path='/admin' element={<Admin />} />
         </Route>
       </Routes>
       
-      {/* renderiza Footer excepto en Error404 */}
-      {!is404Page && <Footer />}
+     
+      {shouldRenderFooterAndNavigation && <Footer />}
     </>
   );
 }
