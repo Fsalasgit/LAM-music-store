@@ -1,7 +1,10 @@
 
 .carousel-item {
-    transition: 900ms ease-in-out; 
+    transition: 900ms ease-in-out;
+
+  
 }
+
 
 #carouselHome .carousel-control-prev, #carouselHome
 .carousel-control-next {
@@ -23,7 +26,7 @@
 
 @media screen and (max-width: 768px) {
     #carouselHome .carouselResponsive__img{
-        height: 18vh;
+        min-height: 10rem;
 
     }
     #carouselHome .carousel-control-prev,
@@ -70,6 +73,11 @@
   #carouselCards .carousel-control-next{
     right: 1rem;
   }
-
+  #carouselHome .carouselResponsive__img{
+    height: 20vh;
+  }
 
 }
+
+
+

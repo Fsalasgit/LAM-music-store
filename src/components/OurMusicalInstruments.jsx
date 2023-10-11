@@ -70,7 +70,7 @@ const OurMusicalInstruments = () => {
                     <h3 className='featuredProducts__subtitleText'>Percusión</h3>
                     <p className='featuredProducts__paragraphs'>"Ritmos que marcan el compás de tu vida. Percusión LAM: el pulso de la música en tus manos. Desde tambores hasta cajones, tu groove hecho realidad. Explora, crea y deja que resuene tu estilo."</p>
                     <span className='buttonContainer'>
-                        <Link className="featuredProducts__paragraphs buttonContainer__readMoreButton" to={"/Productos"}>Ver Más...</Link>
+                        <Link className="featuredProducts__paragraphs buttonContainer__readMoreButton" to={"/productos"}>Ver Más...</Link>
                     </span>
                 </Col>
             </Row>
