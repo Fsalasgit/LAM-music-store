@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ProductCard from './ProductCard';
+import FeaturedCards from '../components/PagesComponents/FeaturedCards'
 import { axiosInstance } from '../config/axiosInstance';
 import jwt_decode from 'jwt-decode';
 
@@ -77,8 +77,8 @@ const ProductList = ({
         </div>
 
         <div className="row">
-          {filteredProducts.map((product) => (
-            <ProductCard
+                    {filteredProducts.map((product) => (
+            <FeaturedCards
               product={product}
               key={product._id}
               setCartProducts={setCartProducts}
