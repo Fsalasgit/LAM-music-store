@@ -54,6 +54,7 @@
 
     @media screen and (max-width: 576px) {
         width: 99%;
+       height: 20%;
         font-size: 1rem;
     }
 
@@ -139,11 +140,18 @@
     }
 }
 
+#carouselCards {
+    padding-bottom: 1vw;
+    @media screen and (max-width: 576px) {
+        padding-bottom: 3vw;
+    }
+}
+
 .SaleType {
     display: flex;
     justify-content: center;
     background-color: var(--c-black);
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
 
     &__container {

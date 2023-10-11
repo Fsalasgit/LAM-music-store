@@ -4,6 +4,7 @@ import { addCart } from "../../context/GlobalActions";
 import { GlobalContext } from "../../context/GlobalContext";
 import { RiShareFill } from "react-icons/ri";
 import { RiLockFill } from "react-icons/ri";
+import Swal from "sweetalert2";
 
 const ProductDetail = ({ product }) => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -12,20 +13,22 @@ const ProductDetail = ({ product }) => {
   console.log(typeof product.price);
 
   const onAddProduct = () => {
-    const existingProductIndex = state.productCart.findIndex(
-      (item) => item._id === product._id
-    );
+    const existingProductIndex = state.productCart.findIndex((item) => item._id === product._id);
 
     if (existingProductIndex !== -1) {
       state.productCart[existingProductIndex].cantidad++;
+      state.productCart[existingProductIndex].counterProduct++;
     } else {
-      const updatedCartProducts = [
-        ...cartProducts,
-        { ...product, cantidad: 1 },
-      ];
+      const updatedCartProducts = [...cartProducts, { ...product, cantidad: 1, counterProduct: 1 }];
       setCartProducts(updatedCartProducts);
-      dispatch(addCart({ ...product, cantidad: 1 }));
+      dispatch(addCart({ ...product, cantidad: 1, counterProduct: 1  }));
     }
+    Swal.fire({
+      icon: 'success',
+      title: 'Producto Añadido con Éxito',
+      text: 'El producto se ha añadido al carrito con éxito.',
+      timer: 1500,
+    });
   };
 
   let convertToPesos = (number) => {

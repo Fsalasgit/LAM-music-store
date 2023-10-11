@@ -76,9 +76,9 @@ const PaymentsPage = () => {
                         
                     </tbody>
                 </table>
+                <Link to="/" className='payTable__button'>Continuar Comprando</Link>
             </Col>
             }
-     
             <Col xs={10} xl={3} className='ms-auto totalPay'>
                 <h2 className='totalPay__title'>Resumen de compra</h2>
 

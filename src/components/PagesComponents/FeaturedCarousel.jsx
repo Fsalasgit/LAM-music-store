@@ -3,10 +3,10 @@ import Carousel from 'react-bootstrap/Carousel';
 import FeaturedCards from './FeaturedCards';
 import { axiosInstance } from '../../config/axiosInstance';
 
-
 const FeaturedCarousel = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [visibleItems, setVisibleItems] = useState(3);
 
   const handleSelect = (selectedIndex) => {
     setStartIndex(selectedIndex);
@@ -27,9 +27,26 @@ const FeaturedCarousel = () => {
     fetchFeaturedProducts();
   }, []);
 
+  const updateVisibleItems = () => {
+    if (window.innerWidth < 968) { 
+      setVisibleItems(1);
+    } else {
+      setVisibleItems(3);
+      setStartIndex(0);
+    }
+  };
+
+  useEffect(() => {
+    updateVisibleItems();
+    window.addEventListener('resize', updateVisibleItems);
+    return () => {
+      window.removeEventListener('resize', updateVisibleItems);
+    };
+  }, []);
+
   const productsChunks = [];
-  for (let i = 0; i < featuredProducts.length; i += 3) {
-    productsChunks.push(featuredProducts.slice(i, i + 3));
+  for (let i = 0; i < featuredProducts.length; i += visibleItems) {
+    productsChunks.push(featuredProducts.slice(i, i + visibleItems));
   }
 
   return (
@@ -46,4 +63,5 @@ const FeaturedCarousel = () => {
     </Carousel>
   );
 };
+
 export default FeaturedCarousel;
