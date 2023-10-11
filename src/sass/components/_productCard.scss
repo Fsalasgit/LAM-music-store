@@ -52,7 +52,11 @@
       color: red;
       background-color: none;
     }
-  
+    &__favorite-icons.favorite{
+      font-size: 2rem;
+      color: red;
+      background-color: none;
+    }
     &__description {
       overflow: hidden;
       text-overflow: ellipsis;

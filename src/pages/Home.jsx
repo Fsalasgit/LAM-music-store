@@ -14,31 +14,30 @@ const Home = () => {
     <ShippingType />
     <div className="featuredProducts">
       <hr />
-      <div className="image-container d-none d-sm-block">
+      <div className="featuredProducts__image-container d-none d-sm-block">
       <img
         src="https://res.cloudinary.com/dcwpf7ghu/image/upload/v1696879269/ARG-banner-web-MagiaDeVerdad-octagonos-desktop_1_nehdno.jpg"
         alt="Descripción de la imagen"
-        className="image"
+        className="featuredProducts__image"
       />
     </div>
-    <hr />
-      <h2 className="titleText">Productos destacados</h2>
+      <h2 className="featuredProducts__titleText">Productos destacados</h2>
       <FeaturedCarousel />
     </div>  
     <SaleType />
     <div className="featuredProducts">
       <hr />
-      <h2 className="titleText">¿Por qué comprar en LAM?</h2>
+      <h2 className="featuredProducts__titleText">¿Por qué comprar en LAM?</h2>
       <img 
           className="mt-3 w-100 featuredProducts__img"
           src="https://bairesrocks.vteximg.com.br/arquivos/ids/237535/1920x680_02.jpg?v=637913244060900000"
           alt="Store"
         /> 
-      <p className='mt-5 paragraphs'>
+      <p className='mt-5 featuredProducts__paragraphs'>
         En <strong>LAM</strong>  Music Store, aspiramos a ser la mayor casa de instrumentos musicales. Estamos comprometidos en ofrecerte más que simples productos musicales; estamos aquí para brindarte una experiencia musical excepcional. 
         </p>
         <br/>
-      <div className="contOurMusInstruments">   
+      <div className="featuredProducts__contOurMusInstruments">   
       <OurMusicalInstruments />
       <WhatsappLink/>
       </div>
