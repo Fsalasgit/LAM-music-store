@@ -107,8 +107,9 @@
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: var(--c-mainColor);
   --bs-gradient: none;
-  height: 3rem;
-  width: 3rem;
+  margin-left: 2px;
+  height: 4.7rem;
+  width: 4rem;
 }
 
 @media (max-width: 768px) {

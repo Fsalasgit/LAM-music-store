@@ -5,12 +5,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { RiHeart3Fill, RiSearch2Line } from "react-icons/ri";
+import { RiHeart3Fill } from "react-icons/ri";
 import jwt_decode from 'jwt-decode';
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
 import Carrito from './Carrito';
+import SearchBar from './SearchBar';
 
 
 const Navigation = () => {
@@ -53,16 +54,7 @@ const Navigation = () => {
             <img src="/lan (150 x 100 px).png" alt="Logo" className="mx-auto my-auto d-lg-inline align-top" />
           </Navbar.Brand>
           <Form className="d-flex ">
-            <Form.Control
-              type="search"
-              placeholder="Buscar"
-              style={{ fontSize: '20px', height: '30px', width: '250px' }}
-              className="me-2 custom-search"
-              aria-label="Search"
-            />
-            <Button variant="outline-warning">
-              <RiSearch2Line className='nav-header__search' />
-            </Button>
+            <SearchBar/>
           </Form>
           <div className='d-flex icons-group'>
             {isLogged && (
