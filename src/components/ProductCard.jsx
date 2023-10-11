@@ -6,6 +6,8 @@ import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import { axiosInstance } from '../config/axiosInstance';
 import jwt_decode from 'jwt-decode';
+import Swal from "sweetalert2";
+
 
 const ProductCard = ({ product }) => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -13,20 +15,17 @@ const ProductCard = ({ product }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavourite = async () => {
-    setIsFavorite(!isFavorite);
-
     try {
+      setIsFavorite(!isFavorite);
+  
       const token = localStorage.getItem("token");
       const decodedToken = jwt_decode(token);
       const userId = decodedToken.sub;
-
-      const response = await axiosInstance.post(`/user/favorite/${userId}`, {
+  
+       await axiosInstance.post(`/user/favorite/${userId}`, {
         productId: product._id,
         addToFavorites: !isFavorite,
       });
-      // Utiliza el nuevo estado de isFavorite de la respuesta para actualizar el botón
-      setIsFavorite(response.data.newIsFavorite);
-      console.log(response);
     } catch (error) {
       console.error('Error al actualizar los favoritos:', error);
     }
@@ -42,7 +41,14 @@ const ProductCard = ({ product }) => {
       setCartProducts(updatedCartProducts);
       dispatch(addCart({ ...product, cantidad: 1 }));
     }
+    Swal.fire({
+      icon: 'success',
+      title: 'Producto Añadido con Éxito',
+      text: 'El producto se ha añadido al carrito con éxito.',
+      timer: 1500,
+    });
   };
+  
 
   const convertToPesos = (numb) => {
     const pesos = numb.toLocaleString('es-AR', {
@@ -58,11 +64,12 @@ const ProductCard = ({ product }) => {
   <Card key={product._id} className='productCard'>
     <div className='productCard__header'>
     <button
-      className={`productCard__favorite${isFavorite ? ' favorite' : ''}`}
+      className={`productCard__favorite `}
       onClick={handleFavourite}
     >
-      {isFavorite ? (
-        <FaHeart className='productCard__favorite-icons' />
+      {product.isFavorite ? (
+        <FaHeart className={`productCard__favorite-icons ${ product.isFavorite  ? ' favorite' : ''}`} />
+        
       ) : (
         <FaRegHeart className='productCard__favorite-icons' />
       )}
