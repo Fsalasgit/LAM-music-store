@@ -34,6 +34,7 @@ function App() {
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/nosotros' element={<AboutUs />} />
         <Route path='/pagos' element={<PaymentsPage />} />
+        <Route path='/error404' element={<Error404 />} />
         
         <Route path='*' element={<Error404/>} />
         

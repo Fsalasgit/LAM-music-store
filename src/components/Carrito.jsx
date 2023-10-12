@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Carrito = () => {
   const [active, setActive] = useState(false);
-  const {state, dispatch} = useContext(GlobalContext)
+  const { state, dispatch } = useContext(GlobalContext)
 
 
   const onDeleteProduct = (productId) => {
@@ -21,7 +21,7 @@ const Carrito = () => {
   const onCleanCart = () => {
     dispatch(clearCart())
     setActive(!active)
-    
+
   };
 
   let convertToPesos = (numb) => {
@@ -38,13 +38,12 @@ const Carrito = () => {
       <span>
         <div className='container-icon'>
           <div className='container-cart-icon' >
-            <RiShoppingCart2Fill className='nav-header__cart' onClick={() => setActive(!active)}/>
+            <RiShoppingCart2Fill className='nav-header__cart' onClick={() => setActive(!active)} />
             <div className='count-products'>{state.productCart.reduce((total, item) => total + item.counterProduct, 0)}</div>
           </div>
 
-          <div className={`container-cart-products ${
-						active ? '' : 'hidden-cart'
-					}`} >
+          <div className={`container-cart-products ${active ? '' : 'hidden-cart'
+            }`} >
             {state.productCart.length ? (
               <>
                 <div className='row-product'>
@@ -71,10 +70,10 @@ const Carrito = () => {
 
                 <div className='buttonContainer'>
 
-                <button className='buttonContainer__button' onClick={onCleanCart} >
-                  Vaciar Carrito
-                </button>
-                <Link to={`/pagos`} className='buttonContainer__button buttonContainer__button--buy' onClick={() => setActive(!active)}>Comprar</Link>
+                  <button className='buttonContainer__button' onClick={onCleanCart} >
+                    Vaciar Carrito
+                  </button>
+                  <Link to={`/pagos`} className='buttonContainer__button buttonContainer__button--buy' onClick={() => setActive(!active)}>Comprar</Link>
                 </div>
 
               </>
