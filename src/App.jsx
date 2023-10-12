@@ -17,7 +17,7 @@ import Error404 from './pages/Error404';
 
 function App() {
   const location = useLocation();
-  const allowedPaths = ['/', '/login', '/registro', '/repassword', '/productos', '/productos/:_id', '/favorite', '/nosotros', '/pagos'];
+  const allowedPaths = ['/', '/login', '/registro', '/repassword', '/productos', '/productos/:_id', '/favorite', '/nosotros', '/pagos', '/admin'];
   const shouldRenderFooterAndNavigation = allowedPaths.includes(location.pathname);
 
   return (

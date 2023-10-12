@@ -1,8 +1,8 @@
 .formSelect{
-    width: 50%;
+    width: 55%;
     border: none;
     background-color: inherit;
-    font-size: 1rem;
+    font-size: 1.8rem;
     margin-top: 2rem;   
     cursor: pointer;
     @media screen and (max-width: 844px) {
@@ -20,22 +20,15 @@
     text-underline-offset: 0.2rem;
 }
 
-.titleCategories, .titleSelect, .titlePrice{
-    font-size: 1.6rem;
+.titleCategories, .titleSelect{
+    font-size: 2rem;
     margin-top: 0.3rem;
 }
 .categoryContainer{
     list-style: none;
 }
 .categoryList{
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     margin-bottom: 0.3rem;
 }
 
-
-.formPrice{
-    width: 98%;
-    font-size: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 0.5rem;
-}

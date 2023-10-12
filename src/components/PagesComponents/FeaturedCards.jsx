@@ -15,10 +15,11 @@ const FeaturedCards = ({ product}) => {
 
     if (existingProductIndex !== -1) {
       state.productCart[existingProductIndex].cantidad++;
+      state.productCart[existingProductIndex].counterProduct++;
     } else {
-      const updatedCartProducts = [...cartProducts, { ...product, cantidad: 1 }];
+      const updatedCartProducts = [...cartProducts, { ...product, cantidad: 1, counterProduct: 1 }];
       setCartProducts(updatedCartProducts);
-      dispatch(addCart({ ...product, cantidad: 1 }));
+      dispatch(addCart({ ...product, cantidad: 1, counterProduct: 1  }));
     }
     Swal.fire({
       icon: 'success',

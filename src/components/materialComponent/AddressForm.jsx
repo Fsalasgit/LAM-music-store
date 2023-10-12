@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -35,21 +35,50 @@ const provinces = [
   'Tucumán',
 ];
 
-const AddressForm = ({setAddressInfo}) => {
-  const [age, setAge] = React.useState('');
+const AddressForm = ({ setUserAddresses }) => {
+  const [prov, setProv] = React.useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    address: '',
+    number: '',
+    floor: '',
+    province: '',
+    city: '',
+    saveAddress: false,
+  });
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleProvChange = (event) => {
+    setProv(event.target.value);
+    setFormData({
+      ...formData,
+      province: event.target.value,
+    });
   };
-  
+
+  const handleFormChange = (event) => {
+    const { name, value, checked } = event.target;
+    setFormData({
+      ...formData,
+      [name]: name === 'saveAddress' ? checked : value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Aquí llamas a setUserAddresses con los datos del formulario
+    setUserAddresses(formData);
+  };
+
+
 
 
 
   return (
     <>
-    <form action="" className='addresForm'>
-    <Typography variant="h6" gutterBottom >
-        Datos de envio
+    <form className='addressForm' onSubmit={handleSubmit}>
+      <Typography variant='h6' gutterBottom>
+        Datos de envío
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -77,8 +106,8 @@ const AddressForm = ({setAddressInfo}) => {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="address1"
-            name="address1"
+            id="address"
+            name="address"
             label="Dirección"
             fullWidth
             variant="standard"
@@ -109,11 +138,11 @@ const AddressForm = ({setAddressInfo}) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl variant="standard" fullWidth >
-            <InputLabel id="demo-simple-select-standard-label" className='addresForm__textField'>Provincia</InputLabel>
+            <InputLabel id="a-label" className='addresForm__textField'>Provincia</InputLabel>
             <Select
-              labelId="demo-simple-select-standard-label"
-              id="demo-simple-select-standard"
-              onChange={handleChange}
+              labelId="a-label"
+              id="a-standard"
+              onChange={handleProvChange}
             >
               <MenuItem value="">
                 <em>Selecione provincia</em>
@@ -144,14 +173,21 @@ const AddressForm = ({setAddressInfo}) => {
         </Grid>
         
         <Grid item xs={12}>
-          <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Usa esta dirección como datos de facturacion"
-            
-          />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  color='secondary'
+                  name='saveAddress'
+                  checked={formData.saveAddress}
+                  onChange={handleFormChange}
+                />
+              }
+              label='Usa esta dirección como datos de facturación'
+            />
+          </Grid>
         </Grid>
-      </Grid>
-    </form>
+        <button type='submit'>Enviar</button>
+      </form>
 
     </>
   )
