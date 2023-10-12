@@ -34,7 +34,7 @@ const Login = () => {
       if (userRole === 'admin') {
         navigate('/admin');
       } else if (userRole === 'user') {
-        navigate('/product');
+        navigate('/');
       }
     } catch (error) {
       console.log(error);

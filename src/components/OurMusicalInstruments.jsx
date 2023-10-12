@@ -13,7 +13,7 @@ const OurMusicalInstruments = () => {
   return (
     <>
         <Container className='container OurMusicalInstruments'>
-            <Row data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900" className='mb-5'>
+            <Row data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1000" className='mb-5'>
                 <Col className="flex-column">
                     <h3 className='featuredProducts__subtitleText'>Pianos</h3>
                     <p className='featuredProducts__paragraphs'>"La magia de las 88 teclas: Pianos LAM. Tu música, nuestra pasión. Descubre un mundo de melodías con nuestra colección de pianos. Cada nota, una experiencia única."</p>
@@ -29,7 +29,7 @@ const OurMusicalInstruments = () => {
                 />
                 </Col>
             </Row>
-            <Row data-aos="fade-left" data-aos-easing="linear" data-aos-duration="900" className='mb-5'>
+            <Row data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1000" className='mb-5'>
                 <Col xl={7} className='OurMusicalInstruments__img'>
                 <img
                     className="w-100 d-none-576"
@@ -43,7 +43,7 @@ const OurMusicalInstruments = () => {
                     
                 </Col>
             </Row>
-            <Row data-aos="fade-right" data-aos-easing="linear" data-aos-duration="900" className='mb-5'>
+            <Row data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1000" className='mb-5'>
                 <Col>
                     <h3 className='featuredProducts__subtitleText'>Bateria</h3>
                     <p className='featuredProducts__paragraphs'>"El latido de tu ritmo, nuestra inspiración. Baterías LAM para percusionistas apasionados. Cada golpe, una historia. Siente la energía, crea tu compás, con nuestra selección de baterías."</p>
@@ -58,7 +58,7 @@ const OurMusicalInstruments = () => {
                 
                 </Col>
             </Row>
-            <Row data-aos="fade-left" data-aos-easing="linear" data-aos-duration="990" className='mb-5'>
+            <Row data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1000" className='mb-5'>
                 <Col xl={7} className='OurMusicalInstruments__img'>
                 <img
                     className="w-100 d-none-576"
