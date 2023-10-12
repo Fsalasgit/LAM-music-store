@@ -1,0 +1,84 @@
+.mainPage {
+    min-height: 55vh;
+}
+
+.payTable,
+.totalPay {
+    background-color: rgba(245, 245, 245, 0.763);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+    margin-bottom: 3rem;
+
+    &__header {
+        text-transform: uppercase;
+        font-size: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.102);
+
+        @media screen and (max-width: 576px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__title {
+        text-indent: 1rem;
+
+        @media screen and (max-width: 576px) {
+            font-size: 1rem;
+        }
+
+
+    }
+
+    &__item {
+        width: 20%;
+        font-size: 1.5rem;
+
+        @media screen and (max-width: 576px) {
+            font-size: 1rem;
+        }
+
+    }
+
+    &__button {
+        max-width: 10rem;
+        padding: 0.4rem 0.8rem;
+        margin-top: 0.5rem;
+        border: none;
+        border-radius: 2rem;
+        background-color: var(--c-mainColor);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        color: var(--c-black);
+        font-family: var(--font-PTSans);
+        transition: background-color 0.3s, color 0.3s;
+    }
+    &__button:hover {
+        background-color: var(--c-secondColor);
+        color: var(--c-white);
+      }
+    &__img {
+        max-width: 80px;
+        margin: 1rem;
+
+        @media screen and (max-width: 576px) {
+            display: none;
+        }
+    }
+}
+
+
+
+
+.totalPay {
+    &__title {
+        text-align: center;
+        text-transform: uppercase;
+
+    }
+
+    &__card {
+        margin-bottom: 4rem;
+
+    }
+}

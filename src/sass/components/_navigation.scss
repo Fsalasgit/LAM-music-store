@@ -1,0 +1,138 @@
+.nav-header {
+  background-color: var(--c-black);
+
+  &__link:visited {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-right: 0.2rem;
+  }
+
+  &__link:hover {
+    color: var(--c-mainColor);
+  }
+
+  &__cerrar-sesion {
+    max-width: 10rem;
+    padding: 0.4rem 0.8rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--c-mainColor);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--c-black);
+    font-family: var(--font-PTSans);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  &__cerrar-sesion:hover {
+    background-color: var(--c-secondColor);
+    color: var(--c-white);
+  }
+
+  &__user-name {
+    color: var(--c-mainColor);
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
+
+  a {
+    font-size: 15px;
+    color: var(--c-white);
+  }
+
+  &__login {
+    color: var(--c-mainColor);
+    font-size: 2.5rem;
+  }
+
+  &__login:hover {
+    color: var(--c-secondColor);
+  }
+
+  &__heart {
+    color: var(--c-mainColor);
+    font-size: 2.5rem;
+  }
+
+  &__heart:hover {
+    color: var(--c-secondColor);
+  }
+
+  &__cart {
+    color: var(--c-mainColor);
+    font-size: 2.5rem;
+  }
+
+  &__cart:hover {
+    color: var(--c-secondColor);
+  }
+
+  &__search {
+    font-size: 1.5rem;
+  }
+
+  &__search:hover {
+    color: var(--c-white);
+  }
+}
+
+.icons {
+  margin-right: 15px;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  justify-content: center;
+}
+
+.navbar-toggler {
+  background-color: var(--c-mainColor);
+  border: none;
+}
+
+.btn-outline-warning {
+  --bs-btn-color: var(--c-mainColor);
+  --bs-btn-border-color: var(--c-mainColor);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: var(--c-mainColor);
+  --bs-btn-hover-border-color: var(--c-mainColor);
+  --bs-btn-focus-shadow-rgb: 255, 193, 7;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: var(--c-mainColor);
+  --bs-btn-active-border-color: var(--c-mainColor);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--c-mainColor);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--c-mainColor);
+  --bs-gradient: none;
+  margin-left: 2px;
+  height: 4.7rem;
+  width: 4rem;
+}
+
+@media (max-width: 768px) {
+  .icons-group {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .icons {
+    margin-bottom: 30px;
+    margin-right: 10px;
+  }
+
+  .navbar-brand {
+    width: 100%;
+  }
+
+  .nav-header__cerrar-sesion {
+    margin-left: 1rem;
+  }
+
+  .btn-outline-warning {
+    margin-bottom: 20px;
+  }
+}

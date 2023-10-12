@@ -1,0 +1,82 @@
+.modalContainer{
+    max-width: 100vw;
+}
+
+.headerForms{
+    background-color: var(--c-black)!important;
+    border: solid white 1px;
+}
+
+
+.backButton{
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    margin: 1.5rem;
+
+}
+.buyButton{
+    background-color: green;
+    color: white;
+    font-size: 1.2rem;
+    margin: 1.5rem 0.1rem;
+}
+.buyButton:hover{
+    background-color: rgba(0, 128, 0, 0.245);
+
+}
+.nextButton{
+    background-color: blue;
+    color: white;
+    font-size: 1.2rem;
+    margin: 1.5rem 0.1rem;
+}
+
+
+.addresForm{
+
+    &__textField{
+
+        font-size: 1.5rem; // Tamaño de la fuente del label
+        margin-left: 0.5rem;
+        .MuiInputLabel-root {
+            font-size: 1.5rem; // Tamaño de la fuente del label
+            margin-left: 0.5rem;
+        }
+        .MuiFormHelperText-root {
+            font-size: 1rem; // Tamaño de la fuente del helper text
+          }
+        
+    }
+}
+
+.reviewList{
+    
+    &__item{
+        max-width: 30%;
+        font-size: 2rem;
+        &-long{
+            max-width: 45%;
+            min-width: 45%;
+        }
+        &-price{
+            font-size: 1.1rem!important;
+            display: inline;
+            margin-left: auto;
+        }
+    }
+    &__total{
+        font-size: 1.5rem!important;
+    }
+
+}
+
+.titleEnd{
+    font-size: 2rem!important;
+    margin-bottom: 3rem;
+}
+
+.textEnd{
+    font-size: 1.2rem!important;
+    text-indent: 1rem;
+}

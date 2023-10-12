@@ -1,0 +1,32 @@
+.aside{
+    padding-top: 2rem;
+    height: 100%;
+    
+}
+
+.categoryList {
+    cursor: pointer;
+    font-size: 1.2rem;
+    
+}
+
+.filterInfo{
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.071);
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    width: 70%;
+
+    &__icon{
+        font-size: 3rem;
+        cursor: pointer;
+    }
+    &__icon:hover{
+        font-size: 3.5rem;
+        position: relative;
+    }
+}

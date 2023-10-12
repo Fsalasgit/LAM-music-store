@@ -1,0 +1,37 @@
+.OurMusicalInstruments{
+    @media screen and (max-width: 576px) {
+        overflow-x: hidden;
+    }
+    &__img{   
+        
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
+
+    }
+    &__img img{
+        box-shadow: 5px 7px 10px black;
+    }
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__readMoreButton{
+        align-self: flex-end;
+        padding: 0.7rem 1rem;
+        background-color: inherit;
+        color: black;
+        border-bottom-left-radius: solid 0.2rem rgba(0, 0, 0, 0.933);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;;
+    }
+    &__readMoreButton:hover{
+        background-color: var(--c-mainColor);
+        color: white;
+    }
+}
+
+
