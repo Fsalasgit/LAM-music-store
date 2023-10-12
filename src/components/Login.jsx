@@ -30,7 +30,7 @@ const Login = () => {
 
       const decodedToken = jwt_decode(token);
       const userRole = decodedToken.rol;
-
+      console.log("response", response)
       if (userRole === 'admin') {
         navigate('/admin');
       } else if (userRole === 'user') {

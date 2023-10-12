@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import ProductDetail from '../components/Detail/ProductDetail'
 import { useParams } from 'react-router-dom'
 import { axiosInstance } from '../config/axiosInstance'
+import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
 
 const DetailPage = () => {
   const [product, setProduct] = useState([])
@@ -27,7 +29,9 @@ const DetailPage = () => {
     <div className='mb-3'>
 
         <>
+          <Navigation />
                 < ProductDetail product={product} />
+          <Footer />
         </>
 
     </div>

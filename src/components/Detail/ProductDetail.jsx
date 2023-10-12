@@ -79,7 +79,7 @@ const ProductDetail = ({ product }) => {
                   </button>
                 </div>
                 <p><RiLockFill/> Compra Protegida</p>
-                <a href="" className="justify-content-center">
+                <a href="/error404" className="justify-content-center">
                 <RiShareFill/>  Compartir
                 </a>
                 <hr />
@@ -88,7 +88,7 @@ const ProductDetail = ({ product }) => {
                 </h4>
                 <img src={mediosPago} alt="" className="img-fluid img-pagos" />
                 <hr />
-                <a href="">¿Alguna consulta? ¡Estamos para ayudarte!</a>
+                <a href="/error404">¿Alguna consulta? ¡Estamos para ayudarte!</a>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { addCart } from '../context/GlobalActions';
@@ -9,7 +9,7 @@ import jwt_decode from 'jwt-decode';
 import Swal from "sweetalert2";
 
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, favorites=[]}) => {
   const { state, dispatch } = useContext(GlobalContext);
   const [cartProducts, setCartProducts] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
       console.error('Error al actualizar los favoritos:', error);
     }
   };
-
+  
   const onAddProduct = () => {
     const existingProductIndex = state.productCart.findIndex((item) => item._id === product._id);
 
@@ -59,7 +59,8 @@ const ProductCard = ({ product }) => {
     return pesos;
   };
 
-
+useEffect(() => setIsFavorite(favorites.includes(product._id)), [favorites]);
+   
   return (
 <>
   <Card key={product._id} className='productCard'>
@@ -68,8 +69,8 @@ const ProductCard = ({ product }) => {
       className={`productCard__favorite `}
       onClick={handleFavourite}
     >
-      {product.isFavorite ? (
-        <FaHeart className={`productCard__favorite-icons ${ product.isFavorite  ? ' favorite' : ''}`} />
+      {isFavorite ? (
+        <FaHeart className={`productCard__favorite-icons favorite`} />
         
       ) : (
         <FaRegHeart className='productCard__favorite-icons' />

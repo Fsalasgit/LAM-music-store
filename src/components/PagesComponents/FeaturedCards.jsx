@@ -1,44 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { addCart } from '../../context/GlobalActions';
 import { GlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
-import { axiosInstance } from '../../config/axiosInstance';
-import jwt_decode from 'jwt-decode';
 import Swal from "sweetalert2";
 
-const ProductCard = ({ product }) => {
+const FeaturedCards = ({ product}) => {
   const { state, dispatch } = useContext(GlobalContext);
   const [cartProducts, setCartProducts] = useState([]);
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  const handleFavourite = async () => {
-    try {
-      setIsFavorite(!isFavorite);
-  
-      const token = localStorage.getItem("token");
-      const decodedToken = jwt_decode(token);
-      const userId = decodedToken.sub;
-  
-       await axiosInstance.post(`/user/favorite/${userId}`, {
-        productId: product._id,
-        addToFavorites: !isFavorite,
-      });
-    } catch (error) {
-      console.error('Error al actualizar los favoritos:', error);
-    }
-  };
 
   const onAddProduct = () => {
     const existingProductIndex = state.productCart.findIndex((item) => item._id === product._id);
 
     if (existingProductIndex !== -1) {
       state.productCart[existingProductIndex].cantidad++;
+      state.productCart[existingProductIndex].counterProduct++;
     } else {
-      const updatedCartProducts = [...cartProducts, { ...product, cantidad: 1 }];
+      const updatedCartProducts = [...cartProducts, { ...product, cantidad: 1, counterProduct: 1 }];
       setCartProducts(updatedCartProducts);
-      dispatch(addCart({ ...product, cantidad: 1 }));
+      dispatch(addCart({ ...product, cantidad: 1, counterProduct: 1  }));
     }
     Swal.fire({
       icon: 'success',
@@ -56,22 +37,10 @@ const ProductCard = ({ product }) => {
     return pesos;
   };
 
-
   return (
 <>
   <Card key={product._id} className='productCard'>
     <div className='productCard__header'>
-    <button
-      className={`productCard__favorite `}
-      onClick={handleFavourite}
-    >
-      {product.isFavorite ? (
-        <FaHeart className={`productCard__favorite-icons ${ product.isFavorite  ? ' favorite' : ''}`} />
-        
-      ) : (
-        <FaRegHeart className='productCard__favorite-icons' />
-      )}
-    </button>
     </div>
     <Link to={`/productos/${product._id}`} className='productCard__link'>
       <div className='productCard__imgContainer'>
@@ -97,4 +66,4 @@ const ProductCard = ({ product }) => {
 };
 
 
-export default ProductCard;
+export default FeaturedCards;

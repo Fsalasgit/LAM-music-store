@@ -7,7 +7,7 @@ LAM Music Store es una aplicación web desarrollada utilizando React, un framewo
 - Lorenzo Albornoz
 - Franco Salas
 
-Instalación
+##Instalación
 Para comenzar a trabajar con este proyecto en tu entorno local, sigue estos pasos:
 
 Clona el repositorio desde GitHub:
@@ -18,18 +18,33 @@ Instala las dependencias usando npm:
 npm install
 Este comando instalará todas las dependencias necesarias para ejecutar la aplicación.
 
-Inicia la aplicación:
+## Inicia la aplicación:
 
 npm run dev
 La aplicación se iniciará en tu navegador predeterminado en la dirección http://localhost:3000.
 
-Tecnologías Utilizadas
-React: Framework de JavaScript para la construcción de interfaces de usuario interactivas y dinámicas.
-React Bootstrap y Bootstrap: Utilizados para diseñar y desarrollar componentes de interfaz de usuario con un estilo moderno y responsivo.
-React Hook Form: Librería para el manejo de formularios en React, facilitando la validación y gestión de datos del usuario.
-React Icons: Librería que proporciona una amplia gama de iconos para mejorar la interfaz de usuario.
-Sass: Preprocesador CSS que permite escribir estilos más estructurados y reutilizables.
-Contribución
+## Tecnologías Utilizadas
+@emotion/react: Librería de CSS-in-JS para estilos emocionantes en aplicaciones React.
+@emotion/styled: Librería para escribir estilos emocionantes en aplicaciones React.
+@hookform/resolvers: Resolvedores para el manejo de formularios en React Hook Form.
+@mui/material: Librería Material-UI para diseñar componentes modernos en React.
+aos: Librería para animaciones a medida que los elementos de la página se desplazan.
+axios: Cliente HTTP para realizar solicitudes a servicios web.
+bootstrap: Framework de diseño para la creación de interfaces de usuario modernas y responsivas.
+formik: Librería para gestionar formularios en React con facilidad.
+jwt-decode: Decodificador de tokens JWT en aplicaciones JavaScript.
+react-bootstrap: Integración de Bootstrap con React para desarrollar componentes de interfaz de usuario.
+react-credit-cards-2: Componente para mostrar tarjetas de crédito de forma interactiva.
+react-data-table-component: Componente de tabla de datos para React.
+react-dom: Biblioteca para interactuar con el DOM en aplicaciones React.
+react-hook-form: Librería para el manejo de formularios en React.
+react-icons: Librería que proporciona una amplia gama de iconos para usar en aplicaciones React.
+react-router-dom: Enrutador para aplicaciones React.
+sass: Preprocesador CSS que facilita la escritura de estilos más estructurados y reutilizables.
+sweetalert2: Biblioteca para crear notificaciones y ventanas modales en aplicaciones web.
+yup: Librería de validación de esquema para JavaScript.
+
+## Contribución
 Si deseas contribuir al desarrollo de LAM Music Store, por favor sigue estos pasos:
 
 Crea un fork del repositorio en GitHub.
@@ -47,3 +62,6 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+

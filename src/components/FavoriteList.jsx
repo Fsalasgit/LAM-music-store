@@ -17,6 +17,7 @@ const FavoriteList = ({allProducts}) => {
             <ProductCard
               product={product}
               key={product._id}
+              favorites={[product._id]}
             />
           ))}
         </div>

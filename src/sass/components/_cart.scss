@@ -35,29 +35,40 @@
 	right: 0;
 	background-color: #ffffff;
 	padding: 0.1rem 3rem;
-	z-index: 1;
+	z-index: 1000000;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
+	@media screen and (max-width: 576px) {
+		width: 95vw;
+	}
 }
 
 .cart-product {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 3rem;
-	
+	padding: 3rem;	
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	@media screen and (max-width: 576px) {
+		padding: 0.2rem;
+	}
 }
 
 .info-cart-product {
 	display: flex;
 	justify-content: space-between;
 	flex: 0.8;
+	
 }
 
 .titulo-producto-carrito {
 	font-size: 20px;
-	min-width: 30rem
+	min-width: 30rem;
+	@media screen and (max-width: 576px) {
+		font-size: 1rem;
+		min-width: 30%;
+	}
+	
 
 }
 
@@ -65,12 +76,22 @@
 	font-weight: 700;
 	font-size: 20px;
 	margin-left: 10px;
+	@media screen and (max-width: 576px) {
+		font-weight: 700;
+		font-size: 1rem;
+		margin-left: 1rem;
+	}
 }
 
 .cantidad-producto-carrito {
 	font-weight: 700;
 	font-size: 20px;
 	margin-right: 2rem;
+	@media screen and (max-width: 576px) {
+		font-weight: 700;
+		font-size: 1.3rem;
+		margin-left: 1rem;
+	}
 }
 
 .icon-close {
@@ -94,11 +115,19 @@
 .cart-total h3 {
 	font-size: 20px;
 	font-weight: 700;
+	@media screen and (max-width: 576px) {
+		font-size: 1.3rem;
+
+	}
 }
 
 .total-pagar {
 	font-size: 20px;
 	font-weight: 900;
+	@media screen and (max-width: 576px) {
+		font-size: 1.5rem;
+
+	}
 }
 
 .hidden-cart {
@@ -185,6 +214,10 @@
         font-size: 1rem;
         transition: all .3s ease;
 		font-size: 1.5rem;
+		@media screen and (max-width: 576px) {
+			font-size: 1rem;
+	
+		}
 		&--buy{
 			background-color: green;
 			text-align: center;

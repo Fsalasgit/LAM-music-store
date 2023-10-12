@@ -8,14 +8,10 @@ import { GlobalContext } from '../../context/GlobalContext';
 
 
 
-  
-  const addresses = ['Gral. Paz 576', 'San Miguel de Tucumán', 'Tucumán'];
-  const payments = [
-    { name: 'Card type', detail: 'Visa' },
-    { name: 'Card holder', detail: 'Pinky Moom' },
-    { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-    { name: 'Expiry date', detail: '12/2023' },
-  ];
+
+
+const Review = ({payments, addresses}) => {
+  const {state, dispatch} = useContext(GlobalContext)
 
   let convertToPesos = (numb) => {
     const pesos = numb.toLocaleString('es-AR', {
@@ -24,10 +20,6 @@ import { GlobalContext } from '../../context/GlobalContext';
     });
     return pesos;
   };
-
-
-const Review = () => {
-  const {state, dispatch} = useContext(GlobalContext)
   
   return (
     <>
@@ -57,24 +49,41 @@ const Review = () => {
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Datos de envio
           </Typography>
-          <Typography gutterBottom>Pincky Moom</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
+          <Typography gutterBottom>{addresses.firstName + " "+  addresses.lastName}</Typography>
+          <Typography gutterBottom>{addresses.address + " " +  addresses.number}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             detalle de pago
           </Typography>
           <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
+
+            <React.Fragment>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
+                  <Typography gutterBottom>Tipo de tarjeta: </Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
+                  <Typography gutterBottom>{payments.cardTipe}</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography gutterBottom>Nombre de titular: </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography gutterBottom>{payments.cardHolder}</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography gutterBottom>Numero de tarjeta: </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography gutterBottom>{payments.cardNumber}</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography gutterBottom>Fecha de vencimiento: </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography gutterBottom>{payments.expiryDate}</Typography>
                 </Grid>
               </React.Fragment>
-            ))}
           </Grid>
         </Grid>
       </Grid>
