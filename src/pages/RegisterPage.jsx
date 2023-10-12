@@ -7,30 +7,29 @@ import { Link } from "react-router-dom";
 const RegisterPage = () => {
   return (
     <>
-    <div className="register-container">
-      <div className="registerPage">
-        <div className="registerPage__form">
-          <h2 className="registerPage__createAccount">Crear una cuenta</h2>
-          <div className="registerPage__iconos">
-            <div className="registerPage__borderIcon">
-              <a href="/error404"><BsFacebook className="registerPage__facebook " /></a>
+      <div className="register-container">
+        <div className="registerPage">
+          <div className="registerPage__form">
+            <h2 className="registerPage__createAccount">Crear una cuenta</h2>
+            <div className="registerPage__iconos">
+              <div className="registerPage__borderIcon">
+                <Link to="/error404"><BsFacebook className="registerPage__facebook" /></Link>
+              </div>
+              <div className="registerPage__borderIcon">
+                <Link to="/error404"><FcGoogle /></Link>
+              </div>
+              <div className="registerPage__borderIcon">
+                <Link to="/error404"><BsApple className="registerPage__apple" /></Link>
+              </div>
             </div>
-            <div className="registerPage__borderIcon">
-              <a href="/error404"><FcGoogle /></a>
+            <Register />
+            <div className="registerPage__enlace">
+              <span >
+                ¿Ya tienes una cuenta? <Link to="/login" className="registerPage__link">Iniciá Sesión</Link>
+              </span>
             </div>
-
-            <div className="registerPage__borderIcon">
-              <a href="/error404"><BsApple className="registerPage__apple" /></a>
-            </div>
-          </div>
-          <Register />
-          <div className="registerPage__enlace">
-            <span >
-              ¿Ya tienes una cuenta? <Link to="/login" className="registerPage__link">Iniciá Sesión</Link>
-            </span>
           </div>
         </div>
-      </div>
       </div>
     </>
   );

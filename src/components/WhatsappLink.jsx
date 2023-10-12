@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const WhatsappLink = () => {
@@ -7,9 +8,9 @@ const WhatsappLink = () => {
 
   return (
     <div className='whatsApp'>
-    <a href={whatsappLink} className="whatsApp__float" target="_blank" rel="noopener noreferrer">
-      <FaWhatsapp className="whatsApp__my-float" />
-    </a>
+      <Link to={whatsappLink} className="whatsApp__float">
+        <FaWhatsapp className="whatsApp__my-float" />
+      </Link>
     </div>
   );
 };
