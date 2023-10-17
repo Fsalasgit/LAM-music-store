@@ -3,7 +3,7 @@
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
-    height: 115vh; 
+    height: 125vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,7 +86,7 @@
 
 @media screen and (max-width: 768px) {
     .register-container {
-        height: 87vh; 
+        height: 95vh; 
     }
     .registerPage {
         flex-direction: column;
