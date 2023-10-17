@@ -54,7 +54,7 @@ const Login = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
-            type="text"
+            type="email"
             name="username"
             placeholder="Email"
             className="login__input"

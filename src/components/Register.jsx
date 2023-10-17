@@ -39,7 +39,7 @@ const Register = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
-            type="text"
+            type="email"
             name="username"
             placeholder="Email"
             className="register__input"
@@ -71,6 +71,18 @@ const Register = () => {
           />
           {errors.password && (
             <p className="register__error-message">{errors.password.message}</p>
+          )}
+        </div>
+        <div>
+          <input
+            type="password"
+            name="repassword"
+            placeholder="Repetir Contraseña"
+            className="register__input"
+            {...register("repassword")}
+          />
+          {errors.repassword && (
+            <p className="register__error-message">{errors.repassword.message}</p>
           )}
         </div>
         <p className="register__description"> Tu contraseña debe tener al menos una mayúscula, una minúscula, un número y 8 caracteres como mínimo y 20 como máximo </p>

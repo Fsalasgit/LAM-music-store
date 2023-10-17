@@ -9,7 +9,11 @@ export const REGISTRO_SCHEMA = yup.object({
         )
         .max(25, "El correo electrónico debe tener como máximo 25 caracteres")
         .required("El correo electrónico es requerido"),
-    name: yup.string().required("El nombre completo es requerido").max(25, "El maximo son 25 caracteres").min(5, "El minimo son 5 caracteres"),
+    name: yup.string()
+        .required("El nombre completo es requerido")
+        .matches(/^[A-Za-z\s]+$/, 'El nombre solo debe contener letras y espacios')
+        .max(25, "El máximo son 25 caracteres")
+        .min(5, "El mínimo son 5 caracteres"),
     password: yup
         .string()
         .matches(
@@ -18,7 +22,13 @@ export const REGISTRO_SCHEMA = yup.object({
         )
         .min(8, "La contraseña debe tener al menos 8 caracteres")
         .max(20, "La contraseña debe tener como máximo 20 caracteres")
-        .required("La contraseña es obligatoria")
+        .required("La contraseña es obligatoria"),
+    repassword: yup
+        .string()
+        .oneOf([yup.ref('password')], 'Las contraseñas no coinciden')
+        .min(8, "La contraseña debe tener al menos 8 caracteres")
+        .max(20, "La contraseña debe tener como máximo 20 caracteres")
+        .required("Repetir la contraseña es obligatoria")
 
 })
 
