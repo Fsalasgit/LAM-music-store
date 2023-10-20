@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
-// import { users } from '../../helpers/products';
 import { axiosInstance } from '../../config/axiosInstance';
 import Swal from 'sweetalert2'
+import jwt_decode from 'jwt-decode';
 
 const UserTable = () => {
   const [allUsers, setAllUsers] = useState([])
@@ -23,15 +23,28 @@ const UserTable = () => {
 
   const changeUserRole = async (row) => {
     try {
-      const userType = row.rol === 'user' ? 'admin' : 'user';
-      await axiosInstance.put(`/admin/rol/${row._id}`, { rol: userType });
-      getUsers();
-      Swal.fire({
-        icon: 'success',
-        title: 'Rol cambiado con éxito.',
-        showConfirmButton: false,
-        timer: 1000,
-      });
+      const token = localStorage.getItem('token');
+      const decodedToken = jwt_decode(token);
+      const userId = decodedToken.sub;
+      if (row._id === userId) {
+        Swal.fire({
+          icon: 'error',
+          title: 'No puedes cambiar tu propio rol.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else {
+        const userType = row.rol === 'user' ? 'admin' : 'user';
+        await axiosInstance.put(`/admin/rol/${row._id}`, { rol: userType });
+        getUsers();
+        Swal.fire({
+          icon: 'success',
+          title: 'Rol cambiado con éxito.',
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      }
+
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -45,28 +58,52 @@ const UserTable = () => {
 
   const deleteUser = async (row) => {
     try {
-      Swal.fire({
-        title: '¿Estas seguro?',
-        text: "No podrás revertir esto!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#F8A126',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, eliminar!',
-        cancelButtonText: 'Cancelar'
-      }).then(async (result) => {
+      const token = localStorage.getItem('token');
+      const decodedToken = jwt_decode(token);
+      const userId = decodedToken.sub;
+      if (row === userId) {
+        Swal.fire({
+          icon: 'error',
+          title: 'No puedes eliminarte a ti mismo.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else {
+        const result = await Swal.fire({
+          title: '¿Estás seguro?',
+          text: 'No podrás revertir esto.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#F8A126',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Sí, eliminar',
+          cancelButtonText: 'Cancelar',
+        });
+  
         if (result.isConfirmed) {
-          await axiosInstance.delete(`/user/${row}`)
-          getUsers()
+          await axiosInstance.delete(`/user/${row}`);
+          getUsers();
+          Swal.fire({
+            icon: 'success',
+            title: 'Usuario eliminado con éxito.',
+            showConfirmButton: false,
+            timer: 1000,
+          });
         }
-      })
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Hubo un error al procesar la solicitud.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } finally {
-      getUsers()
+      getUsers();
     }
-  }
-
+  };
+  
   const columns = [
     {
       name: "Name",

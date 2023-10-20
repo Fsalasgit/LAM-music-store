@@ -45,6 +45,12 @@ const Login = () => {
           title: "Usuario no registrado",
           text: "El usuario ingresado no está registrado",
         });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Contraseña incorrecta",
+          text: "La contraseña ingresada no es válida",
+        });
       }
     }
   };
