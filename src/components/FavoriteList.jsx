@@ -5,7 +5,7 @@ const FavoriteList = ({allProducts}) => {
 
   return (
     <>
-      <div className="container">
+      <main className="container main-favorite">
         <div className="row">
           <div className="col text-center my-3">
             <h3 id="ourProducts" className='featuredProducts__titleText'>Favoritos</h3>
@@ -21,7 +21,7 @@ const FavoriteList = ({allProducts}) => {
             />
           ))}
         </div>
-      </div>
+      </main>
     </>
   );
 };

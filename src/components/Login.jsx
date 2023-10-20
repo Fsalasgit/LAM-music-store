@@ -45,6 +45,12 @@ const Login = () => {
           title: "Usuario no registrado",
           text: "El usuario ingresado no está registrado",
         });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Contraseña incorrecta",
+          text: "La contraseña ingresada no es válida",
+        });
       }
     }
   };
@@ -54,7 +60,7 @@ const Login = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
-            type="text"
+            type="email"
             name="username"
             placeholder="Email"
             className="login__input"
