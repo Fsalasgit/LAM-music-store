@@ -76,7 +76,7 @@ const AddressForm = ({ setUserAddresses }) => {
 
   return (
     <>
-    <form className='addressForm' onSubmit={handleSubmit}>
+
       <Typography variant='h6' gutterBottom>
         Datos de envío
       </Typography>
@@ -186,8 +186,7 @@ const AddressForm = ({ setUserAddresses }) => {
             />
           </Grid>
         </Grid>
-        <button type='submit'>Enviar</button>
-      </form>
+
 
     </>
   )

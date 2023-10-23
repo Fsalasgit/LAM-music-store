@@ -6,7 +6,7 @@ import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
 import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
-import PaymentForms from '../components/PaymentForms';
+import PaymentForms from '../components/PaymentForms.jsx';
 
 
 const PaymentsPage = () => {

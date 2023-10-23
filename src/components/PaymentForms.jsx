@@ -50,10 +50,6 @@ const PaymentForms = ({ show, setShow }) => {
     }
   }, [activeStep, orderPlaced, dispatch]);
 
-  const hableSubmit = (formData) => {
-    // Simular envío de datos
-    console.log('Datos enviados:', formData);
-  };
 
   function getStepContent(step) {
     switch (step) {
@@ -74,6 +70,11 @@ const PaymentForms = ({ show, setShow }) => {
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleNext()
   };
   
   return (
@@ -99,6 +100,7 @@ const PaymentForms = ({ show, setShow }) => {
             </Toolbar>
           </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+      <form onSubmit={handleSubmit}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
             LAM Music Store  - Pagos
@@ -133,10 +135,9 @@ const PaymentForms = ({ show, setShow }) => {
 
                 <Button
                   variant="contained"
-                  onClick={handleNext}
+                  type='submit'
                   sx={{ mt: 3, ml: 1 }}
                   className={activeStep === steps.length - 1 ? 'buyButton' : 'nextButton'}
-                  type='submit'
                 >
                   {activeStep === steps.length - 1 ? 'Comprar' : 'Siguiente'}
                 </Button>
@@ -144,7 +145,7 @@ const PaymentForms = ({ show, setShow }) => {
             </React.Fragment>
           )}
         </Paper>
-
+        </form>
       </Container>
 
 
