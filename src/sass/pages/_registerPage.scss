@@ -82,6 +82,11 @@
         font-size: 1rem;
         color: var(--c-wrong);
     }
+    &__custom-loading-text {
+        color: var(--c-mainColor);
+        text-align: center;
+        margin-top: 1rem;
+      }
 }
 
 @media screen and (max-width: 768px) {
