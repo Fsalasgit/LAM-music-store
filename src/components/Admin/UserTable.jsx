@@ -167,8 +167,8 @@ const UserTable = () => {
  border-bottom: 2px solid var(--c-secondColor);
  border-left: 4px solid var(--c-grey); 
  background: transparent;
- width: 80px;
- height: 80px;
+ width: 40px;
+ height: 40px;
  border-radius: 50%;
 `;
  
