@@ -35,44 +35,17 @@ const provinces = [
   'Tucumán',
 ];
 
-const AddressForm = ({ setUserAddresses }) => {
-  const [prov, setProv] = React.useState('');
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    address: '',
-    number: '',
-    floor: '',
-    province: '',
-    city: '',
-    saveAddress: false,
-  });
+const AddressForm = ({addresses, setUserAddresses }) => {
+  
+  const handleChangeDatos = (e) => {
+    setUserAddresses({
+      ...addresses,
+      [e.target.name]: e.target.value
+    })
+  }
+  console.log(addresses)
 
-  const handleProvChange = (event) => {
-    setProv(event.target.value);
-    setFormData({
-      ...formData,
-      province: event.target.value,
-    });
-  };
-
-  const handleFormChange = (event) => {
-    const { name, value, checked } = event.target;
-    setFormData({
-      ...formData,
-      [name]: name === 'saveAddress' ? checked : value,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aquí llamas a setUserAddresses con los datos del formulario
-    setUserAddresses(formData);
-  };
-
-
-
-
+  
 
   return (
     <>
@@ -87,9 +60,11 @@ const AddressForm = ({ setUserAddresses }) => {
             id="firstName"
             name="firstName"
             label="Nombre"
+            value={addresses?.firstName}
             fullWidth
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -97,10 +72,12 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="lastName"
             name="lastName"
+            value={addresses?.lastName}
             label="Apellido"
             fullWidth
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -108,10 +85,12 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="address"
             name="address"
-            label="Dirección"
+            value={addresses?.address}
+            label="Dirección"            
             fullWidth
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={3}>
@@ -119,10 +98,12 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="number"
             name="number"
+            value={addresses?.number}
             label="Número"
             fullWidth
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={3}>
@@ -130,19 +111,23 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="floor"
             name="floor"
+            value={addresses?.floor}
             label="Piso"
             fullWidth
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl variant="standard" fullWidth >
+          <FormControl variant="standard" fullWidth id="province">
             <InputLabel id="a-label" className='addresForm__textField'>Provincia</InputLabel>
             <Select
               labelId="a-label"
-              id="a-standard"
-              onChange={handleProvChange}
+              id="provincew"
+              name='province'
+              value={addresses?.province}
+              onChange={handleChangeDatos}
             >
               <MenuItem value="">
                 <em>Selecione provincia</em>
@@ -165,10 +150,12 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="city"
             name="city"
+            value={addresses?.city}
             label="Ciudad"
             fullWidth
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         
@@ -178,8 +165,8 @@ const AddressForm = ({ setUserAddresses }) => {
                 <Checkbox
                   color='secondary'
                   name='saveAddress'
-                  checked={formData.saveAddress}
-                  onChange={handleFormChange}
+                  // checked={formData.saveAddress}
+                  // onChange={handleFormChange}
                 />
               }
               label='Usa esta dirección como datos de facturación'

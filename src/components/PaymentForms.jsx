@@ -28,13 +28,20 @@ const PaymentForms = ({ show, setShow }) => {
   const [orderPlaced, setOrderPlaced] = useState(false);
 
   const [addresses, setUserAddresses] = useState({
-    firstName:"Pincky",
-    lastName:"Moon",
-    address:"Gral. Paz",
-    number:" 576",
-    city:"San Miguel de Tucuman"
+    firstName:'',
+    lastName:'',
+    address:'',
+    number:'',
+    floor:'',
+    province:'',
+    numberCard: '',
+    expiry: '',
+    cvc: '',
+    nameCard: '',
+    focus: '',
   
   }  )
+  
   const [payments, setPayments] = useState({
     cardTipe:"Visa",
     cardHolder:"Pincky Moon",
@@ -54,9 +61,9 @@ const PaymentForms = ({ show, setShow }) => {
   function getStepContent(step) {
     switch (step) {
       case 0:
-        return <AddressForm setUserAddresses={setUserAddresses}/>;
+        return <AddressForm setUserAddresses={setUserAddresses} addresses={addresses}/>;
       case 1:
-        return <ReactCreditCard setPayments={setPayments}/>;
+        return <ReactCreditCard setPayments={setPayments} setUserAddresses={setUserAddresses} addresses={addresses}/>;
       case 2:
         return <Review  payments={payments} addresses={addresses}/>;
       default:
@@ -73,6 +80,7 @@ const PaymentForms = ({ show, setShow }) => {
   };
 
   const handleSubmit = (e) => {
+    console.log(addresses)
     e.preventDefault();
     handleNext()
   };

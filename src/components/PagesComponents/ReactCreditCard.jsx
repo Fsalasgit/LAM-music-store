@@ -9,45 +9,38 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 
-const ReactCreditCard = () => {
-    const [state, setState] = useState({
-        number: '',
-        expiry: '',
-        cvc: '',
-        name: '',
-        focus: '',
-      });
+const ReactCreditCard = ({addresses, setUserAddresses }) => {
     
       const handleInputChange = (evt) => {
         const { name, value } = evt.target;
         
-        setState((prev) => ({ ...prev, [name]: value }));
+        setUserAddresses((prev) => ({ ...prev, [name]: value }));
       }
     
       const handleInputFocus = (evt) => {
-        setState((prev) => ({ ...prev, focus: evt.target.name }));
+        setUserAddresses((prev) => ({ ...prev, focus: evt.target.name }));
       }
   return (
     <>
       
     
       <Cards 
-        number={state.number}
-        expiry={state.expiry}
-        cvc={state.cvc}
-        name={state.name}
-        focused={state.focus}
+        number={addresses.numberCard}
+        expiry={addresses.expiry}
+        cvc={addresses.cvc}
+        name={addresses.nameCard}
+        focused={addresses.focus}
       />
       <Grid container spacing={2} className='mt-4' > 
           <Grid item xs={12} sm={6} >
             <TextField
               required
               id="cardName"
-              name="number"
+              name="numberCard"
               label="Número de tarjeta"
               fullWidth
               variant="standard"
-              value={state.number}
+              value={addresses.numberCard}
               onChange={handleInputChange}
               onFocus={handleInputFocus} 
               className='addresForm__textField'
@@ -57,11 +50,11 @@ const ReactCreditCard = () => {
           <TextField
             required
             id="cardName"
-            name="name"
+            name="nameCard"
             label="Nombre en tarjeta"
             fullWidth
             variant="standard"
-            value={state.name}
+            value={addresses.nameCard}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
             className='addresForm__textField'
@@ -74,7 +67,7 @@ const ReactCreditCard = () => {
             name="expiry"
             label="Fecha vencimiento"
             variant="standard"
-            value={state.expiry}
+            value={addresses.expiry}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
             className='addresForm__textField'
@@ -89,7 +82,7 @@ const ReactCreditCard = () => {
             label="CVV"
             helperText="Reverso de la tarjeta"
             variant="standard"
-            value={state.cvc}
+            value={addresses.cvc}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
             className='addresForm__textField'
