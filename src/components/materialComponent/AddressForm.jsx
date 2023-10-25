@@ -43,7 +43,7 @@ const AddressForm = ({addresses, setUserAddresses }) => {
       [e.target.name]: e.target.value
     })
   }
-  console.log(addresses)
+
 
   
 

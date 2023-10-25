@@ -1,1 +1,1 @@
-export const comprasRealizadas = [];
+export const comprasRealizadas = []; 

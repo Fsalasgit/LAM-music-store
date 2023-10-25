@@ -63,25 +63,25 @@ const Review = ({payments, addresses}) => {
                   <Typography gutterBottom>Tipo de tarjeta: </Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payments.cardTipe}</Typography>
+                  <Typography gutterBottom>{addresses.cardTipe}</Typography>
                 </Grid>
                 <Grid item xs={6}>
                   <Typography gutterBottom>Nombre de titular: </Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payments.cardHolder}</Typography>
+                  <Typography gutterBottom>{addresses.nameCard}</Typography>
                 </Grid>
                 <Grid item xs={6}>
                   <Typography gutterBottom>Numero de tarjeta: </Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payments.cardNumber}</Typography>
+                  <Typography gutterBottom>{addresses.numberCard}</Typography>
                 </Grid>
                 <Grid item xs={6}>
                   <Typography gutterBottom>Fecha de vencimiento: </Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payments.expiryDate}</Typography>
+                  <Typography gutterBottom>{addresses.expiry}</Typography>
                 </Grid>
               </React.Fragment>
           </Grid>

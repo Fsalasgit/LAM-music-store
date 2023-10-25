@@ -16,6 +16,9 @@ import ReactCreditCard from './PagesComponents/ReactCreditCard';
 import Review from './materialComponent/Review';
 import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
+import {comprasRealizadas} from '../helpers/compras'
+import { Link } from 'react-router-dom';
+
 
 
 const steps = ['Datos de envio', 'Detalle de pago', 'Revise su orden'];
@@ -27,6 +30,7 @@ const PaymentForms = ({ show, setShow }) => {
   const { state, dispatch } = useContext(GlobalContext);
   const [orderPlaced, setOrderPlaced] = useState(false);
 
+
   const [addresses, setUserAddresses] = useState({
     firstName:'',
     lastName:'',
@@ -34,16 +38,18 @@ const PaymentForms = ({ show, setShow }) => {
     number:'',
     floor:'',
     province:'',
+    city:'',
     numberCard: '',
     expiry: '',
     cvc: '',
     nameCard: '',
     focus: '',
-  
-  }  )
-  
-  const [payments, setPayments] = useState({
     cardTipe:"Visa",
+  
+  })
+
+  const [payments, setPayments] = useState({
+    
     cardHolder:"Pincky Moon",
     cardNumber:"xxxx-xxxx-xxxx-1234",
     expiryDate:"12/23"
@@ -63,7 +69,7 @@ const PaymentForms = ({ show, setShow }) => {
       case 0:
         return <AddressForm setUserAddresses={setUserAddresses} addresses={addresses}/>;
       case 1:
-        return <ReactCreditCard setPayments={setPayments} setUserAddresses={setUserAddresses} addresses={addresses}/>;
+        return <ReactCreditCard setUserAddresses={setUserAddresses} addresses={addresses}/>;
       case 2:
         return <Review  payments={payments} addresses={addresses}/>;
       default:
@@ -71,16 +77,25 @@ const PaymentForms = ({ show, setShow }) => {
     }
   }
 
+  // const submitDataForm = () =>{
+   
+  //  const compra = { ...addresses };
+  //  comprasRealizadas.push(compra);
+  //  console.log(comprasRealizadas);
+
+    
+  // }
+
   const handleNext = () => {
     setActiveStep(activeStep + 1);
+    // activeStep==steps.length-1 && submitDataForm()
   };
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
 
-  const handleSubmit = (e) => {
-    console.log(addresses)
+  const handleSubmit = (e) => {    
     e.preventDefault();
     handleNext()
   };
@@ -130,6 +145,7 @@ const PaymentForms = ({ show, setShow }) => {
                 enviado.
          
               </Typography>
+              <Link to={'/'}>Ir al inicio</Link>
             </React.Fragment>
           ) : (
             <React.Fragment>
