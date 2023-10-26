@@ -1,21 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { REGISTRO_SCHEMA } from "../helpers/validationsSchemas";
 import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from "../config/axiosInstance";
 import Swal from "sweetalert2";
-
+import styled, { keyframes } from "styled-components"; 
 
 const Register = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(REGISTRO_SCHEMA)
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
-    console.log(data);
+    setIsLoading(true)
     try {
       await axiosInstance.post("/register", data)
       Swal.fire({
@@ -30,12 +31,58 @@ const Register = () => {
         title: 'Error de Registro',
         text: 'Hubo un problema durante el registro. Es posible que el usuario ya esté registrado.',
       });
-      console.log(error)
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   };
 
+  const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+ 
+   to {
+    transform: rotate(360deg);
+  }
+ `;
+ 
+ const SpinnerContainer = styled.div`
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ `;
+ 
+ const Spinner = styled.div`
+   animation: ${rotate360} 1s linear infinite;
+   transform: translateZ(0);
+   border-top: 2px solid var(--c-mainColor);
+   border-right: 2px solid var(--c-mainColor);
+   border-bottom: 2px solid var(--c-secondColor);
+   border-left: 4px solid var(--c-grey);
+   background: transparent;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+ `;
+ const CustomLoader = () => (
+   <div style={{ padding: "24px" }}>
+   <SpinnerContainer>
+     <Spinner />
+   </SpinnerContainer>
+     <div className="registerPage__custom-loading-text">Cargando...</div>
+   
+   </div>
+ );
+ 
+
   return (
     <div className="register">
+          {isLoading ? (
+       <CustomLoader />
+
+      ) : (
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
@@ -89,6 +136,7 @@ const Register = () => {
         <button type="submit" className="register__button">Registrarse</button>
 
       </form>
+      )}
     </div>
   );
 };

@@ -77,6 +77,11 @@
         text-decoration: none;
         color: var(--c-mainColor);
     }
+    &__custom-loading-text {
+        color: var(--c-mainColor);
+        text-align: center;
+        margin-top: 1rem;
+      }
 }
 
 

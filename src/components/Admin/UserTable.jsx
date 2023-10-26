@@ -3,9 +3,12 @@ import DataTable from 'react-data-table-component';
 import { axiosInstance } from '../../config/axiosInstance';
 import Swal from 'sweetalert2'
 import jwt_decode from 'jwt-decode';
+import styled, { keyframes } from 'styled-components';
 
 const UserTable = () => {
   const [allUsers, setAllUsers] = useState([])
+  const [pending, setPending] = useState(true);
+  const [rows, setRows] = useState([]);
 
   const getUsers = async () => {
     try {
@@ -143,6 +146,47 @@ const UserTable = () => {
       }
     }
   ]
+
+  const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+ 
+   to {
+    transform: rotate(360deg);
+  }
+ `;
+
+ 
+ const Spinner = styled.div`
+ margin: 16px;
+ animation: ${rotate360} 1s linear infinite;
+ transform: translateZ(0);
+ border-top: 2px solid var(--c-mainColor); 
+ border-right: 2px solid var(--c-mainColor);
+ border-bottom: 2px solid var(--c-secondColor);
+ border-left: 4px solid var(--c-grey); 
+ background: transparent;
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+`;
+ 
+     const CustomLoader = () => (
+         <div style={{ padding: "24px" }}>
+             <Spinner />
+             <div className="text-center">Cargando...</div>
+         </div>
+     );
+ 
+     useEffect(() => {
+         const timeout = setTimeout(() => {
+             setRows(allUsers);
+             setPending(false);
+         }, 2000);
+         return () => clearTimeout(timeout);
+     }, [allUsers]);
+
   return (
     <>
       <div className="row">
@@ -156,6 +200,8 @@ const UserTable = () => {
           title="Administración de Usuarios"
           columns={columns}
           data={allUsers}
+          progressPending={pending}
+          progressComponent={<CustomLoader />}
           pagination />
       </>
     </>

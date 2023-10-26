@@ -8,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [allProducts, setAllProducts] = useState([]);
+  const [searchOptions, setSearchOptions] = useState([]); // Opciones de búsqueda filtradas
+  const [searchText, setSearchText] = useState(""); // Texto de búsqueda
+  const navigate = useNavigate();
 
   const getProducts = async () => {
     try {
@@ -22,15 +25,29 @@ const SearchBar = () => {
     getProducts();
   }, []);
 
-  const [selectedProductId, setSelectedProductId] = useState(null);
-  const navigate = useNavigate();
-
   const handleSearch = () => {
-    if (selectedProductId) {
-      // Redirige a la página de detalle del producto con el id como parámetro
-      navigate(`/productos/${selectedProductId}`);
+    if (searchText) {
+      // Busca el producto correspondiente al texto de búsqueda
+      const product = allProducts.find((p) => p.title.toLowerCase() === searchText.toLowerCase());
+
+      if (product) {
+        // Redirige a la página de detalle del producto con el ID del producto como parámetro
+        navigate(`/productos/${product._id}`);
+      }
     }
   };
+
+  // Filtra las opciones de búsqueda cuando el usuario escribe
+  useEffect(() => {
+    if (searchText) {
+      const filteredProducts = allProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setSearchOptions(filteredProducts.map((product) => product.title));
+    } else {
+      setSearchOptions([]); // Vacía las opciones si no hay texto de búsqueda
+    }
+  }, [searchText, allProducts]);
 
   return (
     <>
@@ -39,14 +56,9 @@ const SearchBar = () => {
           freeSolo
           id="search"
           disableClearable
-          options={allProducts.map((option) => option.title)}
-          onChange={(event, newValue) => {
-            const selectedProduct = allProducts.find(
-              (product) => product.title === newValue
-            );
-            if (selectedProduct) {
-              setSelectedProductId(selectedProduct._id);
-            }
+          options={searchOptions}
+          onInputChange={(event, newInputValue) => {
+            setSearchText(newInputValue);
           }}
           renderInput={(params) => (
             <TextField
