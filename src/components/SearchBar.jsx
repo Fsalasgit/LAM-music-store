@@ -27,8 +27,13 @@ const SearchBar = () => {
 
   const handleSearch = () => {
     if (searchText) {
-      // Redirige a la página de detalle del producto con el texto de búsqueda como parámetro
-      navigate(`/productos/${searchText}`);
+      // Busca el producto correspondiente al texto de búsqueda
+      const product = allProducts.find((p) => p.title.toLowerCase() === searchText.toLowerCase());
+
+      if (product) {
+        // Redirige a la página de detalle del producto con el ID del producto como parámetro
+        navigate(`/productos/${product._id}`);
+      }
     }
   };
 
