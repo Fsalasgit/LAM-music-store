@@ -105,8 +105,8 @@ const PaymentsPage = () => {
                   </button>
               </div>
               }
-            <div className="mb-5">
-              <Link to="/productos" className='payTable__button'>Continuar Comprando</Link>
+            <div className="mb-5 d-flex">
+              <Link to="/productos" className='payTable__button mx-auto'>Continuar Comprando</Link>
             </div>
             </Col>
           
