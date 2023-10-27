@@ -16,7 +16,6 @@ import ReactCreditCard from './PagesComponents/ReactCreditCard';
 import Review from './materialComponent/Review';
 import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
-import {comprasRealizadas} from '../helpers/compras'
 import { Link } from 'react-router-dom';
 
 
@@ -56,6 +55,32 @@ const PaymentForms = ({ show, setShow }) => {
 
   })
 
+  const [error, setError] = useState({
+    firstName: false,
+    lastName: false,
+    address:false,
+    number: false,
+    
+  });
+
+  const isAllfalse = () =>{
+    let count = 0
+  for (let key in error) {
+    
+    
+    if (error.hasOwnProperty(key)) {
+      const value = error[key];
+      value && count++
+    
+    }
+  }
+  let stateValue = count === 0 ? false : true
+
+  return stateValue
+}
+
+
+
   useEffect(() => {
     if (activeStep === steps.length && !orderPlaced) {
       dispatch(clearCart());
@@ -63,32 +88,17 @@ const PaymentForms = ({ show, setShow }) => {
     }
   }, [activeStep, orderPlaced, dispatch]);
 
+  const customErrorMessages = {
+    firstName: 'No puede contener número y menos de 3 caracteres',
+    lastName:'No puede contener número y menos de 3 caracteres',
+    number:'Debe ser un numero',
+    address:'Debe tener al menos 5 caracteres',
+    city:'No puede contener menos de 3 caractere',
+  };
 
-  function getStepContent(step) {
-    switch (step) {
-      case 0:
-        return <AddressForm setUserAddresses={setUserAddresses} addresses={addresses}/>;
-      case 1:
-        return <ReactCreditCard setUserAddresses={setUserAddresses} addresses={addresses}/>;
-      case 2:
-        return <Review  payments={payments} addresses={addresses}/>;
-      default:
-        throw new Error('Algo salió mal');
-    }
-  }
-
-  // const submitDataForm = () =>{
-   
-  //  const compra = { ...addresses };
-  //  comprasRealizadas.push(compra);
-  //  console.log(comprasRealizadas);
-
-    
-  // }
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
-    // activeStep==steps.length-1 && submitDataForm()
   };
 
   const handleBack = () => {
@@ -97,8 +107,21 @@ const PaymentForms = ({ show, setShow }) => {
 
   const handleSubmit = (e) => {    
     e.preventDefault();
-    handleNext()
+    !isAllfalse() && handleNext()    
   };
+
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return <AddressForm setUserAddresses={setUserAddresses} addresses={addresses} error={error} setError={setError} customErrorMessages={customErrorMessages}/>;
+      case 1:
+        return <ReactCreditCard setUserAddresses={setUserAddresses} addresses={addresses}/>;
+      case 2:
+        return <Review  payments={payments} addresses={addresses}/>;
+      default:
+        throw new Error('Algo salió mal');
+    }
+  }
   
   return (
     <>
