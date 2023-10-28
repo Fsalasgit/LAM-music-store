@@ -67,12 +67,9 @@ const ProductList = ({
 
   const sortedProducts = sortProduct(allProducts, selectedOrder);
 
-
   const filteredProducts = filteredCategory
     ? sortedProducts.filter((product) => product.category.name === filteredCategory) 
     : sortedProducts;
-
-
 
   return (
     <>
