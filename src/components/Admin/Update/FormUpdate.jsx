@@ -2,8 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { axiosInstance } from '../../../config/axiosInstance'
 import { Form, InputGroup } from 'react-bootstrap';
 import Swal from 'sweetalert2'
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { FORM_SCHEMA } from '../../../helpers/validationsSchemas';
 const FormUpdate = ({ datoProduct, getProducts }) => {
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    resolver: yupResolver(FORM_SCHEMA)
+  });
+
   const [categories, setCategories] = useState([])
   const { title, description, price, category, stock, shortDescription } = datoProduct
   const [formDatos, setFormDatos] = useState({
@@ -15,13 +21,6 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
     shortDescription
   })
 
-  const handleChangeDatos = (e) => {
-    setFormDatos({
-      ...formDatos,
-      [e.target.name]: e.target.value
-    })
-  }
-
   const getCategorias = async () => {
     const resp = await axiosInstance.get("/categories")
     setCategories(resp.data.categories)
@@ -31,10 +30,9 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
     getCategorias()
   }, [])
 
-  const handletSubmit = async (e) => {
-    e.preventDefault()
+  const onSubmit = async (data) => {
     try {
-      await axiosInstance.put(`/product/${datoProduct._id}`, formDatos);
+      await axiosInstance.put(`/product/${datoProduct._id}`, data);
       Swal.fire({
         icon: 'success',
         title: 'Producto modificado con éxito',
@@ -47,16 +45,20 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
   }
   return (
     <div>
-      <Form onSubmit={handletSubmit}>
+       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="nombre">Titulo</Form.Label>
           <Form.Control
             type="text"
             id="title"
             name="title"
-            value={formDatos.title}
-            onChange={handleChangeDatos}
+            defaultValue={formDatos.title}
+            // onChange={handleChangeDatos}
+            {...register("title")}
           />
+                                {errors.title && (
+            <p className="register__error-message">{errors.title.message}</p>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -65,9 +67,13 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
               type="text"
               id="description"
               name="description"
-              value={formDatos.description}
-              onChange={handleChangeDatos}
+              defaultValue={formDatos.description}
+              // onChange={handleChangeDatos}
+              {...register("description")}
             />
+                                  {errors.description && (
+            <p className="register__error-message">{errors.description.message}</p>
+          )}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="description">Descripción del producto</Form.Label>
@@ -76,9 +82,13 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
               rows={5}
               id="shortDescription"
               name="shortDescription"
-              value={formDatos.shortDescription}
-              onChange={handleChangeDatos}
+              defaultValue={formDatos.shortDescription}
+              // onChange={handleChangeDatos}
+              {...register("shortDescription")}
             />
+                                  {errors.shortDescription && (
+            <p className="register__error-message">{errors.shortDescription.message}</p>
+          )}
           </Form.Group>
 
         <Form.Group className="mb-3">
@@ -89,19 +99,23 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
               type="text"
               id="price"
               name="price"
-              value={formDatos.price}
-              onChange={handleChangeDatos}
-              aria-label="Amount (to the nearest dollar)"
+              defaultValue={formDatos.price}
+              // onChange={handleChangeDatos}
+              {...register("price")}
             />
           </InputGroup>
+          {errors.price && (
+            <p className="register__error-message">{errors.price.message}</p>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label htmlFor="nombre">Categoria</Form.Label>
           <Form.Select
             name="category"
-            value={formDatos.category._id}
-            onChange={handleChangeDatos}
+            defaultValue={formDatos.category._id}
+            // onChange={handleChangeDatos}
+            {...register("category")}
           >
             <option value="">Seleccione una categoría</option>
             {categories.map((category, index) => (
@@ -110,6 +124,9 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
               </option>
             ))}
           </Form.Select>
+          {errors.category && (
+            <p className="register__error-message">{errors.category.message}</p>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -118,12 +135,16 @@ const FormUpdate = ({ datoProduct, getProducts }) => {
             type="number"
             id="stock"
             name="stock"
-            value={formDatos.stock}
-            onChange={handleChangeDatos}
+            defaultValue={formDatos.stock}
+            // onChange={handleChangeDatos}
+            {...register("stock")}
           />
+                                {errors.stock && (
+            <p className="register__error-message">{errors.stock.message}</p>
+          )}
         </Form.Group>
 
-        <div className='form-group'>
+        <div className='form-group text-end'>
           <button type='submit' className='modal-button'>Modificar</button>
         </div>
       </Form>

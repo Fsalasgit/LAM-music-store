@@ -16,6 +16,8 @@ import ReactCreditCard from './PagesComponents/ReactCreditCard';
 import Review from './materialComponent/Review';
 import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
+import { Link } from 'react-router-dom';
+
 
 
 const steps = ['Datos de envio', 'Detalle de pago', 'Revise su orden'];
@@ -27,21 +29,62 @@ const PaymentForms = ({ show, setShow }) => {
   const { state, dispatch } = useContext(GlobalContext);
   const [orderPlaced, setOrderPlaced] = useState(false);
 
+
   const [addresses, setUserAddresses] = useState({
-    firstName:"Pincky",
-    lastName:"Moon",
-    address:"Gral. Paz",
-    number:" 576",
-    city:"San Miguel de Tucuman"
-  
-  }  )
-  const [payments, setPayments] = useState({
+    firstName:'',
+    lastName:'',
+    address:'',
+    number:'',
+    floor:'',
+    province:'',
+    city:'',
+    numberCard: '',
+    expiry: '',
+    cvc: '',
+    nameCard: '',
+    focus: '',
     cardTipe:"Visa",
+  
+  })
+
+  const [payments, setPayments] = useState({
+    
     cardHolder:"Pincky Moon",
     cardNumber:"xxxx-xxxx-xxxx-1234",
     expiryDate:"12/23"
 
   })
+
+  const [error, setError] = useState({
+    firstName: false,
+    lastName: false,
+    number: false,
+    address: false,
+    city: false,
+    numberCard: false,
+    nameCard: false,
+    expiry: false,
+    cvc: false,
+    
+  });
+
+  const isAllfalse = () =>{
+    let count = 0
+  for (let key in error) {
+    
+    
+    if (error.hasOwnProperty(key)) {
+      const value = error[key];
+      value && count++
+    
+    }
+  }
+  let stateValue = count === 0 ? false : true
+
+  return stateValue
+}
+
+
 
   useEffect(() => {
     if (activeStep === steps.length && !orderPlaced) {
@@ -50,23 +93,18 @@ const PaymentForms = ({ show, setShow }) => {
     }
   }, [activeStep, orderPlaced, dispatch]);
 
-  const hableSubmit = (formData) => {
-    // Simular envío de datos
-    console.log('Datos enviados:', formData);
+  const customErrorMessages = {
+    firstName: 'No puede contener número y menos de 3 caracteres',
+    lastName:'No puede contener número y menos de 3 caracteres',
+    number:'Debe ser un numero',
+    address:'Debe tener al menos 5 caracteres',
+    city:'No puede contener menos de 3 caractere',
+    numberCard:'Complete todos los digitos',
+    nameCard:'No puede contener nombre y entre 8 y 20 caracteres',
+    expiry:'Colocar Fecha valida xx mes xx año',
+    cvc:'Coloque los datos del reverso ej 123'
   };
 
-  function getStepContent(step) {
-    switch (step) {
-      case 0:
-        return <AddressForm setUserAddresses={setUserAddresses}/>;
-      case 1:
-        return <ReactCreditCard setPayments={setPayments}/>;
-      case 2:
-        return <Review  payments={payments} addresses={addresses}/>;
-      default:
-        throw new Error('Algo salió mal');
-    }
-  }
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -75,6 +113,24 @@ const PaymentForms = ({ show, setShow }) => {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+
+  const handleSubmit = (e) => {    
+    e.preventDefault();
+    !isAllfalse() && handleNext()    
+  };
+
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return <AddressForm setUserAddresses={setUserAddresses} addresses={addresses} error={error} setError={setError} customErrorMessages={customErrorMessages}/>;
+      case 1:
+        return <ReactCreditCard setUserAddresses={setUserAddresses} addresses={addresses} error={error} setError={setError} customErrorMessages={customErrorMessages}/>;
+      case 2:
+        return <Review  payments={payments} addresses={addresses}/>;
+      default:
+        throw new Error('Algo salió mal');
+    }
+  }
   
   return (
     <>
@@ -99,6 +155,7 @@ const PaymentForms = ({ show, setShow }) => {
             </Toolbar>
           </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+      <form onSubmit={handleSubmit}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
             LAM Music Store  - Pagos
@@ -120,6 +177,7 @@ const PaymentForms = ({ show, setShow }) => {
                 enviado.
          
               </Typography>
+              <Link to={'/'}>Ir al inicio</Link>
             </React.Fragment>
           ) : (
             <React.Fragment>
@@ -133,10 +191,9 @@ const PaymentForms = ({ show, setShow }) => {
 
                 <Button
                   variant="contained"
-                  onClick={handleNext}
+                  type='submit'
                   sx={{ mt: 3, ml: 1 }}
                   className={activeStep === steps.length - 1 ? 'buyButton' : 'nextButton'}
-                  type='submit'
                 >
                   {activeStep === steps.length - 1 ? 'Comprar' : 'Siguiente'}
                 </Button>
@@ -144,7 +201,7 @@ const PaymentForms = ({ show, setShow }) => {
             </React.Fragment>
           )}
         </Paper>
-
+        </form>
       </Container>
 
 

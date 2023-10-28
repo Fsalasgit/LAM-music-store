@@ -1,34 +1,38 @@
-.formSelect{
+.formSelect {
     width: 55%;
     border: none;
     background-color: inherit;
-    font-size: 1.8rem;
-    margin-top: 2rem;   
+    font-size: 1.6rem;
+    margin-top: 2rem;
     cursor: pointer;
+
     @media screen and (max-width: 844px) {
         width: 100%;
         font-size: 1.5rem;
     }
+
     @media screen and (max-width: 576px) {
         width: 40%;
         font-size: 0.7rem;
     }
 }
 
-.formSelect:hover{
+.formSelect:hover {
     text-decoration: underline;
     text-underline-offset: 0.2rem;
 }
 
-.titleCategories, .titleSelect{
+.titleCategories,
+.titleSelect {
     font-size: 2rem;
     margin-top: 0.3rem;
 }
-.categoryContainer{
+
+.categoryContainer {
     list-style: none;
 }
-.categoryList{
+
+.categoryList {
     font-size: 1.6rem;
     margin-bottom: 0.3rem;
 }
-

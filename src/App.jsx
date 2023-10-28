@@ -15,6 +15,7 @@ import AboutUs from './pages/AboutUs';
 import PaymentsPage from './pages/PaymentsPage';
 import Error404 from './pages/Error404';
 
+
 function App() {
   const location = useLocation();
   const allowedPaths = ['/', '/login', '/registro', '/repassword', '/productos', '/productos/:_id', '/favorite', '/nosotros', '/pagos', '/admin'];
@@ -34,7 +35,8 @@ function App() {
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/nosotros' element={<AboutUs />} />
         <Route path='/pagos' element={<PaymentsPage />} />
-        
+        <Route path='/error404' element={<Error404 />} />
+
         <Route path='*' element={<Error404/>} />
         
         <Route element={<PrivateRoutes />}>

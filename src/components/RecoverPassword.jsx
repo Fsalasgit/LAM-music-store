@@ -43,8 +43,8 @@ const RecoverPassword = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div >
                         <input
-                            type="usuario"
-                            name="correo"
+                            type="email"
+                            name="username"
                             placeholder="Email"
                             className="recoverPassword__input"
                             {...register("username")}

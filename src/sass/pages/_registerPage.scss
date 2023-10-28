@@ -3,7 +3,7 @@
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
-    height: 115vh; 
+    height: 125vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,11 +82,16 @@
         font-size: 1rem;
         color: var(--c-wrong);
     }
+    &__custom-loading-text {
+        color: var(--c-mainColor);
+        text-align: center;
+        margin-top: 1rem;
+      }
 }
 
 @media screen and (max-width: 768px) {
     .register-container {
-        height: 87vh; 
+        height: 95vh; 
     }
     .registerPage {
         flex-direction: column;

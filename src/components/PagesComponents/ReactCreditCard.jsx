@@ -9,44 +9,78 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 
-const ReactCreditCard = () => {
-    const [state, setState] = useState({
-        number: '',
-        expiry: '',
-        cvc: '',
-        name: '',
-        focus: '',
-      });
+const ReactCreditCard = ({addresses, setUserAddresses, setError, error, customErrorMessages  }) => {
     
       const handleInputChange = (evt) => {
         const { name, value } = evt.target;
+        switch (name) {
+          case 'numberCard':
+            if (isNaN(value) || value.length !== 16 ) {
+              setError({ ...error, numberCard: true });
+            } else {
+              setError({ ...error, numberCard: false });
+            }
+            break;
+          case 'nameCard':
+            if (/[^a-zA-ZáéíóúÁÉÍÓÚüÜ ]/.test(value) || value.length <9 || value.length >21 ) {
+              setError({ ...error, nameCard: true });
+            } else {
+              setError({ ...error, nameCard: false });
+            }    
+            break;
+          case 'expiry':
+            let month = Math.floor(value / 100);
+            let year = value % 100 + 2000;
+            const date = new Date(year, month - 1, 1);
+            const currentDate = new Date();
+            const comparativeDate =  new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+
+            if (comparativeDate > date || value.length !== 4) {
+              setError({ ...error, expiry: true });
+            } else {
+              setError({ ...error, expiry: false });
+            }    
+          break;
+          case 'cvc':
+            if (isNaN(value) || value.length !== 3) {
+              setError({ ...error, cvc: true });
+            } else {
+              setError({ ...error, cvc: false });
+            }    
+          break;          
+          default:
+            break;
+        }
         
-        setState((prev) => ({ ...prev, [name]: value }));
+        setUserAddresses((prev) => ({ ...prev, [name]: value }));
       }
     
       const handleInputFocus = (evt) => {
-        setState((prev) => ({ ...prev, focus: evt.target.name }));
+        setUserAddresses((prev) => ({ ...prev, focus: evt.target.name }));
       }
   return (
     <>
+      
     
       <Cards 
-        number={state.number}
-        expiry={state.expiry}
-        cvc={state.cvc}
-        name={state.name}
-        focused={state.focus}
+        number={addresses.numberCard}
+        expiry={addresses.expiry}
+        cvc={addresses.cvc}
+        name={addresses.nameCard}
+        focused={addresses.focus}
       />
       <Grid container spacing={2} className='mt-4' > 
           <Grid item xs={12} sm={6} >
             <TextField
               required
-              id="cardName"
-              name="number"
+              id="numberCard"
+              name="numberCard"
               label="Número de tarjeta"
               fullWidth
+              error={error.numberCard}
+              helperText={error.numberCard && customErrorMessages.numberCard}
               variant="standard"
-              value={state.number}
+              value={addresses.numberCard}
               onChange={handleInputChange}
               onFocus={handleInputFocus} 
               className='addresForm__textField'
@@ -56,11 +90,13 @@ const ReactCreditCard = () => {
           <TextField
             required
             id="cardName"
-            name="name"
+            name="nameCard"
             label="Nombre en tarjeta"
             fullWidth
+            error={error.nameCard}
+            helperText={error.nameCard && customErrorMessages.nameCard}
             variant="standard"
-            value={state.name}
+            value={addresses.nameCard}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
             className='addresForm__textField'
@@ -72,8 +108,10 @@ const ReactCreditCard = () => {
             id="expDate"
             name="expiry"
             label="Fecha vencimiento"
+            error={error.expiry}
+            helperText={error.expiry && customErrorMessages.expiry}
             variant="standard"
-            value={state.expiry}
+            value={addresses.expiry}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
             className='addresForm__textField'
@@ -86,9 +124,10 @@ const ReactCreditCard = () => {
             id="cvv"
             name="cvc"
             label="CVV"
-            helperText="Reverso de la tarjeta"
+            error={error.cvc}
+            helperText={error.cvc && customErrorMessages.cvc}
             variant="standard"
-            value={state.cvc}
+            value={addresses.cvc}
             onChange={handleInputChange}
             onFocus={handleInputFocus} 
             className='addresForm__textField'

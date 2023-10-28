@@ -5,6 +5,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { RiShareFill } from "react-icons/ri";
 import { RiLockFill } from "react-icons/ri";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ProductDetail = ({ product }) => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -21,7 +22,7 @@ const ProductDetail = ({ product }) => {
     } else {
       const updatedCartProducts = [...cartProducts, { ...product, cantidad: 1, counterProduct: 1 }];
       setCartProducts(updatedCartProducts);
-      dispatch(addCart({ ...product, cantidad: 1, counterProduct: 1  }));
+      dispatch(addCart({ ...product, cantidad: 1, counterProduct: 1 }));
     }
     Swal.fire({
       icon: 'success',
@@ -78,17 +79,17 @@ const ProductDetail = ({ product }) => {
                     Añadir al carrito
                   </button>
                 </div>
-                <p><RiLockFill/> Compra Protegida</p>
-                <a href="/error404" className="justify-content-center">
-                <RiShareFill/>  Compartir
-                </a>
+                <p><RiLockFill /> Compra Protegida</p>
+                <Link to="/error404" className="justify-content-center">
+                  <RiShareFill /> Compartir
+                </Link>
                 <hr />
                 <h4 className="text-center">
                   Tenemos la mejor financiación para vos!
                 </h4>
                 <img src={mediosPago} alt="" className="img-fluid img-pagos" />
                 <hr />
-                <a href="/error404">¿Alguna consulta? ¡Estamos para ayudarte!</a>
+                <Link to="/error404">¿Alguna consulta? ¡Estamos para ayudarte!</Link>
               </div>
             </div>
           </div>
