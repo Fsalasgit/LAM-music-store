@@ -77,3 +77,4 @@ export const FORM_SCHEMA = yup.object().shape({
     .required("La descripción es requerida")
     .max(1000, "El título no puede tener más de 1000 caracteres")
 });
+

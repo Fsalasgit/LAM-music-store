@@ -6,7 +6,7 @@ import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
 import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
-import PaymentForms from '../components/PaymentForms';
+import PaymentForms from '../components/PaymentForms.jsx';
 
 
 const PaymentsPage = () => {
@@ -14,7 +14,7 @@ const PaymentsPage = () => {
 
     const {state, dispatch} = useContext(GlobalContext)
 
-  
+    let productCartCount = state.productCart.length === 0
   
     const onDeleteProduct = (productId) => {
       const updatedCartProducts = state.productCart
@@ -24,8 +24,7 @@ const PaymentsPage = () => {
     };
   
     const onCleanCart = () => {
-      dispatch(clearCart())
-      
+      dispatch(clearCart())      
     };
   
     let convertToPesos = (numb) => {
@@ -35,8 +34,8 @@ const PaymentsPage = () => {
       });
       return pesos;
     };
-
     
+
 
   return (
     <>
@@ -76,9 +75,7 @@ const PaymentsPage = () => {
                         
                     </tbody>
                 </table>
-                <div className="mb-5">
-                  <Link to="/productos" className='payTable__button'>Continuar Comprando</Link>
-                </div>
+                
             </Col>
             }
             <Col xs={10} xl={3} className='mx-auto totalPay'>
@@ -94,7 +91,9 @@ const PaymentsPage = () => {
                   </span>
               </div>
 
+              {!productCartCount &&          
               <div className='buttonContainer'>
+                       
                   <button className='buttonContainer__button' onClick={onCleanCart}>
                   Cancelar
                   </button>
@@ -105,8 +104,12 @@ const PaymentsPage = () => {
                   Pagar
                   </button>
               </div>
-
+              }
+            <div className="mb-5 d-flex">
+              <Link to="/productos" className='payTable__button mx-auto'>Continuar Comprando</Link>
+            </div>
             </Col>
+          
             <PaymentForms show={show} setShow={setShow} /> 
       
 
