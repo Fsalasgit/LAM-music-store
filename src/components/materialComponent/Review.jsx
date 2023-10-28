@@ -51,10 +51,11 @@ const Review = ({payments, addresses}) => {
           </Typography>
           <Typography gutterBottom>{addresses.firstName + " "+  addresses.lastName}</Typography>
           <Typography gutterBottom>{addresses.address + " " +  addresses.number}</Typography>
+          <Typography gutterBottom>{addresses.province + ", " +  addresses.city}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            detalle de pago
+            Detalle de pago
           </Typography>
           <Grid container>
 
@@ -74,8 +75,8 @@ const Review = ({payments, addresses}) => {
                 <Grid item xs={6}>
                   <Typography gutterBottom>Numero de tarjeta: </Typography>
                 </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{addresses.numberCard}</Typography>
+                <Grid item xs={12}>
+                  <Typography gutterBottom>XXXX-XXX-XXXX-{addresses.numberCard.slice(-4)}</Typography>
                 </Grid>
                 <Grid item xs={6}>
                   <Typography gutterBottom>Fecha de vencimiento: </Typography>

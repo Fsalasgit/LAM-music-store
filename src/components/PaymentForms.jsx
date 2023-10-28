@@ -58,8 +58,13 @@ const PaymentForms = ({ show, setShow }) => {
   const [error, setError] = useState({
     firstName: false,
     lastName: false,
-    address:false,
     number: false,
+    address: false,
+    city: false,
+    numberCard: false,
+    nameCard: false,
+    expiry: false,
+    cvc: false,
     
   });
 
@@ -94,6 +99,10 @@ const PaymentForms = ({ show, setShow }) => {
     number:'Debe ser un numero',
     address:'Debe tener al menos 5 caracteres',
     city:'No puede contener menos de 3 caractere',
+    numberCard:'Complete todos los digitos',
+    nameCard:'No puede contener nombre y entre 8 y 20 caracteres',
+    expiry:'Colocar Fecha valida xx mes xx año',
+    cvc:'Coloque los datos del reverso ej 123'
   };
 
 
@@ -115,7 +124,7 @@ const PaymentForms = ({ show, setShow }) => {
       case 0:
         return <AddressForm setUserAddresses={setUserAddresses} addresses={addresses} error={error} setError={setError} customErrorMessages={customErrorMessages}/>;
       case 1:
-        return <ReactCreditCard setUserAddresses={setUserAddresses} addresses={addresses}/>;
+        return <ReactCreditCard setUserAddresses={setUserAddresses} addresses={addresses} error={error} setError={setError} customErrorMessages={customErrorMessages}/>;
       case 2:
         return <Review  payments={payments} addresses={addresses}/>;
       default:
