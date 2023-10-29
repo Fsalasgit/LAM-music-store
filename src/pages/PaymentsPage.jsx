@@ -47,7 +47,7 @@ const PaymentsPage = () => {
     }
 
     const alertLogin = () => {
-    const { value: accept } = Swal.fire({
+    const alert = Swal.fire({
       title: 'Para comprar debes iniciar sesión',
 
       confirmButtonText:
