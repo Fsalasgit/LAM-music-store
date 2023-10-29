@@ -5,11 +5,11 @@ import { addCart } from '../../context/GlobalActions';
 import { GlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import Swal from "sweetalert2";
+import FeaturedCardsSkeleton from './FeaturedCardsSkeleton';
 
 const FeaturedCards = ({ product}) => {
   const { state, dispatch } = useContext(GlobalContext);
   const [cartProducts, setCartProducts] = useState([]);
-
   const onAddProduct = () => {
     const existingProductIndex = state.productCart.findIndex((item) => item._id === product._id);
 
@@ -39,27 +39,27 @@ const FeaturedCards = ({ product}) => {
 
   return (
 <>
-  <Card key={product._id} className='productCard'>
-    <div className='productCard__header'>
-    </div>
-    <Link to={`/productos/${product._id}`} className='productCard__link'>
-      <div className='productCard__imgContainer'>
-        <Card.Img variant="top" src={product.image} alt={product.title} className='productCard__img' />
+      <Card key={product._id} className='productCard'>
+      <div className='productCard__header'>
       </div>
-      <Card.Body className='productCard__body'>
-        <Card.Title className='productCard__title'>{product.title}</Card.Title>
-        <Card.Subtitle className='productCard__itemprice'>{convertToPesos(product.price)}</Card.Subtitle>
-        <Card.Text className='productCard__description'>
-          {product.description}
-        </Card.Text>
-      </Card.Body>
-    </Link>
-    <div className='productCard__footer'>
-      <button onClick={onAddProduct} className='productCard__button'>
-        Añadir al carrito
-      </button>
-    </div>
-  </Card>
+      <Link to={`/productos/${product._id}`} className='productCard__link'>
+        <div className='productCard__imgContainer'>
+          <Card.Img variant="top" src={product.image} alt={product.title} className='productCard__img' />
+        </div>
+        <Card.Body className='productCard__body'>
+          <Card.Title className='productCard__title'>{product.title}</Card.Title>
+          <Card.Subtitle className='productCard__itemprice'>{convertToPesos(product.price)}</Card.Subtitle>
+          <Card.Text className='productCard__description'>
+            {product.description}
+          </Card.Text>
+        </Card.Body>
+      </Link>
+      <div className='productCard__footer'>
+        <button onClick={onAddProduct} className='productCard__button'>
+          Añadir al carrito
+        </button>
+      </div>
+    </Card>
 </>
 
   );

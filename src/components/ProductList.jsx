@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import { axiosInstance } from '../config/axiosInstance';
 import jwt_decode from 'jwt-decode';
+import FeaturedCardsSkeleton from './PagesComponents/FeaturedCardsSkeleton';
 
 const ProductList = ({
   selectedOrder,
@@ -11,6 +12,8 @@ const ProductList = ({
 }) => {
   const [allProducts, setAllProducts] = useState([]);
    const [favorites, setFavorites] = useState ([])
+   const [isLoading, setIsLoading] = useState(true)
+
 
    const getProducts = async () => {
     try {
@@ -18,6 +21,8 @@ const ProductList = ({
       setAllProducts(resp.data.products);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false)
     }
   };
 
@@ -62,15 +67,13 @@ const ProductList = ({
 
   const sortedProducts = sortProduct(allProducts, selectedOrder);
 
-
   const filteredProducts = filteredCategory
     ? sortedProducts.filter((product) => product.category.name === filteredCategory) 
     : sortedProducts;
 
-
-
   return (
     <>
+  
       <div className="container containerProductList">
         <div className="row">
           <div className="col text-center my-3">
@@ -79,15 +82,23 @@ const ProductList = ({
         </div>
 
         <div className="row">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              product={product}
-              key={product._id}
-              setCartProducts={setCartProducts}
-              cartProducts={cartProducts}
-              favorites={favorites}
-            />
-          ))}
+          {
+            isLoading ? (
+          Array(12).fill().map((_, index) => (
+            <FeaturedCardsSkeleton key={index} />
+          ))
+            ) : (
+                filteredProducts.map((product) => (
+                <ProductCard
+                  product={product}
+                  key={product._id}
+                  setCartProducts={setCartProducts}
+                  cartProducts={cartProducts}
+                  favorites={favorites}
+                />
+              ))
+            )
+          }
         </div>
       </div>
     </>

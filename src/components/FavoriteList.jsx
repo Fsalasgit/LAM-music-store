@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
+import FeaturedCardsSkeleton from './PagesComponents/FeaturedCardsSkeleton';
 
 const FavoriteList = ({allProducts}) => {
 
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <>
+    
       <main className="container main-favorite">
         <div className="row">
           <div className="col text-center my-3">
@@ -13,13 +24,19 @@ const FavoriteList = ({allProducts}) => {
         </div>
 
         <div className="row d-flex justify-content-center">
-          {allProducts?.map((product) => (
-            <ProductCard
-              product={product}
-              key={product._id}
-              favorites={[product._id]}
-            />
-          ))}
+          {
+            isLoading ? (
+              <FeaturedCardsSkeleton />
+            ) : (
+              allProducts?.map((product) => (
+                <ProductCard
+                  product={product}
+                  key={product._id}
+                  favorites={[product._id]}
+                />
+              ))
+            )
+          }
         </div>
       </main>
     </>
