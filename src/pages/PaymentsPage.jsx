@@ -7,6 +7,8 @@ import { clearCart } from '../context/GlobalActions';
 import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import PaymentForms from '../components/PaymentForms.jsx';
+import jwt_decode from 'jwt-decode';
+import Swal from "sweetalert2";
 
 
 const PaymentsPage = () => {
@@ -34,6 +36,29 @@ const PaymentsPage = () => {
       });
       return pesos;
     };
+
+    const token = localStorage.getItem('token');
+    const isLogged = !!token;
+
+    let userRole = '';
+    if (isLogged) {
+      const decodedToken = jwt_decode(token);
+      userRole = decodedToken.rol;
+    }
+
+    const alertLogin = () => {
+    const alert = Swal.fire({
+      title: 'Para comprar debes iniciar sesión',
+
+      confirmButtonText:
+        'Continue <i class="fa fa-arrow-right"></i>',
+      })
+
+    }
+
+    const validationLog = () =>{
+      isLogged ? setShow(true): alertLogin()     
+    }
     
 
 
@@ -99,7 +124,7 @@ const PaymentsPage = () => {
                   </button>
                   <button
                   className='buttonContainer__button buttonContainer__button--buy'
-                  onClick={() => setShow(true)}  
+                  onClick={validationLog}  
                   >
                   Pagar
                   </button>
