@@ -14,7 +14,6 @@ const ProductCard = ({ product, favorites=[]}) => {
   const [cartProducts, setCartProducts] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  // marcar o desmarcar un producto como favorito cuando el usuario realiza una acción. Cuando se ejecuta handleFavourite, invierte el estado local isFavorite y realiza una solicitud HTTP para actualizar el estado de favoritos en el servidor
   const handleFavourite = async () => {
     try {
       setIsFavorite(!isFavorite);
@@ -22,7 +21,7 @@ const ProductCard = ({ product, favorites=[]}) => {
       const token = localStorage.getItem("token");
       const decodedToken = jwt_decode(token);
       const userId = decodedToken.sub;
-  
+
        await axiosInstance.post(`/user/favorite/${userId}`, {
         productId: product._id,
         addToFavorites: !isFavorite,
@@ -60,7 +59,6 @@ const ProductCard = ({ product, favorites=[]}) => {
     return pesos;
   };
 
-  // useEffect observa el array favorites, cuando este cambia verifica si el id del producto esta incluido en el array. Si el producto está en la lista de favorites (true), isFavorite se establece en true. Si el producto no está en la lista de favorites (false), isFavorite se establece en false. 
 useEffect(() => setIsFavorite(favorites.includes(product._id)), [favorites]);
    
   return (
