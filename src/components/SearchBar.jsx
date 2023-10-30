@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [allProducts, setAllProducts] = useState([]);
-  const [searchOptions, setSearchOptions] = useState([]); // Opciones de búsqueda filtradas
-  const [searchText, setSearchText] = useState(""); // Texto de búsqueda
+  const [searchOptions, setSearchOptions] = useState([]);
+  const [searchText, setSearchText] = useState(""); 
   const navigate = useNavigate();
 
   const getProducts = async () => {
@@ -27,17 +27,14 @@ const SearchBar = () => {
 
   const handleSearch = () => {
     if (searchText) {
-      // Busca el producto correspondiente al texto de búsqueda
       const product = allProducts.find((p) => p.title.toLowerCase() === searchText.toLowerCase());
 
       if (product) {
-        // Redirige a la página de detalle del producto con el ID del producto como parámetro
         navigate(`/productos/${product._id}`);
       }
     }
   };
 
-  // Filtra las opciones de búsqueda cuando el usuario escribe
   useEffect(() => {
     if (searchText) {
       const filteredProducts = allProducts.filter((product) =>
@@ -45,7 +42,7 @@ const SearchBar = () => {
       );
       setSearchOptions(filteredProducts.map((product) => product.title));
     } else {
-      setSearchOptions([]); // Vacía las opciones si no hay texto de búsqueda
+      setSearchOptions([]); 
     }
   }, [searchText, allProducts]);
 

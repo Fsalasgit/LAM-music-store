@@ -51,7 +51,6 @@ const PaymentForms = ({ show, setShow }) => {
   }, [activeStep, orderPlaced, dispatch]);
 
   const hableSubmit = (formData) => {
-    // Simular envío de datos
     console.log('Datos enviados:', formData);
   };
 
