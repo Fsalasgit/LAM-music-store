@@ -10,8 +10,6 @@ import { Link } from "react-router-dom";
 const ProductDetail = ({ product }) => {
   const { state, dispatch } = useContext(GlobalContext);
   const [cartProducts, setCartProducts] = useState([]);
-  console.log(product);
-  console.log(typeof product.price);
 
   const onAddProduct = () => {
     const existingProductIndex = state.productCart.findIndex((item) => item._id === product._id);

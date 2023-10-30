@@ -9,7 +9,6 @@ const DetailPage = () => {
   const [product, setProduct] = useState([])
   
   const { _id } = useParams()
-  console.log(_id)
 
   const getProducts = async () => {
     try {
