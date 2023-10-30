@@ -8,7 +8,7 @@ const ProductList = ({
   selectedOrder,
   setCartProducts,
   cartProducts,
-  filteredCategory  // Nueva prop para recibir la categoría filtrada
+  filteredCategory  
 }) => {
   const [allProducts, setAllProducts] = useState([]);
    const [favorites, setFavorites] = useState ([])
@@ -31,20 +31,15 @@ const ProductList = ({
   }, []);
 
   useEffect(() =>{
-    // se utiliza para obtener los productos favoritos del usuario desde el servidor cuando el componente se carga por primera vez
    const getFavorite = async () => {
     const token = localStorage.getItem("token");
     const decodedToken = jwt_decode(token);
     const userId = decodedToken.sub;
     const resp = await axiosInstance.get(`/favorite/${userId}`);
-    // recorre cada elemento del array favoriteProducts y, en este caso, extrae el valor de la propiedad _id de cada elemento y crea un nuevo array con solo esos valores _id. Actualiza el estado favorites
     setFavorites(resp?.data?.favoriteProducts.map(({_id}) => _id));
    }
    getFavorite()
-   // Las operaciones se realizan solo una vez 
   },[])
-
-  
 
   const sortProduct = (product, order) => {
     let sortedProducts = [...product];

@@ -11,7 +11,7 @@ export const REGISTRO_SCHEMA = yup.object({
         .max(25, "El correo electrónico debe tener como máximo 25 caracteres"),
     name: yup.string()
         .required("El nombre completo es requerido")
-        .matches(/^[A-Za-z\s]+$/, 'El nombre solo debe contener letras y espacios')
+        .matches(/^[A-Za-z]+(\s[A-Za-z]+)*$/, 'El nombre solo debe contener letras y espacios')
         .max(25, "El máximo son 25 caracteres")
         .min(5, "El mínimo son 5 caracteres"),
     password: yup

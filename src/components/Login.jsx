@@ -30,10 +30,8 @@ const Login = () => {
       const response = await axiosInstance.post("/login", data);
       const token = response.data.token;
       localStorage.setItem("token", token);
-
       const decodedToken = jwt_decode(token);
       const userRole = decodedToken.rol;
-      console.log("response", response)
       if (userRole === 'admin') {
         navigate('/admin');
       } else if (userRole === 'user') {
