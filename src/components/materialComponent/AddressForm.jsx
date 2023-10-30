@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+
 const provinces = [
   'Buenos Aires',
   'Catamarca',
@@ -35,48 +36,64 @@ const provinces = [
   'Tucumán',
 ];
 
-const AddressForm = ({ setUserAddresses }) => {
-  const [prov, setProv] = React.useState('');
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    address: '',
-    number: '',
-    floor: '',
-    province: '',
-    city: '',
-    saveAddress: false,
-  });
-
-  const handleProvChange = (event) => {
-    setProv(event.target.value);
-    setFormData({
-      ...formData,
-      province: event.target.value,
-    });
-  };
-
-  const handleFormChange = (event) => {
-    const { name, value, checked } = event.target;
-    setFormData({
-      ...formData,
-      [name]: name === 'saveAddress' ? checked : value,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aquí llamas a setUserAddresses con los datos del formulario
-    setUserAddresses(formData);
-  };
+const AddressForm = ({addresses, setUserAddresses,setError, error, customErrorMessages }) => {
 
 
+  
+  const handleChangeDatos = (e) => {
+    const { name, value } = e.target;
+    let counLetter = value.length
+    switch (name) {
+      case 'firstName':
+        if (/[^a-zA-ZáéíóúÁÉÍÓÚüÜ ]/.test(value) || value.length <2 ) {
+          setError({ ...error, firstName: true });
+        } else {
+          setError({ ...error, firstName: false });
+        }
+        break;
+      case 'lastName':
+        if (/[^a-zA-ZáéíóúÁÉÍÓÚüÜ ]/.test(value) || value.length <2 ) {
+          setError({ ...error, lastName: true });
+        } else {
+          setError({ ...error, lastName: false });
+        }    
+        break;
+      case 'address':
+        if (value.length <4 ) {
+          setError({ ...error, address: true });
+        } else {
+          setError({ ...error, address: false });
+        }    
+      break;
+      case 'number':
+        if (isNaN(value) || value.trim() === "" ) {
+          setError({ ...error, number: true });
+        } else {
+          setError({ ...error, number: false });
+        }    
+      break;
+      case 'city':
+        if (value.length <2 ) {
+          setError({ ...error, city: true });
+        } else {
+          setError({ ...error, city: false });
+        }
+        break;
+      default:
+        break;
+    }
+    counLetter <26 && setUserAddresses({
+      ...addresses,
+      
+      [e.target.name]: e.target.value
+    })
 
-
+  }
+  
 
   return (
     <>
-    <form className='addressForm' onSubmit={handleSubmit}>
+
       <Typography variant='h6' gutterBottom>
         Datos de envío
       </Typography>
@@ -84,12 +101,18 @@ const AddressForm = ({ setUserAddresses }) => {
         <Grid item xs={12} sm={6}>
           <TextField
             required
+            label="Nombre"
+            variant="standard"
             id="firstName"
             name="firstName"
-            label="Nombre"
+            type="text"
             fullWidth
-            variant="standard"
+            error={error.firstName}
+            helperText={error.firstName && customErrorMessages.firstName}
             className='addresForm__textField'
+            onChange={handleChangeDatos}
+            value={addresses.firstName}
+            
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -97,10 +120,14 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="lastName"
             name="lastName"
+            value={addresses?.lastName}
             label="Apellido"
             fullWidth
+            error={error.lastName}
+            helperText={error.lastName && customErrorMessages.lastName}
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -108,10 +135,14 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="address"
             name="address"
-            label="Dirección"
+            value={addresses?.address}
+            label="Dirección"            
             fullWidth
+            error={error.address}
+            helperText={error.address && customErrorMessages.address}
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={3}>
@@ -119,30 +150,38 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="number"
             name="number"
+            value={addresses?.number}
             label="Número"
             fullWidth
+            error={error.number}
+            helperText={error.number && customErrorMessages.number}
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={3}>
           <TextField
-            required
             id="floor"
             name="floor"
-            label="Piso"
+            value={addresses?.floor}
+            label="Piso-dpto"
             fullWidth
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl variant="standard" fullWidth >
+          <FormControl variant="standard" fullWidth id="province">
             <InputLabel id="a-label" className='addresForm__textField'>Provincia</InputLabel>
             <Select
+              required
               labelId="a-label"
-              id="a-standard"
-              onChange={handleProvChange}
+              id="provincew"
+              name='province'
+              value={addresses?.province}
+              onChange={handleChangeDatos}
             >
               <MenuItem value="">
                 <em>Selecione provincia</em>
@@ -165,10 +204,14 @@ const AddressForm = ({ setUserAddresses }) => {
             required
             id="city"
             name="city"
+            value={addresses?.city}
             label="Ciudad"
             fullWidth
+            error={error.city}
+            helperText={error.city && customErrorMessages.city}
             variant="standard"
             className='addresForm__textField'
+            onChange={handleChangeDatos}
           />
         </Grid>
         
@@ -178,16 +221,13 @@ const AddressForm = ({ setUserAddresses }) => {
                 <Checkbox
                   color='secondary'
                   name='saveAddress'
-                  checked={formData.saveAddress}
-                  onChange={handleFormChange}
                 />
               }
               label='Usa esta dirección como datos de facturación'
             />
           </Grid>
         </Grid>
-        <button type='submit'>Enviar</button>
-      </form>
+
 
     </>
   )

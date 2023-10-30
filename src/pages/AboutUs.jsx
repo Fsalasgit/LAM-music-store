@@ -82,7 +82,7 @@ const AboutUs = () => {
             </div>
             <div className="row mt-5">
               <div className="col-lg-4 text-center">
-                <img src="https://trello.com/1/cards/650dc4c9511651b0dba28b40/attachments/650dc62c76eb07e440b8072c/previews/650dc62c76eb07e440b81a15/download/fotoPerfil.jpg" alt="" className="aboutUs__avatar-nosotros" />
+                <img src="https://i.imgur.com/dnXXtCX.jpg" alt="" className="aboutUs__avatar-nosotros" />
                 <div className="row mt-4">
                   <div className="col-12">
                     <h2 className="mb-3">Franco Salas</h2>
@@ -94,7 +94,7 @@ const AboutUs = () => {
                 </div>
               </div>
               <div className="col-lg-4 text-center">
-                <img src="https://trello.com/1/cards/650dc4c5f5767ac991e1ea24/attachments/650e2bab99a7d0c5f96c1d81/previews/650e2bad99a7d0c5f96c1fa8/download/avatarlorenzo.png" alt="" className="aboutUs__avatar-nosotros" />
+                <img src="https://i.imgur.com/eaekQY7.png" alt="" className="aboutUs__avatar-nosotros" />
                 <div className="row mt-4">
                   <div className="col-12">
                     <h2 className="mb-3">Lorenzo Albornoz</h2>
@@ -106,7 +106,7 @@ const AboutUs = () => {
                 </div>
               </div>
               <div className="col-lg-4 text-center">
-                <img src="https://trello.com/1/cards/650dc464bda0497805ac542c/attachments/6511fa83a113592c1e60bd5e/previews/6511fa84a113592c1e60be4b/download/IMG_7026_Original22.jpg" alt="" className="aboutUs__avatar-nosotros" />
+                <img src="https://i.imgur.com/zR3WSTv.jpg" alt="" className="aboutUs__avatar-nosotros" />
                 <div className="row mt-4">
                   <div className="col-12">
                     <h2 className="mb-3">Bruno Busnelli</h2>

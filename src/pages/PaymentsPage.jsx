@@ -6,7 +6,9 @@ import { GlobalContext } from '../context/GlobalContext';
 import { clearCart } from '../context/GlobalActions';
 import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
-import PaymentForms from '../components/PaymentForms';
+import PaymentForms from '../components/PaymentForms.jsx';
+import jwt_decode from 'jwt-decode';
+import Swal from "sweetalert2";
 
 
 const PaymentsPage = () => {
@@ -14,7 +16,7 @@ const PaymentsPage = () => {
 
     const {state, dispatch} = useContext(GlobalContext)
 
-  
+    let productCartCount = state.productCart.length === 0
   
     const onDeleteProduct = (productId) => {
       const updatedCartProducts = state.productCart
@@ -24,8 +26,7 @@ const PaymentsPage = () => {
     };
   
     const onCleanCart = () => {
-      dispatch(clearCart())
-      
+      dispatch(clearCart())      
     };
   
     let convertToPesos = (numb) => {
@@ -36,7 +37,30 @@ const PaymentsPage = () => {
       return pesos;
     };
 
+    const token = localStorage.getItem('token');
+    const isLogged = !!token;
+
+    let userRole = '';
+    if (isLogged) {
+      const decodedToken = jwt_decode(token);
+      userRole = decodedToken.rol;
+    }
+
+    const alertLogin = () => {
+    const alert = Swal.fire({
+      title: 'Para comprar debes iniciar sesión',
+
+      confirmButtonText:
+        'Continue <i class="fa fa-arrow-right"></i>',
+      })
+
+    }
+
+    const validationLog = () =>{
+      isLogged ? setShow(true): alertLogin()     
+    }
     
+
 
   return (
     <>
@@ -76,9 +100,7 @@ const PaymentsPage = () => {
                         
                     </tbody>
                 </table>
-                <div className="mb-5">
-                  <Link to="/productos" className='payTable__button'>Continuar Comprando</Link>
-                </div>
+                
             </Col>
             }
             <Col xs={10} xl={3} className='mx-auto totalPay'>
@@ -94,19 +116,25 @@ const PaymentsPage = () => {
                   </span>
               </div>
 
+              {!productCartCount &&          
               <div className='buttonContainer'>
+                       
                   <button className='buttonContainer__button' onClick={onCleanCart}>
                   Cancelar
                   </button>
                   <button
                   className='buttonContainer__button buttonContainer__button--buy'
-                  onClick={() => setShow(true)}  
+                  onClick={validationLog}  
                   >
                   Pagar
                   </button>
               </div>
-
+              }
+            <div className="mb-5 d-flex">
+              <Link to="/productos" className='payTable__button mx-auto'>Continuar Comprando</Link>
+            </div>
             </Col>
+          
             <PaymentForms show={show} setShow={setShow} /> 
       
 
